@@ -5,7 +5,7 @@
 ## Members
 * PERLIND, Lucas (s3719954)
 * Young, Maximillian (s3769993)
-* SURNAME, GivenName (sXXXX)
+* Sartorel, Michael (s3786267)
 * SURNAME, GivenName (sXXXX)
 * SURNAME, GivenName (sXXXX)
 
