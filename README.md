@@ -11,7 +11,7 @@
 
 ## Records
 
-* Github repository : https://github.com/RMIT-SEPT/MajorProject/Groupx
+* Github repository : https://github.com/RMIT-SEPT/majorproject-3-thurs-10-30-1
 * ClickUp Workspace : https://app.clickup.com/xxxx/yyyy
 
 
