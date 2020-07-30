@@ -1,6 +1,6 @@
 # RMIT SEPT 2020 Major Project
 
-# Group 00
+# Group 01
 
 ## Members
 * PERLIND, Lucas (s3719954)
