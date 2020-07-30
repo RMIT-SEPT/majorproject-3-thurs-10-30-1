@@ -4,7 +4,7 @@
 
 ## Members
 * PERLIND, Lucas (s3719954)
-* SURNAME, GivenName (sXXXX)
+* Young, Maximillian (s3769993)
 * SURNAME, GivenName (sXXXX)
 * SURNAME, GivenName (sXXXX)
 * SURNAME, GivenName (sXXXX)
