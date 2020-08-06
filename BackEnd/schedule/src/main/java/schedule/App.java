@@ -9,3 +9,5 @@ public class App {
         SpringApplication.run(App.class, args);
     }
 }
+
+//// http://localhost:8080/h2-console
