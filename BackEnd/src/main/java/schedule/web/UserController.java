@@ -23,12 +23,26 @@ public class UserController {
     @PostMapping("")
     public ResponseEntity<?> createNewUser(@Valid @RequestBody User user, BindingResult result) {
         if (result.hasErrors()){
-            return new ResponseEntity<String>("Invalid User Object", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("Invalid User Object", HttpStatus.BAD_REQUEST);
         }
         User user1 = userMicro.saveOrUpdate(user);
-        return new ResponseEntity<User>(user, HttpStatus.CREATED);
+        return new ResponseEntity<>(user, HttpStatus.CREATED);
+    }
+
+
+
+    public User getUserById(long id)
+    {
+        User user = null;
+        if(userMicro.userExistsById(id))
+        {
+           user = userMicro.getUserById(id).get(0);
+        }
+        return user;
     }
 }
+
+
 
 
 /*

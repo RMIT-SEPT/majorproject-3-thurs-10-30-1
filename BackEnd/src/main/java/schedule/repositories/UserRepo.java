@@ -5,9 +5,11 @@ import org.springframework.data.repository.CrudRepositoryExtensionsKt;
 import org.springframework.stereotype.Repository;
 import schedule.model.User;
 
+import java.util.ArrayList;
+
 @Repository
 public interface UserRepo extends CrudRepository<User, Long >
 {
     @Override
-    Iterable<User> findAllById(Iterable<Long> iterable);
+    ArrayList<User> findAllById(Iterable<Long> iterable);
 }
