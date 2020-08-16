@@ -7,8 +7,8 @@ import schedule.model.service.*;
 
 import java.util.ArrayList;
 
-public interface ServiceRepo extends CrudRepository<Service, Long>
+public interface ServiceRepo extends CrudRepository<ScheduleService, Long>
 {
     @Override
-    ArrayList<Service> findAllById(Iterable<Long> iterable);
+    ArrayList<ScheduleService> findAllById(Iterable<Long> iterable);
 }

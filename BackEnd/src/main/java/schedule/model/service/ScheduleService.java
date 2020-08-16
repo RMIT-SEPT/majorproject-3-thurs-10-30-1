@@ -4,7 +4,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
 @Entity
-public class Service
+public class ScheduleService
 {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,9 +15,9 @@ public class Service
 
     private TimeAvailability availability;
 
-    public Service() {}
+    public ScheduleService() {}
 
-    public Service(Long serviceId, String description, TimeAvailability availability)
+    public ScheduleService(Long serviceId, String description, TimeAvailability availability)
     {
         this.serviceId = serviceId;
         this.description = description;
