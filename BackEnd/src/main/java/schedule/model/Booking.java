@@ -7,6 +7,8 @@ import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
+import schedule.model.service.ScheduleService;
+
 @Entity
 public class Booking
 {
@@ -21,7 +23,7 @@ public class Booking
     private User worker;
 
     @NotBlank(message = "A service is required")
-    private Service service;
+    private ScheduleService service;
 
     @NotBlank(message = "A start time is required")
     @JsonFormat(pattern ="yyyy-mm-dd@HH:mm")
@@ -64,7 +66,7 @@ public class Booking
         return worker;
     }
 
-    public Service getService() {
+    public ScheduleService getService() {
         return service;
     }
 
