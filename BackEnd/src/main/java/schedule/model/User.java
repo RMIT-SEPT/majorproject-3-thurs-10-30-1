@@ -31,8 +31,11 @@ public class User
     @NotBlank(message = "accType is required")
     private char accountType;
 
-    @OneToMany
-    private List<Booking> bookings;
+    @OneToMany(mappedBy = "customer")
+    private List<Booking> customerBookings;
+
+    @OneToMany(mappedBy = "worker")
+    private List<Booking> workerBookings;
 
     public User(Long userId, String name,  String userName,  String password, long contactNumber,  String email, char accountType) {
         this.userId = userId;
@@ -104,7 +107,11 @@ public class User
         this.accountType = accountType;
     }
 
-    public List<Booking> getBookings() {
-        return bookings;
+    public List<Booking> getCustomerBookings() {
+        return customerBookings;
+    }
+
+    public List<Booking> getWorkerBookings() {
+        return workerBookings;
     }
 }

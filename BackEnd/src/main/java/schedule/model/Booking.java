@@ -15,10 +15,10 @@ public class Booking
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    
+
     @NotBlank(message = "A customer is required")
     @ManyToOne(optional = false)
-    private User user;
+    private User customer;
 
     @NotBlank(message = "A Worker is required")
     @ManyToOne(optional = false)
@@ -44,14 +44,14 @@ public class Booking
 
     }
 
-    public Booking(Long id, @NotBlank(message = "A customer is required") User user,
+    public Booking(Long id, @NotBlank(message = "A customer is required") User customer,
             @NotBlank(message = "A Worker is required") User worker,
             @NotBlank(message = "A service is required") ScheduleService service,
             @NotBlank(message = "A start time is required") Date start_time,
             @NotBlank(message = "An end time is required") Date end_time,
-            @NotBlank(message = "email s required") String status) {
+            @NotBlank(message = "A status is required") String status) {
         this.id = id;
-        this.user = user;
+        this.customer = customer;
         this.worker = worker;
         this.service = service;
         this.start_time = start_time;
@@ -63,9 +63,9 @@ public class Booking
         return id;
     }
 
-    public User getUser() {
-        return user;
-    }
+	public User getCustomer() {
+		return customer;
+	}
 
     public User getWorker() {
         return worker;
