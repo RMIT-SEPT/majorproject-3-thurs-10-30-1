@@ -21,7 +21,7 @@ public class BookingController
     private BookingMicro bookingMicro;
 
     @PostMapping("")
-    public ResponseEntity<?> createNewUser(@Valid @RequestBody Booking booking, BindingResult result) {
+    public ResponseEntity<?> createNewBooking(@Valid @RequestBody Booking booking, BindingResult result) {
         if (result.hasErrors()){
             return new ResponseEntity<>("Invalid Booking Object", HttpStatus.BAD_REQUEST);
         }
