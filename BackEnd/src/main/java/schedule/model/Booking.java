@@ -17,12 +17,15 @@ public class Booking
     private Long id;
     
     @NotBlank(message = "A customer is required")
+    @ManyToOne(optional = false)
     private User user;
 
     @NotBlank(message = "A Worker is required")
+    @ManyToOne(optional = false)
     private User worker;
 
     @NotBlank(message = "A service is required")
+    @ManyToOne(optional = false)
     private ScheduleService service;
 
     @NotBlank(message = "A start time is required")
