@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,16 +31,10 @@ public class BookingController
         return new ResponseEntity<>(booking, HttpStatus.CREATED);
     }
 
-
-
-    public Booking getBookingById(long id)
+    @GetMapping("/{id}")
+    public Booking getBookingById(@PathVariable long id)
     {
-        Booking booking = null;
-        if(bookingMicro.bookingExistsById(id))
-        {
-           booking = bookingMicro.getBookingById(id).get(0);
-        }
-        return booking;
+        return bookingMicro.bookingExistsById(id) ? bookingMicro.getBookingById(id).get(0) : null;
     }
 }
 
