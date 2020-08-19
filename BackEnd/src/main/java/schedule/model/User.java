@@ -1,6 +1,9 @@
 package schedule.model;
 
+import java.util.List;
+
 import javax.persistence.*;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
 
 @Entity
@@ -22,10 +25,14 @@ public class User
     private long contactNumber;
 
     @NotBlank(message = "email s required")
+    @Email
     private String email;
 
     @NotBlank(message = "accType is required")
     private char accountType;
+
+    @OneToMany
+    private List<Booking> bookings;
 
     public User(Long userId, String name,  String userName,  String password, long contactNumber,  String email, char accountType) {
         this.userId = userId;
@@ -95,5 +102,9 @@ public class User
 
     public void setAccountType(char accountType) {
         this.accountType = accountType;
+    }
+
+    public List<Booking> getBookings() {
+        return bookings;
     }
 }
