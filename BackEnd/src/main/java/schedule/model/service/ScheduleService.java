@@ -16,6 +16,7 @@ public class ScheduleService
     @NotBlank(message = "Description is required")
     private String description;
 
+    @Transient
     private TimeAvailability availability;
 
     public ScheduleService() {}
