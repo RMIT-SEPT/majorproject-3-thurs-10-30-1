@@ -28,23 +28,16 @@ public class User
     @Email
     private String email;
 
-    @NotBlank(message = "accType is required")
-    private char accountType;
-
-    @OneToMany(mappedBy = "customer")
-    private List<Booking> customerBookings;
-
-    @OneToMany(mappedBy = "worker")
-    private List<Booking> workerBookings;
-
-    public User(Long userId, String name,  String userName,  String password, long contactNumber,  String email, char accountType) {
+    public User(Long userId, @NotBlank(message = "Person name is required") String name,
+            @NotBlank(message = "Username is required") String userName,
+            @NotBlank(message = "password is required") String password, long contactNumber,
+            @NotBlank(message = "email s required") @Email String email) {
         this.userId = userId;
         this.name = name;
         this.userName = userName;
         this.password = password;
         this.contactNumber = contactNumber;
         this.email = email;
-        this.accountType = accountType;
     }
 
     public User() {
@@ -75,10 +68,6 @@ public class User
         return email;
     }
 
-    public char getAccountType() {
-        return accountType;
-    }
-
     public void setUserId(Long userId) {
         this.userId = userId;
     }
@@ -101,17 +90,5 @@ public class User
 
     public void setEmail(String email) {
         this.email = email;
-    }
-
-    public void setAccountType(char accountType) {
-        this.accountType = accountType;
-    }
-
-    public List<Booking> getCustomerBookings() {
-        return customerBookings;
-    }
-
-    public List<Booking> getWorkerBookings() {
-        return workerBookings;
     }
 }
