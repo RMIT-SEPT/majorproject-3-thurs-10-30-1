@@ -4,6 +4,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,16 +31,10 @@ public class UserController {
         return new ResponseEntity<>(user, HttpStatus.CREATED);
     }
 
-
-
-    public User getUserById(long id)
+    @GetMapping("/{id}")
+    public User getUserById(@PathVariable long id)
     {
-        User user = null;
-        if(userMicro.userExistsById(id))
-        {
-           user = userMicro.getUserById(id).get(0);
-        }
-        return user;
+        return userMicro.userExistsById(id) ? userMicro.getUserById(id).get(0) : null;
     }
 }
 
