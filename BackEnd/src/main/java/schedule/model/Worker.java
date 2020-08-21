@@ -20,6 +20,6 @@ public class Worker
     @OneToMany(mappedBy = "worker")
     private List<Booking> bookings;
 
-    @OneToMany
+    @ManyToMany
     private List<ScheduleService> services;
 }
