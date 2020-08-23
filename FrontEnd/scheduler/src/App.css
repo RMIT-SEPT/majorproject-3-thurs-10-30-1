@@ -18,6 +18,33 @@
   font-size: large;
 }
 
+.bg-darkBlue
+{
+  background-color: #303C63;
+}
+
+.homeContainer
+{
+
+}
+
+.loginContainer
+{
+  position: relative;
+  align-content: center;
+  float: right;
+  width: 50%;
+  height: 590px;
+
+  background: #FFFFFF;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+
+}
+
+
+
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
