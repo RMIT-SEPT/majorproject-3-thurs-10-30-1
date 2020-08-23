@@ -7,7 +7,7 @@ class Login extends Component {
     {
         return(
             <div className="loginContainer">
-        <Form>
+        <Form className="mr-auto">
             <Form.Group controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
                 <Form.Control type="email" placeholder="Enter email" />
@@ -23,7 +23,7 @@ class Login extends Component {
             <Form.Group controlId="formBasicCheckbox">
                 <Form.Check type="checkbox" label="Check me out" />
             </Form.Group>
-            <Button variant="primary" type="submit">
+            <Button variant="dark" type="submit">
                 Submit
             </Button>
         </Form>

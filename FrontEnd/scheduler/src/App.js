@@ -12,6 +12,7 @@ class App extends Component {
       ]
 
     return (
+
         <div className="homeContainer">
         <AGMEnav links={links} />
         <About />
