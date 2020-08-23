@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import './App.css';
 import AGMEnav from "./Components/AGMEnav";
 import Login from "./Components/Login";
-import aboutUs from "./Components/aboutUs";
 import About from "./Components/aboutUs";
 
 class App extends Component {

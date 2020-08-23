@@ -30,7 +30,9 @@
 
 .loginContainer
 {
+  display: inline;
   padding: 30% 10%;
+margin: 1% 1% 1% 1%;
   position: relative;
   float: right;
   width: 50%;
@@ -44,11 +46,16 @@
 
 .aboutContainer
 {
+  display: inline;
+  color: #FFFFFF;
+ text-align: center;
   background-color: #303C63;
   font-size: x-large;
   float: left;
-  margin-top: 50%;
-  width:48%;
+  margin-top: 10%;
+  margin-left: 2%;
+  margin-right: 1%;
+  width:45%;
 }
 
 

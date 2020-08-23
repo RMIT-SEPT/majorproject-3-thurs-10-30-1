@@ -19,7 +19,7 @@ class AGMEnav extends Component
                 <Navbar.Brand href="#home">AGME</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Nav className="mr-auto">
+                    <Nav className="m-auto">
                     {customLinks}
 
                     <NavDropdown title="Settings" id="basic-nav-dropdown">
@@ -28,10 +28,6 @@ class AGMEnav extends Component
                         <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
                         </NavDropdown>
                     </Nav>
-                    {/*<Form inline>*/}
-                    {/*    <FormControl type="text" placeholder="Search" className="mr-sm-2" />*/}
-                    {/*    <Button variant="outline-success">Search</Button>*/}
-                    {/*</Form>*/}
                 </Navbar.Collapse>
             </Navbar>
 
