@@ -25,21 +25,30 @@
 
 .homeContainer
 {
-
+  height: 100%;
 }
 
 .loginContainer
 {
+  padding: 30% 10%;
   position: relative;
-  align-content: center;
   float: right;
   width: 50%;
-  height: 590px;
+  height: 100%;
 
   background: #FFFFFF;
   border: 1px solid #000000;
   box-sizing: border-box;
 
+}
+
+.aboutContainer
+{
+  background-color: #303C63;
+  font-size: x-large;
+  float: left;
+  margin-top: 50%;
+  width:48%;
 }
 
 

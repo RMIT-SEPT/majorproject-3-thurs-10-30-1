@@ -7,7 +7,7 @@ class AGMEnav extends Component
 {
     render()
     {
-       let customLinks = this.props.links.map((link,index) =>
+       let customLinks=this.props.links.map((link,index) =>
         {
             return(
                 <Nav.Link href={link.link}> {link.label}</Nav.Link>
@@ -15,7 +15,7 @@ class AGMEnav extends Component
         });
 
         return(
-        <Navbar bg ="darkBlue" expand="lg">
+        <Navbar bg="darkBlue" expand="lg">
                 <Navbar.Brand href="#home">AGME</Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
