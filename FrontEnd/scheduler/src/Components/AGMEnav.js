@@ -27,6 +27,12 @@ const StyledNav = styled.div`
 
 class AGMEnav extends Component
 {
+    // constructor(props)
+    // {
+    //     super(props);
+    //    set customLinks from the passed props?
+    // }
+
     render()
     {
        let customLinks=this.props.links.map((link) =>
@@ -38,7 +44,6 @@ class AGMEnav extends Component
 
         return(
         <StyledNav>
-        {/*<Navbar bg="darkBlue" expand="lg" className="myNav" variant="dark">*/}
             <Navbar expand="lg" >
             {/*put a logo here*/}
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />

@@ -5,14 +5,14 @@ import Login from "./Components/Login";
 import About from "./Components/aboutUs";
 
 class App extends Component {
-  render() {
+  render()
+  {
       let links = [
           {label: 'Home', link: '#home'},
           {label: 'Testing', link: '#home'}
       ]
 
     return (
-
         <div className="homeContainer">
         <AGMEnav links={links} />
         <About />
