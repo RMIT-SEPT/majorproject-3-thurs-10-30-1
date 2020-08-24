@@ -1,6 +1,7 @@
 import React, {Component, useState} from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from "react-bootstrap/Button";
+import {Link} from "react-router-dom";
 
 function Login(props)
     {
@@ -34,6 +35,8 @@ function Login(props)
             <Form.Group controlId="formBasicCheckbox">
                 <Form.Check type="checkbox" label="Check me out" />
             </Form.Group>
+            <Link to="/register"> No Account? Register here!</Link>
+            <br/>
             <Button variant="dark" type="submit">
                 Submit
             </Button>

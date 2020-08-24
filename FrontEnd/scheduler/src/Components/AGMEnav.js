@@ -38,7 +38,7 @@ class AGMEnav extends Component
        let customLinks=this.props.links.map((link) =>
         {
             return(
-                <Nav.Item><Nav.Link href={link.link} className="px-3"> {link.label}</Nav.Link></Nav.Item>
+               <Nav.Link href={link.link} className="px-3"> {link.label}</Nav.Link>
             );
         });
 
@@ -48,7 +48,7 @@ class AGMEnav extends Component
             {/*put a logo here*/}
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Navbar.Brand href="#home" >AGME</Navbar.Brand>
+                    <Navbar.Brand href="/" >AGME</Navbar.Brand>
                     <Nav className="m-auto">
                     {customLinks}
                     </Nav>
