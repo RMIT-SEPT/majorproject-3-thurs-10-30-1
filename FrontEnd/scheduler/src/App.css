@@ -47,10 +47,6 @@ margin: 1% 1% 1% 1%;
 .aboutContainer
 {
   display: inline;
-  color: #FFFFFF;
- text-align: center;
-  background-color: #303C63;
-  font-size: x-large;
   float: left;
   margin-top: 10%;
   margin-left: 2%;
@@ -58,15 +54,21 @@ margin: 1% 1% 1% 1%;
   width:45%;
 }
 
-.myNav
-{
-    font-size: x-large;
-}
-
-.nav-link
+.darkTextBox
 {
     color: #FFFFFF;
+    background-color: #303C63;
+    font-size: x-large;
+    text-align: center;
+    width: 90%;
 }
+
+.fittedImage
+{
+    width: 90%;
+    height: 90%;
+}
+
 
 
 

@@ -3,7 +3,27 @@ import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import '../App.css';
+import styled from 'styled-components';
 
+
+const StyledNav = styled.div`
+  .navbar {
+    background-color: #303C63;
+  }
+  
+  a, .navbar-brand, .navbar-nav .nav-link {
+    color: #FFF;
+    &:hover {
+      color: black;
+    }
+  }
+  
+  .dropdown-item
+  {
+    color: black;
+  }
+  
+`;
 
 class AGMEnav extends Component
 {
@@ -12,13 +32,14 @@ class AGMEnav extends Component
        let customLinks=this.props.links.map((link) =>
         {
             return(
-                <Nav.Link href={link.link} className="px-3"> {link.label}</Nav.Link>
+                <Nav.Item><Nav.Link href={link.link} className="px-3"> {link.label}</Nav.Link></Nav.Item>
             );
         });
 
         return(
-
-        <Navbar bg="darkBlue" expand="lg" className="myNav" variant="dark">
+        <StyledNav>
+        {/*<Navbar bg="darkBlue" expand="lg" className="myNav" variant="dark">*/}
+            <Navbar expand="lg" >
             {/*put a logo here*/}
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
@@ -36,7 +57,7 @@ class AGMEnav extends Component
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
-
+    </StyledNav>
         )
     }
 
