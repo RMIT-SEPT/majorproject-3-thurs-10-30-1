@@ -4,6 +4,8 @@ import Home from "./Components/Home";
 import Registration from "./Components/Registration";
 import {BrowserRouter as Router} from "react-router-dom";
 import Route from "react-router-dom/Route"
+import Dashboard from "./Components/Dashboard";
+import Profile from "./Components/Profile";
 
 class App extends Component {
     state =
@@ -18,6 +20,8 @@ class App extends Component {
         <Router>
             <Route exact path="/" component={Home}/>
             <Route exact path="/register" component={Registration}/>
+            <Route exact path="/dashboard" component={Dashboard}/>
+            <Route exact path="/profile" component ={Profile}/>
         </Router>
     );
   }

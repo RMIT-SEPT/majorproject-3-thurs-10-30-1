@@ -8,11 +8,12 @@ function Registration()
         {label: 'Home', link: '/'},
         {label: 'Testing a Link', link: '/'},
     ]
+    let label = {label: 'Register', link: '/register'}
     return (
         <div>
         <AGMEnav links={links} />
         <div> THIS IS WHERE THE REG FORM WILL BE</div>
-            <DarkButton label={'Register'} />
+            <DarkButton label={label} />
         </div>
     )
 }

@@ -23,6 +23,8 @@ export default function Login(props)
             // backend stuff
         }
 
+        let label = {label: 'Login', link: '/dashboard'}
+
         return(
             <div className="loginContainer">
                 <h1> SIGN IN</h1>
@@ -44,7 +46,7 @@ export default function Login(props)
             </Form.Group>
             <Link to="/register" className="regLink"> No Account? Register here </Link>
             <br/>
-         <DarkButton label={'Login'} />
+         <DarkButton label={label} />
         </Form>
             </div>
         )

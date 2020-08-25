@@ -21,10 +21,10 @@ export default function DarkButton(props)
     let label = props.label;
     return (
         <StyledBut>
-            <Link to="/"
+            <Link to={label.link}
             className="btn btn-lg btn-dark"
             onClick={handleLogin}>
-                {label}
+                {label.label}
             </Link>
         </StyledBut>
     )
