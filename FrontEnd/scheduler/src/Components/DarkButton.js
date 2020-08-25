@@ -16,17 +16,16 @@ const handleLogin= () =>
 }
 
 
-function LoginButton(props)
+export default function DarkButton(props)
 {
+    let label = props.label;
     return (
         <StyledBut>
             <Link to="/"
             className="btn btn-lg btn-dark"
             onClick={handleLogin}>
-                Login
+                {label}
             </Link>
         </StyledBut>
     )
 }
-
-export default LoginButton;

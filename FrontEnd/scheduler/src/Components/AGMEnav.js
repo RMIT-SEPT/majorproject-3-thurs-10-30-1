@@ -27,12 +27,6 @@ const StyledNav = styled.div`
 
 class AGMEnav extends Component
 {
-    // constructor(props)
-    // {
-    //     super(props);
-    //    set customLinks from the passed props?
-    // }
-
     render()
     {
        let customLinks=this.props.links.map((link) =>

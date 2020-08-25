@@ -1,10 +1,7 @@
-import React, {Component, useState} from 'react';
+import React, {useState} from 'react';
 import Form from 'react-bootstrap/Form';
-import Button from "react-bootstrap/Button";
 import {Link} from "react-router-dom";
-import '../App.css';
-import loginButton from "./loginButton";
-import LoginButton from "./loginButton";
+import DarkButton from "./DarkButton";
 
 export default function Login(props)
     {
@@ -21,14 +18,14 @@ export default function Login(props)
             }))
         }
 
-        const handleSubmit=
-            {
-
-            }
-
+        const handleSubmit= (e) =>
+        {
+            // backend stuff
+        }
 
         return(
             <div className="loginContainer">
+                <h1> SIGN IN</h1>
         <Form className="mr-auto" onSbmit={handleSubmit}>
             <Form.Group controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
@@ -40,14 +37,14 @@ export default function Login(props)
 
             <Form.Group controlId="formBasicPassword">
                 <Form.Label>Password</Form.Label>
-                <Form.Control type="password" placeholder="Password" id ="password" value={state.password} onChange={handleChange}/>
+                <Form.Control type="password" placeholder="Password" id="password" value={state.password} onChange={handleChange}/>
             </Form.Group>
             <Form.Group controlId="formBasicCheckbox">
                 <Form.Check type="checkbox" label="Check me out" />
             </Form.Group>
-            <Link to="/register" className ="regLink"> No Account? Register here </Link>
+            <Link to="/register" className="regLink"> No Account? Register here </Link>
             <br/>
-         <LoginButton />
+         <DarkButton label={'Login'} />
         </Form>
             </div>
         )
