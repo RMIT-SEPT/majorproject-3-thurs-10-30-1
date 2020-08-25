@@ -2,24 +2,34 @@ import React, {Component, useState} from 'react';
 import Form from 'react-bootstrap/Form';
 import Button from "react-bootstrap/Button";
 import {Link} from "react-router-dom";
+import '../App.css';
+import loginButton from "./loginButton";
+import LoginButton from "./loginButton";
 
-function Login(props)
+export default function Login(props)
     {
-        const [state , setState] = useState({
+        const [state , newState] = useState({
             email : "",
             password : ""
         })
+
         const handleChange = (e) => {
             const {id , value} = e.target
-            setState(prevState => ({
+            newState(prevState => ({
                 ...prevState,
                 [id] : value
             }))
         }
 
+        const handleSubmit=
+            {
+
+            }
+
+
         return(
             <div className="loginContainer">
-        <Form className="mr-auto">
+        <Form className="mr-auto" onSbmit={handleSubmit}>
             <Form.Group controlId="formBasicEmail">
                 <Form.Label>Email address</Form.Label>
                 <Form.Control type="email" placeholder="Enter email" value={state.email} onChange={handleChange} id="email" />
@@ -35,14 +45,10 @@ function Login(props)
             <Form.Group controlId="formBasicCheckbox">
                 <Form.Check type="checkbox" label="Check me out" />
             </Form.Group>
-            <Link to="/register"> No Account? Register here!</Link>
+            <Link to="/register" className ="regLink"> No Account? Register here </Link>
             <br/>
-            <Button variant="dark" type="submit">
-                Submit
-            </Button>
+         <LoginButton />
         </Form>
             </div>
         )
 }
-
-export default Login;

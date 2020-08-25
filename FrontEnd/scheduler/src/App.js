@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
-import AGMEnav from "./Components/AGMEnav";
-import Login from "./Components/Login";
-import About from "./Components/aboutUs";
+import Home from "./Components/Home";
+import Registration from "./Components/Registration";
 import {BrowserRouter as Router} from "react-router-dom";
 import Route from "react-router-dom/Route"
 
@@ -14,33 +13,11 @@ class App extends Component {
 
   render()
   {
-      let links = [
-          {label: 'Home', link: '/'},
-          {label: 'Testing a Link', link: '/'},
-          {label: 'Register', link: '/register'}
-      ]
 
     return (
         <Router>
-            <Route path ="/" exact render={
-                () => {
-                    return(
-                        <div className="homeContainer">
-                        <AGMEnav links={links} />
-                        <About />
-                        <Login />
-                    </div>)
-                }
-            }
-/>
-            <Route path ="/register" exact render={
-                () => {
-                    return(
-                        <div> The register form will go here</div>
-                    )
-                }
-            }
-            />
+            <Route exact path ="/" component ={Home}/>
+            <Route exact path ="/register" component ={Registration}/>
         </Router>
     );
   }

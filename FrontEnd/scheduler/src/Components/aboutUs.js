@@ -2,27 +2,13 @@ import React, {Component} from 'react';
 import busyLady from "../../../media/busy-lady.jpg";
 
 
-// class About extends Component {
-//     render()
-//     {
-//         return(
-//             <div className="aboutContainer">
-//                 <img src={busyLady} alt="a busy lady" className="fittedImage"/>
-//                 <div className="darkTextBox">
-//                 <p>"I will contain the left side of this thing"</p>
-//                 </div>
-//             </div>
-//         );
-//     }
-// }
-
 function About(props)
 {
     return(
             <div className="aboutContainer">
                 <img src={busyLady} alt="a busy lady" className="fittedImage"/>
                 <div className="darkTextBox">
-                <p>"I will contain the left side of this thing"</p>
+                <p>AGME is a unique booking service, which can really help you make the most of your time!</p>
                 </div>
             </div>);
 }

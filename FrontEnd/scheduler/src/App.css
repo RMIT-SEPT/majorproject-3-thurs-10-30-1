@@ -32,7 +32,7 @@
 {
   display: inline;
   padding: 30% 10%;
-margin: 1% 1% 1% 1%;
+  margin: 1% 1% 1% 1%;
   position: relative;
   float: right;
   width: 50%;
@@ -56,17 +56,27 @@ margin: 1% 1% 1% 1%;
 
 .darkTextBox
 {
+    margin-top: 5%;
     color: #FFFFFF;
     background-color: #303C63;
     font-size: x-large;
     text-align: center;
     width: 90%;
+    border-radius: 12px;
+
 }
 
 .fittedImage
 {
     width: 90%;
     height: 90%;
+}
+
+.regLink
+{
+    color: black;
+    font-size: xx-large;
+
 }
 
 
