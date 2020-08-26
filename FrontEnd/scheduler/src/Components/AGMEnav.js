@@ -4,6 +4,7 @@ import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import '../App.css';
 import styled from 'styled-components';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 
 const StyledNav = styled.div`
@@ -48,11 +49,12 @@ class AGMEnav extends Component
                     </Nav>
 
                     <Nav>
-                    <NavDropdown title="Settings" id="basic-nav-dropdown" className="mr-auto">
-                        <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+                    <NavDropdown title="Settings" className ="btn-group dropleft">
+                        <NavDropdown.Item href="#action/3.1">Accessibility</NavDropdown.Item>
+                        <NavDropdown.Item href="#action/3.2">Contact us</NavDropdown.Item>
+                        <NavDropdown.Item href="#action/3.3"></NavDropdown.Item>
                         </NavDropdown>
+
                     </Nav>
                 </Navbar.Collapse>
             </Navbar>
