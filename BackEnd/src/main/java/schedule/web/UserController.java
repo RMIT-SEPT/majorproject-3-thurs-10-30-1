@@ -16,7 +16,7 @@ import schedule.model.User;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("/api/person")
+@RequestMapping("/api/user")
 public class UserController {
 
     @Autowired
