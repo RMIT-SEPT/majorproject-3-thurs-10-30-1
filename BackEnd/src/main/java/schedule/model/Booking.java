@@ -18,11 +18,11 @@ public class Booking
 
     @NotBlank(message = "A customer is required")
     @ManyToOne(optional = false)
-    private User customer;
+    private Customer customer;
 
     @NotBlank(message = "A Worker is required")
     @ManyToOne(optional = false)
-    private User worker;
+    private Worker worker;
 
     @NotBlank(message = "A service is required")
     @ManyToOne(optional = false)
@@ -44,8 +44,8 @@ public class Booking
 
     }
 
-    public Booking(Long id, @NotBlank(message = "A customer is required") User customer,
-            @NotBlank(message = "A Worker is required") User worker,
+    public Booking(Long id, @NotBlank(message = "A customer is required") Customer customer,
+            @NotBlank(message = "A Worker is required") Worker worker,
             @NotBlank(message = "A service is required") ScheduleService service,
             @NotBlank(message = "A start time is required") Date start_time,
             @NotBlank(message = "An end time is required") Date end_time,
@@ -63,11 +63,11 @@ public class Booking
         return id;
     }
 
-	public User getCustomer() {
+	public Customer getCustomer() {
 		return customer;
 	}
 
-    public User getWorker() {
+    public Worker getWorker() {
         return worker;
     }
 
