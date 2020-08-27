@@ -16,7 +16,7 @@ import schedule.model.Admin;
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("/api/user")
+@RequestMapping("/api/admin")
 public class AdminController {
 
     @Autowired
