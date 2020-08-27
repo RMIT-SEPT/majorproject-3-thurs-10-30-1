@@ -10,31 +10,32 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import schedule.microservice.UserMicro;
+import schedule.microservice.WorkerMicro;
+import schedule.model.Worker;
 import schedule.model.User;
 
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("/api/user")
-public class UserController {
+@RequestMapping("/api/worker")
+public class WorkerController {
 
     @Autowired
-    private UserMicro userMicro;
+    private WorkerMicro workerMicro;
 
     @PostMapping("")
-    public ResponseEntity<?> createNewUser(@Valid @RequestBody User user, BindingResult result) {
+    public ResponseEntity<?> createNewWorker(@Valid @RequestBody User user, BindingResult result) {
         if (result.hasErrors()){
             return new ResponseEntity<>("Invalid User Object", HttpStatus.BAD_REQUEST);
         }
-        User user1 = userMicro.saveOrUpdate(user);
-        return new ResponseEntity<>(user, HttpStatus.CREATED);
+        Worker worker = workerMicro.saveOrUpdate(new Worker(user.getUserId(), user));
+        return new ResponseEntity<>(worker, HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> getUserById(@PathVariable long id)
+    public ResponseEntity<?> getWorkerById(@PathVariable long id)
     {
-        return userMicro.userExistsById(id) ? new ResponseEntity<>(userMicro.getUserById(id).get(0), HttpStatus.FOUND) : 
+        return workerMicro.workerExistsById(id) ? new ResponseEntity<>(workerMicro.getWorkerById(id).get(0), HttpStatus.FOUND) : 
             new ResponseEntity<>("User not found", HttpStatus.BAD_REQUEST);
     }
 }

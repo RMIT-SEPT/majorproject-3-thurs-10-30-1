@@ -10,31 +10,32 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import schedule.microservice.UserMicro;
+import schedule.microservice.CustomerMicro;
+import schedule.model.Customer;
 import schedule.model.User;
 
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("/api/user")
-public class UserController {
+@RequestMapping("/api/customer")
+public class CustomerController {
 
     @Autowired
-    private UserMicro userMicro;
+    private CustomerMicro customerMicro;
 
     @PostMapping("")
     public ResponseEntity<?> createNewUser(@Valid @RequestBody User user, BindingResult result) {
         if (result.hasErrors()){
             return new ResponseEntity<>("Invalid User Object", HttpStatus.BAD_REQUEST);
         }
-        User user1 = userMicro.saveOrUpdate(user);
-        return new ResponseEntity<>(user, HttpStatus.CREATED);
+        Customer customer = customerMicro.saveOrUpdate(new Customer(user.getUserId(), user));
+        return new ResponseEntity<>(customer, HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<?> getUserById(@PathVariable long id)
     {
-        return userMicro.userExistsById(id) ? new ResponseEntity<>(userMicro.getUserById(id).get(0), HttpStatus.FOUND) : 
+        return customerMicro.customerExistsById(id) ? new ResponseEntity<>(customerMicro.getCustomerById(id).get(0), HttpStatus.FOUND) : 
             new ResponseEntity<>("User not found", HttpStatus.BAD_REQUEST);
     }
 }

@@ -10,31 +10,32 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import schedule.microservice.UserMicro;
+import schedule.microservice.AdminMicro;
+import schedule.model.Admin;
 import schedule.model.User;
 
 import javax.validation.Valid;
 
 @RestController
-@RequestMapping("/api/user")
-public class UserController {
+@RequestMapping("/api/admin")
+public class AdminController {
 
     @Autowired
-    private UserMicro userMicro;
+    private AdminMicro adminMicro;
 
     @PostMapping("")
-    public ResponseEntity<?> createNewUser(@Valid @RequestBody User user, BindingResult result) {
+    public ResponseEntity<?> createNewAdmin(@Valid @RequestBody User user, BindingResult result) {
         if (result.hasErrors()){
             return new ResponseEntity<>("Invalid User Object", HttpStatus.BAD_REQUEST);
         }
-        User user1 = userMicro.saveOrUpdate(user);
-        return new ResponseEntity<>(user, HttpStatus.CREATED);
+        Admin admin = adminMicro.saveOrUpdate(new Admin(user.getUserId(), user));
+        return new ResponseEntity<>(admin, HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> getUserById(@PathVariable long id)
+    public ResponseEntity<?> getAdminById(@PathVariable long id)
     {
-        return userMicro.userExistsById(id) ? new ResponseEntity<>(userMicro.getUserById(id).get(0), HttpStatus.FOUND) : 
+        return adminMicro.adminExistsById(id) ? new ResponseEntity<>(adminMicro.getAdminById(id).get(0), HttpStatus.FOUND) : 
             new ResponseEntity<>("User not found", HttpStatus.BAD_REQUEST);
     }
 }
