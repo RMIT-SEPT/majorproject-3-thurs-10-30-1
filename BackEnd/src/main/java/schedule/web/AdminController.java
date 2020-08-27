@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import schedule.microservice.AdminMicro;
 import schedule.model.Admin;
+import schedule.model.User;
 
 import javax.validation.Valid;
 
@@ -23,16 +24,16 @@ public class AdminController {
     private AdminMicro adminMicro;
 
     @PostMapping("")
-    public ResponseEntity<?> createNewUser(@Valid @RequestBody Admin admin, BindingResult result) {
+    public ResponseEntity<?> createNewAdmin(@Valid @RequestBody User user, BindingResult result) {
         if (result.hasErrors()){
             return new ResponseEntity<>("Invalid User Object", HttpStatus.BAD_REQUEST);
         }
-        Admin user1 = adminMicro.saveOrUpdate(admin);
+        Admin admin = adminMicro.saveOrUpdate(new Admin(user.getUserId(), user));
         return new ResponseEntity<>(admin, HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> getUserById(@PathVariable long id)
+    public ResponseEntity<?> getAdminById(@PathVariable long id)
     {
         return adminMicro.adminExistsById(id) ? new ResponseEntity<>(adminMicro.getAdminById(id).get(0), HttpStatus.FOUND) : 
             new ResponseEntity<>("User not found", HttpStatus.BAD_REQUEST);
