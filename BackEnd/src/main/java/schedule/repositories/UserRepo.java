@@ -12,4 +12,6 @@ public interface UserRepo extends CrudRepository<User, Long >
 {
     @Override
     ArrayList<User> findAllById(Iterable<Long> iterable);
+
+    User findByUsername(String username);
 }

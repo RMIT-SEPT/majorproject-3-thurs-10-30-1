@@ -33,8 +33,8 @@ public class UserMicro {
         return userRepo.existsById(id);
     }
 
-
-
-
-
+    public User getUserByUsername(String username)
+    {
+        return userRepo.findByUsername(username);
+    }
 }
