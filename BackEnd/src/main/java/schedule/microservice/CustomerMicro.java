@@ -5,10 +5,7 @@ import org.springframework.stereotype.Service;
 import schedule.model.Customer;
 import schedule.repositories.CustomerRepo;
 
-import java.security.PublicKey;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
 
 @Service
 public class CustomerMicro {

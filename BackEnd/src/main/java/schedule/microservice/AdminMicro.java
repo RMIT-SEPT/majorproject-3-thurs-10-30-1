@@ -5,10 +5,8 @@ import org.springframework.stereotype.Service;
 import schedule.model.Admin;
 import schedule.repositories.AdminRepo;
 
-import java.security.PublicKey;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
+
 
 @Service
 public class AdminMicro {
