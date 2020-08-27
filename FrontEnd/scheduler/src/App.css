@@ -30,20 +30,23 @@
 
 .loginContainer
 {
-  display: inline-block;
+    background-image: url(./../../media/background1.png);
+    background-color: rgba(52, 52, 52, 0.1);
+
+    display: inline-block;
     padding: 21% 10% 35%;
     margin-top: 0%;
   position: relative;
   float: right;
   width: 55%;
   height: 100%;
-
-  background: #FFFFFF;
-  border-left: 1px solid #000000;
+    border-left: 1px solid #000000;
   box-sizing: border-box;
     align-content: center;
     text-align: center;
 }
+
+
 
 .loginItem
 {
@@ -97,6 +100,10 @@
     padding-bottom: 10%;
 }
 
+.transparentDiv
+{
+    opacity: .8;
+}
 
 
 

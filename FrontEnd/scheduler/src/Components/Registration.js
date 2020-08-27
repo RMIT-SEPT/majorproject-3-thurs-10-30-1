@@ -8,7 +8,7 @@ function Registration()
         {label: 'Home', link: '/'},
         {label: 'Testing a Link', link: '/'},
     ]
-    let label = {label: 'Register', link: '/register'}
+    let label = {label: 'Register', link: '/'}
     return (
         <div>
         <AGMEnav links={links} />

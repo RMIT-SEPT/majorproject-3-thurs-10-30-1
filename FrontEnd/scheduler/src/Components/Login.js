@@ -28,7 +28,8 @@ export default function Login(props)
         return(
             <div className="loginContainer">
                 <h1 className="myHeader"> SIGN IN</h1>
-        <Form className="mr-auto" onSbmit={handleSubmit}>
+        <Form className="mr-auto" onSubmit={handleSubmit}>
+            <div className="transparentDiv">
             <Form.Group controlId="formBasicEmail">
                 {/*<Form.Label>Email address</Form.Label>*/}
                 <Form.Control type="email" placeholder="Enter email" value={state.email} onChange={handleChange} id="email" />
@@ -40,6 +41,7 @@ export default function Login(props)
                 <Form.Control type="password" placeholder="Password" id="password" value={state.password} onChange={handleChange}/>
             </Form.Group>
             <br/>
+            </div>
             <Link to="/register" className="regLink"> No Account? Register here! </Link>
          <DarkButton label={label} />
         </Form>
