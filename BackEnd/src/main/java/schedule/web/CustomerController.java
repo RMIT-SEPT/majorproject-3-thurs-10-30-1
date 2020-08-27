@@ -24,7 +24,7 @@ public class CustomerController {
     private CustomerMicro customerMicro;
 
     @PostMapping("")
-    public ResponseEntity<?> createNewUser(@Valid @RequestBody User user, BindingResult result) {
+    public ResponseEntity<?> createNewCustomer(@Valid @RequestBody User user, BindingResult result) {
         if (result.hasErrors()){
             return new ResponseEntity<>("Invalid User Object", HttpStatus.BAD_REQUEST);
         }
@@ -33,7 +33,7 @@ public class CustomerController {
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> getUserById(@PathVariable long id)
+    public ResponseEntity<?> getCustomerById(@PathVariable long id)
     {
         return customerMicro.customerExistsById(id) ? new ResponseEntity<>(customerMicro.getCustomerById(id).get(0), HttpStatus.FOUND) : 
             new ResponseEntity<>("User not found", HttpStatus.BAD_REQUEST);
