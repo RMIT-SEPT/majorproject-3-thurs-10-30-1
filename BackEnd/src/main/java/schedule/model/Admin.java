@@ -20,5 +20,13 @@ public class Admin
     public Admin(Long id, @NotBlank(message = "A user account is required") User user) {
         this.id = id;
         this.user = user;
-    };
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public User getUser() {
+        return user;
+    }
 }
