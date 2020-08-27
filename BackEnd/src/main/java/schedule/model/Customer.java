@@ -22,6 +22,11 @@ public class Customer
 
     public Customer() {}
 
+    public Customer(Long id, @NotBlank(message = "A user account is required") User user) {
+        this.id = id;
+        this.user = user;
+    };
+
     public Customer(Long id, @NotBlank(message = "A user account is required") User user, List<Booking> bookings) {
         this.id = id;
         this.user = user;

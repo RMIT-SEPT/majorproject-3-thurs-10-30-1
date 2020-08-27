@@ -27,6 +27,11 @@ public class Worker
 
     public Worker() {};
 
+    public Worker(Long id, @NotBlank(message = "A user account is required") User user) {
+        this.id = id;
+        this.user = user;
+    }
+
     public Worker(Long id, @NotBlank(message = "A user account is required") User user, List<Booking> bookings,
             List<ScheduleService> services) {
         this.id = id;
