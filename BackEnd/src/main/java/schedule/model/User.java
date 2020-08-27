@@ -15,7 +15,8 @@ public class User
     private String name;
 
     @NotBlank(message = "Username is required")
-    private String userName;
+    @Column(unique = true)
+    private String username;
 
     @NotBlank(message = "password is required")
     private String password;
@@ -23,16 +24,17 @@ public class User
     private long contactNumber;
 
     @NotBlank(message = "email s required")
+    @Column(unique = true)
     @Email
     private String email;
 
     public User(Long userId, @NotBlank(message = "Person name is required") String name,
-            @NotBlank(message = "Username is required") String userName,
+            @NotBlank(message = "Username is required") String username,
             @NotBlank(message = "password is required") String password, long contactNumber,
             @NotBlank(message = "email s required") @Email String email) {
         this.userId = userId;
         this.name = name;
-        this.userName = userName;
+        this.username = username;
         this.password = password;
         this.contactNumber = contactNumber;
         this.email = email;
@@ -50,8 +52,8 @@ public class User
         return name;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
     public String getPassword() {
@@ -74,8 +76,8 @@ public class User
         this.name = name;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public void setPassword(String password) {
