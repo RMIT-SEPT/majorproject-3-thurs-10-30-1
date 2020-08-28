@@ -1,5 +1,5 @@
 import React from 'react';
-import busyLady from "../../../media/busy-lady.jpg";
+import busyLady from "../media/busy-lady.jpg";
 
 
 function About(props)

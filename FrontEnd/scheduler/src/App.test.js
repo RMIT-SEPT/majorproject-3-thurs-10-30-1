@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import App from './App';
-import {it} from "@jest/globals";
+import App from "./App";
+import {shallow,mount} from "enzyme";
 
 it('renders without crashing', () => {
   const div = document.createElement('div');

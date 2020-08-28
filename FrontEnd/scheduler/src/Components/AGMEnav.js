@@ -5,7 +5,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import '../App.css';
 import styled from 'styled-components';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Logo from "../../../media/Logo(NText).png"
+import Logo from "../media/Logo(NText).png";
 
 
 const StyledNav = styled.div`

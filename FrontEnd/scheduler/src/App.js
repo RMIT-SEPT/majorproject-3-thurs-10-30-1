@@ -8,14 +8,13 @@ import Dashboard from "./Components/Dashboard";
 import Profile from "./Components/Profile";
 
 class App extends Component {
-    state =
-        {
-            loggedIn:false
-        }
+    // state =
+    //     {
+    //         loggedIn:false
+    //     }
 
   render()
   {
-
     return (
         <Router>
             <Route exact path="/" component={Home}/>
