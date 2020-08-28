@@ -5,6 +5,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import '../App.css';
 import styled from 'styled-components';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import Logo from "../../../media/Logo(NText).png"
 
 
 const StyledNav = styled.div`
@@ -43,7 +44,7 @@ class AGMEnav extends Component
             {/*put a logo here*/}
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Navbar.Brand href="/" >AGME</Navbar.Brand>
+                    <Navbar.Brand href="/" > <img src={Logo} className="logoImage" alt ="logo"/> AGME </Navbar.Brand>
                     <Nav className="m-auto">
                     {customLinks}
                     </Nav>

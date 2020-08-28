@@ -20,7 +20,7 @@ export default function Login(props)
 
         const handleSubmit= (e) =>
         {
-            // backend stuff
+
         }
 
         let label = {label: 'Login', link: '/dashboard'}

@@ -32,10 +32,9 @@
 {
     background-image: url(./../../media/background1.png);
     background-color: rgba(52, 52, 52, 0.1);
-
     display: inline-block;
     padding: 21% 10% 35%;
-    margin-top: 0%;
+    margin-top: 0;
   position: relative;
   float: right;
   width: 55%;
@@ -83,12 +82,28 @@
     height: 90%;
 }
 
+.logoImage
+{
+    width: 40px;
+    height: 40px;
+    margin-top: -5%;
+}
+
 .regLink {
     color: black;
     font-size: x-large;
     width: 90%;
-    opacity: .4;
+    opacity: .5;
 }
+
+.regLink:hover
+{
+    color: red;
+    font-size: x-large;
+    width: 90%;
+    opacity: .8;
+}
+
 
 .myHeader
 {
@@ -104,6 +119,8 @@
 {
     opacity: .8;
 }
+
+
 
 
 

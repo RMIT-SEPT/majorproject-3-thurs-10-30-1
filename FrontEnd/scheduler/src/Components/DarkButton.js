@@ -11,20 +11,11 @@ const StyledBut = styled.div`
     
     :hover 
     {
-     background-color: orange;
-        color:red;
+     background-color: lightblue;
     }
     
   }
 `;
-
-const HoverText = styled.p`
-	color: #000;
-	:hover {
-		color: #ed1212;
-		cursor: pointer;
-	}
-`
 
 const handleLogin= () =>
 {
