@@ -1,50 +1,57 @@
-import React, {useState} from 'react';
+import React, {Component, useState} from 'react';
 import Form from 'react-bootstrap/Form';
 import {Link} from "react-router-dom";
 import DarkButton from "./DarkButton";
 
-export default function Login(props)
+class Login extends Component
+{
+    constructor(props)
     {
-        const [state , newState] = useState({
-            email : "",
-            password : ""
-        })
+        super(props);
+        this.state=
+            {
+                email:"",
+                password:""
+            };
+            this.onChange=this.onChange.bind(this);
+            this.handleSubmit=this.handleSubmit.bind(this);
+    }
 
-        const handleChange = (e) => {
-            const {id , value} = e.target
-            newState(prevState => ({
-                ...prevState,
-                [id] : value
-            }))
-        }
-
-        const handleSubmit= (e) =>
+    onChange = (e) =>
         {
-
+        this.setState({[e.target.name]: e.target.value});
         }
 
-        let label = {label: 'Login', link: '/dashboard'}
+        handleSubmit= (e) =>
+        {
+            //send the username and password to the backend to be verified
+        }
 
-        return(
-            <div className="loginContainer">
-                <h1 className="myHeader"> SIGN IN</h1>
-        <Form className="mr-auto" onSubmit={handleSubmit}>
-            <div className="transparentDiv">
-            <Form.Group controlId="formBasicEmail">
-                {/*<Form.Label>Email address</Form.Label>*/}
-                <Form.Control type="email" placeholder="Enter email" value={state.email} onChange={handleChange} id="email" />
-            </Form.Group>
-            <br/>
+        render() {
+            let label = {label: 'Login', link: '/dashboard'}
+            return (
+                <div className="loginContainer">
+                    <h1 className="myHeader"> SIGN IN</h1>
+                    <Form className="mr-auto" onSubmit={this.handleSubmit}>
+                        <div className="transparentDiv">
+                            <Form.Group controlId="formBasicEmail">
+                                {/*<Form.Label>Email address</Form.Label>*/}
+                                <Form.Control type="email" placeholder="Enter email" value={this.state.email}
+                                              onChange={this.onChange} name="email"/>
+                            </Form.Group>
+                            <br/>
 
-            <Form.Group controlId="formBasicPassword">
-                {/*<Form.Label>Password</Form.Label>*/}
-                <Form.Control type="password" placeholder="Password" id="password" value={state.password} onChange={handleChange}/>
-            </Form.Group>
-            <br/>
-            </div>
-            <Link to="/register" className="regLink"> No Account? Register here! </Link>
-         <DarkButton label={label} />
-        </Form>
-            </div>
-        )
+                            <Form.Group controlId="formBasicPassword">
+                                <Form.Control type="password" placeholder="Password" name="password"
+                                              value={this.state.password} onChange={this.onChange}/>
+                            </Form.Group>
+                            <br/>
+                        </div>
+                        <Link to="/register" className="regLink"> No Account? Register here! </Link>
+                        <DarkButton label={label}/>
+                    </Form>
+                </div>
+            )
+        }
 }
+export default Login;

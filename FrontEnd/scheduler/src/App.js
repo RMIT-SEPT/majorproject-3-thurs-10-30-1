@@ -2,16 +2,15 @@ import React, { Component } from 'react';
 import './App.css';
 import Home from "./Components/Home";
 import Registration from "./Components/Registration";
-import {BrowserRouter as Router} from "react-router-dom";
-import Route from "react-router-dom/Route"
+import {BrowserRouter as Router, Route} from "react-router-dom";
 import Dashboard from "./Components/Dashboard";
 import Profile from "./Components/Profile";
 
 class App extends Component {
-    // state =
-    //     {
-    //         loggedIn:false
-    //     }
+    state =
+        {
+            loggedIn:false
+        }
 
   render()
   {

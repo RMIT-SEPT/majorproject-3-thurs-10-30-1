@@ -34,7 +34,7 @@ class AGMEnav extends Component
        let customLinks=this.props.links.map((link) =>
         {
             return(
-               <Nav.Link href={link.link} className="px-3"> {link.label}</Nav.Link>
+               <Nav.Link key={link.label} href={link.link} className="px-3"> {link.label}</Nav.Link>
             );
         });
 

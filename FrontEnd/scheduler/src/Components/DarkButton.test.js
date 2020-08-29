@@ -8,13 +8,21 @@ Enzyme.configure({adapter : new Adapter()});
 
 describe("DarkButton unit test",() =>
 {
-    const mockFn = jest.fn();
+    //const mockFn = jest.fn();
     let label = {label: 'Register', link: '/'}
+    const component = shallow(<DarkButton label={label}/>);
 
     it("should render 1 DarkButton", () =>
     {
-        const component = shallow(<DarkButton label={label}/>);
         expect(component).toHaveLength(1);
     });
+
+    it("should say 'Register'", () =>
+    {
+        expect(component.text()).toEqual('Regiqster');
+    });
+
+
+
 
 })
