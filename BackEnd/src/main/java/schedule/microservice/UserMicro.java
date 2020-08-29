@@ -5,8 +5,6 @@ import org.springframework.stereotype.Service;
 import schedule.model.User;
 import schedule.repositories.UserRepo;
 
-import java.util.ArrayList;
-
 @Service
 public class UserMicro {
     @Autowired
@@ -18,11 +16,9 @@ public class UserMicro {
         return userRepo.save(user);
     }
 
-    public ArrayList<User> getUserById(long id)
+    public User getUserById(long id)
     {
-        ArrayList<Long> ids = new ArrayList<>();
-        ids.add(id);
-        return userRepo.findAllById(ids);
+        return userRepo.findById(id).orElse(null);
     }
 
     public boolean userExistsById(long id)

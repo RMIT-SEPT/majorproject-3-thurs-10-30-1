@@ -35,7 +35,8 @@ public class CustomerController {
     @GetMapping("/{id}")
     public ResponseEntity<?> getCustomerById(@PathVariable long id)
     {
-        return customerMicro.customerExistsById(id) ? new ResponseEntity<>(customerMicro.getCustomerById(id).get(0), HttpStatus.FOUND) : 
+        Customer customer = customerMicro.getCustomerById(id);
+        return customer != null ? new ResponseEntity<>(customer, HttpStatus.FOUND) : 
             new ResponseEntity<>("User not found", HttpStatus.BAD_REQUEST);
     }
 }

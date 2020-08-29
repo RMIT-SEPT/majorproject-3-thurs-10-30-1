@@ -35,7 +35,8 @@ public class WorkerController {
     @GetMapping("/{id}")
     public ResponseEntity<?> getWorkerById(@PathVariable long id)
     {
-        return workerMicro.workerExistsById(id) ? new ResponseEntity<>(workerMicro.getWorkerById(id).get(0), HttpStatus.FOUND) : 
+        Worker worker = workerMicro.getWorkerById(id);
+        return worker != null ? new ResponseEntity<>(worker, HttpStatus.FOUND) : 
             new ResponseEntity<>("User not found", HttpStatus.BAD_REQUEST);
     }
 }

@@ -35,7 +35,8 @@ public class AdminController {
     @GetMapping("/{id}")
     public ResponseEntity<?> getAdminById(@PathVariable long id)
     {
-        return adminMicro.adminExistsById(id) ? new ResponseEntity<>(adminMicro.getAdminById(id).get(0), HttpStatus.FOUND) : 
+        Admin admin = adminMicro.getAdminById(id);
+        return admin != null ? new ResponseEntity<>(admin, HttpStatus.FOUND) : 
             new ResponseEntity<>("User not found", HttpStatus.BAD_REQUEST);
     }
 }

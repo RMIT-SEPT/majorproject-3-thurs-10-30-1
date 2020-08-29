@@ -5,9 +5,6 @@ import org.springframework.stereotype.Service;
 import schedule.model.Admin;
 import schedule.repositories.AdminRepo;
 
-import java.util.ArrayList;
-
-
 @Service
 public class AdminMicro {
     @Autowired
@@ -19,11 +16,9 @@ public class AdminMicro {
         return adminRepo.save(admin);
     }
 
-    public ArrayList<Admin> getAdminById(long id)
+    public Admin getAdminById(long id)
     {
-        ArrayList<Long> ids = new ArrayList<>();
-        ids.add(id);
-        return adminRepo.findAllById(ids);
+        return adminRepo.findById(id).orElse(null);
     }
 
     public boolean adminExistsById(long id)
