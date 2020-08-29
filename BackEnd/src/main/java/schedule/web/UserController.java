@@ -43,6 +43,20 @@ public class UserController {
         return user != null && user.getPassword().equals(json.get("password")) ? new ResponseEntity<>(true, HttpStatus.ACCEPTED) :
             new ResponseEntity<>(false, HttpStatus.NOT_ACCEPTABLE);
     }
+
+    @PutMapping("/update/{id}")
+    public ResponseEntity<?> updateUser(@Valid @RequestBody User user, @PathVariable long id, BindingResult result)
+    {
+        if (result.hasErrors()){
+            return new ResponseEntity<>("Invalid User Object", HttpStatus.BAD_REQUEST);
+        }
+        if (userMicro.userExistsById(id))
+        {
+            user.setUserId(id);
+            return new ResponseEntity<>(userMicro.saveOrUpdate(user), HttpStatus.OK);
+        }
+        else return new ResponseEntity<>("User being updated does not exist", HttpStatus.BAD_REQUEST); 
+    }
 }
 
 
