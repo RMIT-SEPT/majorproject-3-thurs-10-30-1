@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import schedule.microservice.AdminMicro;
+import schedule.model.AccountType;
 import schedule.model.Admin;
 import schedule.model.User;
 
@@ -28,6 +29,7 @@ public class AdminController {
         if (result.hasErrors()){
             return new ResponseEntity<>("Invalid User Object", HttpStatus.BAD_REQUEST);
         }
+        user.setAccountType(AccountType.Admin);
         Admin admin = adminMicro.saveOrUpdate(new Admin(user.getUserId(), user));
         return new ResponseEntity<>(admin, HttpStatus.CREATED);
     }

@@ -28,16 +28,20 @@ public class User
     @Email
     private String email;
 
+    @Enumerated(EnumType.STRING)
+    private AccountType accountType;
+
     public User(Long userId, @NotBlank(message = "Person name is required") String name,
             @NotBlank(message = "Username is required") String username,
             @NotBlank(message = "password is required") String password, long contactNumber,
-            @NotBlank(message = "email s required") @Email String email) {
+            @NotBlank(message = "email s required") @Email String email, AccountType accountType) {
         this.userId = userId;
         this.name = name;
         this.username = username;
         this.password = password;
         this.contactNumber = contactNumber;
         this.email = email;
+        this.accountType = accountType;
     }
 
     public User() {
@@ -90,5 +94,13 @@ public class User
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public AccountType getAccountType() {
+        return accountType;
+    }
+
+    public void setAccountType(AccountType accountType) {
+        this.accountType = accountType;
     }
 }
