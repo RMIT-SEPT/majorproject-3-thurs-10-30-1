@@ -30,4 +30,14 @@ public class UserMicro {
     {
         return userRepo.findByUsername(username);
     }
+
+    public User getUserByEmail(String email)
+    {
+        return userRepo.findByEmail(email);
+    }
+
+    public User getUserByUsernameOrEmail(String identifier)
+    {
+        return userRepo.findByUsernameOrEmail(identifier);
+    }
 }

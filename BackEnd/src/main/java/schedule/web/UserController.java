@@ -39,9 +39,13 @@ public class UserController {
     @PostMapping("/login")
     public ResponseEntity<?> validateUser(@RequestBody Map<String, String> json)
     {
-        User user = userMicro.getUserByUsername(json.get("username"));
-        return user != null && user.getPassword().equals(json.get("password")) ? new ResponseEntity<>(true, HttpStatus.ACCEPTED) :
-            new ResponseEntity<>(false, HttpStatus.NOT_ACCEPTABLE);
+        User user = null;
+        if (json.containsKey("identifier")) user = userMicro.getUserByUsernameOrEmail(json.get("identifier"));
+        else return new ResponseEntity<>("username or email not provided", HttpStatus.BAD_REQUEST);
+        if (json.containsKey("password"))
+            return user != null && user.getPassword().equals(json.get("password")) ? new ResponseEntity<>(true, HttpStatus.ACCEPTED) :
+                new ResponseEntity<>(false, HttpStatus.NOT_ACCEPTABLE);
+        else return new ResponseEntity<>("Password not provided", HttpStatus.BAD_REQUEST);
     }
 
     @PutMapping("/update/{id}")
@@ -55,7 +59,7 @@ public class UserController {
             user.setUserId(id);
             return new ResponseEntity<>(userMicro.saveOrUpdate(user), HttpStatus.OK);
         }
-        else return new ResponseEntity<>("User being updated does not exist", HttpStatus.BAD_REQUEST); 
+        else return new ResponseEntity<>("User being updated does not exist", HttpStatus.BAD_REQUEST);
     }
 }
 
