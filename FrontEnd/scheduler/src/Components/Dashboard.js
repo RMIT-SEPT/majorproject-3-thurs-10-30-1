@@ -1,5 +1,7 @@
 import React from "react";
 import AGMEnav from "./AGMEnav";
+import BookingList from "./BookingList";
+import BookingCreator from "./BookingCreator";
 
 export default function Dashboard(props)
 {
@@ -8,13 +10,18 @@ export default function Dashboard(props)
         {label: 'Home', link: '/'},
         {label: 'Testing a Link', link: '/'},
         {label: 'Profile', link: '/profile'},
-        {label: 'Sign-out', link: '/'}
+        {label: 'Sign-out', link: '/'}  
+    ]
+
+    let bookings = [
+        {customerName: 'Ali ', workerName: 'max ', service: 'haircut'},
     ]
 
     return(
-        <div>
+        <div className="dashboardContainer">
             <AGMEnav links ={links}/>
-            <div> This is a dashboard</div>
+            <BookingList bookings = {bookings}/>
+            <BookingCreator/>
         </div>
     )
 }
