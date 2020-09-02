@@ -3,13 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-<<<<<<< HEAD
     "axios": "^0.20.0",
-=======
     "babel": "^6.23.0",
     "boostrap": "^2.0.0",
     "bootstrap": "^4.5.2",
->>>>>>> eadd79a3f877a8ecc13c3781c6e91f5073b8d57b
     "react": "^16.13.1",
     "react-bootstrap": "^1.3.0",
     "react-dom": "^16.13.1",
