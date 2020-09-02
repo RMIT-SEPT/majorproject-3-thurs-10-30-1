@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import schedule.microservice.WorkerMicro;
 import schedule.model.Worker;
+import schedule.model.AccountType;
 import schedule.model.User;
 
 import javax.validation.Valid;
@@ -28,6 +29,7 @@ public class WorkerController {
         if (result.hasErrors()){
             return new ResponseEntity<>("Invalid User Object", HttpStatus.BAD_REQUEST);
         }
+        user.setAccountType(AccountType.Worker);
         Worker worker = workerMicro.saveOrUpdate(new Worker(user.getUserId(), user));
         return new ResponseEntity<>(worker, HttpStatus.CREATED);
     }
@@ -35,7 +37,8 @@ public class WorkerController {
     @GetMapping("/{id}")
     public ResponseEntity<?> getWorkerById(@PathVariable long id)
     {
-        return workerMicro.workerExistsById(id) ? new ResponseEntity<>(workerMicro.getWorkerById(id).get(0), HttpStatus.FOUND) : 
+        Worker worker = workerMicro.getWorkerById(id);
+        return worker != null ? new ResponseEntity<>(worker, HttpStatus.FOUND) : 
             new ResponseEntity<>("User not found", HttpStatus.BAD_REQUEST);
     }
 }
