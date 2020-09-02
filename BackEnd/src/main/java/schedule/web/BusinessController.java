@@ -26,7 +26,7 @@ public class BusinessController {
     @PostMapping("")
     public ResponseEntity<?> createNewBusiness(@Valid @RequestBody Business business, BindingResult result) {
         if (result.hasErrors()){
-            return new ResponseEntity<>("Invalid Booking Object", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("Invalid Business Object", HttpStatus.BAD_REQUEST);
         }
         Business newBusiness = businessMicro.saveOrUpdate(business);
         return new ResponseEntity<>(newBusiness, HttpStatus.CREATED);
