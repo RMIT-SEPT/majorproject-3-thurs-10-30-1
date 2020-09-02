@@ -1,7 +1,7 @@
 package schedule.model;
 
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class Admin
@@ -12,13 +12,21 @@ public class Admin
     @MapsId
     @JoinColumn(name = "admin_id")
     @OneToOne(optional = false)
-    @NotBlank(message = "A user account is required")
+    @NotNull(message = "A user account is required")
     private User user;
 
     public Admin() {}
 
-    public Admin(Long id, @NotBlank(message = "A user account is required") User user) {
+    public Admin(Long id, @NotNull(message = "A user account is required") User user) {
         this.id = id;
         this.user = user;
-    };
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public User getUser() {
+        return user;
+    }
 }

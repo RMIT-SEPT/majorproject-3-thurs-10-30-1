@@ -5,11 +5,6 @@ import org.springframework.stereotype.Service;
 import schedule.model.User;
 import schedule.repositories.UserRepo;
 
-import java.security.PublicKey;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-
 @Service
 public class UserMicro {
     @Autowired
@@ -21,11 +16,9 @@ public class UserMicro {
         return userRepo.save(user);
     }
 
-    public ArrayList<User> getUserById(long id)
+    public User getUserById(long id)
     {
-        ArrayList<Long> ids = new ArrayList<>();
-        ids.add(id);
-        return userRepo.findAllById(ids);
+        return userRepo.findById(id).orElse(null);
     }
 
     public boolean userExistsById(long id)
@@ -33,8 +26,18 @@ public class UserMicro {
         return userRepo.existsById(id);
     }
 
+    public User getUserByUsername(String username)
+    {
+        return userRepo.findByUsername(username);
+    }
 
+    public User getUserByEmail(String email)
+    {
+        return userRepo.findByEmail(email);
+    }
 
-
-
+    public User getUserByUsernameOrEmail(String identifier)
+    {
+        return userRepo.findByUsernameOrEmail(identifier);
+    }
 }
