@@ -3,7 +3,8 @@ package schedule.model.service;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
-@Entity
+@Entity(name = "schedule_service")
+@Table(name = "SERVICES")
 public class ScheduleService
 {
     @Id
