@@ -18,6 +18,113 @@
   font-size: large;
 }
 
+.bg-darkBlue
+{
+  background-color: #303C63;
+}
+
+.homeContainer
+{
+  height: 100%;
+}
+
+.loginContainer
+{
+    background-image: url(./media/background1.png);
+    background-color: rgba(52, 52, 52, 0.1);
+    display: inline-block;
+    padding: 21% 10% 35%;
+    margin-top: 0;
+  position: relative;
+  float: right;
+  width: 55%;
+  height: 100%;
+    border-left: 1px solid #000000;
+  box-sizing: border-box;
+    align-content: center;
+    text-align: center;
+}
+
+
+
+.loginItem
+{
+    padding-bottom: 5%;
+    color: green;
+}
+
+
+.aboutContainer
+{
+  display: inline;
+  float: left;
+  margin-top: 10%;
+  margin-left: 4%;
+  margin-right: 1%;
+  width:40%;
+}
+
+.darkTextBox
+{
+    margin-top: 5%;
+    color: #FFFFFF;
+    background-color: #303C63;
+    font-size: x-large;
+    text-align: center;
+    width: 90%;
+    border-radius: 12px;
+
+}
+
+.fittedImage
+{
+    width: 90%;
+    height: 90%;
+}
+
+.logoImage
+{
+    width: 40px;
+    height: 40px;
+    margin-top: -5%;
+}
+
+.regLink {
+    color: black;
+    font-size: x-large;
+    width: 90%;
+    opacity: .5;
+}
+
+.regLink:hover
+{
+    color: red;
+    font-size: x-large;
+    width: 90%;
+    opacity: .8;
+}
+
+
+.myHeader
+{
+    font-size: 50px;
+    font-style: normal;
+    font-weight: bold;
+    text-align: center;
+    color: #000000;
+    padding-bottom: 10%;
+}
+
+.transparentDiv
+{
+    opacity: .8;
+}
+
+
+
+
+
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
