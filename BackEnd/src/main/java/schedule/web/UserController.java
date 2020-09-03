@@ -14,6 +14,7 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api/user")
+@CrossOrigin(origins = "http://localhost:3000")
 public class UserController {
 
     @Autowired
@@ -44,7 +45,7 @@ public class UserController {
         else return new ResponseEntity<>("username or email not provided", HttpStatus.BAD_REQUEST);
         if (json.containsKey("password"))
             return user != null && user.getPassword().equals(json.get("password")) ? new ResponseEntity<>(true, HttpStatus.ACCEPTED) :
-                new ResponseEntity<>(false, HttpStatus.NOT_ACCEPTABLE);
+                new ResponseEntity<>(false, HttpStatus.OK);
         else return new ResponseEntity<>("Password not provided", HttpStatus.BAD_REQUEST);
     }
 
