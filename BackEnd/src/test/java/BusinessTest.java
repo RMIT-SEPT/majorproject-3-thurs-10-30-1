@@ -48,7 +48,8 @@ public class BusinessTest {
             e.printStackTrace();
         }
         HttpEntity<String> request = new HttpEntity<>(business.toString(), headers);
-        ResponseEntity<String> responseEntityStr = restTemplate.postForEntity("http://localhost:" + port + "/api/business", request, String.class);
+        String url = "http://localhost:" + port + "/api/business";
+        ResponseEntity<String> responseEntityStr = restTemplate.postForEntity(url, request, String.class);
         boolean created = responseEntityStr.getStatusCode().equals(HttpStatus.CREATED);
         String message = responseEntityStr.getBody();
         System.out.println(port);
