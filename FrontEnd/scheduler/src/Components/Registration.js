@@ -13,6 +13,11 @@ function Registration()
         <div>
         <AGMEnav links={links} />
         <div> THIS IS WHERE THE REG FORM WILL BE</div>
+            <form>
+            <div>
+                going to put fields here
+            </div></form>
+
             <DarkButton label={label} />
         </div>
     )
