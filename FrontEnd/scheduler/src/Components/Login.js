@@ -32,7 +32,9 @@ class Login extends Component
             return (
                 <div className="loginContainer">
                     <h1 className="myHeader"> SIGN IN</h1>
+
                     <Form className="mr-auto" onSubmit={this.handleSubmit}>
+
                         <div className="transparentDiv">
                             <Form.Group controlId="formBasicEmail">
                                 {/*<Form.Label>Email address</Form.Label>*/}
