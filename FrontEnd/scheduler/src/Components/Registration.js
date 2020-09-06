@@ -1,26 +1,36 @@
-import React from "react";
+import React, {Component} from "react";
 import AGMEnav from "./AGMEnav";
 import DarkButton from "./DarkButton";
+import {userLogin} from "../actions/userActions";
+import Form from "react-bootstrap/Form";
+import {Link} from "react-router-dom";
+import RegForm from "./RegForm";
 
-function Registration()
+class Registration extends Component
 {
-    let links = [
-        {label: 'Home', link: '/'},
-        {label: 'Testing a Link', link: '/'},
-    ]
-    let label = {label: 'Register', link: '/'}
-    return (
-        <div>
-        <AGMEnav links={links} />
-        <div> THIS IS WHERE THE REG FORM WILL BE</div>
-            <form>
-            <div>
-                going to put fields here
-            </div></form>
+    constructor(props)
+    {
+        super(props);
+    }
 
-            <DarkButton label={label} />
-        </div>
-    )
+    render() {
+        let label = {label: 'Register', link: '/'};
+
+        let links =
+            [
+                {label: 'Home', link: '/'},
+                {label: 'Testing a Link', link: '/'},
+            ]
+
+        return (
+            <div>
+                <AGMEnav links={links}/>
+                <div className="regFormDiv">
+                <RegForm/>
+                </div>
+            </div>
+        )
+    }
 }
 
 export default Registration;

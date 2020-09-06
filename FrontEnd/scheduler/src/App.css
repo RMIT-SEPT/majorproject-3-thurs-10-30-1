@@ -120,6 +120,16 @@
     opacity: .8;
 }
 
+.regFormDiv
+{
+    width: 60%;
+    float: inside;
+    align-content: center;
+    align-items: center;
+    margin-left: 20%;
+    margin-top: 10%;
+}
+
 
 
 
