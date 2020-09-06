@@ -2,6 +2,7 @@ import React, {Component, useState} from 'react';
 import Form from 'react-bootstrap/Form';
 import {Link} from "react-router-dom";
 import DarkButton from "./DarkButton";
+import {userLogin} from "../actions/userActions";
 
 class Login extends Component
 {
@@ -25,6 +26,18 @@ class Login extends Component
         handleSubmit= (e) =>
         {
             //send the username and password to the backend to be verified
+            e.preventDefault();
+            const details =
+            {
+                identifier: this.state.email,
+                password: this.state.password
+            }
+            userLogin(details).then(value =>
+                {
+                    // value is the return of userLogin
+                    console.log(`value is: ${value}`);
+                }
+            );
         }
 
         render() {
@@ -50,7 +63,8 @@ class Login extends Component
                             <br/>
                         </div>
                         <Link to="/register" className="regLink"> No Account? Register here! </Link>
-                        <DarkButton label={label}/>
+                        {/* <DarkButton label={label}/> */}
+                        <input type="submit" value="Login"></input>
                     </Form>
                 </div>
             )
