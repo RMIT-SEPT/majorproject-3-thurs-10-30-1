@@ -43,8 +43,9 @@ class RegForm extends Component
     render() {
         let label = {label: 'I dont rly work yet', link: '/register'};
         return (
-            <div>
-                <Form className="mr-auto" onSubmit={this.handleSubmit}>
+            <div className="regFormDiv">
+                <h1 className="myHeader"> Register Here!</h1>
+                <Form className="ml-auto" onSubmit={this.handleSubmit}>
                     <div className="transparentDiv">
                         <Form.Group>
                             <Form.Control type="text" placeholder="Username: " value={this.state.username} onChange={this.onChange}/>
@@ -67,9 +68,8 @@ class RegForm extends Component
                             <Form.Control type="password" placeholder="Password" name="password" value={this.state.password} onChange={this.onChange}/>
                         </Form.Group>
                     </div>
-
+                    <DarkButton label={label}/>
                 </Form>
-                <DarkButton label={label}/>
             </div>
         )
     }

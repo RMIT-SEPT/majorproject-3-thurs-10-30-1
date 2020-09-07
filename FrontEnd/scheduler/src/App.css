@@ -18,6 +18,10 @@
   font-size: large;
 }
 
+html, body, #root, .App {
+    height: 100%;
+}
+
 .bg-darkBlue
 {
   background-color: #303C63;
@@ -35,16 +39,15 @@
     display: inline-block;
     padding: 21% 10% 35%;
     margin-top: 0;
-  position: relative;
-  float: right;
-  width: 55%;
-  height: 100%;
+    position: relative;
+    float: right;
+    width: 55%;
+    height: 95%;
     border-left: 1px solid #000000;
-  box-sizing: border-box;
+    box-sizing: border-box;
     align-content: center;
     text-align: center;
 }
-
 
 
 .loginItem
@@ -73,7 +76,6 @@
     text-align: center;
     width: 90%;
     border-radius: 12px;
-
 }
 
 .fittedImage
@@ -120,15 +122,19 @@
     opacity: .8;
 }
 
+.wholeReg
+{
+    background-image: url(./media/background3.png);
+    height: 99%;
+}
+
 .regFormDiv
 {
     width: 60%;
-    float: inside;
-    align-content: center;
-    align-items: center;
     margin-left: 20%;
     margin-top: 10%;
 }
+
 
 
 

@@ -64,6 +64,7 @@ class Login extends Component
                         </div>
                         <Link to="/register" className="regLink"> No Account? Register here! </Link>
                         {/* <DarkButton label={label}/> */}
+                        <br/>
                         <input type="submit" value="Login"></input>
                     </Form>
                 </div>

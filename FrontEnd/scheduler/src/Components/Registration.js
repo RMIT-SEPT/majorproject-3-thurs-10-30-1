@@ -1,21 +1,9 @@
-import React, {Component} from "react";
+import React from "react";
 import AGMEnav from "./AGMEnav";
-import DarkButton from "./DarkButton";
-import {userLogin} from "../actions/userActions";
-import Form from "react-bootstrap/Form";
-import {Link} from "react-router-dom";
 import RegForm from "./RegForm";
 
-class Registration extends Component
+export default function Registration(props)
 {
-    constructor(props)
-    {
-        super(props);
-    }
-
-    render() {
-        let label = {label: 'Register', link: '/'};
-
         let links =
             [
                 {label: 'Home', link: '/'},
@@ -23,14 +11,10 @@ class Registration extends Component
             ]
 
         return (
-            <div>
+            <div className="wholeReg">
                 <AGMEnav links={links}/>
-                <div className="regFormDiv">
-                <RegForm/>
-                </div>
+                <RegForm  />
             </div>
         )
-    }
-}
 
-export default Registration;
+}
