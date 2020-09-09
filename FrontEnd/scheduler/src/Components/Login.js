@@ -41,7 +41,7 @@ class Login extends Component
         }
 
         render() {
-            let label = {label: 'Login', link: '/dashboard'}
+            let label = {label: 'straight2dash', link: '/dashboard'}
             return (
                 <div className="loginContainer">
                     <h1 className="myHeader"> SIGN IN</h1>
@@ -63,7 +63,7 @@ class Login extends Component
                             <br/>
                         </div>
                         <Link to="/register" className="regLink"> No Account? Register here! </Link>
-                        {/* <DarkButton label={label}/> */}
+                         <DarkButton label={label}/>
                         <br/>
                         <input type="submit" value="Login"></input>
                     </Form>
