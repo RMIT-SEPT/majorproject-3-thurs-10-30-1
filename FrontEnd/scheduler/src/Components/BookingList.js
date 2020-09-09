@@ -10,9 +10,12 @@ class BookingList extends Component
         {
             return(
                 <h4 className="booking"> 
-                <center> Test: {booking.customerName} 
-                Test2: {booking.workerName} 
-                Test3: {booking.service} </center> 
+                <center>
+                Staff Memeber: {booking.workerName} 
+                Service: {booking.service} 
+                Time: {booking.time}
+                Date: {booking.date}
+                </center> 
                 </h4>
             );
         });
