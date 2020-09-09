@@ -36,6 +36,7 @@ class Login extends Component
                 {
                     // value is the return of userLogin
                     console.log(`value is: ${value}`);
+                    if (value == true) window.location.href = "/dashboard";
                 }
             );
         }
