@@ -2,3 +2,4 @@ target/
 bin/
 .idea/
 .project
+.settings/
