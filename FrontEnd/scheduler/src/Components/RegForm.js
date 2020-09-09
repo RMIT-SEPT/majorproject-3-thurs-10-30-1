@@ -1,6 +1,6 @@
 import Form from "react-bootstrap/Form";
 import React, {Component} from "react";
-import DarkButton from "./DarkButton";
+import {userCreate} from "../actions/userActions";
 
 class RegForm extends Component
 {
@@ -27,21 +27,23 @@ class RegForm extends Component
     handleSubmit= (e) =>
     {
         e.preventDefault();
-        const details =
+        const user =
             {
-                // identifier: this.state.email,
-                // password: this.state.password
+                name: this.state.name,
+                username: this.state.username,
+                contactNumber: this.state.contactNumber,
+                email: this.state.email,
+                password: this.state.password
             }
-        //userLogin(details).then(value =>
+        userCreate(user).then(value =>
         {
             // value is the return of userLogin
-            //console.log(`value is: ${value}`);
+            console.log(`value is: ${value}`);
         }
-        //);
+        );
     }
 
     render() {
-        let label = {label: 'I dont rly work yet', link: '/register'};
         return (
             <div className="regFormDiv">
                 <h1 className="myHeader"> Register Here!</h1>
@@ -68,7 +70,7 @@ class RegForm extends Component
                             <Form.Control type="password" placeholder="Password" name="password" value={this.state.password} onChange={this.onChange}/>
                         </Form.Group>
                     </div>
-                    <DarkButton label={label}/>
+                    <input type="submit" value="Register"/>
                 </Form>
             </div>
         )

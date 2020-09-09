@@ -50,7 +50,6 @@ class Login extends Component
 
                         <div className="transparentDiv">
                             <Form.Group controlId="formBasicEmail">
-                                {/*<Form.Label>Email address</Form.Label>*/}
                                 <Form.Control type="email" placeholder="Enter email" value={this.state.email}
                                               onChange={this.onChange} name="email"/>
                             </Form.Group>
@@ -65,7 +64,7 @@ class Login extends Component
                         <Link to="/register" className="regLink"> No Account? Register here! </Link>
                          <DarkButton label={label}/>
                         <br/>
-                        <input type="submit" value="Login"></input>
+                        <input type="submit" value="Login"/>
                     </Form>
                 </div>
             )
