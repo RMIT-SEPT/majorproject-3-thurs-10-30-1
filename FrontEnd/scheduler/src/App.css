@@ -129,7 +129,7 @@ html, body, #root, .App {
 }
 
 
-@keyframes App-logo-spin 
+@keyframes App-logo-spin
 {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
@@ -147,15 +147,17 @@ html, body, #root, .App {
 }
 
 /* Customer Dashboard */
-.booking 
-{
-  width: 95%;
-  height: 15mm;
-  margin-left: 5mm;
-  outline-style: solid;
-  background: #F2F2F2;
-  line-height: 55px;
+.booking {
+    font-size: medium;
+    width: 95%;
+    height: 15mm;
+    margin-left: 5mm;
+    margin-bottom: 6%;
+    outline-style: solid;
+    background-color: #F2F2F2;
+    line-height: 55px;
 }
+
 .regFormDiv
 {
     width: 60%;
@@ -173,16 +175,16 @@ html, body, #root, .App {
   margin-right: 3%;
   margin-top:10%;
 }
-  
+
 /* Customer Dashboard */
 .dashboardContainer
 {
   background-image: url(./media/background1.png);
   width: 100%;
   height: 100%;
-  position: relative; 
+  position: relative;
 }
-  
+
 /* Customer Dashboard */
 .bookingListHeader
 {
@@ -193,7 +195,7 @@ html, body, #root, .App {
     color: #000000;
     padding-bottom: 3%;
 }
-  
+
 .availableServices
 {
 margin-left: 40%;
