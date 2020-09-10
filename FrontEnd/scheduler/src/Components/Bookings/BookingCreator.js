@@ -4,13 +4,17 @@ import DarkButton from "../Generics/DarkButton";
 
 class BookingCreator extends Component
 {
-    render() {
+    //onclick sets the selected service as the session currentService
+    render()
+    {
+        //getAllServices from the database
         let services = this.props.services.map((service) =>
         {
             return (<option value={service.businessName}>{service.businessName} </option>);
 
         });
-        let label = {label: 'Show All Available', link: '/'}
+
+        let label = {label: 'Show All Available', link: '/booking/worker'}
 
     return (
         <div className = "bookingCreator">
