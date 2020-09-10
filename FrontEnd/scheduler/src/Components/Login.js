@@ -63,7 +63,7 @@ class Login extends Component
                             <br/>
                         </div>
                         <Link to="/register" className="regLink"> No Account? Register here! </Link>
-                        {/* <DarkButton label={label}/> */}
+                        <DarkButton label={label}/>
                         <br/>
                         <input type="submit" value="Login"></input>
                     </Form>
