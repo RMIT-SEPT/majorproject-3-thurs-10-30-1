@@ -147,14 +147,16 @@ html, body, #root, .App {
 }
 
 /* Customer Dashboard */
-.booking 
-{
-  width: 95%;
-  height: 15mm;
-  margin-left: 5mm;
-  outline-style: solid;
-  background: #F2F2F2;
-  line-height: 55px;
+.booking {
+    font-size: medium;
+    width: 95%;
+    height: 15mm;
+    margin-left: 5mm;
+    margin-bottom: 6%;
+    outline-style: solid;
+    background-color: #F2F2F2;
+    line-height: 55px;
+}
 
 .regFormDiv
 {
