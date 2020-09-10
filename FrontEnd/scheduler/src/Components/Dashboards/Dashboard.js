@@ -1,7 +1,8 @@
 import React from "react";
-import AGMEnav from "./AGMEnav";
-import BookingList from "./BookingList";
-import BookingCreator from "./BookingCreator";
+
+import BookingCreator from "../Bookings/BookingCreator";
+import AGMEnav from "../Generics/AGMEnav";
+import BookingList from "../Bookings/BookingList";
 
 export default function Dashboard(props)
 {

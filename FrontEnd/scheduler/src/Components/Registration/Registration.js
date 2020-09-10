@@ -1,6 +1,6 @@
 import React from "react";
-import AGMEnav from "./AGMEnav";
 import RegForm from "./RegForm";
+import AGMEnav from "../Generics/AGMEnav";
 
 export default function Registration(props)
 {

@@ -1,8 +1,9 @@
 import React, {Component, useState} from 'react';
 import Form from 'react-bootstrap/Form';
 import {Link} from "react-router-dom";
-import DarkButton from "./DarkButton";
-import {userLogin} from "../actions/userActions";
+import {userLogin} from "../../actions/userActions";
+import DarkButton from "../Generics/DarkButton";
+
 
 class Login extends Component
 {

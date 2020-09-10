@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import '../App.css';
-import DarkButton from "./DarkButton";
+import DarkButton from "../Generics/DarkButton";
+
 
 class BookingCreator extends Component
 {
@@ -23,6 +23,5 @@ class BookingCreator extends Component
     )
 }
 }
-
 
 export default BookingCreator;

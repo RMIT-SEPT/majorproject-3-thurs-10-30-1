@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import './App.css';
-import Home from "./Components/Home";
-import Registration from "./Components/Registration";
 import {BrowserRouter as Router, Route} from "react-router-dom";
-import Dashboard from "./Components/Dashboard";
-import Profile from "./Components/Profile";
+import Home from "./Components/HomePage/Home";
+import Dashboard from "./Components/Dashboards/Dashboard";
+import Profile from "./Components/Profile/Profile";
+import Registration from "./Components/Registration/Registration";
 
 class App extends Component {
     state =

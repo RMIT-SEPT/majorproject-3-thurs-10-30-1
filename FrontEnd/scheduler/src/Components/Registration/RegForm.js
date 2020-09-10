@@ -1,6 +1,6 @@
 import Form from "react-bootstrap/Form";
 import React, {Component} from "react";
-import {userCreate} from "../actions/userActions";
+import {userCreate} from "../../actions/userActions";
 
 class RegForm extends Component
 {
