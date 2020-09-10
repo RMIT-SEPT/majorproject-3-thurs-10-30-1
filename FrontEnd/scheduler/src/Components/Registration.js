@@ -1,21 +1,20 @@
 import React from "react";
 import AGMEnav from "./AGMEnav";
-import DarkButton from "./DarkButton";
+import RegForm from "./RegForm";
 
-function Registration()
+export default function Registration(props)
 {
-    let links = [
-        {label: 'Home', link: '/'},
-        {label: 'Testing a Link', link: '/'},
-    ]
-    let label = {label: 'Register', link: '/'}
-    return (
-        <div>
-        <AGMEnav links={links} />
-        <div> THIS IS WHERE THE REG FORM WILL BE</div>
-            <DarkButton label={label} />
-        </div>
-    )
-}
+        let links =
+            [
+                {label: 'Home', link: '/'},
+                {label: 'Testing a Link', link: '/'},
+            ]
 
-export default Registration;
+        return (
+            <div className="wholeReg">
+                <AGMEnav links={links}/>
+                <RegForm  />
+            </div>
+        )
+
+}

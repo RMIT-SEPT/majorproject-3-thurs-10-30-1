@@ -18,6 +18,10 @@
   font-size: large;
 }
 
+html, body, #root, .App {
+    height: 100%;
+}
+
 .bg-darkBlue
 {
   background-color: #303C63;
@@ -31,20 +35,19 @@
 .loginContainer
 {
     background-image: url(./media/background1.png);
-    background-color: rgba(52, 52, 52, 0.1);
+    background-size: 200%;
     display: inline-block;
     padding: 21% 10% 35%;
     margin-top: 0;
-  position: relative;
-  float: right;
-  width: 55%;
-  height: 100%;
+    position: relative;
+    float: right;
+    width: 55%;
+    height: 95%;
     border-left: 1px solid #000000;
-  box-sizing: border-box;
+    box-sizing: border-box;
     align-content: center;
     text-align: center;
 }
-
 
 
 .loginItem
@@ -73,7 +76,6 @@
     text-align: center;
     width: 90%;
     border-radius: 12px;
-
 }
 
 .fittedImage
@@ -104,7 +106,6 @@
     opacity: .8;
 }
 
-
 .myHeader
 {
     font-size: 50px;
@@ -120,10 +121,19 @@
     opacity: .8;
 }
 
+.wholeReg
+{
+    background-image: url(./media/background3.png);
+    background-size: 150% 100% ;
+    height: 100%;
+}
 
-
-
-
+.regFormDiv
+{
+    width: 60%;
+    margin-left: 20%;
+    margin-top: 10%;
+}
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
