@@ -11,7 +11,8 @@ function Home(props)
         {label: 'Register', link: '/register'}
     ]
 
-    return (<div className="homeContainer">
+    return (
+        <div className="homeContainer">
         <AGMEnav links={links} />
         <About/>
         <Login />
