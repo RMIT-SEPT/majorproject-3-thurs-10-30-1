@@ -35,7 +35,7 @@ html, body, #root, .App {
 .loginContainer
 {
     background-image: url(./media/background1.png);
-    background-color: rgba(52, 52, 52, 0.1);
+    background-size: 200%;
     display: inline-block;
     padding: 21% 10% 35%;
     margin-top: 0;
@@ -106,7 +106,6 @@ html, body, #root, .App {
     opacity: .8;
 }
 
-
 .myHeader
 {
     font-size: 50px;
@@ -125,8 +124,37 @@ html, body, #root, .App {
 .wholeReg
 {
     background-image: url(./media/background3.png);
-    height: 99%;
+    background-size: 150% 100% ;
+    height: 100%;
 }
+
+
+@keyframes App-logo-spin 
+{
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
+/* Customer Dashboard */
+.bookingList
+{
+  width: 55%;
+  float: left;
+  height: 700px;
+  outline-style: solid;
+  margin-left: 3%;
+  margin-top:2%;
+}
+
+/* Customer Dashboard */
+.booking 
+{
+  width: 95%;
+  height: 15mm;
+  margin-left: 5mm;
+  outline-style: solid;
+  background: #F2F2F2;
+  line-height: 55px;
 
 .regFormDiv
 {
@@ -135,13 +163,39 @@ html, body, #root, .App {
     margin-top: 10%;
 }
 
-
-
-
-
-
-
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+/* Customer Dashboard */
+.bookingCreator
+{
+  width: 36%;
+  height: 400px;
+  float: right;
+  outline: solid;
+  margin-right: 3%;
+  margin-top:10%;
+}
+  
+/* Customer Dashboard */
+.dashboardContainer
+{
+  background-image: url(./media/background1.png);
+  width: 100%;
+  height: 100%;
+  position: relative; 
+}
+  
+/* Customer Dashboard */
+.bookingListHeader
+{
+    font-size: 45px;
+    font-style: normal;
+    font-weight: bold;
+    text-align: center;
+    color: #000000;
+    padding-bottom: 3%;
+}
+  
+.availableServices
+{
+margin-left: 40%;
+margin-top:20%;
 }

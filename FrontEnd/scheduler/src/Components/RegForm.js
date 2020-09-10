@@ -1,6 +1,6 @@
 import Form from "react-bootstrap/Form";
 import React, {Component} from "react";
-import DarkButton from "./DarkButton";
+import {userCreate} from "../actions/userActions";
 
 class RegForm extends Component
 {
@@ -27,28 +27,30 @@ class RegForm extends Component
     handleSubmit= (e) =>
     {
         e.preventDefault();
-        const details =
+        const user =
             {
-                // identifier: this.state.email,
-                // password: this.state.password
+                name: this.state.name,
+                username: this.state.username,
+                contactNumber: this.state.contactNumber,
+                email: this.state.email,
+                password: this.state.password
             }
-        //userLogin(details).then(value =>
+        userCreate(user).then(value =>
         {
             // value is the return of userLogin
-            //console.log(`value is: ${value}`);
+            console.log(`value is: ${value}`);
         }
-        //);
+        );
     }
 
     render() {
-        let label = {label: 'I dont rly work yet', link: '/register'};
         return (
             <div className="regFormDiv">
                 <h1 className="myHeader"> Register Here!</h1>
-                <Form className="ml-auto" onSubmit={this.handleSubmit}>
+                <Form className="mr-auto" onSubmit={this.handleSubmit}>
                     <div className="transparentDiv">
                         <Form.Group>
-                            <Form.Control type="text" placeholder="Username: " value={this.state.username} onChange={this.onChange}/>
+                            <Form.Control type="text" placeholder="Username: " value={this.state.username} onChange={this.onChange} name ="username"/>
 
                         </Form.Group>
 
@@ -57,18 +59,18 @@ class RegForm extends Component
                         </Form.Group>
 
                         <Form.Group>
-                            <Form.Control type="text" placeholder="Person Name: " value={this.state.name} onChange={this.onChange}/>
+                            <Form.Control type="text" placeholder="Person Name: " value={this.state.name} onChange={this.onChange} name="name"/>
                         </Form.Group>
 
-                        <Form.Group>
-                            <Form.Control type="number" placeholder="Contact Number: " value={this.state.contactNumber} onChange={this.onChange}/>
+                        <Form.Group >
+                            <Form.Control type="text" placeholder="Contact Number: " value={this.state.contactNumber} onChange={this.onChange} name="contactNumber"/>
                         </Form.Group>
 
                         <Form.Group controlId="formBasicPassword">
                             <Form.Control type="password" placeholder="Password" name="password" value={this.state.password} onChange={this.onChange}/>
                         </Form.Group>
                     </div>
-                    <DarkButton label={label}/>
+                    <input type="submit" value="Register"/>
                 </Form>
             </div>
         )
