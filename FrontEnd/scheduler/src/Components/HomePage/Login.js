@@ -32,6 +32,7 @@ class Login extends Component
                 identifier: this.state.email,
                 password: this.state.password
             }
+
             //error checking before
             userLogin(details).then(res =>
             {

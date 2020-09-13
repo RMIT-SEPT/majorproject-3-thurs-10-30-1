@@ -48,7 +48,8 @@ export function userLogin(details)
 
 export function userCreate(user)
 {
-    try{
+    try
+    {
         return axios.post("http://localhost:8080/api/user", user);
     }
     catch (err)
