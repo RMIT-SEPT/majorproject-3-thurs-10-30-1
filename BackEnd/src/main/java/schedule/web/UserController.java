@@ -44,7 +44,7 @@ public class UserController {
         if (json.containsKey("identifier")) user = userMicro.getUserByUsernameOrEmail(json.get("identifier"));
         else return new ResponseEntity<>("username or email not provided", HttpStatus.BAD_REQUEST);
         if (json.containsKey("password"))
-            return user != null && user.getPassword().equals(json.get("password")) ? new ResponseEntity<>(true, HttpStatus.ACCEPTED) :
+            return user != null && user.getPassword().equals(json.get("password")) ? new ResponseEntity<>(user, HttpStatus.ACCEPTED) :
                 new ResponseEntity<>(false, HttpStatus.OK);
         else return new ResponseEntity<>("Password not provided", HttpStatus.BAD_REQUEST);
     }
