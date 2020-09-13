@@ -1,8 +1,7 @@
-import React, {Component, useState} from 'react';
+import React, {Component} from 'react';
 import Form from 'react-bootstrap/Form';
 import {Link} from "react-router-dom";
 import {userLogin} from "../../actions/userActions";
-import DarkButton from "../Generics/DarkButton";
 
 
 class Login extends Component
@@ -33,16 +32,23 @@ class Login extends Component
                 identifier: this.state.email,
                 password: this.state.password
             }
-            userLogin(details).then(value =>
+            //error checking before
+            userLogin(details).then(res =>
+            {
+                console.log(res.data);
+                if(res.data===true)
                 {
-                    // value is the return of userLogin
-                    console.log(`value is: ${value}`);
+                    console.log("its good");
+                    this.props.handleAuth(res.data);
                 }
-            );
+                else
+                {
+                    console.log("run some errors")
+                }
+            });
         }
 
         render() {
-            let label = {label: 'straight2dash', link: '/dashboard'}
             return (
                 <div className="loginContainer">
                     <h1 className="myHeader"> SIGN IN</h1>
@@ -63,7 +69,7 @@ class Login extends Component
                             <br/>
                         </div>
                         <Link to="/register" className="regLink"> No Account? Register here! </Link>
-                        <DarkButton label={label}/>
+
                         <br/>
                         <input type="submit" value="Login"/>
                     </Form>

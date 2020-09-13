@@ -10,7 +10,7 @@ let links = [
 export default function Profile(props) {
     return (
         <div>
-            <AGMEnav links={links} />
+            <AGMEnav loggedIn={this.props.loggedIn}/>
 
             <Container fluid>
                 <Row>

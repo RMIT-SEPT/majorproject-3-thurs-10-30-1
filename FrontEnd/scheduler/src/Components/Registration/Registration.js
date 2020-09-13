@@ -37,27 +37,17 @@ class Registration extends Component
                 email: this.state.email,
                 accountType:2
             }
-        userCreate(user).then(value =>
-            {
-                // value is the return of userLogin
-                console.log(`name is is: ${value.name}`);
-                console.log(`email is is: ${value.email}`);
-                //add the details to a session
-            }
+
+        userCreate(user).then(res =>
+        console.log(res.data)
         );
         this.props.history.push("/");
     }
 
     render() {
-        let links =
-            [
-                {label: 'Home', link: '/'},
-                {label: 'Testing a Link', link: '/'},
-            ]
-
         return (
             <div className="wholeReg">
-                <AGMEnav links={links}/>
+                <AGMEnav loggedIn={this.props.loggedIn}/>
                 <div className="regFormDiv">
                     <h1 className="myHeader"> Register Here!</h1>
                     <Form className="mr-auto" onSubmit={this.handleSubmit}>

@@ -7,19 +7,57 @@ import Profile from "./Components/Profile/Profile";
 import Registration from "./Components/Registration/Registration";
 
 class App extends Component {
-    state =
-        {
-            loggedIn:false
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            loggedIn: "NOT_LOGGED_IN",
+            user: {}
         }
+        this.handleLogin=this.handleLogin.bind(this);
+    }
+
+    handleLogin(data)
+    {
+        this.setState({
+            loggedIn: "LOGGED_IN",
+            user: data
+            }
+        )
+    }
 
   render()
   {
     return (
         <Router>
-            <Route exact path="/" component={Home}/>
-            <Route exact path="/register" component={Registration}/>
-            <Route exact path="/dashboard" component={Dashboard}/>
-            <Route exact path="/profile" component ={Profile}/>
+            <Route
+                exact path="/"
+                render= {props => (
+                    <Home{...props} handleLogin={this.handleLogin} loggedIn = {this.state.loggedIn} />
+                )}
+            />
+
+            <Route
+                exact path="/register"
+                render={props =>  (
+                    <Registration {...props} loggedIn = {this.props.loggedIn} />
+                    )}
+                />
+
+            <Route
+                exact path="/dashboard"
+                render={props =>  (
+                    <Dashboard {...props} loggedIn = {this.props.loggedIn} />
+                )}
+            />
+
+            <Route
+                exact path="/profile"
+                render={props =>  (
+                    <Profile {...props} loggedIn = {this.props.loggedIn} />
+                )}
+            />
         </Router>
     );
   }

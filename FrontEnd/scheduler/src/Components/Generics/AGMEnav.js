@@ -6,6 +6,7 @@ import '../../App.css';
 import styled from 'styled-components';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Logo from  "../../media/Logo(Text).png"
+import {Link} from "react-router-dom";
 
 
 const StyledNav = styled.div`
@@ -24,19 +25,35 @@ const StyledNav = styled.div`
   {
     color: black;
   }
-  
 `;
 
 class AGMEnav extends Component
 {
+    constructor(props)
+    {
+        super(props);
+        this.state =
+        {
+            loggedIn: props.loggedIn,
+            user: props.user
+        }
+    }
+
     render()
     {
-       let customLinks=this.props.links.map((link) =>
-        {
-            return(
-               <Nav.Link key={link.label} href={link.link} className="px-3"> {link.label}</Nav.Link>
-            );
-        });
+        const userLinks = (
+            <Nav className="m-auto">
+                <Link to="/"> Home</Link>
+                <Link to="/profile"> Profile </Link>
+                <Link to="/"> Logout </Link>
+            </Nav>
+        );
+        const guestLinks = (
+            <Nav className="m-auto">
+                <Link to="/"> Home </Link>
+                <Link to="/register"> Register </Link>
+            </Nav>
+        );
 
         return(
         <StyledNav>
@@ -44,11 +61,8 @@ class AGMEnav extends Component
             {/*put a logo here*/}
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Navbar.Brand href="/" > <img src={Logo} className="logoImage" alt ="logo"/> AGME </Navbar.Brand>
-                    <Nav className="m-auto">
-                    {customLinks}
-                    </Nav>
-
+                    <Navbar.Brand to="/" > <img src={Logo} className="logoImage" alt ="logo"/> AGME </Navbar.Brand>
+                    {this.props.loggedIn ? guestLinks : userLinks }
                     <Nav>
                     <NavDropdown title="Settings" className ="btn-group dropleft">
                         <NavDropdown.Item href="#action/3.1">Accessibility</NavDropdown.Item>
@@ -65,4 +79,5 @@ class AGMEnav extends Component
 
 }
 
-export default AGMEnav;
+
+export default (AGMEnav);

@@ -1,23 +1,31 @@
 
 import About from "./aboutUs";
 import Login from "./Login";
-import React from "react";
+import React, {Component} from "react";
 import AGMEnav from "../Generics/AGMEnav";
 
-function Home(props)
-{
-    let links = [
-        {label: 'Home', link: '/'},
-        {label: 'Testing a Link', link: '/'},
-        {label: 'Register', link: '/register'}
-    ]
+class Home extends Component {
+    constructor(props) {
+        super(props);
+        this.handleAuth = this.handleAuth.bind(this);
+    }
 
-    return (
-        <div className="homeContainer">
-        <AGMEnav links={links} />
-        <About/>
-        <Login />
-    </div>)
+    handleAuth(data)
+    {
+        this.props.history.push("/dashboard");
+        this.props.handleLogin(data.name);
+    }
+
+    render() {
+        return (
+            <div className="homeContainer">
+                <h1>Status: {this.props.loggedIn} </h1>
+                <h1>User: {this.props.user} </h1>
+                <AGMEnav loggedIn={this.props.loggedIn}/>
+                <About/>
+                <Login handleAuth={this.handleAuth} />
+            </div>)
+    }
 }
 
 export default Home;
