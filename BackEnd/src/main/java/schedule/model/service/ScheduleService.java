@@ -17,7 +17,7 @@ public class ScheduleService
     @NotBlank(message = "Description is required")
     private String description;
 
-    @Transient
+    @OneToOne(mappedBy = "", cascade = CascadeType.ALL)
     private TimeAvailability availability;
 
     public ScheduleService() {}
