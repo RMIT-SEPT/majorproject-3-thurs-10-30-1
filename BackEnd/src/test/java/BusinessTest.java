@@ -56,6 +56,20 @@ public class BusinessTest {
         Assertions.assertTrue(created);
     }
 
+
+    @Test
+    public void createBadBusiness() throws Exception {
+        HttpHeaders headers = new HttpHeaders();
+        headers.setContentType(MediaType.APPLICATION_JSON);
+        JSONObject business = new JSONObject("{\"name_bad\" : \"badBusiness\"}");
+        HttpEntity<String> request = new HttpEntity<>(business.toString(), headers);
+        String url = "http://localhost:" + port + "/api/business";
+        ResponseEntity<String> responseEntityStr = restTemplate.postForEntity(url, request, String.class);
+        boolean created = responseEntityStr.getStatusCode().equals(HttpStatus.BAD_REQUEST);
+        System.out.println(port);
+        Assertions.assertTrue(created);
+    }
+
     @Test
     public void getNewBusiness() throws Exception {
         // create business first
