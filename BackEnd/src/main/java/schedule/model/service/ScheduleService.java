@@ -1,5 +1,7 @@
 package schedule.model.service;
 
+import java.util.List;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
@@ -17,13 +19,14 @@ public class ScheduleService
     @NotBlank(message = "Description is required")
     private String description;
 
-    @OneToOne(mappedBy = "", cascade = CascadeType.ALL)
-    private TimeAvailability availability;
+    @OneToMany(mappedBy = "", cascade = CascadeType.ALL)
+    @JoinColumn(name = "service_id")
+    private List<TimeAvailability> availability;
 
     public ScheduleService() {}
 
     public ScheduleService(Long serviceId, @NotBlank(message = "Service name is required") String name,
-            @NotBlank(message = "Description is required") String description, TimeAvailability availability) {
+            @NotBlank(message = "Description is required") String description, List<TimeAvailability> availability) {
         this.serviceId = serviceId;
         this.name = name;
         this.description = description;
