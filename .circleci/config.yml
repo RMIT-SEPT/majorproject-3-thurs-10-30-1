@@ -16,6 +16,7 @@ jobs:
           name: List
           command: |
             ls -al
+            cd BackEnd
       - run:
           name: Setup common environment variables
           command: |
