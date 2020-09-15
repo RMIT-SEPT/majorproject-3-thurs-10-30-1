@@ -32,11 +32,6 @@ class AGMEnav extends Component
     constructor(props)
     {
         super(props);
-        this.state =
-        {
-            loggedIn: props.loggedIn,
-            user: props.user
-        }
     }
 
     render()
@@ -45,6 +40,7 @@ class AGMEnav extends Component
             <Nav className="m-auto">
                 <Link to="/"> Home</Link>
                 <Link to="/profile"> Profile </Link>
+                <Link to ="/dashboard"> Dashboard</Link>
                 <Link to="/"> Logout </Link>
             </Nav>
         );
@@ -62,7 +58,7 @@ class AGMEnav extends Component
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Navbar.Brand to="/" > <img src={Logo} className="logoImage" alt ="logo"/> AGME </Navbar.Brand>
-                    {this.props.loggedIn ? guestLinks : userLinks }
+                    {this.props.loggedIn ? guestLinks : userLinks}
                     <Nav>
                     <NavDropdown title="Settings" className ="btn-group dropleft">
                         <NavDropdown.Item href="#action/3.1">Accessibility</NavDropdown.Item>

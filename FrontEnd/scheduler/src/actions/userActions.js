@@ -17,33 +17,23 @@ import {SET_CURRENT_USER} from "../utils/types";
 //     }
 // };
 
-export function setCurrentUser(user) {
-    return {
-        type: SET_CURRENT_USER,
-        user
-    };
-}
 
-export function userLogin(details)
-{
-    try {
-         return axios.post("http://localhost:8080/api/user/login", details);
-    //     .then(
-    //         res => {
-    //             console.log(res.data);
-    //             console.log(res);
-    //             //this returns true?
-    //             const token = res.data.token;
-    //             sessionStorage.setItem('jwtToken', token);
-    //             sessionStorage.setItem('Username', res.data.name);
-    //         }
-    //     )
-     }
+//might have to change to make it set the token so we know the account type
+export async function userLogin(details) {
+    try
+    {
+        const res = await axios.post("http://localhost:8080/api/user/login", details);
+        console.log(res.data);
+        const token = res.data.token;
+        localStorage.setItem('jwtToken', token);
+        localStorage.setItem('LoggedIn',"yes");
+        return res;
+    }
     catch (err)
     {
         console.log(err);
-    }
 
+    }
 }
 
 export function userCreate(user)

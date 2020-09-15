@@ -9,11 +9,6 @@ class Dashboard extends Component
     constructor(props)
     {
         super(props);
-        this.state =
-        {
-            loggedIn: props.loggedIn,
-            user: props.user
-        }
     }
 
 render() {

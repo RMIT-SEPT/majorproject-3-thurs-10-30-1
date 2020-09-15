@@ -1,4 +1,3 @@
-
 import About from "./aboutUs";
 import Login from "./Login";
 import React, {Component} from "react";
@@ -10,10 +9,14 @@ class Home extends Component {
         this.handleAuth = this.handleAuth.bind(this);
     }
 
+
+
+
+
     handleAuth(data)
     {
         this.props.history.push("/dashboard");
-        this.props.handleLogin(data.name);
+        this.props.handleLogin(data);
     }
 
     render() {

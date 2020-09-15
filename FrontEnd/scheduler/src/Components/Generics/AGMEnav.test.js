@@ -4,6 +4,7 @@ import {shallow, mount} from "enzyme";
 import Enzyme from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import {NavbarBrand, NavLink} from "react-bootstrap";
+import {Link} from "react-router-dom";
 
 Enzyme.configure({adapter : new Adapter()});
 
@@ -21,7 +22,7 @@ describe("AGMEnav unit test",() =>
 
     it("should have navlink items", () =>
     {
-        expect(wrapper.find(NavLink)).toHaveLength(3);
+        expect(wrapper.find(Link)).toHaveLength(4);
     });
 
     it("should have a brand item", () =>

@@ -7,10 +7,11 @@ let links = [
     { label: 'Home', link: '/' },
     { label: 'Sign-out', link: '/' }
 ];
+
 export default function Profile(props) {
     return (
         <div>
-            <AGMEnav loggedIn={this.props.loggedIn}/>
+            <AGMEnav loggedIn={props.loggedIn}/>
 
             <Container fluid>
                 <Row>

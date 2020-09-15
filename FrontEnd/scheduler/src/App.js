@@ -12,7 +12,7 @@ class App extends Component {
         super(props);
 
         this.state = {
-            loggedIn: "NOT_LOGGED_IN",
+            loggedIn: "LOGGED_OUT",
             user: {}
         }
         this.handleLogin=this.handleLogin.bind(this);
@@ -20,11 +20,13 @@ class App extends Component {
 
     handleLogin(data)
     {
+        console.log(data.name);
         this.setState({
             loggedIn: "LOGGED_IN",
             user: data
             }
         )
+        console.log(this.state.user);
     }
 
   render()
@@ -34,28 +36,27 @@ class App extends Component {
             <Route
                 exact path="/"
                 render= {props => (
-                    <Home{...props} handleLogin={this.handleLogin} loggedIn = {this.state.loggedIn} />
+                    <Home{...props} loggedIn = {this.state.loggedIn} handleLogin={this.handleLogin} />
                 )}
             />
 
             <Route
                 exact path="/register"
                 render={props =>  (
-                    <Registration {...props} loggedIn = {this.props.loggedIn} />
+                    <Registration {...props} loggedIn = {this.state.loggedIn} />
                     )}
                 />
 
             <Route
                 exact path="/dashboard"
-                render={props =>  (
-                    <Dashboard {...props} loggedIn = {this.props.loggedIn} />
+                render={props =>  (<Dashboard {...props} loggedIn = {this.state.loggedIn} />
                 )}
             />
 
             <Route
                 exact path="/profile"
                 render={props =>  (
-                    <Profile {...props} loggedIn = {this.props.loggedIn} />
+                    <Profile {...props} loggedIn = {this.state.loggedIn} />
                 )}
             />
         </Router>
