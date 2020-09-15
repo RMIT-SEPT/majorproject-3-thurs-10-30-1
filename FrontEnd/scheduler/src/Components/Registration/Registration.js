@@ -25,22 +25,20 @@ class Registration extends Component
         this.setState({[e.target.name]: e.target.value});
     }
 
-    handleSubmit= (e) =>
+    handleSubmit= async (e) =>
     {
         e.preventDefault();
         const user =
-            {
-                name: this.state.name,
-                username: this.state.username,
-                password: this.state.password,
-                contactNumber: this.state.contactNumber,
-                email: this.state.email,
-                accountType:2
-            }
-
-        userCreate(user).then(res =>
-        console.log(res.data)
-        );
+        {
+            name: this.state.name,
+            username: this.state.username,
+            password: this.state.password,
+            contactNumber: this.state.contactNumber,
+            email: this.state.email,
+            accountType:2
+        }
+        const res = await userCreate(user);
+        console.log(res.data);
         this.props.history.push("/");
     }
 

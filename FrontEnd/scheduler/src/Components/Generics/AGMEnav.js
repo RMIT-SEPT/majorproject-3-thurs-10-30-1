@@ -1,13 +1,13 @@
 import React, {Component} from 'react';
-import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
-import NavDropdown from "react-bootstrap/NavDropdown";
 import '../../App.css';
 import styled from 'styled-components';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Logo from  "../../media/Logo(Text).png"
 import {Link} from "react-router-dom";
-
+import ReactRouterBootstrap, { LinkContainer } from 'react-router-bootstrap';
+import {NavItem,Navbar} from "react-bootstrap";
+import {NavDropdown} from "react-bootstrap";
+import Logo from "../../media/Logo(Text).png";
 
 const StyledNav = styled.div`
   .navbar {
@@ -16,6 +16,9 @@ const StyledNav = styled.div`
   
   a, .navbar-brand, .navbar-nav .nav-link {
     color: #FFF;
+    font-size: 20px;
+     padding: 2px 30px;
+     
     &:hover {
       color: black;
     }
@@ -37,17 +40,17 @@ class AGMEnav extends Component
     render()
     {
         const userLinks = (
-            <Nav className="m-auto">
-                <Link to="/"> Home</Link>
-                <Link to="/profile"> Profile </Link>
-                <Link to ="/dashboard"> Dashboard</Link>
+            <Nav className="m-xl-auto">
+                <NavItem> <Link to="/"> Home </Link> </NavItem>
+                <NavItem> <Link to="/profile"> Profile   </Link></NavItem>
+                <NavItem> <Link to ="/dashboard"> Dashboard </Link></NavItem>
                 <Link to="/"> Logout </Link>
             </Nav>
         );
         const guestLinks = (
-            <Nav className="m-auto">
-                <Link to="/"> Home </Link>
-                <Link to="/register"> Register </Link>
+            <Nav className="m-xl-auto">
+                <NavItem> <Link to="/"> Home</Link>  </NavItem>
+                <NavItem> <Link to="/register"> Register </Link></NavItem>
             </Nav>
         );
 
@@ -58,15 +61,13 @@ class AGMEnav extends Component
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Navbar.Brand to="/" > <img src={Logo} className="logoImage" alt ="logo"/> AGME </Navbar.Brand>
-                    {this.props.loggedIn ? guestLinks : userLinks}
-                    <Nav>
+                    {this.props.loggedIn==="LOGGED_IN" ? userLinks : guestLinks}
                     <NavDropdown title="Settings" className ="btn-group dropleft">
                         <NavDropdown.Item href="#action/3.1">Accessibility</NavDropdown.Item>
                         <NavDropdown.Item href="#action/3.2">Contact us</NavDropdown.Item>
                         <NavDropdown.Item href="#action/3.3"></NavDropdown.Item>
                         </NavDropdown>
 
-                    </Nav>
                 </Navbar.Collapse>
             </Navbar>
     </StyledNav>

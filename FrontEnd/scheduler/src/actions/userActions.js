@@ -31,16 +31,15 @@ export async function userLogin(details) {
     }
     catch (err)
     {
-        console.log(err);
-
+        return false;
     }
 }
 
-export function userCreate(user)
+export async function userCreate(user)
 {
     try
     {
-        return axios.post("http://localhost:8080/api/user", user);
+        return await axios.post("http://localhost:8080/api/user", user);
     }
     catch (err)
     {

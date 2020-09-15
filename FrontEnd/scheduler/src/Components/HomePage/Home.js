@@ -7,11 +7,8 @@ class Home extends Component {
     constructor(props) {
         super(props);
         this.handleAuth = this.handleAuth.bind(this);
+
     }
-
-
-
-
 
     handleAuth(data)
     {

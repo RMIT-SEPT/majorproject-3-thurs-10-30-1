@@ -27,6 +27,7 @@ class Login extends Component
     }
 
     handleSubmit= async (e) => {
+
         //send the username and password to the backend to be verified
         e.preventDefault();
         const details =
@@ -37,7 +38,6 @@ class Login extends Component
 
         //error checking before
         const res = await userLogin(details);
-
         if (res.data.email === this.state.email) {
             console.log("its good");
             this.setState(
@@ -51,8 +51,6 @@ class Login extends Component
             this.setState(
                 {error: true}
         )
-            console.log("state error");
-            console.log(this.state.error)
         }
 
     }

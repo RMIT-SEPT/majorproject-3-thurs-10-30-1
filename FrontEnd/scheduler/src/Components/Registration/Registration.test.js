@@ -19,4 +19,6 @@ describe("Register unit test",() => {
     {
         expect(wrapper.find(FormControl)).toHaveLength(5);
     });
+
+
 })
