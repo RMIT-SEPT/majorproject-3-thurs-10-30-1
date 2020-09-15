@@ -5,6 +5,7 @@ orbs:
 
 jobs:
   build_and_deploy:
+    working_directory: ~/circleci-demo-java-spring # directory where steps will run
     docker:
       - image: circleci/openjdk:8-jdk
 
