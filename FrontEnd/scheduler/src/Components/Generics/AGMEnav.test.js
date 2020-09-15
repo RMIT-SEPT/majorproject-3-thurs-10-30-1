@@ -19,15 +19,13 @@ describe("AGMEnav unit test",() =>
 
         const wrapper = shallow(<AGMEnav links={links}/>);
 
-
-    it("should have navlink items", () =>
+    it("should have 2 navlink items while a user it not logged in", () =>
     {
-        expect(wrapper.find(Link)).toHaveLength(4);
+        expect(wrapper.find(Link)).toHaveLength(2);
     });
 
     it("should have a brand item", () =>
     {
         expect(wrapper.containsMatchingElement(NavbarBrand)).toBe(true);
     });
-
 })

@@ -14,7 +14,8 @@ class Registration extends Component
                 username:"",
                 contactNumber:0,
                 email:"",
-                password:""
+                password:"",
+                error:false
             };
         this.onChange=this.onChange.bind(this);
         this.handleSubmit=this.handleSubmit.bind(this);
@@ -37,9 +38,24 @@ class Registration extends Component
             email: this.state.email,
             accountType:2
         }
+        //if true all good
         const res = await userCreate(user);
+        //if false render error
         console.log(res.data);
         this.props.history.push("/");
+    }
+
+    resetState()
+    {
+        this.setState(
+            {
+                name:"",
+                username:"",
+                contactNumber:0,
+                email:"",
+                password:""
+            }
+        )
     }
 
     render() {

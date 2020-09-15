@@ -19,11 +19,23 @@ class Login extends Component
             };
             this.onChange=this.onChange.bind(this);
             this.handleSubmit=this.handleSubmit.bind(this);
+            this.resetState=this.resetState.bind(this);
     }
 
     onChange = (e) =>
     {
         this.setState({[e.target.name]: e.target.value});
+    }
+
+     resetState()
+    {
+        this.setState(
+            {
+                email:"",
+                password:"",
+                error: false
+            }
+        )
     }
 
     handleSubmit= async (e) => {
