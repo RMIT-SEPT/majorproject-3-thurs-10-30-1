@@ -5,13 +5,17 @@ orbs:
 
 jobs:
   build_and_deploy:
-    working_directory: ~/schedule # directory where steps will run 
+    working_directory: ~/schedule # directory where steps will run
     docker:
       - image: circleci/openjdk:8-jdk
 
     steps:
       - checkout
       - setup_remote_docker
+      - run:
+          name: List
+          command: |
+            ls -al
       - run:
           name: Setup common environment variables
           command: |
@@ -30,7 +34,7 @@ jobs:
               - ~/.m2
           key: schedule-{{ checksum "pom.xml" }}
 
-      - run: cd ./BackEnd && mvn package # run the actual tests
+      - run: mvn package # run the actual tests
 
       - store_test_results: # uploads the test metadata from the `target/surefire-reports` directory so that it can show up in the CircleCI dashboard.
             # Upload test results for display in Test Summary: https://circleci.com/docs/2.0/collect-test-data/
