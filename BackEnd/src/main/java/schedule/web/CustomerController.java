@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import schedule.microservice.CustomerMicro;
+import schedule.model.AccountType;
 import schedule.model.Customer;
 import schedule.model.User;
 
@@ -24,18 +25,20 @@ public class CustomerController {
     private CustomerMicro customerMicro;
 
     @PostMapping("")
-    public ResponseEntity<?> createNewUser(@Valid @RequestBody User user, BindingResult result) {
+    public ResponseEntity<?> createNewCustomer(@Valid @RequestBody User user, BindingResult result) {
         if (result.hasErrors()){
             return new ResponseEntity<>("Invalid User Object", HttpStatus.BAD_REQUEST);
         }
+        user.setAccountType(AccountType.Customer);
         Customer customer = customerMicro.saveOrUpdate(new Customer(user.getUserId(), user));
         return new ResponseEntity<>(customer, HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> getUserById(@PathVariable long id)
+    public ResponseEntity<?> getCustomerById(@PathVariable long id)
     {
-        return customerMicro.customerExistsById(id) ? new ResponseEntity<>(customerMicro.getCustomerById(id).get(0), HttpStatus.FOUND) :
+        Customer customer = customerMicro.getCustomerById(id);
+        return customer != null ? new ResponseEntity<>(customer, HttpStatus.FOUND) : 
             new ResponseEntity<>("User not found", HttpStatus.BAD_REQUEST);
     }
 }

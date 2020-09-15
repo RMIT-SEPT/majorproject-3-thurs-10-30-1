@@ -5,11 +5,6 @@ import org.springframework.stereotype.Service;
 import schedule.model.Customer;
 import schedule.repositories.CustomerRepo;
 
-import java.security.PublicKey;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-
 @Service
 public class CustomerMicro {
     @Autowired
@@ -21,11 +16,9 @@ public class CustomerMicro {
         return customerRepo.save(customer);
     }
 
-    public ArrayList<Customer> getCustomerById(long id)
+    public Customer getCustomerById(long id)
     {
-        ArrayList<Long> ids = new ArrayList<>();
-        ids.add(id);
-        return customerRepo.findAllById(ids);
+        return customerRepo.findById(id).orElse(null);
     }
 
     public boolean customerExistsById(long id)

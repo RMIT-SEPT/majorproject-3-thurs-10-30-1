@@ -5,11 +5,6 @@ import org.springframework.stereotype.Service;
 import schedule.model.Worker;
 import schedule.repositories.WorkerRepo;
 
-import java.security.PublicKey;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-
 @Service
 public class WorkerMicro {
     @Autowired
@@ -21,11 +16,9 @@ public class WorkerMicro {
         return workerRepo.save(worker);
     }
 
-    public ArrayList<Worker> getWorkerById(long id)
+    public Worker getWorkerById(long id)
     {
-        ArrayList<Long> ids = new ArrayList<>();
-        ids.add(id);
-        return workerRepo.findAllById(ids);
+        return workerRepo.findById(id).orElse(null);
     }
 
     public boolean workerExistsById(long id)
