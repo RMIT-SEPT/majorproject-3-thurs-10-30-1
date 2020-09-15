@@ -4,6 +4,8 @@ import java.util.List;
 import schedule.model.*;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
 
 import schedule.model.service.ScheduleService;
 
@@ -15,6 +17,8 @@ public class Business {
     private Long id;   
 
     @NotBlank(message = "A name is required")
+    @NotNull
+    @NotEmpty
     private String name;
 
     @OneToMany()
@@ -25,7 +29,6 @@ public class Business {
 
     public Business()
     {
-
     }
 
     public Business(Long id, String name, List<ScheduleService> services, List<Admin> admin)
@@ -33,7 +36,7 @@ public class Business {
         this.id = id;
         this.name = name;
         this.services = services;
-        this.admins = admins;
+        this.admins = admin;
     }
 
     public Long getId()
@@ -55,4 +58,5 @@ public class Business {
     {
         return admins;
     }
+    
 }
