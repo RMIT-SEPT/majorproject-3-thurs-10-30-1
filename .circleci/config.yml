@@ -5,6 +5,7 @@ orbs:
 
 jobs:
   build_and_deploy:
+    working_directory: ~/schedule-spring
     docker:
       - image: circleci/openjdk:8-jdk
 
