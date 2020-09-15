@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -29,13 +30,13 @@ public class BusinessController {
             return new ResponseEntity<>("Invalid Business Object", HttpStatus.BAD_REQUEST);
         }
         Business newBusiness = businessMicro.saveOrUpdate(business);
-        return new ResponseEntity<>(newBusiness, HttpStatus.CREATED);
+        return new ResponseEntity<>(business, HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
     public Business getBusinessById(@PathVariable long id)
     {
-        return businessMicro.businessExistsById(id) ? businessMicro.getBusinessById(id).get(0) : null;
+        return businessMicro.businessExistsById(id) ? businessMicro.getBusinessById(id).get(0) : new Business();
     }
     
 }
