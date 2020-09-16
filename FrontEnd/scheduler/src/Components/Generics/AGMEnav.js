@@ -2,10 +2,10 @@ import React, {Component} from 'react';
 import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
 import NavDropdown from "react-bootstrap/NavDropdown";
-import '../App.css';
+import '../../App.css';
 import styled from 'styled-components';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Logo from "../media/Logo(NText).png";
+import Logo from  "../../media/Logo(Text).png"
 
 
 const StyledNav = styled.div`

@@ -1,7 +1,8 @@
-import AGMEnav from "./AGMEnav";
+
 import About from "./aboutUs";
 import Login from "./Login";
 import React from "react";
+import AGMEnav from "../Generics/AGMEnav";
 
 function Home(props)
 {

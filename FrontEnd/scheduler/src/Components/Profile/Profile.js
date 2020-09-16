@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Grid, Row, Col, Image, Container, Button } from 'react-bootstrap';
-import AGMEnav from "./AGMEnav";
+import AGMEnav from "../Generics/AGMEnav";
+
 
 let links = [
     { label: 'Home', link: '/' },

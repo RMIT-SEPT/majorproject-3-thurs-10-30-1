@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import '../App.css';
 
 class BookingList extends Component
 {
@@ -20,7 +19,7 @@ class BookingList extends Component
 
     return (
         <div className= "bookingList"> 
-        <h2 className="bookingListHeader"><center>Upcoming Bookings</center></h2>
+        <h2 className="bookingListHeader">Upcoming Bookings</h2>
         <div> {myBookings} </div>
         </div>
     )
