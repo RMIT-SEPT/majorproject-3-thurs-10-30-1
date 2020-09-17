@@ -13,6 +13,7 @@ Enzyme.configure({adapter : new Adapter()});
 describe("Login unit test",() => {
 
     const wrapper = shallow(<Login />);
+
     beforeEach(() =>
     {
         wrapper.resetState;
