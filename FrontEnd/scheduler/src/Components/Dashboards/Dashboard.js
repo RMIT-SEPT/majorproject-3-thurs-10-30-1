@@ -9,7 +9,7 @@ export default function Dashboard(props)
     //get links based off of what the account type is
     let links = [
         {label: 'Home', link: '/'},
-        {label: 'Testing a Link', link: '/'},
+        {label: 'Testing a Link', link: '/workerHome'},
         {label: 'Profile', link: '/profile'},
         {label: 'Sign-out', link: '/'}  
     ]

@@ -184,6 +184,15 @@ html, body, #root, .App {
   height: 100%;
   position: relative; 
 }
+
+/* Worker Dashboard */
+.dashboardContainer2
+{
+  background-image: url(./media/background4.png);
+  width: 100%;
+  height: 100%;
+  position: relative; 
+}
   
 /* Customer Dashboard */
 .bookingListHeader
