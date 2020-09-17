@@ -9,10 +9,11 @@ class BookingList extends Component
         {
             return(
                 <h4 className="booking">
-                Staff Member: {booking.workerName}
+                Customer Name: {booking.customer}
+                Staff Member: {booking.worker}
                 Service: {booking.service} 
-                Time: {booking.time}
-                Date: {booking.date}
+                Start Time: {booking.start_time}
+                End Time: {booking.end_time}
                 </h4>
             );
         });
