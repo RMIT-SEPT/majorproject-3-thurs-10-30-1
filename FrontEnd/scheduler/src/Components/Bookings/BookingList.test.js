@@ -16,15 +16,15 @@ describe("Booking List Unit Test",() => {
         {workerName: 'Zac ', service: "IT Services ", time: "11:15 ", date: "16/10"}, 
         {workerName: 'Ali ', service: "Ali's Hairdresses ", time: "18:45 ", date: "20/10"},
     ]
-    const wrapper = shallow(<BookingList bookings = {bookings}/>);
+    const booking = shallow(<BookingList bookings = {bookings}/>);
 
         it("test worker name to show the same", () => 
         {
-            expect(wrapper.find('h4')).toHaveLength(5);
+            expect(booking.find('h4')).toHaveLength(5);
         });
 
         it("test worker name to show the same", () => 
         {
-            expect(wrapper.find('h4').at(0).text()).toEqual("Staff Member: Ali Service: Ali's Hairdresser Time: 13:30 Date: 04/10");
+            expect(booking.find('h4').at(0).text()).toEqual("Staff Member: Ali Service: Ali's Hairdresser Time: 13:30 Date: 04/10");
         });
 })
