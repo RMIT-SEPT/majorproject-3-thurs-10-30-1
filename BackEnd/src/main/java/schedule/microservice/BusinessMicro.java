@@ -26,6 +26,16 @@ public class BusinessMicro {
         return businessRepo.findAllById(ids);
     }
 
+    public ArrayList<Business> getAllBusinesses()
+    {
+        ArrayList<Business> businesses = new ArrayList<Business>();
+        for (Business business : businessRepo.findAll())
+        {
+            businesses.add(business);
+        }
+        return businesses;
+    }
+
     public boolean businessExistsById(long id)
     {
         return businessRepo.existsById(id);
