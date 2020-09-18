@@ -213,8 +213,10 @@ html, body, #root, .App {
   float: left;
   height: 650px;
   outline-style: solid;
-  margin-left: 27%;
+  margin-left: 23%;
   margin-top:2%;
+  background-color: white;
+
 }
   
 .availableServices
