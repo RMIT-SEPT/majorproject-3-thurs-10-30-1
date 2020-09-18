@@ -19,7 +19,6 @@ class WorkerBookingList extends Component
 
     return (
         <div className= "bookingList"> 
-       
         <h2 className="bookingListHeader">Your Upcoming Bookings</h2>
         <div> {myBookings} </div>
         </div>
