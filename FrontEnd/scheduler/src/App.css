@@ -144,7 +144,7 @@ html, body, #root, .App {
   outline-style: solid;
   margin-left: 3%;
   margin-top:2%;
-  background-color: #F2F2F2;
+  background-color: white;
 }
 
 /* Customer Dashboard */
@@ -155,7 +155,7 @@ html, body, #root, .App {
     margin-left: 5mm;
     margin-bottom: 6%;
     outline-style: solid;
-    background-color: white;
+    background-color: #F2F2F2;
     line-height: 55px;
 }
 
@@ -175,7 +175,7 @@ html, body, #root, .App {
   outline: solid;
   margin-right: 3%;
   margin-top:10%;
-  background-color: #F2F2F2;
+  background-color: white;
 }
 
 /* Customer Dashboard */
