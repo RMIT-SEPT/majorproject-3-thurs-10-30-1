@@ -11,16 +11,29 @@ export function setCurrentUser(user) {
 }
 
 export const userLogin = (details) => {
-    return axios.post("http://localhost:8080/api/user/login", details)
-        .then((response) =>
+    try{
+        return axios.post("http://localhost:8080/api/user/login", details)
+            .then((response) => {
+
+                if(!response.data)
+                {
+                    console.log("bad resp");
+                }
+
+                else {
+                    console.log("in if");
+                    console.log(response.data);
+                    localStorage.setItem("user", JSON.stringify(response.data));
+                    localStorage.setItem("Type", response.data.accountType);
+                    return true;
+                }
+            });
+        }
+        catch (err)
         {
-            if (response)
-            {
-                localStorage.setItem("user", JSON.stringify(response.data));
-                localStorage.setItem("Type",response.data.accountType);
-            }
-            return response.data;
-        });
+            console.log('LOGIN ERROR');
+            console.log(err);
+        }
 };
 
 
@@ -31,22 +44,20 @@ export function logout()
         localStorage.removeItem("Type");
 }
 
-export async function userCreate(user,history)
-{
-    try
-    {
-        const res =  await axios.post("http://localhost:8080/api/customer", user);
-        console.log(res.data.name);
+export const userCreate = async (user, history) => {
+    try {
+        const res = await axios.post("http://localhost:8080/api/customer", user);
         history.push("/");
-        return res;
+        return true;
     }
     catch (err)
     {
-        console.log('ERROR');
-        console.log(err);
+        console.log("ERRORS");
         return false;
     }
+
 }
+
 
 export default function authHeader() {
     const user = JSON.parse(localStorage.getItem('user'));

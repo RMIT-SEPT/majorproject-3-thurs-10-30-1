@@ -2,5 +2,6 @@ import React from "react";
 
 export default function myError(props)
 {
-    return (<h1> Error </h1>);
+    const thisError = props.error;
+    return (<h1> {thisError} </h1>);
 }

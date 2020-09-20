@@ -12,6 +12,7 @@ class Home extends Component {
 
     handleAuth()
     {
+        //check account type, and push to relevant one from here.
         this.props.history.push("/dashboard");
     }
 

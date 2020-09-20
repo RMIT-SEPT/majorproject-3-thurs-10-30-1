@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import AGMEnav from "../Generics/AGMEnav";
 import {userCreate} from "../../actions/userActions";
 import Form from "react-bootstrap/Form";
+import MyError from "../Generics/MyError";
 
 class Registration extends Component
 {
@@ -43,13 +44,10 @@ class Registration extends Component
         if(!res)
         {
             this.setState(
-                {error: true}
+                {error:"ERROR REGISTERING"}
             )
+            this.resetState();
         }
-        //if false render error
-        // console.log(res.data);
-        // console.log(res.data.name);
-        // this.props.history.push("/");
     }
     resetState()
     {
@@ -68,6 +66,7 @@ class Registration extends Component
         return (
             <div className="wholeReg">
                 <AGMEnav />
+                {this.state.error ? <MyError error={this.state.error} /> : <p></p>}
                 <div className="regFormDiv">
                     <h1 className="myHeader"> Register Here!</h1>
                     <Form className="mr-auto" onSubmit={this.handleSubmit}>

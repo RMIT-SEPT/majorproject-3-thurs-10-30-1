@@ -50,25 +50,32 @@ class Login extends Component
         {
             this.props.handleAuth();
         }
+        else
+        {
+            console.log("settin error");
+            this.setState(
+                {error: "Error Logging in."}
+            )
+        }
     }
         render() {
             return (
                 <div className="loginContainer">
                     <h1 className="myHeader"> SIGN IN</h1>
 
-                    {this.state.error ? <MyError /> : <p></p>}
+                    {!this.state.error ? <p></p>:<MyError error={this.state.error} /> }
 
                     <Form className="mr-auto" onSubmit={this.handleSubmit}>
 
                         <div className="transparentDiv">
                             <Form.Group controlId="formBasicEmail">
-                                <Form.Control type="email" placeholder="Enter email" value={this.state.email}
+                                <Form.Control type="email" required placeholder="Enter email" value={this.state.email}
                                               onChange={this.onChange} name="email"/>
                             </Form.Group>
                             <br/>
 
                             <Form.Group controlId="formBasicPassword">
-                                <Form.Control type="password" placeholder="Password" name="password"
+                                <Form.Control type="password" required placeholder="Password" name="password"
                                               value={this.state.password} onChange={this.onChange}/>
                             </Form.Group>
                             <br/>
