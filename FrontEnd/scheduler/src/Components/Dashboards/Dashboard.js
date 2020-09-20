@@ -3,14 +3,10 @@ import React, {Component} from "react";
 import BookingCreator from "../Bookings/BookingCreator";
 import AGMEnav from "../Generics/AGMEnav";
 import BookingList from "../Bookings/BookingList";
+import {getCurrentUser, isLoggedIn} from "../../actions/userActions";
 
 class Dashboard extends Component
 {
-    constructor(props)
-    {
-        super(props);
-    }
-
 render() {
     let bookings = [
         {workerName: 'Ali ', service: "Ali's Hairdresser ", time: "13:30 ", date: "04/10"},
@@ -24,19 +20,20 @@ render() {
         {businessName: 'Business2'},
         {businessName: 'Business3'}
     ]
-
+    const loggedIn = isLoggedIn();
+    const user = getCurrentUser();
     return (
+
         <div className="dashboardContainer">
-            <h1>Status: {this.props.loggedIn} </h1>
-            <h1>User: {this.props.user} </h1>
-            <AGMEnav loggedIn={this.props.loggedIn}/>
+            {loggedIn ? <p>{user.name}</p>: <p> No user</p>}
+            <AGMEnav />
+
             {/*if customer*/}
             <BookingList bookings={bookings}/>
             <BookingCreator services={services}/>
 
             {/*if admin*/}
             {/*if worker*/}
-
         </div>
     )
     }

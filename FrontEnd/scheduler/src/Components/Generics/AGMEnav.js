@@ -4,10 +4,12 @@ import '../../App.css';
 import styled from 'styled-components';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Link} from "react-router-dom";
-import ReactRouterBootstrap, { LinkContainer } from 'react-router-bootstrap';
-import {NavItem,Navbar} from "react-bootstrap";
+import {NavItem, Navbar, NavLink} from "react-bootstrap";
 import {NavDropdown} from "react-bootstrap";
 import Logo from "../../media/Logo(Text).png";
+import { connect } from 'react-redux';
+import {isLoggedIn, logout} from '../../actions/userActions';
+import PropTypes from 'prop-types'
 
 const StyledNav = styled.div`
   .navbar {
@@ -32,19 +34,28 @@ const StyledNav = styled.div`
 
 class AGMEnav extends Component
 {
+
     constructor(props)
     {
         super(props);
+        this.handleLogout = this.handleLogout.bind(this);
     }
+
+    handleLogout(e) {
+        e.preventDefault();
+        console.log("wanna log out");
+        logout();
+    }
+
 
     render()
     {
+        const loggedIn = isLoggedIn();
         const userLinks = (
             <Nav className="m-xl-auto">
-                <NavItem> <Link to="/"> Home </Link> </NavItem>
                 <NavItem> <Link to="/profile"> Profile   </Link></NavItem>
                 <NavItem> <Link to ="/dashboard"> Dashboard </Link></NavItem>
-                <Link to="/"> Logout </Link>
+                <NavLink href="/" onClick={this.handleLogout}> Logout </NavLink>
             </Nav>
         );
         const guestLinks = (
@@ -61,7 +72,7 @@ class AGMEnav extends Component
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Navbar.Brand to="/" > <img src={Logo} className="logoImage" alt ="logo"/> AGME </Navbar.Brand>
-                    {this.props.loggedIn==="LOGGED_IN" ? userLinks : guestLinks}
+                    {loggedIn ? userLinks : guestLinks}
                     <NavDropdown title="Settings" className ="btn-group dropleft">
                         <NavDropdown.Item href="#action/3.1">Accessibility</NavDropdown.Item>
                         <NavDropdown.Item href="#action/3.2">Contact us</NavDropdown.Item>
@@ -75,6 +86,15 @@ class AGMEnav extends Component
     }
 
 }
+AGMEnav.propTypes = {
+    auth: PropTypes.object.isRequired,
+    logout: PropTypes.func.isRequired
+}
 
+function mapStateToProps(state) {
+    return {
+        auth: state.auth
+    };
+}
 
-export default (AGMEnav);
+export default connect(mapStateToProps, { logout })(AGMEnav);

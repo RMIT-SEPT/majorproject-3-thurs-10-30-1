@@ -3,8 +3,7 @@ import Form from 'react-bootstrap/Form';
 import {Link} from "react-router-dom";
 import {userLogin} from "../../actions/userActions";
 import MyError from "../Generics/MyError";
-
-
+import {connect} from 'react-redux'
 
 class Login extends Component
 {
@@ -39,7 +38,6 @@ class Login extends Component
     }
 
     handleSubmit= async (e) => {
-
         //send the username and password to the backend to be verified
         e.preventDefault();
         const details =
@@ -47,24 +45,11 @@ class Login extends Component
             identifier: this.state.email,
             password: this.state.password
         }
-
-        //error checking before
-        const res = await userLogin(details);
-        if (res.data.email === this.state.email) {
-            console.log("its good");
-            this.setState(
-                {error: false}
-            )
-            this.props.handleAuth(res.data);
-        }
-        else
+       const res = await userLogin(details);
+        if(res)
         {
-            console.log("run some errors")
-            this.setState(
-                {error: true}
-        )
+            this.props.handleAuth();
         }
-
     }
         render() {
             return (
@@ -97,4 +82,5 @@ class Login extends Component
             )
         }
 }
-export default Login;
+
+export default connect(null, {userLogin}) (Login);

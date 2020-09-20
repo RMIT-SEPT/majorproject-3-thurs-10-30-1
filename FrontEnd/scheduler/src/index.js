@@ -3,17 +3,21 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Provider} from "react-redux";
-import {createStore} from "redux";
-import setAuthorizationToken from "./utils/utils";
+import { Provider } from 'react-redux';
+import { createStore, applyMiddleware, compose } from 'redux';
+import rootReducer from './rootReducer'
+import thunk from 'redux-thunk';
 
-
-
-
-
-
+const store = createStore(
+    rootReducer,
+    compose(
+        applyMiddleware(thunk)
+    )
+);
 
 ReactDOM.render(
-  <App />,
+    <Provider store={store}>
+        <App />
+    </Provider>,
   document.getElementById('root'));
 

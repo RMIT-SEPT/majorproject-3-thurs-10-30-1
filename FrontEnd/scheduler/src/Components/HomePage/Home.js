@@ -10,18 +10,15 @@ class Home extends Component {
 
     }
 
-    handleAuth(data)
+    handleAuth()
     {
         this.props.history.push("/dashboard");
-        this.props.handleLogin(data);
     }
 
     render() {
         return (
             <div className="homeContainer">
-                <h1>Status: {this.props.loggedIn} </h1>
-                <h1>User: {this.props.user} </h1>
-                <AGMEnav loggedIn={this.props.loggedIn}/>
+                <AGMEnav />
                 <About/>
                 <Login handleAuth={this.handleAuth} />
             </div>)

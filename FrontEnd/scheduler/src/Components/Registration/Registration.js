@@ -36,15 +36,21 @@ class Registration extends Component
             password: this.state.password,
             contactNumber: this.state.contactNumber,
             email: this.state.email,
-            accountType:2
+            error: false
         }
         //if true all good
-        const res = await userCreate(user);
+        const res = await userCreate(user,this.props.history);
+        if(!res)
+        {
+            this.setState(
+                {error: true}
+            )
+        }
         //if false render error
-        console.log(res.data);
-        this.props.history.push("/");
+        // console.log(res.data);
+        // console.log(res.data.name);
+        // this.props.history.push("/");
     }
-
     resetState()
     {
         this.setState(
@@ -61,7 +67,7 @@ class Registration extends Component
     render() {
         return (
             <div className="wholeReg">
-                <AGMEnav loggedIn={this.props.loggedIn}/>
+                <AGMEnav />
                 <div className="regFormDiv">
                     <h1 className="myHeader"> Register Here!</h1>
                     <Form className="mr-auto" onSubmit={this.handleSubmit}>

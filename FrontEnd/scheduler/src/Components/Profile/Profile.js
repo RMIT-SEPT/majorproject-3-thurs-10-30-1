@@ -19,7 +19,6 @@ export default function Profile(props) {
                         <Image src="holder.js/171x180" roundedCircle />
                     </Col>
                     <Col>
-                        
                         <h2>Worker Name</h2>
                         <p>Ph: 0400 000 000</p>
                         <p>E-mail: worker@email.com</p>
