@@ -11,62 +11,29 @@ export function setCurrentUser(user) {
 }
 
 export const userLogin = (details) => {
-    try{
-        return axios.post("http://localhost:8080/api/user/login", details)
-            .then((response) => {
-
-                if(!response.data)
-                {
-                    console.log("bad resp");
-                }
-
-                else {
-                    console.log("in if");
-                    console.log(response.data);
-                    localStorage.setItem("user", JSON.stringify(response.data));
-                    localStorage.setItem("Type", response.data.accountType);
-                    return true;
-                }
-            });
-        }
-        catch (err)
-        {
-            console.log('LOGIN ERROR');
-            console.log(err);
-        }
+    return axios.post("http://localhost:8080/api/user/login", details)
+        .then((response) => {
+            if(!response.data)
+            {
+                console.log("bad resp");
+            }
+            else {
+                localStorage.setItem("user", JSON.stringify(response.data));
+                localStorage.setItem("Type", response.data.accountType);
+            }
+            return response.data;
+        });
 };
 
-
-
-export function logout()
+export function lilLogout()
 {
         localStorage.removeItem("user");
         localStorage.removeItem("Type");
 }
 
-export const userCreate = async (user, history) => {
-    try {
-        const res = await axios.post("http://localhost:8080/api/customer", user);
-        history.push("/");
-        return true;
-    }
-    catch (err)
-    {
-        console.log("ERRORS");
-        return false;
-    }
+export const userCreate = async (user) => {
 
-}
-
-
-export default function authHeader() {
-    const user = JSON.parse(localStorage.getItem('user'));
-
-    if (user && user.accessToken) {
-        return { Authorization: 'Bearer ' + user.accessToken };
-    } else {
-        return {};
-    }
+    return axios.post("http://localhost:8080/api/customer", user);
 }
 
 export const getCurrentUser = () => {

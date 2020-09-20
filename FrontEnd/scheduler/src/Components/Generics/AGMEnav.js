@@ -8,7 +8,7 @@ import {NavItem, Navbar, NavLink} from "react-bootstrap";
 import {NavDropdown} from "react-bootstrap";
 import Logo from "../../media/Logo(Text).png";
 import { connect } from 'react-redux';
-import {isLoggedIn, logout} from '../../actions/userActions';
+import {isLoggedIn, lilLogout} from '../../actions/userActions';
 import PropTypes from 'prop-types'
 
 const StyledNav = styled.div`
@@ -34,20 +34,6 @@ const StyledNav = styled.div`
 
 class AGMEnav extends Component
 {
-
-    constructor(props)
-    {
-        super(props);
-        this.handleLogout = this.handleLogout.bind(this);
-    }
-
-    handleLogout(e) {
-        e.preventDefault();
-        console.log("wanna log out");
-        logout();
-    }
-
-
     render()
     {
         const loggedIn = isLoggedIn();
@@ -55,7 +41,7 @@ class AGMEnav extends Component
             <Nav className="m-xl-auto">
                 <NavItem> <Link to="/profile"> Profile   </Link></NavItem>
                 <NavItem> <Link to ="/dashboard"> Dashboard </Link></NavItem>
-                <NavLink href="/" onClick={this.handleLogout}> Logout </NavLink>
+                <NavLink href="/" onClick={this.props.logout}> Logout </NavLink>
             </Nav>
         );
         const guestLinks = (
@@ -97,4 +83,4 @@ function mapStateToProps(state) {
     };
 }
 
-export default connect(mapStateToProps, { logout })(AGMEnav);
+export default connect(mapStateToProps, {lilLogout })(AGMEnav);

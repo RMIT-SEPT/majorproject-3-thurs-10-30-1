@@ -1,8 +1,8 @@
 import React, {Component} from "react";
-import AGMEnav from "../Generics/AGMEnav";
-import {userCreate} from "../../actions/userActions";
 import Form from "react-bootstrap/Form";
 import MyError from "../Generics/MyError";
+import { register } from "../../actions/auth";
+import {connect} from 'react-redux'
 
 class Registration extends Component
 {
@@ -27,6 +27,15 @@ class Registration extends Component
         this.setState({[e.target.name]: e.target.value});
     }
 
+
+//     const res = await userCreate(user,this.props.history);
+//     if(!res)
+// {
+//     this.setState(
+//     {error:"ERROR REGISTERING"}
+// )
+//     this.resetState();
+// }
     handleSubmit= async (e) =>
     {
         e.preventDefault();
@@ -37,18 +46,26 @@ class Registration extends Component
             password: this.state.password,
             contactNumber: this.state.contactNumber,
             email: this.state.email,
-            error: false
+            error: false,
+            successful: false,
         }
         //if true all good
-        const res = await userCreate(user,this.props.history);
-        if(!res)
-        {
-            this.setState(
-                {error:"ERROR REGISTERING"}
-            )
-            this.resetState();
-        }
+        this.setState({
+            successful: false,
+        });
+        this.props.dispatch(register(user,this.props.history))
+            .then(() => {
+                this.setState({
+                    successful: true,
+                });
+            })
+            .catch(() => {
+                this.setState({
+                    successful: false,
+                });
+            });
     }
+
     resetState()
     {
         this.setState(
@@ -63,9 +80,9 @@ class Registration extends Component
     }
 
     render() {
+        const { message } = this.props;
         return (
             <div className="wholeReg">
-                <AGMEnav />
                 {this.state.error ? <MyError error={this.state.error} /> : <p></p>}
                 <div className="regFormDiv">
                     <h1 className="myHeader"> Register Here!</h1>
@@ -92,6 +109,15 @@ class Registration extends Component
                                 <Form.Control type="password" placeholder="Password" name="password" value={this.state.password} onChange={this.onChange}/>
                             </Form.Group>
                         </div>
+
+                        {message && (
+                            <div className="form-group">
+                                <div className={ this.state.successful ? "alert alert-success" : "alert alert-danger" } role="alert">
+                                    {message}
+                                </div>
+                            </div>
+                        )}
+
                         <input type="submit" value="Register"/>
                     </Form>
                 </div>
@@ -99,4 +125,11 @@ class Registration extends Component
         )
     }
 }
-export default Registration;
+function mapStateToProps(state) {
+    const { message } = state.message;
+    return {
+        message,
+    };
+}
+
+export default connect(mapStateToProps)(Registration);

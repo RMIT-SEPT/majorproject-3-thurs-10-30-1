@@ -1,18 +1,50 @@
-import { SET_CURRENT_USER } from '../actions/types';
-import isEmpty from 'lodash/isEmpty';
+import {
+    REGISTER_SUCCESS,
+    REGISTER_FAIL,
+    LOGIN_SUCCESS,
+    LOGIN_FAIL,
+    LOGOUT,
+} from "../actions/types";
 
-const initialState = {
-    isAuthenticated: false,
-    user: {}
-};
+const user = JSON.parse(localStorage.getItem("user"));
 
-export default (state = initialState, action = {}) => {
-    switch(action.type) {
-        case SET_CURRENT_USER:
+const initialState = user
+    ? { isLoggedIn: true, user }
+    : { isLoggedIn: false, user: null };
+
+export default function (state = initialState, action) {
+    const { type, payload } = action;
+
+    switch (type) {
+        case REGISTER_SUCCESS:
             return {
-                isAuthenticated: !isEmpty(action.user),
-                user: action.user
+                ...state,
+                isLoggedIn: false,
             };
-        default: return state;
+        case REGISTER_FAIL:
+            return {
+                ...state,
+                isLoggedIn: false,
+            };
+        case LOGIN_SUCCESS:
+            return {
+                ...state,
+                isLoggedIn: true,
+                user: payload.user,
+            };
+        case LOGIN_FAIL:
+            return {
+                ...state,
+                isLoggedIn: false,
+                user: null,
+            };
+        case LOGOUT:
+            return {
+                ...state,
+                isLoggedIn: false,
+                user: null,
+            };
+        default:
+            return state;
     }
 }

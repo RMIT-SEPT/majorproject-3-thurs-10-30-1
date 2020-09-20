@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import Form from 'react-bootstrap/Form';
 import {Link} from "react-router-dom";
-import {userLogin} from "../../actions/userActions";
+import {Redirect} from "react-router-dom";
 import MyError from "../Generics/MyError";
 import {connect} from 'react-redux'
+import { login } from "../../actions/auth"
 
 class Login extends Component
 {
@@ -14,7 +15,8 @@ class Login extends Component
             {
                 email:"",
                 password:"",
-                error: false
+                error: false,
+                loading: false,
             };
             this.onChange=this.onChange.bind(this);
             this.handleSubmit=this.handleSubmit.bind(this);
@@ -36,29 +38,46 @@ class Login extends Component
             }
         )
     }
-
+    // const res = await userLogin(details);
+    //  if(res)
+    //  {
+    //      this.props.handleAuth();
+    //  }
+    //  else
+    //  {
+    //      console.log("settin error");
+    //      this.setState(
+    //          {error: "Error Logging in."}
+    //      )
+    //  }
     handleSubmit= async (e) => {
         //send the username and password to the backend to be verified
         e.preventDefault();
+        this.setState({
+            loading: true,
+        });
         const details =
         {
             identifier: this.state.email,
             password: this.state.password
         }
-       const res = await userLogin(details);
-        if(res)
-        {
-            this.props.handleAuth();
-        }
-        else
-        {
-            console.log("settin error");
-            this.setState(
-                {error: "Error Logging in."}
-            )
-        }
+
+        const {dispatch, history} = this.props;
+         dispatch(login(details))
+            .then(() => {
+                history.push("/dashboard");
+                window.location.reload();
+            }).catch(() => {
+            this.setState({
+                loading: false
+            });
+        });
     }
         render() {
+            const { isLoggedIn, message } = this.props;
+            if (isLoggedIn) {
+                return <Redirect to="/dashboard" />;
+            }
             return (
                 <div className="loginContainer">
                     <h1 className="myHeader"> SIGN IN</h1>
@@ -84,10 +103,29 @@ class Login extends Component
 
                         <br/>
                         <input type="submit" value="Login"/>
+
+                        {message && (
+                            <div className="form-group">
+                                <div className="alert alert-danger" role="alert">
+                                    {message}
+                                </div>
+                            </div>
+                        )}
+
                     </Form>
                 </div>
             )
         }
 }
 
-export default connect(null, {userLogin}) (Login);
+function mapStateToProps(state) {
+    const {isLoggedIn} = state.auth;
+    const {message} = state.message;
+    return {
+        isLoggedIn,
+        message
+    };
+}
+
+
+    export default connect(mapStateToProps)(Login);

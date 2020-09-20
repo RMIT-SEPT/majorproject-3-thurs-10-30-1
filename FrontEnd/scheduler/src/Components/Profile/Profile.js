@@ -3,15 +3,10 @@ import { Grid, Row, Col, Image, Container, Button } from 'react-bootstrap';
 import AGMEnav from "../Generics/AGMEnav";
 
 
-let links = [
-    { label: 'Home', link: '/' },
-    { label: 'Sign-out', link: '/' }
-];
 
 export default function Profile(props) {
     return (
         <div>
-            <AGMEnav loggedIn={props.loggedIn}/>
 
             <Container fluid>
                 <Row>

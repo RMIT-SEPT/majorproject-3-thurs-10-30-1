@@ -1,7 +1,7 @@
 import About from "./aboutUs";
 import Login from "./Login";
 import React, {Component} from "react";
-import AGMEnav from "../Generics/AGMEnav";
+import {connect} from "react-redux";
 
 class Home extends Component {
     constructor(props) {
@@ -19,11 +19,17 @@ class Home extends Component {
     render() {
         return (
             <div className="homeContainer">
-                <AGMEnav />
                 <About/>
                 <Login handleAuth={this.handleAuth} />
             </div>)
     }
 }
 
-export default Home;
+function mapStateToProps(state) {
+    const { message } = state.message;
+    return {
+        message,
+    };
+}
+
+export default connect(mapStateToProps)(Home);

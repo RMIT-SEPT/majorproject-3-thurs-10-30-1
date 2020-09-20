@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 
 import BookingCreator from "../Bookings/BookingCreator";
-import AGMEnav from "../Generics/AGMEnav";
 import BookingList from "../Bookings/BookingList";
 import {getCurrentUser, isLoggedIn} from "../../actions/userActions";
 
@@ -26,8 +25,6 @@ render() {
 
         <div className="dashboardContainer">
             {loggedIn ? <p>{user.name}</p>: <p> No user</p>}
-            <AGMEnav />
-
             {/*if customer*/}
             <BookingList bookings={bookings}/>
             <BookingCreator services={services}/>

@@ -4,20 +4,14 @@ import App from './App';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { Provider } from 'react-redux';
-import { createStore, applyMiddleware, compose } from 'redux';
-import rootReducer from './rootReducer'
-import thunk from 'redux-thunk';
+import store from "./store";
 
-const store = createStore(
-    rootReducer,
-    compose(
-        applyMiddleware(thunk)
-    )
-);
 
+let myStore = store;
 ReactDOM.render(
-    <Provider store={store}>
+    <Provider store={myStore}>
         <App />
     </Provider>,
-  document.getElementById('root'));
+  document.getElementById('root')
+);
 
