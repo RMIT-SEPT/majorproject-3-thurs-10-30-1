@@ -35,6 +35,7 @@ public class BusinessController {
         return new ResponseEntity<>(business, HttpStatus.CREATED);
     }
 
+
     @GetMapping("/{id}")
     public Business getBusinessById(@PathVariable long id)
     {

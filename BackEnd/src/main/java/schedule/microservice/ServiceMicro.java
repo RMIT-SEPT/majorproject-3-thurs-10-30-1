@@ -49,7 +49,7 @@ public class ServiceMicro {
         }
         else
         {
-            return service.getAvilablities();
+            return service.getAvailablities();
         }
     }
 }

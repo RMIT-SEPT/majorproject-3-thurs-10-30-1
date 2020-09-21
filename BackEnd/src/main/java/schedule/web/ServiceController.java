@@ -44,6 +44,24 @@ public class ServiceController {
             new ResponseEntity<>("Service not found", HttpStatus.BAD_REQUEST);
     }
 
+
+    @PostMapping("/{id}")
+    public ResponseEntity<?> createNewAvailability(@PathVariable long id)
+    {
+        ScheduleService service = serviceMicro.getServiceById(id);
+        if (service == null)
+        {
+            return new ResponseEntity<>("Service not found", HttpStatus.BAD_REQUEST);
+        }
+        else
+        {
+            TimeAvailability time = new TimeAvailability();
+            service.getAvailablities().add(time);
+            serviceMicro.saveOrUpdate(service);
+            return new ResponseEntity<>(time,HttpStatus.CREATED);
+        }
+    }
+
     @GetMapping("/{id}/availabilities")
     public ResponseEntity<?> getAvailabilities(@PathVariable long id)
     {

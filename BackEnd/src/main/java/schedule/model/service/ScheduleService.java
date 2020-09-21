@@ -47,8 +47,9 @@ public class ScheduleService
     {
         return description;
     }
+    
 
-    public List<TimeAvailability> getAvilablities()
+    public List<TimeAvailability> getAvailablities()
     {
         return availability;
     }
