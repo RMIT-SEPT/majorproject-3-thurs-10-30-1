@@ -19,11 +19,19 @@ public class BusinessMicro {
         return businessRepo.save(business);
     }
 
-    public ArrayList<Business> getBusinessById(long id)
+    public Business getBusinessById(long id)
     {
-        ArrayList<Long> ids = new ArrayList<>();
-        ids.add(id);
-        return businessRepo.findAllById(ids);
+        return businessRepo.findById(id).orElse(null);
+    }
+
+    public ArrayList<Business> getAllBusinesses()
+    {
+        ArrayList<Business> businesses = new ArrayList<Business>();
+        for (Business business : businessRepo.findAll())
+        {
+            businesses.add(business);
+        }
+        return businesses;
     }
 
     public boolean businessExistsById(long id)

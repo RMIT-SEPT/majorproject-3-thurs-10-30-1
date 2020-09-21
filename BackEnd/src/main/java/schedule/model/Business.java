@@ -1,7 +1,6 @@
 package schedule.model;
 
 import java.util.List;
-import schedule.model.*;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
@@ -14,18 +13,22 @@ public class Business {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;   
+    private Long id;
 
     @NotBlank(message = "A name is required")
     @NotNull
     @NotEmpty
     private String name;
 
-    @OneToMany()
+    @OneToMany(mappedBy = "", cascade = CascadeType.ALL)
+    @JoinColumn(name = "business_id")
     private List<ScheduleService> services;
 
     @OneToMany()
     private List<Admin> admins;
+
+    @ManyToMany
+    private List<Worker> workers;
 
     public Business()
     {
@@ -58,5 +61,9 @@ public class Business {
     {
         return admins;
     }
-    
+
+    public List<Worker> getWorkers()
+    {
+        return workers;
+    }
 }

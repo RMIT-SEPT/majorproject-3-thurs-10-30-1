@@ -17,7 +17,10 @@ public class TimeAvailability
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    
+    public Long getId()
+    {
+        return id;
+    } 
 
     public TimeAvailability() {}
 
