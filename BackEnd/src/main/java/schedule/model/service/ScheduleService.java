@@ -5,6 +5,8 @@ import java.util.List;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
+import schedule.model.Worker;
+
 @Entity(name = "schedule_service")
 @Table(name = "SERVICES")
 public class ScheduleService
@@ -22,6 +24,9 @@ public class ScheduleService
     @OneToMany(mappedBy = "", cascade = CascadeType.ALL)
     @JoinColumn(name = "service_id")
     private List<TimeAvailability> availability;
+
+    @ManyToMany(mappedBy = "services")
+    private List<Worker> workers;
 
     public ScheduleService() {}
 
@@ -47,10 +52,15 @@ public class ScheduleService
     {
         return description;
     }
-    
+
 
     public List<TimeAvailability> getAvailablities()
     {
         return availability;
+    }
+
+    public List<Worker> getWorkers()
+    {
+        return workers;
     }
 }
