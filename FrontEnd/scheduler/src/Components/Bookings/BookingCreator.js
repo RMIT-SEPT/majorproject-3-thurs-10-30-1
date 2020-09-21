@@ -14,7 +14,7 @@ class BookingCreator extends Component
 
     return (
         <div className = "bookingCreator">
-        <h2 className="bookingListHeader">Book a New Service</h2>
+        <h2 className="pageHeader">Book a New Service</h2>
         <select className = "availableServices" name="Available Services">
             {services}
         </select>

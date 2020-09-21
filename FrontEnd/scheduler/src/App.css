@@ -159,13 +159,6 @@ html, body, #root, .App {
     line-height: 55px;
 }
 
-.regFormDiv
-{
-    width: 60%;
-    margin-left: 20%;
-    margin-top: 10%;
-}
-
 /* Customer Dashboard */
 .bookingCreator
 {
@@ -187,8 +180,8 @@ html, body, #root, .App {
   position: relative;
 }
 
-/* Customer Dashboard */
-.bookingListHeader
+/* Customer/Profile Dashboard */
+.pageHeader
 {
     font-size: 45px;
     font-style: normal;
@@ -197,9 +190,31 @@ html, body, #root, .App {
     color: #000000;
     padding-bottom: 3%;
 }
+/* Profile Page */
+.profilePage
+  {
+    width: 55%;
+    float: left;
+    height: 700px;
+    outline-style: solid;
+    margin-left: 23%;
+    margin-top:2%;
+    background-color: white;
+  }
 
-.availableServices
+  /* Profile Page */
+  .profileContainer
+  {
+    background-image: url(./media/background3.png);
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+
+.regFormDiv
 {
-margin-left: 40%;
-margin-top:20%;
+    width: 60%;
+    margin-left: 20%;
+    margin-top: 10%;
 }
+
