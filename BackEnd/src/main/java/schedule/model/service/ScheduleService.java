@@ -32,4 +32,24 @@ public class ScheduleService
         this.description = description;
         this.availability = availability;
     }
+
+    public Long getId()
+    {
+        return serviceId;
+    }
+
+    public String getName()
+    {
+        return name;
+    }
+
+    public String getDescription()
+    {
+        return description;
+    }
+
+    public List<TimeAvailability> getAvilablities()
+    {
+        return availability;
+    }
 }

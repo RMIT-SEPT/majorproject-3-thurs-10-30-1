@@ -21,7 +21,8 @@ public class Business {
     @NotEmpty
     private String name;
 
-    @OneToMany()
+    @OneToMany(mappedBy = "", cascade = CascadeType.ALL)
+    @JoinColumn(name = "business_id")
     private List<ScheduleService> services;
 
     @OneToMany()

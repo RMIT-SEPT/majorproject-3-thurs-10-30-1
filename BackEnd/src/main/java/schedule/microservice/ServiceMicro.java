@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import schedule.model.service.ScheduleService;
+import schedule.model.service.TimeAvailability;
 import schedule.repositories.ServiceRepo;
 
 @Service
@@ -21,8 +22,7 @@ public class ServiceMicro {
 
     public ScheduleService getServiceById(long id)
     {
-        Optional<ScheduleService> service = serviceRepo.findById(id);
-        return service.isPresent() ? service.get() : null;
+        return serviceRepo.findById(id).orElse(null);
     }
 
     public ArrayList<ScheduleService> getAllServices()
@@ -38,5 +38,18 @@ public class ServiceMicro {
     public boolean serviceExistsById(long id)
     {
         return serviceRepo.existsById(id);
+    }
+
+    public List<TimeAvailability> getAllAvailabilities(long id)
+    {
+        ScheduleService service = getServiceById(id);
+        if (service == null)
+        {
+            return null;
+        }
+        else
+        {
+            return service.getAvilablities();
+        }
     }
 }
