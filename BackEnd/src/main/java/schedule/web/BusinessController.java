@@ -18,6 +18,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import schedule.microservice.BusinessMicro;
 import schedule.model.Business;
+import schedule.model.service.ScheduleService;
+
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 @RestController
 @RequestMapping("/api/business")
@@ -39,12 +43,19 @@ public class BusinessController {
     @GetMapping("/{id}")
     public Business getBusinessById(@PathVariable long id)
     {
-        return businessMicro.businessExistsById(id) ? businessMicro.getBusinessById(id).get(0) : new Business();
+        return businessMicro.businessExistsById(id) ? businessMicro.getBusinessById(id) : new Business();
     }
 
      @GetMapping("/all")
     public List<Business> getBusinessById()
     {
         return businessMicro.getAllBusinesses();
-    }   
+    }
+
+    @GetMapping("/{id}/services")
+    public List<ScheduleService> getMethodName(@PathVariable long id)
+    {
+        return businessMicro.getBusinessById(id).getServices();
+    }
+    
 }
