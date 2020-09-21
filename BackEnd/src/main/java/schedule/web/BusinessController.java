@@ -53,9 +53,10 @@ public class BusinessController {
     }
 
     @GetMapping("/{id}/services")
-    public List<ScheduleService> getMethodName(@PathVariable long id)
+    public List<ScheduleService> getBusinessServices(@PathVariable long id)
     {
-        return businessMicro.getBusinessById(id).getServices();
+        Business business = businessMicro.getBusinessById(id);
+        return business != null ? business.getServices() : null;
     }
     
 }
