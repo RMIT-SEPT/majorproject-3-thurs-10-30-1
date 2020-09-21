@@ -17,12 +17,17 @@ describe("Login unit test",() => {
 
     beforeEach(() => {
         // pass the mock function as the login prop
-        wrapper = shallow(<Login login = {mockLogin} />)
+        wrapper = shallow(<Login login = {mockLogin}/>)
     })
 
     it("should have 2 formControl elements", () =>
     {
         expect(wrapper.find(FormControl)).toHaveLength(2);
+    });
+
+    it("should have 1 form element", () =>
+    {
+        expect(wrapper.find(Form)).toHaveLength(1);
     });
 
     it("Should render with both fields blank", () => {
@@ -36,5 +41,11 @@ describe("Login unit test",() => {
         expect(wrapper.find(FormControl).at(0).prop('value')).toEqual("a");
     });
 
-
+    it("Should call login function on submit", () => {
+        wrapper.find(Form).simulate(
+            'submit',
+            {preventDefault() {}}
+        )
+        expect(mockLogin.mock.calls.length).toBe(0)
+    });
 })

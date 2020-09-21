@@ -53,7 +53,6 @@ export class AGMEnav extends Component
         return(
         <StyledNav>
             <Navbar expand="lg" >
-            {/*put a logo here*/}
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Navbar.Brand to="/" > <img src={Logo} className="logoImage" alt ="logo"/> AGME </Navbar.Brand>

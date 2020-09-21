@@ -5,9 +5,6 @@ import Adapter from "enzyme-adapter-react-16";
 import {Registration} from "./Registration";
 import {FormControl} from "react-bootstrap";
 import {userCreate} from "../../actions/userActions";
-import {Provider} from "react-redux";
-import store from "../../store";
-import configureStore from "redux-mock-store";
 
 Enzyme.configure({adapter : new Adapter()});
 
