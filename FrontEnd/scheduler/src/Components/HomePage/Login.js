@@ -2,11 +2,10 @@ import React, {Component} from 'react';
 import Form from 'react-bootstrap/Form';
 import {Link} from "react-router-dom";
 import {Redirect} from "react-router-dom";
-import MyError from "../Generics/MyError";
 import {connect} from 'react-redux'
 import { login } from "../../actions/auth"
 
-class Login extends Component
+export class Login extends Component
 {
     constructor(props)
     {
@@ -15,7 +14,6 @@ class Login extends Component
             {
                 email:"",
                 password:"",
-                error: false,
                 loading: false,
             };
             this.onChange=this.onChange.bind(this);
@@ -34,27 +32,16 @@ class Login extends Component
             {
                 email:"",
                 password:"",
-                error: false
+                loading: false
             }
         )
     }
-    // const res = await userLogin(details);
-    //  if(res)
-    //  {
-    //      this.props.handleAuth();
-    //  }
-    //  else
-    //  {
-    //      console.log("settin error");
-    //      this.setState(
-    //          {error: "Error Logging in."}
-    //      )
-    //  }
+
     handleSubmit= async (e) => {
         //send the username and password to the backend to be verified
         e.preventDefault();
         this.setState({
-            loading: true,
+            loading: true
         });
         const details =
         {
@@ -81,8 +68,6 @@ class Login extends Component
             return (
                 <div className="loginContainer">
                     <h1 className="myHeader"> SIGN IN</h1>
-
-                    {!this.state.error ? <p></p>:<MyError error={this.state.error} /> }
 
                     <Form className="mr-auto" onSubmit={this.handleSubmit}>
 
@@ -126,6 +111,7 @@ function mapStateToProps(state) {
         message
     };
 }
+
 
 
     export default connect(mapStateToProps)(Login);

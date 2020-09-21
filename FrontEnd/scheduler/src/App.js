@@ -10,6 +10,7 @@ import {logout} from "./actions/auth";
 import AGMEnav from "./Components/Generics/AGMEnav";
 import {connect} from 'react-redux'
 import {getCurrentUser} from "./actions/userActions";
+import {history} from "./utils/history";
 
 class App extends Component {
     constructor(props) {
@@ -21,16 +22,15 @@ class App extends Component {
             showAdminBoard: false,
             currentUser: {}
         };
-        // history.listen((location) => {
-        //     props.dispatch(clearMessage()); // clear message when changing location
-        // });
+        history.listen((location) => {
+            props.dispatch(clearMessage()); // clear message when changing location
+        });
     }
 
     componentDidMount() {
         const user = getCurrentUser();
         if (user)
         {
-            console.log("gottem");
             this.setState({
                 currentUser: user,
                 showModeratorBoard: user.accountType.includes("ROLE_MODERATOR"),
@@ -42,8 +42,6 @@ class App extends Component {
     logOut() {
         this.props.dispatch(logout());
     }
-
-
 
     render()
   {

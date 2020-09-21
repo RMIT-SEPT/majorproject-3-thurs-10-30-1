@@ -77,7 +77,6 @@ export const login = (details) => (dispatch) => {
 
 export const logout = () => (dispatch) => {
     lilLogout();
-
     dispatch({
         type: LOGOUT,
     });

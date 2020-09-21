@@ -3,6 +3,7 @@ import React, {Component} from "react";
 import BookingCreator from "../Bookings/BookingCreator";
 import BookingList from "../Bookings/BookingList";
 import {getCurrentUser, isLoggedIn} from "../../actions/userActions";
+import {connect} from "react-redux";
 
 class Dashboard extends Component
 {
@@ -19,12 +20,14 @@ render() {
         {businessName: 'Business2'},
         {businessName: 'Business3'}
     ]
-    const loggedIn = isLoggedIn();
-    const user = getCurrentUser();
+    // const loggedIn = isLoggedIn();
+    // const user = getCurrentUser();
     return (
 
         <div className="dashboardContainer">
-            {loggedIn ? <p>{user.name}</p>: <p> No user</p>}
+            {this.props.user ? <p>{this.props.user.name}</p>: <p> No user</p>}
+
+
             {/*if customer*/}
             <BookingList bookings={bookings}/>
             <BookingCreator services={services}/>
@@ -36,4 +39,11 @@ render() {
     }
 }
 
-export default Dashboard
+function mapStateToProps(state) {
+    const { user } = state.auth;
+    return {
+        user,
+    };
+}
+
+export default connect(mapStateToProps) (Dashboard);

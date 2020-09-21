@@ -32,16 +32,15 @@ const StyledNav = styled.div`
   }
 `;
 
-class AGMEnav extends Component
+export class AGMEnav extends Component
 {
     render()
     {
-        const loggedIn = isLoggedIn();
         const userLinks = (
             <Nav className="m-xl-auto">
                 <NavItem> <Link to="/profile"> Profile   </Link></NavItem>
                 <NavItem> <Link to ="/dashboard"> Dashboard </Link></NavItem>
-                <NavLink href="/" onClick={this.props.logout}> Logout </NavLink>
+                <NavLink className="logout" href="/" onClick={this.props.logout}> Logout </NavLink>
             </Nav>
         );
         const guestLinks = (
@@ -58,7 +57,7 @@ class AGMEnav extends Component
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Navbar.Brand to="/" > <img src={Logo} className="logoImage" alt ="logo"/> AGME </Navbar.Brand>
-                    {loggedIn ? userLinks : guestLinks}
+                    {this.props.user ? userLinks : guestLinks}
                     <NavDropdown title="Settings" className ="btn-group dropleft">
                         <NavDropdown.Item href="#action/3.1">Accessibility</NavDropdown.Item>
                         <NavDropdown.Item href="#action/3.2">Contact us</NavDropdown.Item>
@@ -73,13 +72,13 @@ class AGMEnav extends Component
 
 }
 AGMEnav.propTypes = {
-    auth: PropTypes.object.isRequired,
     logout: PropTypes.func.isRequired
 }
 
 function mapStateToProps(state) {
+    const { user } = state.auth;
     return {
-        auth: state.auth
+        user,
     };
 }
 

@@ -1,10 +1,9 @@
 import React, {Component} from "react";
 import Form from "react-bootstrap/Form";
-import MyError from "../Generics/MyError";
 import { register } from "../../actions/auth";
 import {connect} from 'react-redux'
 
-class Registration extends Component
+export class Registration extends Component
 {
     constructor(props)
     {
@@ -16,7 +15,6 @@ class Registration extends Component
                 contactNumber:0,
                 email:"",
                 password:"",
-                error:false
             };
         this.onChange=this.onChange.bind(this);
         this.handleSubmit=this.handleSubmit.bind(this);
@@ -27,15 +25,6 @@ class Registration extends Component
         this.setState({[e.target.name]: e.target.value});
     }
 
-
-//     const res = await userCreate(user,this.props.history);
-//     if(!res)
-// {
-//     this.setState(
-//     {error:"ERROR REGISTERING"}
-// )
-//     this.resetState();
-// }
     handleSubmit= async (e) =>
     {
         e.preventDefault();
@@ -83,7 +72,6 @@ class Registration extends Component
         const { message } = this.props;
         return (
             <div className="wholeReg">
-                {this.state.error ? <MyError error={this.state.error} /> : <p></p>}
                 <div className="regFormDiv">
                     <h1 className="myHeader"> Register Here!</h1>
                     <Form className="mr-auto" onSubmit={this.handleSubmit}>

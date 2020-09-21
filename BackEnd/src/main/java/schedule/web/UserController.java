@@ -46,7 +46,7 @@ public class UserController {
         else return new ResponseEntity<>("username or email not provided", HttpStatus.BAD_REQUEST);
         if (json.containsKey("password"))
             return user != null && user.getPassword().equals(json.get("password")) ? new ResponseEntity<>(user, HttpStatus.ACCEPTED) :
-                new ResponseEntity<>(false, HttpStatus.OK);
+                new ResponseEntity<>(false, HttpStatus.BAD_REQUEST);
         else return new ResponseEntity<>("Password not provided", HttpStatus.BAD_REQUEST);
     }
 
