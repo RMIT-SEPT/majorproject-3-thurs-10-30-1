@@ -36,6 +36,16 @@ export const userCreate = async (user) => {
     return axios.post("http://localhost:8080/api/customer", user);
 }
 
+export const adminCreate = async (user) => {
+
+    return axios.post("http://localhost:8080/api/admin", user);
+}
+
+export const workerCreate = async (user) => {
+
+    return axios.post("http://localhost:8080/api/worker", user);
+}
+
 export const getCurrentUser = () => {
     return JSON.parse(localStorage.getItem("user"));
 };

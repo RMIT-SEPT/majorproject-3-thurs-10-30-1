@@ -18,8 +18,8 @@ class App extends Component {
         this.logOut = this.logOut.bind(this);
 
         this.state = {
-            showWorkerBoard: false,
-            showAdminBoard: false,
+            admin: false,
+            worker: false,
             currentUser: {}
         };
         history.listen((location) => {
@@ -28,13 +28,13 @@ class App extends Component {
     }
 
     componentDidMount() {
-        const user = getCurrentUser();
+        const user = this.props.user;
         if (user)
         {
             this.setState({
                 currentUser: user,
-                showModeratorBoard: user.accountType.includes("ROLE_MODERATOR"),
-                showAdminBoard: user.accountType.includes("ROLE_ADMIN"),
+                worker: user.accountType==="Worker",
+                admin: user.accountType==="Admin"
             });
         }
     }
@@ -45,7 +45,7 @@ class App extends Component {
 
     render()
   {
-      const { currentUser, showModeratorBoard, showAdminBoard } = this.state;
+      const user = this.props.user;
     return (
         <Router>
             <AGMEnav logout={this.logOut} />
