@@ -1,0 +1,10 @@
+docker build -t react-server .
+
+docker run \
+   -it \
+   --rm \
+   -v ${PWD}/scheduler:/scheduler \
+   -v /scheduler/node_modules \
+   -p 3000:3000 \
+   -e CHOKIDAR_USEPOLLING=true \
+   react-server

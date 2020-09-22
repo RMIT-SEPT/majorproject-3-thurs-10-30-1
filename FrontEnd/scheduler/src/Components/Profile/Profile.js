@@ -18,9 +18,7 @@ let links = [
             <AGMEnav links={links} />
 
             <ProfileInfo />
-            
+
         </div>
     )
 }
-
-
