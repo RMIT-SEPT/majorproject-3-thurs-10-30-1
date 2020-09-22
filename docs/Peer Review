@@ -1,0 +1,60 @@
+Team name: 3-thurs-10-30-1
+
+Team Members:
+Maximillian young
+Ali Redha
+Fady Ilias
+Lucas Perlind 
+Michael Sartorel
+
+
+Peer Assessment:
+
+Maximillian Young
+% contributed: 20%
+
+Items contributed:
+Login, registration, homePage and AGMEnav components, as well as unit tests. 
+Redux integration
+Login and registration functionality.
+Product backlog grooming. 
+Simple booking creation
+Setup Docker for front end
+
+Ali Redha
+% contributed: 20%
+
+Items contributed:
+User stories 15, 16,17,18 and 20 and relevant acceptance tests.
+Customer Dashboard
+Worker Dashboard
+Customer Profile Page
+Edit Profile Information
+Creating Backgroups for App
+
+
+Fady Ilias
+% contributed: 20%
+
+Items contributed:
+User stories 11, 12, 13 and 14and relevant acceptance tests.
+
+
+
+
+Lucas Perlind
+% contributed: 20%
+
+Items contributed:
+Setup Git branches
+
+
+Michael Sartorel
+% contributed: 20%
+
+Items contributed:
+User stories 8, 9, 19, 22, 23, 24 and 25 and the relevant acceptance tests
+All 3 User classes and relevant repository links, micro methods and REST api methods
+Setup CircleCi to work with maven
+Setup Docker for backend and front end
+

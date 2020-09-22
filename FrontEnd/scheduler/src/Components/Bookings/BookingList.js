@@ -19,7 +19,11 @@ class BookingList extends Component
 
     return (
         <div className= "bookingList"> 
+
         <h2 className="pageHeader">Upcoming Bookings</h2>
+
+        <h2 className="bookingListHeader">Upcoming Customer Bookings</h2>
+
         <div> {myBookings} </div>
         </div>
     )
