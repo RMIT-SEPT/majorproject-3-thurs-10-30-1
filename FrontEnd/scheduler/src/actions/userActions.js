@@ -1,7 +1,7 @@
 import axios from "axios";
 
 import { SET_CURRENT_USER } from './types';
-
+import { IP } from './networkDetails';
 
 
 export function setCurrentUser(user) {
@@ -12,7 +12,7 @@ export function setCurrentUser(user) {
 }
 
 export const userLogin = (details) => {
-    return axios.post("http://localhost:8080/api/user/login", details)
+    return axios.post(`http://${IP}:8080/api/user/login`, details)
         .then((response) => {
             if(!response.data)
             {
@@ -34,17 +34,17 @@ export function lilLogout()
 
 export const userCreate = async (user) => {
 
-    return axios.post("http://localhost:8080/api/customer", user);
+    return axios.post(`http://${IP}:8080/api/customer`, user);
 }
 
 export const adminCreate = async (user) => {
 
-    return axios.post("http://localhost:8080/api/admin", user);
+    return axios.post(`http://${IP}:8080/api/admin`, user);
 }
 
 export const workerCreate = async (user) => {
 
-    return axios.post("http://localhost:8080/api/worker", user);
+    return axios.post(`http://${IP}:8080/api/worker`, user);
 }
 
 export const getCurrentUser = () => {
