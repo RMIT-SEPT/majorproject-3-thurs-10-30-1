@@ -1,11 +1,11 @@
 import axios from "axios";
-const localIpUrl = require('local-ip-url');
+const publicIp = require('public-ip');
 
 export const userLogin = async (details) =>
 {
     try
     {
-        const res = await axios.post(`http://${localIpUrl()}:8080/api/user/login`, details);
+        const res = await axios.post(`http://${await publicIp.v4()}:8080/api/user/login`, details);
         console.log(res);
         return res.data;
     }
