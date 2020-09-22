@@ -26,6 +26,12 @@ export const userLogin = (details) => {
         });
 };
 
+export const userUpdate = (details) =>
+{
+    const id = details.id;
+    return axios.put("http://localhost:8080/api/user/update/"+id, details)
+}
+
 export function lilLogout()
 {
         localStorage.removeItem("user");
