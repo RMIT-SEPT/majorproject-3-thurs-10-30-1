@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
+import org.springframework.validation.ObjectError;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -47,9 +48,19 @@ public class ServiceController {
     }
 
 
-    @PostMapping("/{id}")
-    public ResponseEntity<?> createNewAvailability(@PathVariable long id)
+    @PostMapping("/{id}/availability")
+    public ResponseEntity<?> createNewAvailability(@Valid @RequestBody TimeAvailability availability, BindingResult result, @PathVariable long id)
     {
+        if (result.hasErrors())
+        {
+            String err = "";
+            for (ObjectError error : result.getAllErrors())
+            {
+                err += error.getDefaultMessage();
+            }
+            return new ResponseEntity<>("Invalid Availability Object\n" + err, HttpStatus.BAD_REQUEST);
+        }
+
         ScheduleService service = serviceMicro.getServiceById(id);
         if (service == null)
         {
@@ -57,10 +68,9 @@ public class ServiceController {
         }
         else
         {
-            TimeAvailability time = new TimeAvailability();
-            service.getAvailablities().add(time);
+            service.getAvailablities().add(availability);
             serviceMicro.saveOrUpdate(service);
-            return new ResponseEntity<>(time,HttpStatus.CREATED);
+            return new ResponseEntity<>(availability,HttpStatus.CREATED);
         }
     }
 

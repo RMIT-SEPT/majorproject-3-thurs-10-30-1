@@ -30,40 +30,51 @@ public class Business {
     @ManyToMany
     private List<Worker> workers;
 
-    public Business()
-    {
+    public Business() {
     }
 
-    public Business(Long id, String name, List<ScheduleService> services, List<Admin> admin)
-    {
+    public Business(Long id, String name, List<ScheduleService> services, List<Admin> admin) {
         this.id = id;
         this.name = name;
         this.services = services;
         this.admins = admin;
     }
 
-    public Long getId()
-    {
+    public Long getId() {
         return id;
     }
 
-    public String getName()
-    {
+    public String getName() {
         return name;
     }
 
-    public List<ScheduleService> getServices()
-    {
+    public List<ScheduleService> getServices() {
         return services;
     }
 
-    public List<Admin> getAdmins()
-    {
+    public List<Admin> getAdmins() {
         return admins;
     }
 
-    public List<Worker> getWorkers()
-    {
+    public List<Worker> getWorkers() {
         return workers;
+    }
+
+    public void toJson(StringBuilder builder) {
+        builder.append("{");
+        builder.append("\"id\":" + getId().toString() + ",");
+        builder.append("\"name\":" + '"' + getName() + '"' + ",");
+        builder.append("\"services\":[");
+        int i = 0;
+        for (ScheduleService service : getServices()) {
+            i++;
+            if (i < getServices().size()) {
+                builder.append(service.getId() + ",");
+            } else {
+                builder.append(service.getId());
+            }
+        }
+        builder.append("]}");
+
     }
 }
