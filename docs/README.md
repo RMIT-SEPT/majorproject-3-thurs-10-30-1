@@ -20,7 +20,7 @@ Our Product has the following features implemented:
 -Login for users with some responsive errors. Either newly created or pre-loaded accounts. 
 -Logout for users. 
 -Different nav bar display depending on type of account logged in.
--Profile viewing and editing for users. 
+-Profile viewing and reactive text fields for editing for users. (error was discovered with put method, so editing is non-functional)
 -Admin account ability to create worker accounts. 
 -The beginnings of simple booking creation- displaying all businesses available in the database to users. The completion of this feature is a part of our current sprint. 
 -redux session integration. 
