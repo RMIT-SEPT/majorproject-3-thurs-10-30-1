@@ -23,6 +23,9 @@ import schedule.microservice.BusinessMicro;
 import schedule.model.Business;
 import schedule.model.service.ScheduleService;
 
+import org.springframework.web.bind.annotation.RequestParam;
+
+
 @RestController
 @RequestMapping("/api/business")
 public class BusinessController {
@@ -62,4 +65,11 @@ public class BusinessController {
 
         return builder.toString();
     }   
+
+    @GetMapping("/{id}/services")
+    public List<ScheduleService> getBusinessServices(@PathVariable long id)
+    {
+        Business business = businessMicro.getBusinessById(id);
+        return business != null ? business.getServices() : null;
+    }
 }
