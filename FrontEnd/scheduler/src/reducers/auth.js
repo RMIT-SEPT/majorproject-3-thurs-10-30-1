@@ -5,9 +5,9 @@ import {
     LOGIN_FAIL,
     LOGOUT,
 } from "../actions/types";
+const publicIp = require('public-ip');
 
 const user = JSON.parse(localStorage.getItem("user"));
-const publicIp = require('public-ip');
 const ipAddress = publicIp.v4().then(result => {
     console.log(result);
 });

@@ -1,5 +1,4 @@
 import axios from "axios";
-const publicIp = require('public-ip');
 
 import { SET_CURRENT_USER } from './types';
 
