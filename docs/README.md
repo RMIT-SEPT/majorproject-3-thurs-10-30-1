@@ -16,10 +16,12 @@ A wiki section containing:
 Our Product has the following features implemented:
 -account registration for users
 -Login for users with responsive errors. 
--Different nav bar display depending on type of account logged in
+-Logout for users. 
+-Different nav bar display depending on type of account logged in.
 -Profile viewing and editing for users. 
 -Admin account ability to create worker accounts. 
 -The beginnings of simple booking creation- displaying all businesses available in the database to users. The completion of this feature is a part of our current sprint. 
+-redux session integration. 
 
 Consistent front end design.
 API mapping for a number of backend functions relating to services, businesses, users and bookings. 
