@@ -44,7 +44,7 @@ public class BusinessController {
 
     @GetMapping("/{id}")
     public Business getBusinessById(@PathVariable long id) {
-        return businessMicro.businessExistsById(id) ? businessMicro.getBusinessById(id).get(0) : new Business();
+        return businessMicro.businessExistsById(id) ? businessMicro.getBusinessById(id) : null;
     }
 
     @GetMapping("/all")
