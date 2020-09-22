@@ -5,28 +5,64 @@ import Home from "./Components/HomePage/Home";
 import Dashboard from "./Components/Dashboards/Dashboard";
 import Profile from "./Components/Profile/Profile";
 import Registration from "./Components/Registration/Registration";
-import bookingWorker from "./Components/Bookings/bookingWorker";
-import bookingTime from "./Components/Bookings/bookingTime";
+import {clearMessage} from "./actions/message";
+import {logout} from "./actions/auth";
+import AGMEnav from "./Components/Generics/AGMEnav";
+import {connect} from 'react-redux'
+import {getCurrentUser} from "./actions/userActions";
+import {history} from "./utils/history";
 
 class App extends Component {
-    state =
-        {
-            loggedIn:false
-        }
+    constructor(props) {
+        super(props);
+        this.logOut = this.logOut.bind(this);
 
-  render()
+        this.state = {
+            admin: false,
+            worker: false,
+            currentUser: {}
+        };
+        history.listen((location) => {
+            props.dispatch(clearMessage()); // clear message when changing location
+        });
+    }
+
+    componentDidMount() {
+        const user = this.props.user;
+        if (user)
+        {
+            this.setState({
+                currentUser: user,
+                worker: user.accountType==="Worker",
+                admin: user.accountType==="Admin"
+            });
+        }
+    }
+
+    logOut() {
+        this.props.dispatch(logout());
+    }
+
+    render()
   {
+      const user = this.props.user;
     return (
         <Router>
+            <AGMEnav logout={this.logOut} />
             <Route exact path="/" component={Home}/>
             <Route exact path="/register" component={Registration}/>
-            <Route exact path="/dashboard" component={Dashboard}/>
-            <Route exact path="/booking/worker" component={bookingWorker}/>
-            <Route exact path="/booking/time" component={bookingTime}/>
-            <Route exact path="/profile" component ={Profile}/>
+            <Route exact path="/dashboard" component={Dashboard} />
+            <Route exact path="/profile" component={Profile} />
         </Router>
     );
   }
 }
 
-export default App;
+function mapStateToProps(state) {
+    const { user } = state.auth;
+    return {
+        user,
+    };
+}
+
+export default connect(mapStateToProps)(App);

@@ -1,12 +1,15 @@
 import React, {Component} from 'react';
-import Navbar from "react-bootstrap/Navbar";
 import Nav from "react-bootstrap/Nav";
-import NavDropdown from "react-bootstrap/NavDropdown";
 import '../../App.css';
 import styled from 'styled-components';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Logo from  "../../media/Logo(Text).png"
-
+import {Link} from "react-router-dom";
+import {NavItem, Navbar, NavLink} from "react-bootstrap";
+import {NavDropdown} from "react-bootstrap";
+import Logo from "../../media/Logo(Text).png";
+import { connect } from 'react-redux';
+import {isLoggedIn, lilLogout} from '../../actions/userActions';
+import PropTypes from 'prop-types'
 
 const StyledNav = styled.div`
   .navbar {
@@ -15,6 +18,9 @@ const StyledNav = styled.div`
   
   a, .navbar-brand, .navbar-nav .nav-link {
     color: #FFF;
+    font-size: 20px;
+     padding: 2px 30px;
+     
     &:hover {
       color: black;
     }
@@ -24,39 +30,39 @@ const StyledNav = styled.div`
   {
     color: black;
   }
-  
 `;
 
-class AGMEnav extends Component
+export class AGMEnav extends Component
 {
     render()
     {
-       let customLinks=this.props.links.map((link) =>
-        {
-            return(
-               <Nav.Link key={link.label} href={link.link} className="px-3"> {link.label}</Nav.Link>
-            );
-        });
+        const userLinks = (
+            <Nav className="m-xl-auto">
+                <NavItem> <Link to="/profile"> Profile   </Link></NavItem>
+                <NavItem> <Link to ="/dashboard"> Dashboard </Link></NavItem>
+                <NavLink className="logout" href="/" onClick={this.props.logout}> Logout </NavLink>
+            </Nav>
+        );
+        const guestLinks = (
+            <Nav className="m-xl-auto">
+                <NavItem> <Link to="/"> Home</Link>  </NavItem>
+                <NavItem> <Link to="/register"> Register </Link></NavItem>
+            </Nav>
+        );
 
         return(
         <StyledNav>
             <Navbar expand="lg" >
-            {/*put a logo here*/}
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
-                    <Navbar.Brand href="/" > <img src={Logo} className="logoImage" alt ="logo"/> AGME </Navbar.Brand>
-                    <Nav className="m-auto">
-                    {customLinks}
-                    </Nav>
-
-                    <Nav>
+                    <Navbar.Brand to="/" > <img src={Logo} className="logoImage" alt ="logo"/> AGME </Navbar.Brand>
+                    {this.props.user ? userLinks : guestLinks}
                     <NavDropdown title="Settings" className ="btn-group dropleft">
                         <NavDropdown.Item href="#action/3.1">Accessibility</NavDropdown.Item>
                         <NavDropdown.Item href="#action/3.2">Contact us</NavDropdown.Item>
                         <NavDropdown.Item href="#action/3.3"></NavDropdown.Item>
                         </NavDropdown>
 
-                    </Nav>
                 </Navbar.Collapse>
             </Navbar>
     </StyledNav>
@@ -64,5 +70,15 @@ class AGMEnav extends Component
     }
 
 }
+AGMEnav.propTypes = {
+    logout: PropTypes.func.isRequired
+}
 
-export default AGMEnav;
+function mapStateToProps(state) {
+    const { user } = state.auth;
+    return {
+        user,
+    };
+}
+
+export default connect(mapStateToProps, {lilLogout })(AGMEnav);
