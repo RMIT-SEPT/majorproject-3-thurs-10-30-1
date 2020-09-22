@@ -12,7 +12,7 @@ export class Registration extends Component
             {
                 name:"",
                 username:"",
-                contactNumber:0,
+                contactNumber:"0",
                 email:"",
                 password:"",
                 admin:false,
@@ -39,6 +39,7 @@ export class Registration extends Component
             contactNumber: this.state.contactNumber,
             email: this.state.email,
         }
+        console.log(user);
         this.setState({
             successful: false,
         });

@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import {connect} from "react-redux";
 import DarkButton from "../Generics/DarkButton";
 import Form from "react-bootstrap/Form";
+import {adminRegister, register} from "../../actions/auth";
+import {userUpdate} from "../../actions/userActions";
 
 
 class ProfileInfo extends Component
@@ -19,6 +21,7 @@ class ProfileInfo extends Component
                 password:"",
             };
         this.onChange=this.onChange.bind(this);
+        this.handleSubmit=this.handleSubmit.bind(this);
     }
 
     onChange = (e) =>
@@ -26,10 +29,25 @@ class ProfileInfo extends Component
         this.setState({[e.target.name]: e.target.value});
     }
 
+    handleSubmit= async (e) => {
+        e.preventDefault();
+        const user =
+        {
+            name: this.state.name,
+            username: this.state.username,
+            password: this.props.user.password,
+            contactNumber: this.state.contactNumber,
+            email: this.state.email,
+        }
+        console.log(user);
+
+        const res = userUpdate(user);
+        console.log(res.data);
+    }
+
+
+
     render() {
-
-        let label = {label: 'Save', link: '/profile'}
-
         return (
             <div className="editProfileContainer">
 
@@ -37,6 +55,8 @@ class ProfileInfo extends Component
                 <h2 className="pageHeader"> Edit Profile Information </h2>
 
                 <div className="profileText"> UserName </div>
+
+                <Form onSubmit={this.handleSubmit}>
                 <Form.Group>
                     <Form.Control type="text" placeholder= {this.props.user.username} value={this.state.username} onChange={this.onChange} name ="username"/>
                 </Form.Group>
@@ -51,15 +71,16 @@ class ProfileInfo extends Component
                     <Form.Control type="text" placeholder= {this.props.user.email} value={this.state.email} onChange={this.onChange} name ="email"/>
                 </Form.Group>
 
-                <div className="profileText"> Contact Number </div>
-                <Form.Group>
-                    <Form.Control type="text" placeholder= {this.props.user.contactNumber} value={this.state.contactNumber} onChange={this.onChange} name ="contactNumber"/>
-                </Form.Group>
+                {/*<div className="profileText"> Contact Number </div>*/}
+                {/*<Form.Group>*/}
+                {/*    <Form.Control type="number" placeholder= {this.props.user.contactNumber} value={this.state.contactNumber} onChange={this.onChange} name ="contactNumber"/>*/}
+                {/*</Form.Group>*/}
 
                 {this.props.user ? <h4 className="profileInfo"> Account Type: <div className="profileText"> {this.props.user.accountType} </div> </h4> : <p> Account Type = Null</p>}
-
-                <center> <DarkButton label={label} /> </center>
-
+`
+                {/*<center> <DarkButton label={label} /> </center>*/}
+                <input type="submit" title="Submit"/>
+                </Form>
                 </div>
             </div>
         )
