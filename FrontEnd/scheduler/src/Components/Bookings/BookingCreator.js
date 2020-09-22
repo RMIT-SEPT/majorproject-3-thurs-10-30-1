@@ -10,7 +10,8 @@ class BookingCreator extends Component
         super(props);
         this.state=
         {
-            businesses: []
+            businesses: [],
+            currentbiz: ""
         }
     }
 
@@ -34,7 +35,7 @@ class BookingCreator extends Component
         <div className = "bookingCreator">
         <h2 className="bookingListHeader">Book a New Service</h2>
             {biz
-                ? <select >
+                ? <select name = "bizname" onChange={this.onChange} >
                     <option> {biz.name}</option>
                     <option>{biz2.name} </option>
                 </select>
