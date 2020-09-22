@@ -136,7 +136,7 @@ html, body, #root, .App {
 }
 
 
-@keyframes App-logo-spin 
+@keyframes App-logo-spin
 {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
@@ -151,6 +151,7 @@ html, body, #root, .App {
   outline-style: solid;
   margin-left: 3%;
   margin-top:2%;
+  background-color: white;
 }
 
 /* Customer Dashboard */
@@ -181,8 +182,9 @@ html, body, #root, .App {
   outline: solid;
   margin-right: 3%;
   margin-top:10%;
+  background-color: white;
 }
-  
+
 /* Customer Dashboard */
 .dashboardContainer
 {
@@ -190,9 +192,8 @@ html, body, #root, .App {
   width: 100%;
   height: 100%;
   position: relative; 
-  
 }
-  
+
 /* Customer Dashboard */
 .bookingListHeader
 {
@@ -223,7 +224,6 @@ html, body, #root, .App {
   margin-left: 23%;
   margin-top:2%;
   background-color: white;
-
 }
   
 .availableServices
