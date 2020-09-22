@@ -9,13 +9,13 @@ Notion contains:
 
 A wiki section containing:
 - A map of our databases
--A progressive list of acceptance tests, with completes tests marked as 'passed'
+-A progressive list of acceptance tests, with completes tests marked as 'passed'.
 -A link to our google drive containing user stories, each with acceptance criteria.
 -A testing log spreadsheet.
 
 Our Product has the following features implemented:
--account registration for users
--Login for users with responsive errors. 
+-account registration for new customers. Accounts can only be created with unique email addresses and usernames. 
+-Login for users with some responsive errors. Either newly created or pre-loaded accounts. 
 -Logout for users. 
 -Different nav bar display depending on type of account logged in.
 -Profile viewing and editing for users. 
