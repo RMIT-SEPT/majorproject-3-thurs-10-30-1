@@ -205,6 +205,29 @@ html, body, #root, .App {
     padding-bottom: 3%;
 }
 
+
+/* Worker Dashboard */
+.dashboardContainer2
+{
+  background-image: url(./media/background3.png);
+  width: 100%;
+  height: 100%;
+  position: relative; 
+}
+
+/* Worker Dashboard*/
+.WorkerbookingList
+{
+  width: 55%;
+  float: left;
+  height: 650px;
+  outline-style: solid;
+  margin-left: 23%;
+  margin-top:2%;
+  background-color: white;
+}
+  
+
 .availableServices
 {
 margin-left: 40%;

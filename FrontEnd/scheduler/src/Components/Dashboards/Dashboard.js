@@ -7,8 +7,17 @@ import {getAllBusiness} from "../../actions/business";
 
 class Dashboard extends Component
 {
-  
-render() {
+
+  render() {
+    
+    //get links based off of what the account type is
+    let links = [
+        {label: 'Home', link: '/'},
+        {label: 'Testing a Link', link: '/workerHome'},
+        {label: 'Profile', link: '/profile'},
+        {label: 'Sign-out', link: '/'}  
+
+
     let bookings = [
 
         {customer: 'Test ',worker: 'Ali ', service: "Ali's Hairdresser ", start_time: "13:30 ", end_time: "13:30"},
@@ -18,13 +27,12 @@ render() {
         {customer: 'Test ',worker: 'Ali ', service: "Ali's Hairdresses ", start_time: "18:45 ", end_time: "18:45"},
  
     ]
+
     let services = [
         {businessName: 'Business1'} ,
         {businessName: 'Business2'},
         {businessName: 'Business3'}
     ]
-    // const loggedIn = isLoggedIn();
-    // const user = getCurrentUser();
 
     return (
 
