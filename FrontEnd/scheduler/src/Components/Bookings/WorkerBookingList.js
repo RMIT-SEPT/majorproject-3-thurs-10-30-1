@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 
-class BookingList extends Component
+class WorkerBookingList extends Component
 {
    
 
@@ -9,18 +9,17 @@ class BookingList extends Component
         {
             return(
                 <h4 className="booking">
-                Customer Name: {booking.customer}
-                Staff Member: {booking.worker}
+                Staff Member: {booking.workerName}
                 Service: {booking.service} 
-                Start Time: {booking.start_time}
-                End Time: {booking.end_time}
+                Time: {booking.time}
+                Date: {booking.date}
                 </h4>
             );
         });
 
     return (
-        <div className= "bookingList"> 
-        <h2 className="bookingListHeader">Upcoming Bookings</h2>
+        <div className= "WorkerbookingList"> 
+        <h2 className="bookingListHeader">Your Upcoming Bookings</h2>
         <div> {myBookings} </div>
         </div>
     )
@@ -31,4 +30,4 @@ class BookingList extends Component
 
 
 
-export default BookingList;
+export default WorkerBookingList;

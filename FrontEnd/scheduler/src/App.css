@@ -136,7 +136,7 @@ html, body, #root, .App {
 }
 
 
-@keyframes App-logo-spin 
+@keyframes App-logo-spin
 {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
@@ -151,6 +151,7 @@ html, body, #root, .App {
   outline-style: solid;
   margin-left: 3%;
   margin-top:2%;
+  background-color: white;
 }
 
 /* Customer Dashboard */
@@ -181,8 +182,9 @@ html, body, #root, .App {
   outline: solid;
   margin-right: 3%;
   margin-top:10%;
+  background-color: white;
 }
-  
+
 /* Customer Dashboard */
 .dashboardContainer
 {
@@ -191,7 +193,7 @@ html, body, #root, .App {
   height: 100%;
   position: relative; 
 }
-  
+
 /* Customer Dashboard */
 .bookingListHeader
 {
@@ -201,6 +203,27 @@ html, body, #root, .App {
     text-align: center;
     color: #000000;
     padding-bottom: 3%;
+}
+
+/* Worker Dashboard */
+.dashboardContainer2
+{
+  background-image: url(./media/background3.png);
+  width: 100%;
+  height: 100%;
+  position: relative; 
+}
+
+/* Worker Dashboard*/
+.WorkerbookingList
+{
+  width: 55%;
+  float: left;
+  height: 650px;
+  outline-style: solid;
+  margin-left: 23%;
+  margin-top:2%;
+  background-color: white;
 }
   
 .availableServices
