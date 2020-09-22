@@ -13,6 +13,8 @@ A wiki section containing:
 -A link to our google drive containing user stories, each with acceptance criteria.
 -A testing log spreadsheet.
 
+-Almost all code and tests in our project are new to this milestone.
+
 Our Product has the following features implemented:
 -account registration for new customers. Accounts can only be created with unique email addresses and usernames. 
 -Login for users with some responsive errors. Either newly created or pre-loaded accounts. 
