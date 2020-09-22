@@ -1,18 +1,11 @@
 import React from "react";
 
-import AGMEnav from "../Generics/AGMEnav";
 import WorkerBookingList from "../Bookings/WorkerBookingList";
 
 
 export default function WorkerDashboard(props)
 {
     //get links based off of what the account type iss
-    let links = [
-        {label: 'Home', link: '/'},
-        {label: 'Testing a Link', link: '/dashboard'},
-        {label: 'Profile', link: '/profile'},
-        {label: 'Sign-out', link: '/'}  
-    ]
 
     let bookings = [
         {workerName: 'Ali ', service: "Ali's Hairdresser ", time: "13:30 ", date: "04/10"},
@@ -24,7 +17,6 @@ export default function WorkerDashboard(props)
 
     return(
         <div className="dashboardContainer2">
-            <AGMEnav links ={links}/>
                {/*Add welcome Username*/}
             <WorkerBookingList bookings = {bookings}/>
 

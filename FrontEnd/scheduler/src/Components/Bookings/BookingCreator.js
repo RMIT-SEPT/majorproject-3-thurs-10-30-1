@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import DarkButton from "../Generics/DarkButton";
 import {getAllBusiness} from "../../actions/business";
-import {Navbar} from "react-bootstrap";
 
 
 class BookingCreator extends Component
@@ -38,8 +37,8 @@ class BookingCreator extends Component
                     <option> {biz.name}</option>
                     <option>{biz2.name} </option>
                 </select>
-                : <p></p>}
 
+                : <p></p>}
          <DarkButton label={label} />
          </div>
     )

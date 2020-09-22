@@ -34,6 +34,14 @@ const StyledNav = styled.div`
 
 export class AGMEnav extends Component
 {
+    constructor(props) {
+        super(props);
+        this.state = {
+            admin: false,
+            worker: false,
+            currentUser: {}
+        };
+    }
     componentDidMount() {
         const user = this.props.user;
         if (user)
@@ -52,6 +60,13 @@ export class AGMEnav extends Component
             <Nav className="m-xl-auto">
                 <NavItem> <Link to="/profile"> Profile   </Link></NavItem>
                 <NavItem> <Link to ="/dashboard"> Dashboard </Link></NavItem>
+
+                {
+                    this.state.worker
+                    ? <NavItem> <Link to="/workerHome"> Worker Home </Link></NavItem>
+                    : <p></p>
+                }
+
                 <NavLink className="logout" href="/" onClick={this.props.logout}> Logout </NavLink>
             </Nav>
         );

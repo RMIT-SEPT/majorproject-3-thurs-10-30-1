@@ -3,11 +3,11 @@ import {shallow, mount} from "enzyme";
 import Enzyme from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import {Form, FormControl} from "react-bootstrap";
-import Dashboard from "./Dashboard";
+import {Dashboard} from "./Dashboard";
 
 
 Enzyme.configure({adapter : new Adapter()});
-// NEED TO FIX THESE TEST
+
 describe("Dashboard Unit Test",() => {
 
     const dashboard = shallow(<Dashboard />);

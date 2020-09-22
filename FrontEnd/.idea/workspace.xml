@@ -3,8 +3,23 @@
   <component name="ChangeListManager">
     <list default="true" id="864500c5-d78e-4c15-8b77-0fed5207bcc4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scheduler/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scheduler/src/Components/AGMEnav.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scheduler/src/Components/AGMEnav.test.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/scheduler/src/Components/Bookings/BookingCreator.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/Components/Bookings/BookingCreator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scheduler/src/actions/business.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/actions/business.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scheduler/src/Components/DarkButton.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scheduler/src/Components/DarkButton.test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scheduler/src/Components/Dashboard.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scheduler/src/Components/Dashboards/Dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/Components/Dashboards/Dashboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scheduler/src/Components/Dashboards/Dashboard.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/Components/Dashboards/Dashboard.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scheduler/src/Components/Dashboards/WorkerDashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/Components/Dashboards/WorkerDashboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scheduler/src/Components/Generics/AGMEnav.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/Components/Generics/AGMEnav.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scheduler/src/Components/Home.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scheduler/src/Components/Login.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scheduler/src/Components/Login.test.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scheduler/src/Components/Profile.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scheduler/src/Components/Registration.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scheduler/src/Components/aboutUs.js" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -21,7 +36,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/.." value="login/sessions" />
+        <entry key="$PROJECT_DIR$/.." value="front-end/bookingMaker" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -67,13 +82,15 @@
     </key>
   </component>
   <component name="RunManager" selected="Docker.Docker Image">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>

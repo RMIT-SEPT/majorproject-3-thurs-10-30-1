@@ -51,7 +51,6 @@ class App extends Component {
             <AGMEnav logout={this.logOut} />
             <Route exact path="/" component={Home}/>
             <Route exact path="/register" component={Registration}/>
-
             <Route exact path="/dashboard" component={Dashboard}/>
             <Route exact path="/profile" component ={Profile}/>
             <Route exact path="/workerHome" component ={WorkerDashboard}/>
