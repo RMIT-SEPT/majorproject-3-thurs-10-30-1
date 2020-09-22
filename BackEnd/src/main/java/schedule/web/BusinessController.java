@@ -5,6 +5,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -25,6 +26,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @RestController
 @RequestMapping("/api/business")
+@CrossOrigin(origins = "http://localhost:3000")
 public class BusinessController {
 
     @Autowired
@@ -46,7 +48,7 @@ public class BusinessController {
         return businessMicro.businessExistsById(id) ? businessMicro.getBusinessById(id) : new Business();
     }
 
-     @GetMapping("/all")
+    @GetMapping("/all")
     public List<Business> getBusinessById()
     {
         return businessMicro.getAllBusinesses();

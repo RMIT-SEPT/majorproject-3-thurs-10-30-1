@@ -9,14 +9,14 @@ import {clearMessage} from "./actions/message";
 import {logout} from "./actions/auth";
 import AGMEnav from "./Components/Generics/AGMEnav";
 import {connect} from 'react-redux'
-import {getCurrentUser} from "./actions/userActions";
 import {history} from "./utils/history";
 
 class App extends Component {
+    _isMounted = false;
+
     constructor(props) {
         super(props);
         this.logOut = this.logOut.bind(this);
-
         this.state = {
             admin: false,
             worker: false,
@@ -28,6 +28,8 @@ class App extends Component {
     }
 
     componentDidMount() {
+        this._isMounted = true;
+        console.log("mounting");
         const user = this.props.user;
         if (user)
         {
@@ -45,7 +47,6 @@ class App extends Component {
 
     render()
   {
-      const user = this.props.user;
     return (
         <Router>
             <AGMEnav logout={this.logOut} />
