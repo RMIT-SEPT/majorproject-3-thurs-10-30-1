@@ -67,6 +67,18 @@ export class AGMEnav extends Component
                     : <p></p>
                 }
 
+                {
+                    this.state.admin
+                        ? <NavItem> <Link to="/adminHome"> Admin Home </Link></NavItem>
+                        : <p></p>
+                }
+
+                {
+                    this.state.admin
+                        ? <NavItem> <Link to="/workerMaker"> Create a worker </Link></NavItem>
+                        : <p></p>
+                }
+
                 <NavLink className="logout" href="/" onClick={this.props.logout}> Logout </NavLink>
             </Nav>
         );

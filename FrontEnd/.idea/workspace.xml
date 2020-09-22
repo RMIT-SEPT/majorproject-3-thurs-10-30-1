@@ -2,24 +2,18 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="864500c5-d78e-4c15-8b77-0fed5207bcc4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/scheduler/src/Components/Dashboards/adminDashboard.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scheduler/src/Components/Registration/workerMaker.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scheduler/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scheduler/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scheduler/src/Components/AGMEnav.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scheduler/src/Components/AGMEnav.test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scheduler/src/Components/Bookings/BookingCreator.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/Components/Bookings/BookingCreator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scheduler/src/Components/DarkButton.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scheduler/src/Components/DarkButton.test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scheduler/src/Components/Dashboard.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scheduler/src/Components/Dashboards/Dashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/Components/Dashboards/Dashboard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scheduler/src/Components/Dashboards/Dashboard.test.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/Components/Dashboards/Dashboard.test.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scheduler/src/Components/Bookings/BookingList.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/Components/Bookings/BookingList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scheduler/src/Components/Bookings/WorkerBookingList.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/Components/Bookings/WorkerBookingList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scheduler/src/Components/Dashboards/WorkerDashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/Components/Dashboards/WorkerDashboard.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scheduler/src/Components/Generics/AGMEnav.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/Components/Generics/AGMEnav.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scheduler/src/Components/Home.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scheduler/src/Components/Login.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scheduler/src/Components/Login.test.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scheduler/src/Components/Profile.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scheduler/src/Components/Registration.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scheduler/src/Components/aboutUs.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scheduler/src/Components/WorkerBookingList.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scheduler/src/Components/adminDashboard.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scheduler/src/actions/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/actions/auth.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,7 +30,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/.." value="front-end/bookingMaker" />
+        <entry key="$PROJECT_DIR$/.." value="Release" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -74,11 +68,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/scheduler/src/Components/Dashboards" />
       <recent name="$PROJECT_DIR$/scheduler/src" />
       <recent name="$PROJECT_DIR$/scheduler/.circleci" />
       <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/scheduler/src/Components/Bookings" />
-      <recent name="$PROJECT_DIR$/scheduler/src/Components/Profile" />
     </key>
   </component>
   <component name="RunManager" selected="Docker.Docker Image">
@@ -216,13 +210,6 @@
       <workItem from="1600733329771" duration="2805000" />
       <workItem from="1600736367703" duration="7045000" />
       <workItem from="1600745732203" duration="11517000" />
-    </task>
-    <task id="LOCAL-00004" summary="space navbar elements">
-      <created>1598174270663</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1598174270663</updated>
     </task>
     <task id="LOCAL-00005" summary="implement styled component nav. Create media file to host images.">
       <created>1598229882867</created>
@@ -560,14 +547,20 @@
       <option name="project" value="LOCAL" />
       <updated>1600756206188</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="prepare for submission">
+      <created>1600767548528</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1600767548528</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="straight to login button" />
     <MESSAGE value="tidy up code. Implement list of businesses as a parameter to booking creator" />
     <MESSAGE value="tidy up code. Implement list of businesses as a parameter to booking creator. Improve folder organization." />
     <MESSAGE value="add config.yml" />
@@ -592,7 +585,8 @@
     <MESSAGE value="data seeding created. working on dusplaying all businesses." />
     <MESSAGE value="int update" />
     <MESSAGE value="parse JSOn for businsesses" />
-    <option name="LAST_COMMIT_MESSAGE" value="parse JSOn for businsesses" />
+    <MESSAGE value="prepare for submission" />
+    <option name="LAST_COMMIT_MESSAGE" value="prepare for submission" />
   </component>
   <component name="WindowStateProjectService">
     <state x="1643" y="449" key="#Docker" timestamp="1600311891506">
@@ -609,20 +603,20 @@
     </state>
     <state x="1552" y="474" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/53.23.2507.1417@53.23.2507.1417" timestamp="1600501155869" />
     <state x="1552" y="474" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/54.23.2506.1417@54.23.2506.1417" timestamp="1598582829714" />
-    <state x="342" y="485" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1600741335561">
+    <state x="342" y="485" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1600767639236">
       <screen x="53" y="23" width="2507" height="1417" />
     </state>
-    <state x="342" y="485" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/53.23.2507.1417@53.23.2507.1417" timestamp="1600741335561" />
+    <state x="342" y="485" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/53.23.2507.1417@53.23.2507.1417" timestamp="1600767639236" />
     <state x="1346" y="593" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1599633349809">
       <screen x="53" y="23" width="2507" height="1417" />
     </state>
     <state x="1346" y="593" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/53.23.2507.1417@53.23.2507.1417" timestamp="1599633349809" />
-    <state x="819" y="108" width="1741" height="1056" key="CommitChangelistDialog2" timestamp="1600756205992">
+    <state x="819" y="108" width="1741" height="1056" key="CommitChangelistDialog2" timestamp="1600767548332">
       <screen x="53" y="23" width="2507" height="1417" />
     </state>
     <state x="816" y="108" key="CommitChangelistDialog2/50.23.2510.1417@50.23.2510.1417" timestamp="1600586560339" />
     <state x="1124" y="325" key="CommitChangelistDialog2/52.23.2508.1417@52.23.2508.1417" timestamp="1600307443569" />
-    <state x="819" y="108" width="1741" height="1056" key="CommitChangelistDialog2/53.23.2507.1417@53.23.2507.1417" timestamp="1600756205992" />
+    <state x="819" y="108" width="1741" height="1056" key="CommitChangelistDialog2/53.23.2507.1417@53.23.2507.1417" timestamp="1600767548332" />
     <state x="717" y="325" key="CommitChangelistDialog2/54.23.2506.1417@54.23.2506.1417" timestamp="1598494671307" />
     <state width="701" height="442" key="Diff.GoToChangePopup" timestamp="1599633701846">
       <screen x="53" y="23" width="2507" height="1417" />
@@ -665,10 +659,10 @@
     </state>
     <state x="131" y="117" key="MergeDialog/52.23.2508.1417@52.23.2508.1417" timestamp="1600319909567" />
     <state x="132" y="117" key="MergeDialog/53.23.2507.1417@53.23.2507.1417" timestamp="1599632956991" />
-    <state x="1341" y="469" width="874" height="550" key="MultipleFileMergeDialog" timestamp="1600752278781">
+    <state x="1341" y="469" width="874" height="550" key="MultipleFileMergeDialog" timestamp="1600767609842">
       <screen x="53" y="23" width="2507" height="1417" />
     </state>
-    <state x="1341" y="469" width="874" height="550" key="MultipleFileMergeDialog/53.23.2507.1417@53.23.2507.1417" timestamp="1600752278781" />
+    <state x="1341" y="469" width="874" height="550" key="MultipleFileMergeDialog/53.23.2507.1417@53.23.2507.1417" timestamp="1600767609842" />
     <state x="1284" y="441" key="RollbackChangesDialog" timestamp="1599633014509">
       <screen x="53" y="23" width="2507" height="1417" />
     </state>
@@ -678,12 +672,12 @@
     </state>
     <state x="1411" y="212" key="SettingsEditor/52.23.2508.1417@52.23.2508.1417" timestamp="1600301978598" />
     <state x="742" y="370" key="SettingsEditor/54.23.2506.1417@54.23.2506.1417" timestamp="1598491340564" />
-    <state x="1468" y="471" key="Vcs.Push.Dialog.v2" timestamp="1600756209411">
+    <state x="1468" y="471" key="Vcs.Push.Dialog.v2" timestamp="1600767551013">
       <screen x="53" y="23" width="2507" height="1417" />
     </state>
     <state x="1467" y="471" key="Vcs.Push.Dialog.v2/50.23.2510.1417@50.23.2510.1417" timestamp="1600586563309" />
     <state x="1468" y="471" key="Vcs.Push.Dialog.v2/52.23.2508.1417@52.23.2508.1417" timestamp="1600307447088" />
-    <state x="1468" y="471" key="Vcs.Push.Dialog.v2/53.23.2507.1417@53.23.2507.1417" timestamp="1600756209411" />
+    <state x="1468" y="471" key="Vcs.Push.Dialog.v2/53.23.2507.1417@53.23.2507.1417" timestamp="1600767551013" />
     <state x="1468" y="471" key="Vcs.Push.Dialog.v2/54.23.2506.1417@54.23.2506.1417" timestamp="1598494674383" />
     <state x="153" y="123" width="1119" height="1217" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1600685835241">
       <screen x="53" y="23" width="2507" height="1417" />

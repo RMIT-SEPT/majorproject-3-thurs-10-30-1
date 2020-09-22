@@ -90,7 +90,7 @@ export const workerRegister = (user,history) => (dispatch) => {
                 type: SET_MESSAGE,
                 payload: response.data.message,
             });
-            history.push("/");
+            history.push("/dashboard");
             return Promise.resolve();
         },
         (error) => {
