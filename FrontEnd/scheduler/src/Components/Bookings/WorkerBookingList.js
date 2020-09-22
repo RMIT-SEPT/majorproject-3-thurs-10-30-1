@@ -5,6 +5,7 @@ class WorkerBookingList extends Component
    
 
     render() {
+        let title = this.props.title;
         let myBookings = this.props.bookings.map((booking) =>
         {
             return(
@@ -19,7 +20,7 @@ class WorkerBookingList extends Component
 
     return (
         <div className= "WorkerbookingList"> 
-        <h2 className="bookingListHeader">Your Upcoming Bookings</h2>
+        <h2 className="bookingListHeader">{title}</h2>
         <div> {myBookings} </div>
         </div>
     )
