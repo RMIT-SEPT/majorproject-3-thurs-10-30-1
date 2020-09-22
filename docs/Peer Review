@@ -46,7 +46,10 @@ Lucas Perlind
 % contributed: 20%
 
 Items contributed:
-Setup Git branches
+Setup Git branches.
+Created business, services and scheduling classes in backend.
+Created REST API for the above.
+Normalized Database
 
 
 Michael Sartorel
