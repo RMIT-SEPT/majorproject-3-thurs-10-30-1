@@ -1,0 +1,21 @@
+Screen Shot 1:
+This screen shot shows some early difficulty that was found in making the configuration file work
+there were many attempts and trial commits to get the tests running
+
+Screen Shot 2:
+This screen shot shows the extent of trials that were run as there were many difficulties encountered
+
+Screen Shot 3:
+This screen shot shows the point where we found success as #43 is where the maven tests were running but was still failing due to aws integration not being setup
+
+Screen Shot 4:
+This screen shot is an example of the error we were getting which was due to the fact that the pom.xml file was in a subdirectory
+
+Screen Shot 5:
+This screen shot details the error that we were experiencing in screen shot 4
+
+Screen Shot 6:
+This screen shot shows #43 and the successful maven tests being run as a result of adding the subdirectory command
+
+Screen Shot 7:
+This screen shot details that the maven tests were run successfully
