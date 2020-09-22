@@ -1,8 +1,8 @@
 target/
 bin/
 .idea/
+.vscode/
 .project
 .factorypath
 .classpath
 .settings/
-.vscode/settings.json/
