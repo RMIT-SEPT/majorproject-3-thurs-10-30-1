@@ -211,6 +211,22 @@ html, body, #root, .App {
     position: relative;
   }
 
+    /* Profile Page */
+    .profileInfo
+    {
+    font-size: 25px;
+    text-align: center;
+    color: #000000;
+    padding-bottom: 3%;
+    }
+
+/* Profile Page */
+    .profileText
+    {
+        font-size: 25px;
+        font-weight: bold;
+    }
+
 .regFormDiv
 {
     width: 60%;

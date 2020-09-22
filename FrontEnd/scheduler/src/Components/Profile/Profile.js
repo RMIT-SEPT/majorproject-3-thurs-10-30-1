@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 
-import AGMEnav from "../Generics/AGMEnav";
 import ProfileInfo from "../Profile/ProfileInfo";
 
 export default function Profile(props)
@@ -15,7 +14,6 @@ let links = [
 
     return (
         <div className="profileContainer">
-            <AGMEnav links={links} />
 
             <ProfileInfo />
 
