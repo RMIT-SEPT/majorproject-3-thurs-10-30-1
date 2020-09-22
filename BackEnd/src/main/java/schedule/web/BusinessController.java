@@ -5,6 +5,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.h2.util.json.JSONArray;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.configurationprocessor.json.JSONException;
 import org.springframework.boot.configurationprocessor.json.JSONObject;
@@ -28,6 +29,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @RestController
 @RequestMapping("/api/business")
+@CrossOrigin(origins = "http://localhost:3000")
 public class BusinessController {
 
     @Autowired
