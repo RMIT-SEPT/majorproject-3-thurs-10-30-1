@@ -17,6 +17,7 @@ class Dashboard extends Component
         {label: 'Profile', link: '/profile'},
         {label: 'Sign-out', link: '/'}  
 
+
     let bookings = [
 
         {customer: 'Test ',worker: 'Ali ', service: "Ali's Hairdresser ", start_time: "13:30 ", end_time: "13:30"},
@@ -32,7 +33,6 @@ class Dashboard extends Component
         {businessName: 'Business2'},
         {businessName: 'Business3'}
     ]
- }
 
     return (
 
