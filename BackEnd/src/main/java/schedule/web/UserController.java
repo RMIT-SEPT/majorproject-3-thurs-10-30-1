@@ -1,5 +1,6 @@
 package schedule.web;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -14,6 +15,7 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api/user")
+@CrossOrigin(origins = "http://localhost:3000")
 public class UserController {
 
     @Autowired
@@ -25,7 +27,7 @@ public class UserController {
             return new ResponseEntity<>("Invalid User Object", HttpStatus.BAD_REQUEST);
         }
         User user1 = userMicro.saveOrUpdate(user);
-        return new ResponseEntity<>(user, HttpStatus.CREATED);
+        return new ResponseEntity<>(user1, HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
@@ -43,8 +45,8 @@ public class UserController {
         if (json.containsKey("identifier")) user = userMicro.getUserByUsernameOrEmail(json.get("identifier"));
         else return new ResponseEntity<>("username or email not provided", HttpStatus.BAD_REQUEST);
         if (json.containsKey("password"))
-            return user != null && user.getPassword().equals(json.get("password")) ? new ResponseEntity<>(true, HttpStatus.ACCEPTED) :
-                new ResponseEntity<>(false, HttpStatus.NOT_ACCEPTABLE);
+            return user != null && user.getPassword().equals(json.get("password")) ? new ResponseEntity<>(user, HttpStatus.ACCEPTED) :
+                new ResponseEntity<>(false, HttpStatus.BAD_REQUEST);
         else return new ResponseEntity<>("Password not provided", HttpStatus.BAD_REQUEST);
     }
 
