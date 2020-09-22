@@ -1,0 +1,13 @@
+Screen Shot 1:
+This screen shot shows the instance running on the ip 54.226.19.14 that is setup with inbound ports for 8080 and 3000
+
+Screen Shot 2:
+This screen shot shows the react webpage on our aws server which is interacting with our spring boot application also on the
+same server
+
+Screen Shot 3:
+This screen shot shows the spring server working on the aws server as it created a new admin via the ip of the aws server
+
+Screen Shot 4:
+This screen shot shows the react webpage with a user logged in who was created in the spring application that is all running on the aws server
+at 54.226.19.14
