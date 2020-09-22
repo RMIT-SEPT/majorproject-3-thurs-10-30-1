@@ -8,16 +8,9 @@ class bookingWorker extends Component
     //on click, button sets the session 'current worker" to the one selected
     render()
     {
-        let links = [
-            {label: 'Home', link: '/'},
-            {label: 'Testing a Link', link: '/'},
-            {label: 'Profile', link: '/profile'},
-            {label: 'Sign-out', link: '/'}
-        ]
-
         return(
             <div>
-            <AGMEnav links={links} />
+            <AGMEnav />
                 I will have a drop down box with all the available workers
                 <select name="Available workers">
                     <option> Worker 1</option>

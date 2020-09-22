@@ -8,16 +8,10 @@ class bookingTime extends Component
     //onClick creates a new booking using the session attributes
     //uses the session worker to get avails
     render()
-    {let links = [
-        {label: 'Home', link: '/'},
-        {label: 'Testing a Link', link: '/'},
-        {label: 'Profile', link: '/profile'},
-        {label: 'Sign-out', link: '/'}
-    ]
-
+    {
         return(
             <div>
-                <AGMEnav links={links} />
+                <AGMEnav  />
                 <select name="Available Times">
                     <option> Time 1</option>
                     <option> Time 2</option>

@@ -4,9 +4,21 @@ import BookingCreator from "../Bookings/BookingCreator";
 import BookingList from "../Bookings/BookingList";
 import {getCurrentUser, isLoggedIn} from "../../actions/userActions";
 import {connect} from "react-redux";
+import {seedData} from "../../utils/dataSeeder";
 
 class Dashboard extends Component
 {
+
+    constructor(props) {
+        super(props);
+        this.doSeedData=this.doSeedData.bind(this);
+    }
+
+    doSeedData()
+    {
+        seedData();
+    }
+
 render() {
     let bookings = [
         {workerName: 'Ali ', service: "Ali's Hairdresser ", time: "13:30 ", date: "04/10"},
@@ -27,10 +39,10 @@ render() {
         <div className="dashboardContainer">
             {this.props.user ? <p>{this.props.user.name}</p>: <p> No user</p>}
 
-
             {/*if customer*/}
             <BookingList bookings={bookings}/>
             <BookingCreator services={services}/>
+            <input type="button" onClick={this.doSeedData} value="Seed Data" name "seedData"/>
 
             {/*if admin*/}
             {/*if worker*/}
