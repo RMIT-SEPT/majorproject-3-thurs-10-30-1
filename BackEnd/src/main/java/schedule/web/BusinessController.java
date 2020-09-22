@@ -4,12 +4,15 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import com.fasterxml.jackson.core.JsonParser;
+
 import org.h2.util.json.JSONArray;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.configurationprocessor.json.JSONException;
 import org.springframework.boot.configurationprocessor.json.JSONObject;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
@@ -49,7 +52,7 @@ public class BusinessController {
         return businessMicro.businessExistsById(id) ? businessMicro.getBusinessById(id) : null;
     }
 
-    @GetMapping("/all")
+    @GetMapping(value = "/all", produces = MediaType.APPLICATION_JSON_VALUE)
     public String getBusinessById() {
         StringBuilder builder = new StringBuilder();
         int j = 0;
@@ -68,7 +71,7 @@ public class BusinessController {
         return builder.toString();
     }   
 
-    @GetMapping("/{id}/services")
+    @GetMapping(value = "/{id}/services")
     public List<ScheduleService> getBusinessServices(@PathVariable long id)
     {
         Business business = businessMicro.getBusinessById(id);
