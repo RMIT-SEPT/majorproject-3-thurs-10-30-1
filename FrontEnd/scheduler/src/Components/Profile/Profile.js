@@ -3,14 +3,10 @@ import { Grid, Row, Col, Image, Container, Button } from 'react-bootstrap';
 import AGMEnav from "../Generics/AGMEnav";
 
 
-let links = [
-    { label: 'Home', link: '/' },
-    { label: 'Sign-out', link: '/' }
-];
+
 export default function Profile(props) {
     return (
         <div>
-            <AGMEnav links={links} />
 
             <Container fluid>
                 <Row>
@@ -18,7 +14,6 @@ export default function Profile(props) {
                         <Image src="holder.js/171x180" roundedCircle />
                     </Col>
                     <Col>
-                        
                         <h2>Worker Name</h2>
                         <p>Ph: 0400 000 000</p>
                         <p>E-mail: worker@email.com</p>
