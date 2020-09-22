@@ -19,6 +19,7 @@ Redux integration
 Login and registration functionality.
 Product backlog grooming. 
 Simple booking creation
+Setup Docker for front end
 
 Ali Redha
 % contributed: 20%
@@ -43,10 +44,12 @@ Items contributed:
 Setup Git branches
 
 
-Micheal Sartorel
+Michael Sartorel
 % contributed: 20%
 
 Items contributed:
 User stories 8, 9, 19, 22, 23, 24 and 25 and the relevant acceptance tests
-
+All 3 User classes and relevant repository links, micro methods and REST api methods
+Setup CircleCi to work with maven
+Setup Docker for backend and front end
 
