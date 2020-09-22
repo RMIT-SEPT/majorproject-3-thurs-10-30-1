@@ -4,7 +4,10 @@ import java.util.List;
 
 import javax.validation.Valid;
 
+import org.h2.util.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.configurationprocessor.json.JSONException;
+import org.springframework.boot.configurationprocessor.json.JSONObject;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
@@ -18,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import schedule.microservice.BusinessMicro;
 import schedule.model.Business;
+import schedule.model.service.ScheduleService;
 
 @RestController
 @RequestMapping("/api/business")
@@ -28,23 +32,34 @@ public class BusinessController {
 
     @PostMapping("")
     public ResponseEntity<?> createNewBusiness(@Valid @RequestBody Business business, BindingResult result) {
-        if (result.hasErrors()){
+        if (result.hasErrors()) {
             return new ResponseEntity<>("Invalid Business Object", HttpStatus.BAD_REQUEST);
         }
         Business newBusiness = businessMicro.saveOrUpdate(business);
         return new ResponseEntity<>(business, HttpStatus.CREATED);
     }
 
-
     @GetMapping("/{id}")
-    public Business getBusinessById(@PathVariable long id)
-    {
+    public Business getBusinessById(@PathVariable long id) {
         return businessMicro.businessExistsById(id) ? businessMicro.getBusinessById(id).get(0) : new Business();
     }
 
-     @GetMapping("/all")
-    public List<Business> getBusinessById()
-    {
-        return businessMicro.getAllBusinesses();
+    @GetMapping("/all")
+    public String getBusinessById() {
+        StringBuilder builder = new StringBuilder();
+        int j = 0;
+        builder.append("{[");
+        for (Business business : businessMicro.getAllBusinesses()) {
+            j++;
+            business.toJson(builder); 
+            if (j < businessMicro.getAllBusinesses().size())
+            {
+                builder.append(",\n");
+            }
+        }
+
+        builder.append("]}");
+
+        return builder.toString();
     }   
 }
