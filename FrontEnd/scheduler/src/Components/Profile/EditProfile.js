@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
-import DarkButton from "../Generics/DarkButton";
 import Form from "react-bootstrap/Form";
-import {adminRegister, register} from "../../actions/auth";
 import {userUpdate} from "../../actions/userActions";
 
 
@@ -78,8 +76,9 @@ class ProfileInfo extends Component
 
                 {this.props.user ? <h4 className="profileInfo"> Account Type: <div className="profileText"> {this.props.user.accountType} </div> </h4> : <p> Account Type = Null</p>}
 `
-                {/*<center> <DarkButton label={label} /> </center>*/}
-                <input type="submit" title="Submit"/>
+                 {/*Does Not work yet*/}
+                {/*<input type="submit" title="Submit(non-functional)" disabled/>*/}
+
                 </Form>
                 </div>
             </div>

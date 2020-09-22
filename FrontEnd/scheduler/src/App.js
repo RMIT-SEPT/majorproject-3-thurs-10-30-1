@@ -12,6 +12,7 @@ import {logout} from "./actions/auth";
 import AGMEnav from "./Components/Generics/AGMEnav";
 import {connect} from 'react-redux'
 import {history} from "./utils/history";
+import EditProfile from "./Components/Profile/EditProfile";
 
 
 class App extends Component {
@@ -54,6 +55,7 @@ class App extends Component {
             <Route exact path="/dashboard" component={Dashboard}/>
             <Route exact path="/profile" component ={Profile}/>
             <Route exact path="/workerHome" component ={WorkerDashboard}/>
+            <Route exact path="/editprofile" component={EditProfile} />
         </Router>
     );
   }
