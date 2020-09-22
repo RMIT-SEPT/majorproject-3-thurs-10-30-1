@@ -18,9 +18,11 @@
   font-size: large;
 }
 
+
 html, body, #root, .App {
     height: 100%;
 }
+
 
 .bg-darkBlue
 {
@@ -45,9 +47,11 @@ html, body, #root, .App {
     height: 95%;
     border-left: 1px solid #000000;
     box-sizing: border-box;
+
     align-content: center;
     text-align: center;
 }
+
 
 
 .loginItem
@@ -76,6 +80,7 @@ html, body, #root, .App {
     text-align: center;
     width: 90%;
     border-radius: 12px;
+
 }
 
 .fittedImage
@@ -106,6 +111,7 @@ html, body, #root, .App {
     opacity: .8;
 }
 
+
 .myHeader
 {
     font-size: 50px;
@@ -121,6 +127,7 @@ html, body, #root, .App {
     opacity: .8;
 }
 
+
 .wholeReg
 {
     background-image: url(./media/background3.png);
@@ -129,7 +136,7 @@ html, body, #root, .App {
 }
 
 
-@keyframes App-logo-spin 
+@keyframes App-logo-spin
 {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
@@ -144,6 +151,7 @@ html, body, #root, .App {
   outline-style: solid;
   margin-left: 3%;
   margin-top:2%;
+  background-color: white;
 }
 
 /* Customer Dashboard */
@@ -174,18 +182,18 @@ html, body, #root, .App {
   outline: solid;
   margin-right: 3%;
   margin-top:10%;
+  background-color: white;
 }
-  
+
 /* Customer Dashboard */
 .dashboardContainer
 {
   background-image: url(./media/background1.png);
   width: 100%;
   height: 100%;
-  position: relative; 
-  
+  position: relative;
 }
-  
+
 /* Customer Dashboard */
 .bookingListHeader
 {
@@ -197,16 +205,10 @@ html, body, #root, .App {
     padding-bottom: 3%;
 }
 
+
 /* Worker Dashboard */
 .dashboardContainer2
 {
-  background-image: url(./media/background3.png);
-  width: 100%;
-  height: 100%;
-  position: relative; 
-}
-
-.adminDashboardContainer{
   background-image: url(./media/background3.png);
   width: 100%;
   height: 100%;
@@ -223,11 +225,13 @@ html, body, #root, .App {
   margin-left: 23%;
   margin-top:2%;
   background-color: white;
-
 }
   
+
 .availableServices
 {
 margin-left: 40%;
 margin-top:20%;
 }
+
+

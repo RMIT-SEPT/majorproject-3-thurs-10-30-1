@@ -8,7 +8,7 @@ import {NavItem, Navbar, NavLink} from "react-bootstrap";
 import {NavDropdown} from "react-bootstrap";
 import Logo from "../../media/Logo(Text).png";
 import { connect } from 'react-redux';
-import {isLoggedIn, lilLogout} from '../../actions/userActions';
+import {lilLogout} from '../../actions/userActions';
 import PropTypes from 'prop-types'
 
 const StyledNav = styled.div`
@@ -34,12 +34,39 @@ const StyledNav = styled.div`
 
 export class AGMEnav extends Component
 {
+    constructor(props) {
+        super(props);
+        this.state = {
+            admin: false,
+            worker: false,
+            currentUser: {}
+        };
+    }
+    componentDidMount() {
+        const user = this.props.user;
+        if (user)
+        {
+            this.setState({
+                currentUser: user,
+                worker: user.accountType==="Worker",
+                admin: user.accountType==="Admin"
+            });
+        }
+    }
+
     render()
     {
         const userLinks = (
             <Nav className="m-xl-auto">
                 <NavItem> <Link to="/profile"> Profile   </Link></NavItem>
                 <NavItem> <Link to ="/dashboard"> Dashboard </Link></NavItem>
+
+                {
+                    this.state.worker
+                    ? <NavItem> <Link to="/workerHome"> Worker Home </Link></NavItem>
+                    : <p></p>
+                }
+
                 <NavLink className="logout" href="/" onClick={this.props.logout}> Logout </NavLink>
             </Nav>
         );
