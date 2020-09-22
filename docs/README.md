@@ -4,16 +4,16 @@ Update and info for milestone 2 submission:
 Find here a Link for our notion board: https://www.notion.so/c72e827ad10a4d709a675efab3523359?v=f5dc3838c4c24611be708f186a47bbae
 Notion contains:
 -Meeting Minutes for each of our meetings
--Individual boards for each of our sprints, with planning, retro and reviews contained
--Product Backlog, with each item containing itemized tasks, a definition of done, a progress indicator and effort. Items also have an incator for relevant user stories. 
+-Individual boards for each of our sprints, with planning, retro and reviews contained where relevant. 
+-Product Backlog, with each item containing itemized tasks, a definition of done, a progress indicator and effort. Items also have an indicator for relevant user stories. 
 
 A wiki section containing:
-- A map of our databases
+- A map of our databases.
 -A progressive list of acceptance tests, with completes tests marked as 'passed'.
 -A link to our google drive containing user stories, each with acceptance criteria.
--A testing log spreadsheet.
+-A testing log spreadsheet showing logging of test results. 
 
--Almost all code and tests in our project are new to this milestone.
+ -All code and tests in our project are new to this milestone.
 
 Our Product has the following features implemented:
 -account registration for new customers. Accounts can only be created with unique email addresses and usernames. 
