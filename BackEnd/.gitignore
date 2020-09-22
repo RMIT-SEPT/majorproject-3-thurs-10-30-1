@@ -7,3 +7,5 @@ bin/
 .classpath
 .settings/
 
+.vscode
+
