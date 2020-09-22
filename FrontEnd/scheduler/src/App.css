@@ -18,9 +18,11 @@
   font-size: large;
 }
 
+
 html, body, #root, .App {
     height: 100%;
 }
+
 
 .bg-darkBlue
 {
@@ -45,9 +47,11 @@ html, body, #root, .App {
     height: 95%;
     border-left: 1px solid #000000;
     box-sizing: border-box;
+
     align-content: center;
     text-align: center;
 }
+
 
 
 .loginItem
@@ -76,6 +80,7 @@ html, body, #root, .App {
     text-align: center;
     width: 90%;
     border-radius: 12px;
+
 }
 
 .fittedImage
@@ -106,6 +111,7 @@ html, body, #root, .App {
     opacity: .8;
 }
 
+
 .myHeader
 {
     font-size: 50px;
@@ -120,6 +126,7 @@ html, body, #root, .App {
 {
     opacity: .8;
 }
+
 
 .wholeReg
 {

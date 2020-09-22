@@ -2,11 +2,12 @@ import React, {Component} from "react";
 
 import BookingCreator from "../Bookings/BookingCreator";
 import BookingList from "../Bookings/BookingList";
-import {getCurrentUser, isLoggedIn} from "../../actions/userActions";
 import {connect} from "react-redux";
+import {getAllBusiness} from "../../actions/business";
 
 class Dashboard extends Component
 {
+  
 render() {
     let bookings = [
 
@@ -24,16 +25,15 @@ render() {
     ]
     // const loggedIn = isLoggedIn();
     // const user = getCurrentUser();
+
     return (
 
         <div className="dashboardContainer">
-            {this.props.user ? <p>{this.props.user.name}</p>: <p> No user</p>}
-
+            {this.props.user ? <p>{this.props.user.name}</p> : <p> No user</p>}
 
             {/*if customer*/}
             <BookingList bookings={bookings}/>
-            <BookingCreator services={services}/>
-
+            <BookingCreator />
             {/*if admin*/}
             {/*if worker*/}
         </div>

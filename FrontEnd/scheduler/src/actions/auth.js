@@ -11,6 +11,7 @@ import {adminCreate, lilLogout, userCreate, userLogin, workerCreate} from "./use
 export const register = (user,history) => (dispatch) => {
     return userCreate(user).then(
         (response) => {
+            console.log(response);
             dispatch({
                 type: REGISTER_SUCCESS,
             });
@@ -117,6 +118,7 @@ export const workerRegister = (user,history) => (dispatch) => {
 export const login = (details) => (dispatch) => {
     return userLogin(details).then(
         (data) => {
+            console.log(data);
             dispatch({
                 type: LOGIN_SUCCESS,
                 payload: { user: data },

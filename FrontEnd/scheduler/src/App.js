@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+
 import {BrowserRouter as Router, Route} from "react-router-dom";
 import Home from "./Components/HomePage/Home";
 import Dashboard from "./Components/Dashboards/Dashboard";
@@ -9,14 +10,12 @@ import {clearMessage} from "./actions/message";
 import {logout} from "./actions/auth";
 import AGMEnav from "./Components/Generics/AGMEnav";
 import {connect} from 'react-redux'
-import {getCurrentUser} from "./actions/userActions";
 import {history} from "./utils/history";
 
 class App extends Component {
     constructor(props) {
         super(props);
         this.logOut = this.logOut.bind(this);
-
         this.state = {
             admin: false,
             worker: false,
@@ -45,7 +44,6 @@ class App extends Component {
 
     render()
   {
-      const user = this.props.user;
     return (
         <Router>
             <AGMEnav logout={this.logOut} />
@@ -53,10 +51,12 @@ class App extends Component {
             <Route exact path="/register" component={Registration}/>
             <Route exact path="/dashboard" component={Dashboard} />
             <Route exact path="/profile" component={Profile} />
+
         </Router>
     );
   }
 }
+
 
 function mapStateToProps(state) {
     const { user } = state.auth;
