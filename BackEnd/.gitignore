@@ -1,6 +1,11 @@
-creds.sh
-creds2.sh
-.terraform*
-terraform.tfstate
-terraform.tfstate.backup
-tmp/
+target/
+bin/
+.idea/
+
+.project
+.factorypath
+.classpath
+.settings/
+
+.vscode
+
