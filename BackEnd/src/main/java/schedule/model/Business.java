@@ -74,6 +74,31 @@ public class Business {
                 builder.append(service.getId());
             }
         }
+        builder.append("],");
+        i = 0;
+        builder.append("\"workers\":[");
+        for (Worker worker : getWorkers()) {
+            i++;
+             if (i < getWorkers().size()) {
+                builder.append(worker.getId() + ",");
+            } else {
+                builder.append(worker.getId());
+            }
+        }
+        builder.append("],");
+        i = 0;
+        builder.append("\"admins\":[");
+        for (Admin admin : getAdmins())
+        {
+            i++;
+            if (i < getAdmins().size()) {
+                builder.append(admin.getId() + ",");
+            }
+            else
+            {
+                builder.append(admin.getId());
+            }
+        }
         builder.append("]}");
 
     }
