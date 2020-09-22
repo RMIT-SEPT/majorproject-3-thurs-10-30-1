@@ -56,7 +56,7 @@ public class BusinessController {
     public String getBusinessById() {
         StringBuilder builder = new StringBuilder();
         int j = 0;
-        builder.append("{[");
+        builder.append("[");
         for (Business business : businessMicro.getAllBusinesses()) {
             j++;
             business.toJson(builder); 
@@ -65,8 +65,7 @@ public class BusinessController {
                 builder.append(",\n");
             }
         }
-
-        builder.append("]}");
+        builder.append("]");
 
         return builder.toString();
     }   

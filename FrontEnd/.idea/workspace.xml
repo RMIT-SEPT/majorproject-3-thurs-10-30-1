@@ -3,7 +3,9 @@
   <component name="ChangeListManager">
     <list default="true" id="864500c5-d78e-4c15-8b77-0fed5207bcc4" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/../BackEnd/src/main/java/schedule/web/BusinessController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BackEnd/src/main/java/schedule/web/BusinessController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scheduler/src/Components/Bookings/BookingCreator.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/Components/Bookings/BookingCreator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scheduler/src/actions/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/actions/auth.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,7 +199,7 @@
       <workItem from="1600690423875" duration="2277000" />
       <workItem from="1600733329771" duration="2805000" />
       <workItem from="1600736367703" duration="7045000" />
-      <workItem from="1600745732203" duration="4876000" />
+      <workItem from="1600745732203" duration="6853000" />
     </task>
     <task id="LOCAL-00003" summary="centre navbar items">
       <created>1598171358709</created>

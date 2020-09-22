@@ -15,6 +15,19 @@ class BookingCreator extends Component
             console.log(response);
             console.log("logging response data");
             console.log(response.data);
+
+            // console.log("logging response data 0");
+            // console.log(response.data[0]);
+            // console.log("logging response data name 0");
+            // console.log(response.data[0].name);
+
+            for (const name in response) {
+                if (response.hasOwnProperty(key)) {
+                    console.log(response[key].id);
+                    alert(json[key].msg);
+                }
+            }
+
         });
 
         let label = {label: 'Show All Available', link: '/booking/worker'}
