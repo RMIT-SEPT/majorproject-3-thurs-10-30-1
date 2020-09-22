@@ -1,6 +1,6 @@
 import axios from "axios";
 
-export const getAllBusiness = async () =>
+export const getAllBusiness = () =>
 {
-    return await axios.get("http://localhost:8080/api/business/all");
+    return axios.get("http://localhost:8080/api/business/all");
 }
