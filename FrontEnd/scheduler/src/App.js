@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
+
 import {BrowserRouter as Router, Route} from "react-router-dom";
 import Home from "./Components/HomePage/Home";
 import Dashboard from "./Components/Dashboards/Dashboard";
@@ -50,10 +51,12 @@ class App extends Component {
             <Route exact path="/register" component={Registration}/>
             <Route exact path="/dashboard" component={Dashboard} />
             <Route exact path="/profile" component={Profile} />
+
         </Router>
     );
   }
 }
+
 
 function mapStateToProps(state) {
     const { user } = state.auth;
