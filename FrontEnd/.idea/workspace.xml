@@ -20,32 +20,52 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
-
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
         <entry key="$PROJECT_DIR$/.." value="Release" />
       </map>
     </option>
-
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="SIGN_OFF_COMMIT" value="true" />
   </component>
-  <component name="ProjectId" id="1hreWKjwZfJR2BSgfxVqsUh1NY9" />
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="$APPLICATION_HOME_DIR$/plugins/maven/lib/maven3" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1gLKaXMD1jLbRDJ4OcIJK2eIQjQ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="/usr/local/bin/node" />
+    <property name="nodejs.jest.jest_package" value="$PROJECT_DIR$/scheduler/node_modules/react-scripts" />
+    <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="Docker" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
   </component>
-
-  <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
-
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/scheduler/src/Components/Dashboards" />
@@ -56,31 +76,48 @@
     </key>
   </component>
   <component name="RunManager" selected="Docker.Docker Image">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
-
-      <option name="arquillianRunConfiguration">
-        <value>
-          <option name="containerStateName" value="" />
-        </value>
-      </option>
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="Docker Image" type="docker-deploy" factoryName="docker-image" temporary="true" server-name="Docker">
+      <deployment type="docker-image">
+        <settings>
+          <option name="imageTag" value="scheduler-docker:latest" />
+          <option name="command" value="" />
+          <option name="containerName" value="my_container" />
+          <option name="entrypoint" value="" />
+          <option name="commandLineOptions" value="" />
+        </settings>
+      </deployment>
+      <method v="2" />
     </configuration>
+    <configuration name="Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="imageTag" value="reactimage" />
+          <option name="buildCliOptions" value="" />
+          <option name="command" value="" />
+          <option name="containerName" value="reactcontainer" />
+          <option name="contextFolderPath" value="scheduler" />
+          <option name="entrypoint" value="" />
+          <option name="publishAllPorts" value="true" />
+          <option name="commandLineOptions" value="" />
+          <option name="sourceFilePath" value="Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Docker.Dockerfile" />
+        <item itemvalue="Docker.Docker Image" />
+      </list>
+    </recent_temporary>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="0156e76a-bc8d-4c5c-8cfe-54a25996bb6a" name="Default Changelist" comment="" />
-      <created>1600773873874</created>
+      <changelist id="864500c5-d78e-4c15-8b77-0fed5207bcc4" name="Default Changelist" comment="" />
+      <created>1597888496600</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-
-      <updated>1600773873874</updated>
-      <workItem from="1600773876225" duration="1666000" />
-      <workItem from="1600775648790" duration="405000" />
-
       <updated>1597888496600</updated>
       <workItem from="1597888497686" duration="49000" />
       <workItem from="1597888552494" duration="907000" />
@@ -461,18 +498,14 @@
       <option name="presentableId" value="LOCAL-00047" />
       <option name="project" value="LOCAL" />
       <updated>1600735874604</updated>
-
     </task>
-    <task id="LOCAL-00001" summary="Begin work on profile Updating.">
-      <created>1600775559679</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
+    <task id="LOCAL-00048" summary="updating for merge">
+      <created>1600736198408</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
       <option name="project" value="LOCAL" />
-      <updated>1600775559679</updated>
+      <updated>1600736198408</updated>
     </task>
-
-    <option name="localTasksCounter" value="2" />
-
     <task id="LOCAL-00049" summary="updating for merge">
       <created>1600736590353</created>
       <option name="number" value="00049" />
@@ -509,18 +542,12 @@
       <updated>1600767548528</updated>
     </task>
     <option name="localTasksCounter" value="54" />
-
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
   <component name="VcsManagerConfiguration">
-
-    <MESSAGE value="lil commit" />
-    <MESSAGE value="Begin work on profile Updating." />
-    <option name="LAST_COMMIT_MESSAGE" value="Begin work on profile Updating." />
-
     <MESSAGE value="tidy up code. Implement list of businesses as a parameter to booking creator" />
     <MESSAGE value="tidy up code. Implement list of businesses as a parameter to booking creator. Improve folder organization." />
     <MESSAGE value="add config.yml" />
@@ -547,24 +574,11 @@
     <MESSAGE value="parse JSOn for businsesses" />
     <MESSAGE value="prepare for submission" />
     <option name="LAST_COMMIT_MESSAGE" value="prepare for submission" />
-
   </component>
   <component name="WindowStateProjectService">
-    <state x="1340" y="325" key="CommitChangelistDialog2" timestamp="1600775559458">
+    <state x="1643" y="449" key="#Docker" timestamp="1600311891506">
       <screen x="52" y="23" width="2508" height="1417" />
     </state>
-
-    <state x="1340" y="325" key="CommitChangelistDialog2/52.23.2508.1417@52.23.2508.1417" timestamp="1600775559458" />
-    <state x="1340" y="325" key="CommitChangelistDialog2/53.23.2507.1417@53.23.2507.1417" timestamp="1600773720106" />
-    <state x="1454" y="500" key="MultipleFileMergeDialog" timestamp="1600775712326">
-      <screen x="52" y="23" width="2508" height="1417" />
-    </state>
-    <state x="1454" y="500" key="MultipleFileMergeDialog/52.23.2508.1417@52.23.2508.1417" timestamp="1600775712326" />
-    <state x="396" y="471" key="Vcs.Push.Dialog.v2" timestamp="1600775563757">
-      <screen x="52" y="23" width="2508" height="1417" />
-    </state>
-    <state x="396" y="471" key="Vcs.Push.Dialog.v2/52.23.2508.1417@52.23.2508.1417" timestamp="1600775563757" />
-
     <state x="1643" y="449" key="#Docker/52.23.2508.1417@52.23.2508.1417" timestamp="1600311891506" />
     <state x="1587" y="540" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1600742844081">
       <screen x="53" y="23" width="2507" height="1417" />
@@ -678,6 +692,5 @@
       <screen x="54" y="23" width="2506" height="1417" />
     </state>
     <state x="1533" y="348" width="670" height="676" key="search.everywhere.popup/54.23.2506.1417@54.23.2506.1417" timestamp="1598153976786" />
-
   </component>
 </project>
