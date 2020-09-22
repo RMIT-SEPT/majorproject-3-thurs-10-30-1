@@ -34,6 +34,18 @@ const StyledNav = styled.div`
 
 export class AGMEnav extends Component
 {
+    componentDidMount() {
+        const user = this.props.user;
+        if (user)
+        {
+            this.setState({
+                currentUser: user,
+                worker: user.accountType==="Worker",
+                admin: user.accountType==="Admin"
+            });
+        }
+    }
+
     render()
     {
         const userLinks = (

@@ -12,9 +12,10 @@ class BookingCreator extends Component
 
         let businesses = getAllBusiness().then((response) => {
             console.log("logging response");
-            console.log(response);
+            console.log(response.id);
             console.log("logging response data");
             console.log(response.data);
+
             return <p name={response.name}> response.name </p>
         });
 

@@ -12,8 +12,6 @@ import {connect} from 'react-redux'
 import {history} from "./utils/history";
 
 class App extends Component {
-    _isMounted = false;
-
     constructor(props) {
         super(props);
         this.logOut = this.logOut.bind(this);
@@ -28,8 +26,6 @@ class App extends Component {
     }
 
     componentDidMount() {
-        this._isMounted = true;
-        console.log("mounting");
         const user = this.props.user;
         if (user)
         {
