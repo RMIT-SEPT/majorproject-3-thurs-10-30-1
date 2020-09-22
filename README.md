@@ -16,5 +16,4 @@
 
 
 ## Code documentation
-
-[Quick Start](/docs/README.md) in `docs` folder
+Find Milestone 2 submission information and QuickStart in docs folder. 
