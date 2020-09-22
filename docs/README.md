@@ -24,6 +24,7 @@ Our Product has the following features implemented:
 -Admin account ability to create worker accounts. 
 -The beginnings of simple booking creation- displaying all businesses available in the database to users. The completion of this feature is a part of our current sprint. 
 -redux session integration. 
+-Proper Json formatting for Business Class
 
 Consistent front end design.
 API mapping for a number of backend functions relating to services, businesses, users and bookings. 
