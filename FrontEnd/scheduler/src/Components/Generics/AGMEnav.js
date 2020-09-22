@@ -8,7 +8,7 @@ import {NavItem, Navbar, NavLink} from "react-bootstrap";
 import {NavDropdown} from "react-bootstrap";
 import Logo from "../../media/Logo(Text).png";
 import { connect } from 'react-redux';
-import {isLoggedIn, lilLogout} from '../../actions/userActions';
+import {lilLogout} from '../../actions/userActions';
 import PropTypes from 'prop-types'
 
 const StyledNav = styled.div`
@@ -34,6 +34,18 @@ const StyledNav = styled.div`
 
 export class AGMEnav extends Component
 {
+    componentDidMount() {
+        const user = this.props.user;
+        if (user)
+        {
+            this.setState({
+                currentUser: user,
+                worker: user.accountType==="Worker",
+                admin: user.accountType==="Admin"
+            });
+        }
+    }
+
     render()
     {
         const userLinks = (
