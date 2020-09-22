@@ -25,6 +25,9 @@ public class Worker
     @ManyToMany
     private List<ScheduleService> services;
 
+    @ManyToMany(mappedBy = "workers")
+    private List<Business> businesses;
+
     public Worker() {};
 
     public Worker(Long id, @NotNull(message = "A user account is required") User user) {
@@ -54,5 +57,11 @@ public class Worker
 
     public List<ScheduleService> getServices() {
         return services;
+    }
+
+
+    public List<Business> getBusinesses()
+    {
+        return businesses;
     }
 }

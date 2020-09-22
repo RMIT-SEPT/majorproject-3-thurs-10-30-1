@@ -1,23 +1,35 @@
-
 import About from "./aboutUs";
 import Login from "./Login";
-import React from "react";
-import AGMEnav from "../Generics/AGMEnav";
+import React, {Component} from "react";
+import {connect} from "react-redux";
 
-function Home(props)
-{
-    let links = [
-        {label: 'Home', link: '/'},
-        {label: 'Testing a Link', link: '/'},
-        {label: 'Register', link: '/register'}
-    ]
+class Home extends Component {
+    constructor(props) {
+        super(props);
+        this.handleAuth = this.handleAuth.bind(this);
 
-    return (
-        <div className="homeContainer">
-        <AGMEnav links={links} />
-        <About/>
-        <Login />
-    </div>)
+    }
+
+    handleAuth()
+    {
+        //check account type, and push to relevant one from here.
+        this.props.history.push("/dashboard");
+    }
+
+    render() {
+        return (
+            <div className="homeContainer">
+                <About/>
+                <Login handleAuth={this.handleAuth} />
+            </div>)
+    }
 }
 
-export default Home;
+function mapStateToProps(state) {
+    const { message } = state.message;
+    return {
+        message,
+    };
+}
+
+export default connect(mapStateToProps)(Home);

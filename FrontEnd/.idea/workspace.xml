@@ -1,0 +1,698 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="864500c5-d78e-4c15-8b77-0fed5207bcc4" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scheduler/src/Components/Bookings/BookingCreator.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/Components/Bookings/BookingCreator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scheduler/src/actions/business.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/actions/business.js" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="login/sessions" />
+      </map>
+    </option>
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+    <option name="SIGN_OFF_COMMIT" value="true" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHome" value="$APPLICATION_HOME_DIR$/plugins/maven/lib/maven3" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1gLKaXMD1jLbRDJ4OcIJK2eIQjQ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="/usr/local/bin/node" />
+    <property name="nodejs.jest.jest_package" value="$PROJECT_DIR$/scheduler/node_modules/react-scripts" />
+    <property name="nodejs_interpreter_path" value="/usr/local/bin/node" />
+    <property name="nodejs_package_manager_path" value="npm" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
+    <property name="settings.editor.selected.configurable" value="Docker" />
+    <property name="ts.external.directory.path" value="$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/jsLanguageServicesImpl/external" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/scheduler/src" />
+      <recent name="$PROJECT_DIR$/scheduler/.circleci" />
+      <recent name="$PROJECT_DIR$" />
+      <recent name="$PROJECT_DIR$/scheduler/src/Components/Bookings" />
+      <recent name="$PROJECT_DIR$/scheduler/src/Components/Profile" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Docker.Docker Image">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Docker Image" type="docker-deploy" factoryName="docker-image" temporary="true" server-name="Docker">
+      <deployment type="docker-image">
+        <settings>
+          <option name="imageTag" value="scheduler-docker:latest" />
+          <option name="command" value="" />
+          <option name="containerName" value="my_container" />
+          <option name="entrypoint" value="" />
+          <option name="commandLineOptions" value="" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker">
+      <deployment type="dockerfile">
+        <settings>
+          <option name="imageTag" value="reactimage" />
+          <option name="buildCliOptions" value="" />
+          <option name="command" value="" />
+          <option name="containerName" value="reactcontainer" />
+          <option name="contextFolderPath" value="scheduler" />
+          <option name="entrypoint" value="" />
+          <option name="publishAllPorts" value="true" />
+          <option name="commandLineOptions" value="" />
+          <option name="sourceFilePath" value="Dockerfile" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Docker.Dockerfile" />
+        <item itemvalue="Docker.Docker Image" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="864500c5-d78e-4c15-8b77-0fed5207bcc4" name="Default Changelist" comment="" />
+      <created>1597888496600</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1597888496600</updated>
+      <workItem from="1597888497686" duration="49000" />
+      <workItem from="1597888552494" duration="907000" />
+      <workItem from="1597889481713" duration="21000" />
+      <workItem from="1597889616146" duration="281000" />
+      <workItem from="1597890059676" duration="156000" />
+      <workItem from="1597890220307" duration="412000" />
+      <workItem from="1598147230573" duration="7233000" />
+      <workItem from="1598159330021" duration="61000" />
+      <workItem from="1598159717227" duration="1185000" />
+      <workItem from="1598170761603" duration="607000" />
+      <workItem from="1598171465251" duration="2683000" />
+      <workItem from="1598226111381" duration="3809000" />
+      <workItem from="1598236385808" duration="40000" />
+      <workItem from="1598236533651" duration="144000" />
+      <workItem from="1598236816184" duration="504000" />
+      <workItem from="1598237851626" duration="1393000" />
+      <workItem from="1598247396448" duration="1161000" />
+      <workItem from="1598322255433" duration="4286000" />
+      <workItem from="1598328035720" duration="2386000" />
+      <workItem from="1598409660168" duration="4600000" />
+      <workItem from="1598426123416" duration="612000" />
+      <workItem from="1598490231345" duration="4354000" />
+      <workItem from="1598582820411" duration="3034000" />
+      <workItem from="1598588188360" duration="45000" />
+      <workItem from="1598588800108" duration="1198000" />
+      <workItem from="1598590964037" duration="134000" />
+      <workItem from="1598592200117" duration="4790000" />
+      <workItem from="1598669049509" duration="146000" />
+      <workItem from="1598669273353" duration="3614000" />
+      <workItem from="1598677806652" duration="6325000" />
+      <workItem from="1598923801007" duration="639000" />
+      <workItem from="1599028050514" duration="2518000" />
+      <workItem from="1599362019325" duration="697000" />
+      <workItem from="1599365447728" duration="1919000" />
+      <workItem from="1599436007416" duration="826000" />
+      <workItem from="1599465460699" duration="281000" />
+      <workItem from="1599465859810" duration="2173000" />
+      <workItem from="1599479497209" duration="516000" />
+      <workItem from="1599547367761" duration="1212000" />
+      <workItem from="1599624570676" duration="2547000" />
+      <workItem from="1599632884741" duration="466000" />
+      <workItem from="1599633356072" duration="915000" />
+      <workItem from="1599642203314" duration="480000" />
+      <workItem from="1599648133595" duration="25000" />
+      <workItem from="1599697368662" duration="4560000" />
+      <workItem from="1599712094328" duration="1058000" />
+      <workItem from="1599795942058" duration="17000" />
+      <workItem from="1599798756588" duration="219000" />
+      <workItem from="1599883688845" duration="3252000" />
+      <workItem from="1599968099125" duration="10271000" />
+      <workItem from="1599982612404" duration="42000" />
+      <workItem from="1600040412296" duration="726000" />
+      <workItem from="1600042116191" duration="1020000" />
+      <workItem from="1600129533724" duration="2823000" />
+      <workItem from="1600134131761" duration="459000" />
+      <workItem from="1600134645862" duration="5376000" />
+      <workItem from="1600142806848" duration="5246000" />
+      <workItem from="1600148171864" duration="123000" />
+      <workItem from="1600240055558" duration="1364000" />
+      <workItem from="1600300959781" duration="5280000" />
+      <workItem from="1600308785323" duration="659000" />
+      <workItem from="1600310687304" duration="1524000" />
+      <workItem from="1600319876960" duration="273000" />
+      <workItem from="1600328875337" duration="2142000" />
+      <workItem from="1600499962466" duration="1185000" />
+      <workItem from="1600501214569" duration="33000" />
+      <workItem from="1600506006638" duration="151000" />
+      <workItem from="1600564969571" duration="14086000" />
+      <workItem from="1600580841745" duration="5565000" />
+      <workItem from="1600646375511" duration="91000" />
+      <workItem from="1600646469052" duration="5665000" />
+      <workItem from="1600664599520" duration="38000" />
+      <workItem from="1600670482400" duration="523000" />
+      <workItem from="1600684821094" duration="1375000" />
+      <workItem from="1600690423875" duration="2277000" />
+      <workItem from="1600733329771" duration="2805000" />
+      <workItem from="1600736367703" duration="7045000" />
+      <workItem from="1600745732203" duration="11517000" />
+    </task>
+    <task id="LOCAL-00004" summary="space navbar elements">
+      <created>1598174270663</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1598174270663</updated>
+    </task>
+    <task id="LOCAL-00005" summary="implement styled component nav. Create media file to host images.">
+      <created>1598229882867</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1598229882867</updated>
+    </task>
+    <task id="LOCAL-00006" summary="simple onChange for login form.">
+      <created>1598238544064</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1598238544064</updated>
+    </task>
+    <task id="LOCAL-00007" summary="simple routing for a register page.">
+      <created>1598248587240</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1598248587240</updated>
+    </task>
+    <task id="LOCAL-00008" summary="improving routing and component extraction. Customizing button.">
+      <created>1598326543853</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1598326543854</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Allow Darkbutton to be fed label. tweak home page pagout. add empty onchange and onsubmit methods for login form.">
+      <created>1598329379027</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1598329379028</updated>
+    </task>
+    <task id="LOCAL-00010" summary="Allow Darkbutton to be fed label. tweak home page pagout. add empty onchange and onsubmit methods for login form.&#10;Register goes to a blank registration page, and login (without checking any details) goes to a blank login page. Profile appears while logged in and goes to a blank profile page.">
+      <created>1598330383997</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1598330383997</updated>
+    </task>
+    <task id="LOCAL-00011" summary="add hovers state to darkbutton. Settings menu no longer opens off screen.">
+      <created>1598419747943</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1598419747943</updated>
+    </task>
+    <task id="LOCAL-00012" summary="add git lfs.">
+      <created>1598490568841</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1598490568841</updated>
+    </task>
+    <task id="LOCAL-00013" summary="create transparent div, rename backgrounds">
+      <created>1598494671529</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1598494671529</updated>
+    </task>
+    <task id="LOCAL-00014" summary="add logo to navbar">
+      <created>1598589926548</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1598589926548</updated>
+    </task>
+    <task id="LOCAL-00015" summary="write darkButton test, which works. also updated react-scripts, so you may have to npm install again.">
+      <created>1598597011300</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1598597011300</updated>
+    </task>
+    <task id="LOCAL-00016" summary="A number of new unit tests implemented, including agmenav and login. Refactored login to be a compnonent intead of a function.">
+      <created>1598686362797</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1598686362797</updated>
+    </task>
+    <task id="LOCAL-00017" summary="touch up">
+      <created>1599362288999</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1599362288999</updated>
+    </task>
+    <task id="LOCAL-00018" summary="initial commit, base for form.">
+      <created>1599362696913</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1599362696913</updated>
+    </task>
+    <task id="LOCAL-00019" summary="very simple regForm done">
+      <created>1599375990818</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1599375990818</updated>
+    </task>
+    <task id="LOCAL-00020" summary="fix styling height issues, set components to 100% default">
+      <created>1599468025598</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1599468025599</updated>
+    </task>
+    <task id="LOCAL-00021" summary="re-name reg form variables for on-change to work.">
+      <created>1599548531418</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1599548531418</updated>
+    </task>
+    <task id="LOCAL-00022" summary="code tidy up. Simple create Reg version">
+      <created>1599633151794</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1599633151794</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Simple onSubmit for RegForm.js">
+      <created>1599642660524</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1599642660524</updated>
+    </task>
+    <task id="LOCAL-00024" summary="straight to login button">
+      <created>1599698347952</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1599698347952</updated>
+    </task>
+    <task id="LOCAL-00025" summary="tidy up code. Implement list of businesses as a parameter to booking creator">
+      <created>1599701013580</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1599701013580</updated>
+    </task>
+    <task id="LOCAL-00026" summary="tidy up code. Implement list of businesses as a parameter to booking creator. Improve folder organization.">
+      <created>1599701714338</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1599701714338</updated>
+    </task>
+    <task id="LOCAL-00027" summary="add config.yml">
+      <created>1599701936211</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1599701936211</updated>
+    </task>
+    <task id="LOCAL-00028" summary="add Dockerfile">
+      <created>1599702271035</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1599702271035</updated>
+    </task>
+    <task id="LOCAL-00029" summary="Booking creation framework and guiding comments.">
+      <created>1599713133490</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1599713133490</updated>
+    </task>
+    <task id="LOCAL-00030" summary="merge with up-to-date develop.">
+      <created>1599798884832</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1599798884832</updated>
+    </task>
+    <task id="LOCAL-00031" summary="Registration now works with back end, and performs a simple redirect. No sessioning.">
+      <created>1599887090351</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1599887090351</updated>
+    </task>
+    <task id="LOCAL-00032" summary="Simple session implementation for logging in.">
+      <created>1599978607589</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1599978607589</updated>
+    </task>
+    <task id="LOCAL-00033" summary="move config to circleci folder.">
+      <created>1600040491645</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1600040491645</updated>
+    </task>
+    <task id="LOCAL-00034" summary="Login unit testing, and refining to allow for tests.&#10;Registration testing suite.">
+      <created>1600139996777</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1600139996777</updated>
+    </task>
+    <task id="LOCAL-00035" summary="centre and space navbar Items properly">
+      <created>1600145986983</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1600145986983</updated>
+    </task>
+    <task id="LOCAL-00036" summary="more simple tests- reg and login.">
+      <created>1600148274722</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1600148274722</updated>
+    </task>
+    <task id="LOCAL-00037" summary="working on Dockerfile">
+      <created>1600307443900</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1600307443900</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Implement sessions that store details on login. Details are deleted on log-out via nav bar. Logout redirect not fully functional.">
+      <created>1600577866798</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1600577866798</updated>
+    </task>
+    <task id="LOCAL-00039" summary="update error handling for login and register.">
+      <created>1600580495834</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1600580495834</updated>
+    </task>
+    <task id="LOCAL-00040" summary="More error checking. Fixed issue where log in was not failing correctly.">
+      <created>1600586560603</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1600586560603</updated>
+    </task>
+    <task id="LOCAL-00041" summary="refactor testing for connected components.">
+      <created>1600653559201</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1600653559201</updated>
+    </task>
+    <task id="LOCAL-00042" summary="small testing updtaes and code tidy">
+      <created>1600686183778</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1600686183778</updated>
+    </task>
+    <task id="LOCAL-00043" summary="admin creation shortcut on register page.">
+      <created>1600692783241</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1600692783241</updated>
+    </task>
+    <task id="LOCAL-00044" summary="admin creation shortcut on register page.">
+      <created>1600733401965</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1600733401965</updated>
+    </task>
+    <task id="LOCAL-00045" summary="dataSeeder.js class">
+      <created>1600735229860</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1600735229860</updated>
+    </task>
+    <task id="LOCAL-00046" summary="updating for merge">
+      <created>1600735777149</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1600735777149</updated>
+    </task>
+    <task id="LOCAL-00047" summary="updating for merge">
+      <created>1600735874604</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1600735874604</updated>
+    </task>
+    <task id="LOCAL-00048" summary="updating for merge">
+      <created>1600736198408</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1600736198408</updated>
+    </task>
+    <task id="LOCAL-00049" summary="updating for merge">
+      <created>1600736590353</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1600736590353</updated>
+    </task>
+    <task id="LOCAL-00050" summary="data seeding created. working on dusplaying all businesses.">
+      <created>1600745497677</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1600745497678</updated>
+    </task>
+    <task id="LOCAL-00051" summary="int update">
+      <created>1600748391011</created>
+      <option name="number" value="00051" />
+      <option name="presentableId" value="LOCAL-00051" />
+      <option name="project" value="LOCAL" />
+      <updated>1600748391011</updated>
+    </task>
+    <task id="LOCAL-00052" summary="parse JSOn for businsesses">
+      <created>1600756206188</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1600756206188</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="straight to login button" />
+    <MESSAGE value="tidy up code. Implement list of businesses as a parameter to booking creator" />
+    <MESSAGE value="tidy up code. Implement list of businesses as a parameter to booking creator. Improve folder organization." />
+    <MESSAGE value="add config.yml" />
+    <MESSAGE value="add Dockerfile" />
+    <MESSAGE value="Booking creation framework and guiding comments." />
+    <MESSAGE value="merge with up-to-date develop." />
+    <MESSAGE value="Registration now works with back end, and performs a simple redirect. No sessioning." />
+    <MESSAGE value="Simple session implementation for logging in." />
+    <MESSAGE value="move config to circleci folder." />
+    <MESSAGE value="Login unit testing, and refining to allow for tests.&#10;Registration testing suite." />
+    <MESSAGE value="centre and space navbar Items properly" />
+    <MESSAGE value="more simple tests- reg and login." />
+    <MESSAGE value="working on Dockerfile" />
+    <MESSAGE value="Implement sessions that store details on login. Details are deleted on log-out via nav bar. Logout redirect not fully functional." />
+    <MESSAGE value="update error handling for login and register." />
+    <MESSAGE value="More error checking. Fixed issue where log in was not failing correctly." />
+    <MESSAGE value="refactor testing for connected components." />
+    <MESSAGE value="small testing updtaes and code tidy" />
+    <MESSAGE value="admin creation shortcut on register page." />
+    <MESSAGE value="dataSeeder.js class" />
+    <MESSAGE value="updating for merge" />
+    <MESSAGE value="data seeding created. working on dusplaying all businesses." />
+    <MESSAGE value="int update" />
+    <MESSAGE value="parse JSOn for businsesses" />
+    <option name="LAST_COMMIT_MESSAGE" value="parse JSOn for businsesses" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="1643" y="449" key="#Docker" timestamp="1600311891506">
+      <screen x="52" y="23" width="2508" height="1417" />
+    </state>
+    <state x="1643" y="449" key="#Docker/52.23.2508.1417@52.23.2508.1417" timestamp="1600311891506" />
+    <state x="1587" y="540" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1600742844081">
+      <screen x="53" y="23" width="2507" height="1417" />
+    </state>
+    <state x="1587" y="540" key="#com.intellij.fileTypes.FileTypeChooser/53.23.2507.1417@53.23.2507.1417" timestamp="1600742844081" />
+    <state x="1587" y="540" key="#com.intellij.fileTypes.FileTypeChooser/54.23.2506.1417@54.23.2506.1417" timestamp="1598325864035" />
+    <state x="1552" y="474" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1600501155869">
+      <screen x="53" y="23" width="2507" height="1417" />
+    </state>
+    <state x="1552" y="474" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/53.23.2507.1417@53.23.2507.1417" timestamp="1600501155869" />
+    <state x="1552" y="474" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/54.23.2506.1417@54.23.2506.1417" timestamp="1598582829714" />
+    <state x="342" y="485" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1600741335561">
+      <screen x="53" y="23" width="2507" height="1417" />
+    </state>
+    <state x="342" y="485" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/53.23.2507.1417@53.23.2507.1417" timestamp="1600741335561" />
+    <state x="1346" y="593" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1599633349809">
+      <screen x="53" y="23" width="2507" height="1417" />
+    </state>
+    <state x="1346" y="593" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1/53.23.2507.1417@53.23.2507.1417" timestamp="1599633349809" />
+    <state x="819" y="108" width="1741" height="1056" key="CommitChangelistDialog2" timestamp="1600756205992">
+      <screen x="53" y="23" width="2507" height="1417" />
+    </state>
+    <state x="816" y="108" key="CommitChangelistDialog2/50.23.2510.1417@50.23.2510.1417" timestamp="1600586560339" />
+    <state x="1124" y="325" key="CommitChangelistDialog2/52.23.2508.1417@52.23.2508.1417" timestamp="1600307443569" />
+    <state x="819" y="108" width="1741" height="1056" key="CommitChangelistDialog2/53.23.2507.1417@53.23.2507.1417" timestamp="1600756205992" />
+    <state x="717" y="325" key="CommitChangelistDialog2/54.23.2506.1417@54.23.2506.1417" timestamp="1598494671307" />
+    <state width="701" height="442" key="Diff.GoToChangePopup" timestamp="1599633701846">
+      <screen x="53" y="23" width="2507" height="1417" />
+    </state>
+    <state width="701" height="442" key="Diff.GoToChangePopup/53.23.2507.1417@53.23.2507.1417" timestamp="1599633701846" />
+    <state x="275" y="124" key="DiffContextDialog" timestamp="1599633871817">
+      <screen x="53" y="23" width="2507" height="1417" />
+    </state>
+    <state x="275" y="124" key="DiffContextDialog/53.23.2507.1417@53.23.2507.1417" timestamp="1599633871817" />
+    <state x="1123" y="560" key="FileChooserDialogImpl" timestamp="1597888833440">
+      <screen x="52" y="23" width="2508" height="1417" />
+    </state>
+    <state x="1123" y="560" key="FileChooserDialogImpl/52.23.2508.1417@52.23.2508.1417" timestamp="1597888833440" />
+    <state width="1115" height="409" key="GridCell.Tab.0.bottom" timestamp="1600653566505">
+      <screen x="53" y="23" width="2507" height="1417" />
+    </state>
+    <state width="1329" height="409" key="GridCell.Tab.0.bottom/52.23.2508.1417@52.23.2508.1417" timestamp="1599362659885" />
+    <state width="1115" height="409" key="GridCell.Tab.0.bottom/53.23.2507.1417@53.23.2507.1417" timestamp="1600653566505" />
+    <state width="1336" height="409" key="GridCell.Tab.0.bottom/54.23.2506.1417@54.23.2506.1417" timestamp="1598585856709" />
+    <state width="1115" height="409" key="GridCell.Tab.0.center" timestamp="1600653566504">
+      <screen x="53" y="23" width="2507" height="1417" />
+    </state>
+    <state width="1329" height="409" key="GridCell.Tab.0.center/52.23.2508.1417@52.23.2508.1417" timestamp="1599362659884" />
+    <state width="1115" height="409" key="GridCell.Tab.0.center/53.23.2507.1417@53.23.2507.1417" timestamp="1600653566504" />
+    <state width="1336" height="409" key="GridCell.Tab.0.center/54.23.2506.1417@54.23.2506.1417" timestamp="1598585856708" />
+    <state width="1115" height="409" key="GridCell.Tab.0.left" timestamp="1600653566503">
+      <screen x="53" y="23" width="2507" height="1417" />
+    </state>
+    <state width="1329" height="409" key="GridCell.Tab.0.left/52.23.2508.1417@52.23.2508.1417" timestamp="1599362659883" />
+    <state width="1115" height="409" key="GridCell.Tab.0.left/53.23.2507.1417@53.23.2507.1417" timestamp="1600653566503" />
+    <state width="1336" height="409" key="GridCell.Tab.0.left/54.23.2506.1417@54.23.2506.1417" timestamp="1598585856708" />
+    <state width="1115" height="409" key="GridCell.Tab.0.right" timestamp="1600653566504">
+      <screen x="53" y="23" width="2507" height="1417" />
+    </state>
+    <state width="1329" height="409" key="GridCell.Tab.0.right/52.23.2508.1417@52.23.2508.1417" timestamp="1599362659884" />
+    <state width="1115" height="409" key="GridCell.Tab.0.right/53.23.2507.1417@53.23.2507.1417" timestamp="1600653566504" />
+    <state width="1336" height="409" key="GridCell.Tab.0.right/54.23.2506.1417@54.23.2506.1417" timestamp="1598585856708" />
+    <state x="131" y="117" key="MergeDialog" timestamp="1600319909567">
+      <screen x="52" y="23" width="2508" height="1417" />
+    </state>
+    <state x="131" y="117" key="MergeDialog/52.23.2508.1417@52.23.2508.1417" timestamp="1600319909567" />
+    <state x="132" y="117" key="MergeDialog/53.23.2507.1417@53.23.2507.1417" timestamp="1599632956991" />
+    <state x="1341" y="469" width="874" height="550" key="MultipleFileMergeDialog" timestamp="1600752278781">
+      <screen x="53" y="23" width="2507" height="1417" />
+    </state>
+    <state x="1341" y="469" width="874" height="550" key="MultipleFileMergeDialog/53.23.2507.1417@53.23.2507.1417" timestamp="1600752278781" />
+    <state x="1284" y="441" key="RollbackChangesDialog" timestamp="1599633014509">
+      <screen x="53" y="23" width="2507" height="1417" />
+    </state>
+    <state x="1284" y="441" key="RollbackChangesDialog/53.23.2507.1417@53.23.2507.1417" timestamp="1599633014509" />
+    <state x="1411" y="212" key="SettingsEditor" timestamp="1600301978598">
+      <screen x="52" y="23" width="2508" height="1417" />
+    </state>
+    <state x="1411" y="212" key="SettingsEditor/52.23.2508.1417@52.23.2508.1417" timestamp="1600301978598" />
+    <state x="742" y="370" key="SettingsEditor/54.23.2506.1417@54.23.2506.1417" timestamp="1598491340564" />
+    <state x="1468" y="471" key="Vcs.Push.Dialog.v2" timestamp="1600756209411">
+      <screen x="53" y="23" width="2507" height="1417" />
+    </state>
+    <state x="1467" y="471" key="Vcs.Push.Dialog.v2/50.23.2510.1417@50.23.2510.1417" timestamp="1600586563309" />
+    <state x="1468" y="471" key="Vcs.Push.Dialog.v2/52.23.2508.1417@52.23.2508.1417" timestamp="1600307447088" />
+    <state x="1468" y="471" key="Vcs.Push.Dialog.v2/53.23.2507.1417@53.23.2507.1417" timestamp="1600756209411" />
+    <state x="1468" y="471" key="Vcs.Push.Dialog.v2/54.23.2506.1417@54.23.2506.1417" timestamp="1598494674383" />
+    <state x="153" y="123" width="1119" height="1217" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1600685835241">
+      <screen x="53" y="23" width="2507" height="1417" />
+    </state>
+    <state x="153" y="123" width="1119" height="1217" key="com.intellij.history.integration.ui.views.FileHistoryDialog/53.23.2507.1417@53.23.2507.1417" timestamp="1600685835241" />
+    <state x="1037" y="652" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1600319881352">
+      <screen x="52" y="23" width="2508" height="1417" />
+    </state>
+    <state x="1037" y="652" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/52.23.2508.1417@52.23.2508.1417" timestamp="1600319881352" />
+    <state x="1037" y="652" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/53.23.2507.1417@53.23.2507.1417" timestamp="1597890261698" />
+    <state x="1038" y="652" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/54.23.2506.1417@54.23.2506.1417" timestamp="1598490850981" />
+    <state x="1566" y="451" key="git4idea.branch.GitSmartOperationDialog" timestamp="1600733367200">
+      <screen x="53" y="23" width="2507" height="1417" />
+    </state>
+    <state x="1566" y="451" key="git4idea.branch.GitSmartOperationDialog/53.23.2507.1417@53.23.2507.1417" timestamp="1600733367200" />
+    <state x="823" y="621" width="614" height="269" key="org.intellij.images.editor.actions.BackgroundImageDialog" timestamp="1598229169964">
+      <screen x="54" y="23" width="2506" height="1417" />
+    </state>
+    <state x="823" y="621" width="614" height="269" key="org.intellij.images.editor.actions.BackgroundImageDialog/54.23.2506.1417@54.23.2506.1417" timestamp="1598229169964" />
+    <state x="1523" y="346" key="run.anything.popup" timestamp="1599968110928">
+      <screen x="53" y="23" width="2507" height="1417" />
+    </state>
+    <state x="1523" y="346" key="run.anything.popup/53.23.2507.1417@53.23.2507.1417" timestamp="1599968110928" />
+    <state x="1533" y="348" width="670" height="676" key="search.everywhere.popup" timestamp="1598153976786">
+      <screen x="54" y="23" width="2506" height="1417" />
+    </state>
+    <state x="1533" y="348" width="670" height="676" key="search.everywhere.popup/54.23.2506.1417@54.23.2506.1417" timestamp="1598153976786" />
+  </component>
+</project>
