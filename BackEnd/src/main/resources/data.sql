@@ -6,9 +6,13 @@ INSERT INTO USER (account_type, name, username, password, Contact_Number, email)
 ('Customer','Max','MaxMax','password',47,'Maximillianyoung0@gmail.com'),
 ('Admin','Kara','BigKara','password',4,'kara@kara.com');
 
-INSERT INTO ADMIN(ADMIN_ID) VALUES
-(1),
-(5);
+INSERT INTO BUSINESS (name) VALUES
+('Special Hairdressing'),
+('Main Street Massage');
+
+INSERT INTO ADMIN(ADMIN_ID, BUSINESS_ID) VALUES
+(1, 1),
+(5, 2);
 
 INSERT INTO WORKER(WORKER_ID) VALUES
 (2),
@@ -16,15 +20,6 @@ INSERT INTO WORKER(WORKER_ID) VALUES
 
 INSERT INTO CUSTOMER(CUSTOMER_ID) VALUES
 (1);
-
-INSERT INTO BUSINESS (name) VALUES
-('Special Hairdressing'),
-('Main Street Massage');
-
-INSERT INTO BUSINESS_ADMINS (business_id,admins_admin_id) VALUES
-(1,1),
-(2,5);
-
 
 INSERT INTO SERVICES (name, description,business_id) VALUES
 ('Haircut','A great haircut service',1),

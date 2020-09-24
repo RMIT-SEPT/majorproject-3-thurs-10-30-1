@@ -15,11 +15,15 @@ public class Admin
     @NotNull(message = "A user account is required")
     private User user;
 
+    @ManyToOne(optional = true)
+    private Business business;
+
     public Admin() {}
 
-    public Admin(Long id, @NotNull(message = "A user account is required") User user) {
+    public Admin(Long id, @NotNull(message = "A user account is required") User user, Business business) {
         this.id = id;
         this.user = user;
+        this.business = business;
     }
 
     public Long getId() {
@@ -28,5 +32,9 @@ public class Admin
 
     public User getUser() {
         return user;
+    }
+
+    public Business getBusiness() {
+        return business;
     }
 }

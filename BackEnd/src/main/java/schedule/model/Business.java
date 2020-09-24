@@ -24,7 +24,7 @@ public class Business {
     @JoinColumn(name = "business_id")
     private List<ScheduleService> services;
 
-    @OneToMany()
+    @OneToMany(mappedBy = "business")
     private List<Admin> admins;
 
     @ManyToMany
