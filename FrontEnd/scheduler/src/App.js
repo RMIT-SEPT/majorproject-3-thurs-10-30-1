@@ -12,9 +12,7 @@ import {logout} from "./actions/auth";
 import AGMEnav from "./Components/Generics/AGMEnav";
 import {connect} from 'react-redux'
 import {history} from "./utils/history";
-
 import EditProfile from "./Components/Profile/EditProfile";
-
 import adminDashboard from "./Components/Dashboards/adminDashboard";
 import {workerMaker} from "./Components/Registration/workerMaker";
 
@@ -74,8 +72,9 @@ class App extends Component {
 
 function mapStateToProps(state) {
     const { user } = state.auth;
+    const {accountType} = state.accountType;
     return {
-        user,
+        user,accountType
     };
 }
 

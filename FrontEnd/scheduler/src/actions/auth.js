@@ -5,6 +5,7 @@ import {
     LOGIN_FAIL,
     LOGOUT,
     SET_MESSAGE,
+    SET_ACCOUNT_TYPE,
 } from "./types";
 import {adminCreate, lilLogout, userCreate, userLogin, workerCreate} from "./userActions";
 
@@ -123,6 +124,12 @@ export const login = (details) => (dispatch) => {
                 type: LOGIN_SUCCESS,
                 payload: { user: data },
             });
+
+            dispatch({
+                type: SET_ACCOUNT_TYPE,
+                payload: data.accountType
+            });
+
 
             return Promise.resolve();
         },

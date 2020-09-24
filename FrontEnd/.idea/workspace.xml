@@ -2,18 +2,20 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="864500c5-d78e-4c15-8b77-0fed5207bcc4" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/scheduler/src/Components/Dashboards/adminDashboard.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/scheduler/src/Components/Registration/workerMaker.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/scheduler/src/reducers/accountType.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scheduler/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scheduler/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scheduler/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scheduler/src/Components/Bookings/BookingList.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/Components/Bookings/BookingList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scheduler/src/Components/Bookings/WorkerBookingList.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/Components/Bookings/WorkerBookingList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scheduler/src/Components/Dashboards/WorkerDashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/Components/Dashboards/WorkerDashboard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scheduler/src/Components/Generics/AGMEnav.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/Components/Generics/AGMEnav.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scheduler/src/Components/WorkerBookingList.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/scheduler/src/Components/adminDashboard.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/scheduler/src/Components/Bookings/BookingCreator.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/Components/Bookings/BookingCreator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scheduler/src/Components/Registration/Registration.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/Components/Registration/Registration.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scheduler/src/actions/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/actions/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scheduler/src/actions/business.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/actions/bookings.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scheduler/src/actions/types.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/actions/types.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scheduler/src/actions/userActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/actions/userActions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scheduler/src/reducers/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/reducers/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scheduler/src/reducers/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/reducers/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scheduler/src/rootReducer.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/rootReducer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -197,6 +199,7 @@
       <workItem from="1600733329771" duration="2805000" />
       <workItem from="1600736367703" duration="7045000" />
       <workItem from="1600745732203" duration="11517000" />
+      <workItem from="1600918117411" duration="542000" />
     </task>
     <task id="LOCAL-00005" summary="implement styled component nav. Create media file to host images.">
       <created>1598229882867</created>
@@ -590,9 +593,10 @@
     </state>
     <state x="1552" y="474" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/53.23.2507.1417@53.23.2507.1417" timestamp="1600501155869" />
     <state x="1552" y="474" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/54.23.2506.1417@54.23.2506.1417" timestamp="1598582829714" />
-    <state x="342" y="485" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1600767639236">
-      <screen x="53" y="23" width="2507" height="1417" />
+    <state x="341" y="485" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1600915168936">
+      <screen x="52" y="23" width="2508" height="1417" />
     </state>
+    <state x="341" y="485" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/52.23.2508.1417@52.23.2508.1417" timestamp="1600915168936" />
     <state x="342" y="485" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/53.23.2507.1417@53.23.2507.1417" timestamp="1600767639236" />
     <state x="1346" y="593" key="ANALYSIS_DLG_com.intellij.analysis.BaseAnalysisAction$1" timestamp="1599633349809">
       <screen x="53" y="23" width="2507" height="1417" />

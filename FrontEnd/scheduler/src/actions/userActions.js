@@ -20,7 +20,6 @@ export const userLogin = (details) => {
             }
             else {
                 localStorage.setItem("user", JSON.stringify(response.data));
-                localStorage.setItem("Type", response.data.accountType);
             }
             return response.data;
         });
@@ -35,7 +34,6 @@ export const userUpdate = (details) =>
 export function lilLogout()
 {
         localStorage.removeItem("user");
-        localStorage.removeItem("Type");
 }
 
 export const userCreate = async (user) => {
@@ -53,18 +51,6 @@ export const workerCreate = async (user) => {
     return axios.post(`http://${IP}:8080/api/worker`, user);
 }
 
-export const getCurrentUser = () => {
-    return JSON.parse(localStorage.getItem("user"));
-};
-
-export const isLoggedIn = () => {
-    const user = JSON.parse(localStorage.getItem('user'));
-    if(user)
-    {
-        return true;
-    }
-    return false;
-};
 
 
 

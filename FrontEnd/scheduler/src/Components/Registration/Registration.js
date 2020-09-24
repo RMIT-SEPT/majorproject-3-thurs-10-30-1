@@ -19,6 +19,7 @@ export class Registration extends Component
                 successful:true,
             };
         this.onChange=this.onChange.bind(this);
+        this.onChangeNumber=this.onChangeNumber.bind(this);
         this.handleSubmit=this.handleSubmit.bind(this);
         this.enableAdmin=this.enableAdmin.bind(this);
     }
@@ -26,6 +27,11 @@ export class Registration extends Component
     onChange = (e) =>
     {
         this.setState({[e.target.name]: e.target.value});
+    }
+
+    onChangeNumber = (e) =>
+    {
+        this.setState({[e.target.name]: parseInt(e.target.value)});
     }
 
     handleSubmit= async (e) =>
@@ -119,7 +125,7 @@ export class Registration extends Component
                             </Form.Group>
 
                             <Form.Group >
-                                <Form.Control type="number" placeholder="Contact Number: " value={this.state.contactNumber} onChange={this.onChange} name="contactNumber"/>
+                                <Form.Control type="number" placeholder="Contact Number: " value={this.state.contactNumber} onChange={this.onChangeNumber} name="contactNumber"/>
                             </Form.Group>
 
                             <Form.Group controlId="formBasicPassword">
