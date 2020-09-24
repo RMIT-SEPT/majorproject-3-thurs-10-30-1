@@ -59,9 +59,9 @@ public class UserControllerTest
     public void clean_database()
     {
         workerRepo.deleteAll();
-        serviceRepo.deleteAll();
-        businessRepo.deleteAll();
         adminRepo.deleteAll();
+        businessRepo.deleteAll();
+        serviceRepo.deleteAll();
         customerRepo.deleteAll();
         userRepo.deleteAll();
     }
