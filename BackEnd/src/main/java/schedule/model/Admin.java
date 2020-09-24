@@ -20,6 +20,11 @@ public class Admin
 
     public Admin() {}
 
+    public Admin(Long id, @NotNull(message = "A user account is required") User user) {
+        this.id = id;
+        this.user = user;
+    }
+
     public Admin(Long id, @NotNull(message = "A user account is required") User user, Business business) {
         this.id = id;
         this.user = user;
