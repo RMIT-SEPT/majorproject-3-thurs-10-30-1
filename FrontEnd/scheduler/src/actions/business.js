@@ -1,7 +1,7 @@
 import axios from "axios";
 import { IP } from './networkDetails';
 
-export const getAllBusiness = () =>
+export const getAllBusiness = async () =>
 {
-    return axios.get(`http://${IP}:8080/api/business/all`);
+    return await axios.get(`http://${IP}:8080/api/business/all`);
 }
