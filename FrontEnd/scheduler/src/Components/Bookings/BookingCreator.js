@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {getAllBusiness} from "../../actions/bookings";
+import {getAllBusiness, getServiceByBusiness} from "../../actions/bookings";
 
 
 class BookingCreator extends Component
@@ -9,7 +9,8 @@ class BookingCreator extends Component
         this.state=
         {
             businesses: undefined,
-            currentId:0,
+            services:undefined,
+            currentId:1,
         }
         this.onChangeNumber=this.onChangeNumber.bind(this);
         this.showServices=this.showServices.bind(this);
@@ -29,12 +30,18 @@ class BookingCreator extends Component
         if(prevState.currentId!==this.state.currentId)
         {
             console.log("there was a change of ID: " + this.state.currentId);
+            getServiceByBusiness(this.state.currentId).then(response => {
+                this.setState({
+                    services: response.data
+                });
+            })
+            console.log(this.state.services);
         }
     }
 
     onChangeNumber = (e) =>
     {
-        this.setState({[e.target.name]: parseInt(e.target.value)});L
+        this.setState({[e.target.name]: parseInt(e.target.value)});
 
     }
 

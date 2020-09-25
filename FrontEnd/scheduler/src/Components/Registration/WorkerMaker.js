@@ -3,7 +3,7 @@ import Form from "react-bootstrap/Form";
 import {workerRegister} from "../../actions/auth";
 import {connect} from 'react-redux'
 
-export class workerMaker extends Component
+export class WorkerMaker extends Component
 {
     constructor(props)
     {
@@ -117,4 +117,4 @@ function mapStateToProps(state) {
     };
 }
 
-export default connect(mapStateToProps)(workerMaker);
+export default connect(mapStateToProps)(WorkerMaker);

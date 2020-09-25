@@ -14,7 +14,7 @@ import {connect} from 'react-redux'
 import {history} from "./utils/history";
 import EditProfile from "./Components/Profile/EditProfile";
 import adminDashboard from "./Components/Dashboards/adminDashboard";
-import {workerMaker} from "./Components/Registration/workerMaker";
+import {WorkerMaker} from "./Components/Registration/WorkerMaker";
 
 
 
@@ -62,7 +62,7 @@ class App extends Component {
             <Route exact path="/editprofile" component={EditProfile} />
 
             <Route exact path="/adminHome" component ={adminDashboard}/>
-            <Route exact path="/workerMaker" component ={workerMaker}/>
+            <Route exact path="/workerMaker" component ={WorkerMaker}/>
 
         </Router>
     );
