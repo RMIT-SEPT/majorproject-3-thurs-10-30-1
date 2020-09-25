@@ -31,15 +31,16 @@ class BookingCreator extends Component
 
     return (
         <div className = "bookingCreator">
-        <h2 className="bookingListHeader">Book a New Service</h2>
-            {biz
-                ? <select >
+            <h2 className="bookingListHeader">Book a New Service</h2>
+                <center>
+                    {biz
+                     ? <select >
                     <option> {biz.name}</option>
                     <option>{biz2.name} </option>
-                </select>
-
-                : <p></p>}
-         <DarkButton label={label} />
+                    </select>
+                    : <p></p>}
+                </center>
+        <center> <DarkButton label={label}/> </center>
          </div>
     )
 }

@@ -39,7 +39,7 @@ html, body, #root, .App {
     background-image: url(./media/background1.png);
     background-size: 200%;
     display: inline-block;
-    padding: 21% 10% 35%;
+    padding: 10% 10% 45%;
     margin-top: 0;
     position: relative;
     float: right;
@@ -95,10 +95,10 @@ html, body, #root, .App {
     height: 40px;
     margin-top: -5%;
 }
-
+/* Login Page */
 .regLink {
     color: black;
-    font-size: x-large;
+    font-size: 20px;
     width: 90%;
     opacity: .5;
 }
@@ -106,7 +106,7 @@ html, body, #root, .App {
 .regLink:hover
 {
     color: red;
-    font-size: x-large;
+    font-size: 20px;
     width: 90%;
     opacity: .8;
 }
@@ -119,7 +119,7 @@ html, body, #root, .App {
     font-weight: bold;
     text-align: center;
     color: #000000;
-    padding-bottom: 10%;
+    padding-bottom: 3%;
 }
 
 .transparentDiv
@@ -127,19 +127,20 @@ html, body, #root, .App {
     opacity: .8;
 }
 
-
-.wholeReg
-{
-    background-image: url(./media/background3.png);
-    background-size: 150% 100% ;
-    height: 100%;
-}
-
-
 @keyframes App-logo-spin
 {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+/* Dashboard Welcome Text */
+.DashboardWelcome
+{
+    font-size: 45px;
+    text-align: center;
+    color: #000000;
+    padding-top: 0%;
+    font-weight: bold;
 }
 
 /* Customer Dashboard */
@@ -150,7 +151,7 @@ html, body, #root, .App {
   height: 700px;
   outline-style: solid;
   margin-left: 3%;
-  margin-top:2%;
+  margin-top:0%;
   background-color: white;
 }
 
@@ -181,7 +182,7 @@ html, body, #root, .App {
   float: right;
   outline: solid;
   margin-right: 3%;
-  margin-top:10%;
+  margin-top:5%;
   background-color: white;
 }
 
@@ -233,7 +234,41 @@ html, body, #root, .App {
   margin-top:2%;
   background-color: white;
 }
-  
+
+/* Registration Page */
+.Registration
+{
+    width: 60%;
+    float: left;
+    height: 700px;
+    outline-style: solid;
+    margin-left: 20%;
+    margin-top:2%;
+    background-color: white;
+}
+
+/* Registration Page */
+.RegistrationBackground
+{
+    background-image: url(./media/background3.png);
+    background-size: 150% 100% ;
+    height: 100%;
+}
+
+/* Registration Page */
+.RegistrationPageText
+{
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    color: #000000;
+}
+
+.RegistrationTextFieldWidth
+{
+    width: 75%;
+    margin-left: 13%;
+}
 
 .availableServices
 {
@@ -296,10 +331,5 @@ margin-top:20%;
     height: 100%;
     position: relative;
 }
-.regFormDiv
-{
-    width: 60%;
-    margin-left: 20%;
-    margin-top: 10%;
-}
+
 
