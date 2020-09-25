@@ -130,7 +130,6 @@ export const login = (details) => (dispatch) => {
                 payload: data.accountType
             });
 
-
             return Promise.resolve();
         },
         (error) => {

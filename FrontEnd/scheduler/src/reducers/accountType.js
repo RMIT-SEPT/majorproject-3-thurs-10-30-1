@@ -1,5 +1,6 @@
 import {SET_ACCOUNT_TYPE} from "../actions/types";
 
+
 const initialState = {};
 
 export default function (state = initialState, action) {
@@ -7,7 +8,12 @@ export default function (state = initialState, action) {
 
     switch (type) {
         case SET_ACCOUNT_TYPE:
-            return { ACCOUNT_TYPE: payload };
+            console.log("IN THE ACC REDUCER")
+            console.log(payload);
+            return {
+                ...state,
+                accountType: payload
+            };
         default:
             return state;
     }

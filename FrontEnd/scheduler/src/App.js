@@ -22,30 +22,17 @@ class App extends Component {
     constructor(props) {
         super(props);
         this.logOut = this.logOut.bind(this);
-        this.state = {
-            admin: false,
-            worker: false,
-            currentUser: {}
-        };
         history.listen((location) => {
             props.dispatch(clearMessage()); // clear message when changing location
         });
     }
 
-    componentDidMount() {
-        const user = this.props.user;
-        if (user)
-        {
-            this.setState({
-                currentUser: user,
-                worker: user.accountType==="Worker",
-                admin: user.accountType==="Admin"
-            });
-        }
-    }
-
     logOut() {
         this.props.dispatch(logout());
+    }
+
+    componentDidMount() {
+        const accType = this.props.accountType;
     }
 
     render()
@@ -71,10 +58,11 @@ class App extends Component {
 
 
 function mapStateToProps(state) {
-    const { user } = state.auth;
-    const {accountType} = state.accountType;
+    const {user} = state.auth;
+    const {accountType}= state.accountType;
     return {
-        user,accountType
+        user,
+        accountType,
     };
 }
 

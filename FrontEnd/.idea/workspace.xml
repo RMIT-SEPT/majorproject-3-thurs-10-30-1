@@ -2,14 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3d544343-65dd-4a79-bdae-6f23a9c69eaa" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_9_20,_3_18_pm_[Default_Changelist]1/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_17_9_20__3_18_pm__Default_Changelist_1.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scheduler/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/App.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scheduler/src/Components/Bookings/BookingCreator.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/Components/Bookings/BookingCreator.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scheduler/src/Components/Registration/workerMaker.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/Components/Registration/WorkerMaker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scheduler/src/actions/bookings.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/actions/bookings.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scheduler/src/Components/Generics/AGMEnav.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/Components/Generics/AGMEnav.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scheduler/src/Components/HomePage/Login.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/Components/HomePage/Login.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scheduler/src/actions/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/actions/auth.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scheduler/src/actions/userActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/actions/userActions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scheduler/src/reducers/accountType.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/reducers/accountType.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scheduler/src/reducers/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/reducers/auth.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,14 +40,35 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1600992068765</updated>
-      <workItem from="1600992069968" duration="822000" />
+      <workItem from="1600992069968" duration="2425000" />
+      <workItem from="1600995067192" duration="2897000" />
     </task>
+    <task id="LOCAL-00001" summary="get business with admin implemented, awaiting custom jSON to break infinite service/worker loops">
+      <created>1600993026539</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1600993026539</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="get business with admin implemented, awaiting custom jSON to break infinite service/worker loops" />
+    <option name="LAST_COMMIT_MESSAGE" value="get business with admin implemented, awaiting custom jSON to break infinite service/worker loops" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="260" y="325" key="CommitChangelistDialog2" timestamp="1600993026232">
+      <screen x="53" y="23" width="2507" height="1417" />
+    </state>
+    <state x="260" y="325" key="CommitChangelistDialog2/53.23.2507.1417@53.23.2507.1417" timestamp="1600993026232" />
+    <state x="396" y="471" key="Vcs.Push.Dialog.v2" timestamp="1600993029340">
+      <screen x="53" y="23" width="2507" height="1417" />
+    </state>
+    <state x="396" y="471" key="Vcs.Push.Dialog.v2/53.23.2507.1417@53.23.2507.1417" timestamp="1600993029340" />
     <state x="153" y="123" width="1287" height="1217" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1600992213417">
       <screen x="53" y="23" width="2507" height="1417" />
     </state>

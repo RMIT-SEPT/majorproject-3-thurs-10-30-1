@@ -36,52 +36,36 @@ export class AGMEnav extends Component
 {
     constructor(props) {
         super(props);
-        this.state = {
-            admin: false,
-            worker: false,
-            currentUser: {}
-        };
+
     }
-    componentDidMount() {
-        const user = this.props.user;
-        if (user)
-        {
-            this.setState({
-                currentUser: user,
-                worker: user.accountType==="Worker",
-                admin: user.accountType==="Admin"
-            });
-        }
-    }
+
 
     render()
     {
+        const accType = this.props.accountType;
         const userLinks = (
             <Nav className="m-xl-auto">
                 <NavItem> <Link to="/profile"> Profile   </Link></NavItem>
                 <NavItem> <Link to ="/dashboard"> Dashboard </Link></NavItem>
 
                 {
-                    this.state.worker
+                    accType==="Worker"
                     ? <NavItem> <Link to="/workerHome"> Worker Home </Link></NavItem>
                     : <p></p>
                 }
 
                 {
-                    this.state.admin
-                        ? <NavItem> <Link to="/adminHome"> Admin Home </Link></NavItem>
+                    accType==="Admin"
+                        ? <Nav>
+                            <NavItem> <Link to="/adminHome"> Admin Home </Link></NavItem>
+                            <NavItem> <Link to="/workerMaker"> Create a worker </Link></NavItem>
+                        </Nav>
                         : <p></p>
                 }
-
-                {
-                    this.state.admin
-                        ? <NavItem> <Link to="/workerMaker"> Create a worker </Link></NavItem>
-                        : <p></p>
-                }
-
                 <NavLink className="logout" href="/" onClick={this.props.logout}> Logout </NavLink>
             </Nav>
         );
+
         const guestLinks = (
             <Nav className="m-xl-auto">
                 <NavItem> <Link to="/"> Home</Link>  </NavItem>
@@ -115,8 +99,10 @@ AGMEnav.propTypes = {
 
 function mapStateToProps(state) {
     const { user } = state.auth;
+    const {accountType}= state.accountType;
     return {
         user,
+        accountType,
     };
 }
 
