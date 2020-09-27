@@ -34,11 +34,6 @@ const StyledNav = styled.div`
 
 export class AGMEnav extends Component
 {
-    constructor(props) {
-        super(props);
-
-    }
-
 
     render()
     {
@@ -53,6 +48,7 @@ export class AGMEnav extends Component
                     ? <NavItem> <Link to="/workerHome"> Worker Home </Link></NavItem>
                     : <p></p>
                 }
+
 
                 {
                     accType==="Admin"

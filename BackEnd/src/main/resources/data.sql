@@ -4,7 +4,8 @@ INSERT INTO USER (account_type, name, username, password, Contact_Number, email)
 ('Worker','Sandy','BigSandy','password',4877,'sandy@sandy.com'),
 ('Worker','Alan','BigAlan','password',477,'Alan@Alan.com'),
 ('Customer','Max','MaxMax','password',47,'Maximillianyoung0@gmail.com'),
-('Admin','Kara','BigKara','password',4,'kara@kara.com');
+('Admin','Kara','BigKara','password',4,'kara@kara.com'),
+('Worker','Milo','BigMilo','password',4877,'milo@milo.com');
 
 INSERT INTO BUSINESS (name) VALUES
 ('Special Hairdressing'),
@@ -16,7 +17,8 @@ INSERT INTO ADMIN(ADMIN_ID, BUSINESS_ID) VALUES
 
 INSERT INTO WORKER(WORKER_ID) VALUES
 (2),
-(3);
+(3),
+(6);
 
 INSERT INTO CUSTOMER(CUSTOMER_ID) VALUES
 (1);
@@ -29,7 +31,8 @@ INSERT INTO SERVICES (name, description,business_id) VALUES
 INSERT INTO WORKER_SERVICES(workers_worker_id,services_service_id) VALUES
 (2,1),
 (2,2),
-(3,3);
+(3,3),
+(6,1);
 
 INSERT INTO BUSINESS_WORKERS(businesses_id,workers_worker_id) VALUES
 (1,2),

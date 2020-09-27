@@ -8,8 +8,6 @@ export default function (state = initialState, action) {
 
     switch (type) {
         case SET_ACCOUNT_TYPE:
-            console.log("IN THE ACC REDUCER")
-            console.log(payload);
             return {
                 ...state,
                 accountType: payload
