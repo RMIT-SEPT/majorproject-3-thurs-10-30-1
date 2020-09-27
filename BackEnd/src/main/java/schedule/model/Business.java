@@ -6,6 +6,8 @@ import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import schedule.model.service.ScheduleService;
 
 @Entity(name = "business")
@@ -52,29 +54,13 @@ public class Business {
         return services;
     }
 
+    @JsonIgnoreProperties(value = "business")
     public List<Admin> getAdmins() {
         return admins;
     }
 
+    @JsonIgnoreProperties(value = "businesses")
     public List<Worker> getWorkers() {
         return workers;
-    }
-
-    public void toJson(StringBuilder builder) {
-        builder.append("{");
-        builder.append("\"id\":" + getId().toString() + ",");
-        builder.append("\"name\":" + '"' + getName() + '"' + ",");
-        builder.append("\"services\":[");
-        int i = 0;
-        for (ScheduleService service : getServices()) {
-            i++;
-            if (i < getServices().size()) {
-                builder.append(service.getId() + ",");
-            } else {
-                builder.append(service.getId());
-            }
-        }
-        builder.append("]}");
-
     }
 }
