@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {getAllBusiness, getServiceByBusiness} from "../../actions/bookings";
+import {getAllBusiness, getServiceByBusiness} from "../../actions/BusinessActions";
 
 
 class BookingCreator extends Component

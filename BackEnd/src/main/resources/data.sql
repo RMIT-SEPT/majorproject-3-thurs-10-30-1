@@ -31,7 +31,8 @@ INSERT INTO WORKER_SERVICES(workers_worker_id,services_service_id) VALUES
 (2,2),
 (3,3);
 
--- make services
--- make businseses with those services
--- make users
--- make workers out of those users and those services
+INSERT INTO BUSINESS_WORKERS(businesses_id,workers_worker_id) VALUES
+(1,2),
+(2,3);
+
+
