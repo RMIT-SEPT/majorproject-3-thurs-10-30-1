@@ -7,6 +7,7 @@ import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import schedule.model.service.ScheduleService;
+import utitlity.JsonHelper;
 
 @Entity(name = "business")
 public class Business {
@@ -61,10 +62,12 @@ public class Business {
     }
 
     public void toJson(StringBuilder builder) {
-        builder.append("{");
-        builder.append("\"id\":" + getId().toString() + ",");
-        builder.append("\"name\":" + '"' + getName() + '"' + ",");
-        builder.append("\"services\":[");
+        JsonHelper.startScope(builder); 
+        JsonHelper.addField("id", getId(), builder);
+        JsonHelper.addComma(builder);
+        JsonHelper.addField("name", getName(), builder);
+        JsonHelper.addComma(builder);
+        JsonHelper.startArray("services", builder);
         int i = 0;
         for (ScheduleService service : getServices()) {
             i++;
@@ -74,9 +77,10 @@ public class Business {
                 builder.append(service.getId());
             }
         }
-        builder.append("],");
+        JsonHelper.endArray(builder); //end services array
+        JsonHelper.addComma(builder);
         i = 0;
-        builder.append("\"workers\":[");
+        JsonHelper.startArray("workers", builder);
         for (Worker worker : getWorkers()) {
             i++;
              if (i < getWorkers().size()) {
@@ -85,6 +89,8 @@ public class Business {
                 builder.append(worker.getId());
             }
         }
+        JsonHelper.endArray(builder); //end workers
+        JsonHelper.addComma(builder);
         builder.append("],");
         i = 0;
         builder.append("\"admins\":[");
@@ -99,7 +105,8 @@ public class Business {
                 builder.append(admin.getId());
             }
         }
-        builder.append("]}");
+        JsonHelper.endArray(builder);
+        JsonHelper.endScope(builder);
 
     }
 }
