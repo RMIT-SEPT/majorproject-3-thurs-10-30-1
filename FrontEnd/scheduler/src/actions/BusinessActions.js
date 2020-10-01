@@ -11,8 +11,3 @@ export const getServiceByBusiness = async (id) =>
     return await axios.get(`http://${IP}:8080/api/business/${id}/services`);
 }
 
-export const getBusinessByAdmin= async (id) =>
-{
-
-}
-

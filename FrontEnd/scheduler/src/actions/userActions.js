@@ -12,7 +12,6 @@ export function setCurrentUser(user) {
 }
 
 export const userLogin =  (details) => {
-    //check to see what type of user they are first?
     return axios.post(`http://${IP}:8080/api/user/login`, details)
         .then((response) => {
             if(!response.data)
@@ -32,8 +31,9 @@ export const userUpdate = async (details) => {
     return await axios.put("http://localhost:8080/api/user/update/" + id, details)
 }
 
-export const getAdmin = async (id) => {
-    return await axios.get("http://localhost:8080/api/admin/" + id);
+export const getAdmin = async (id) =>
+{
+    return await axios.get(`http://${IP}:8080/api/admin/${id}`);
 }
 
 export function lilLogout()
@@ -55,6 +55,8 @@ export const workerCreate = async (user) => {
 
     return await axios.post(`http://${IP}:8080/api/worker`, user);
 }
+
+
 
 
 
