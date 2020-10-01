@@ -13,8 +13,8 @@ class BookingCreator extends Component
             services:undefined,
             workers: undefined,
             currentId:0,
-            currentServiceId:undefined,
-            currentWorkerId:undefined
+            currentServiceId:-1,
+            currentWorkerId:-1
         }
         this.onChangeNumber=this.onChangeNumber.bind(this);
         this.showServices=this.showServices.bind(this);
@@ -25,8 +25,6 @@ class BookingCreator extends Component
             .then(response => {
                 this.setState({
                     businesses: response.data,
-                    currentId:0,
-                    services:response.data.services
                 });
             })
     }
@@ -47,11 +45,14 @@ class BookingCreator extends Component
         }
         if (prevState.currentServiceId !== this.state.currentServiceId) {
             console.log("there was a change of service ID: " + this.state.currentServiceId);
+            if(this.state.services<0)
+            {
             this.setState({
                 workers: this.state.services[this.state.currentServiceId].workers
             });
             console.log(" Workers by chosen service:");
             console.log(this.state.services[this.state.currentServiceId].workers);
+        }
         }
     }
 

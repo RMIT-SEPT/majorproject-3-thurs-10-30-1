@@ -36,6 +36,7 @@ INSERT INTO WORKER_SERVICES(workers_worker_id,services_service_id) VALUES
 
 INSERT INTO BUSINESS_WORKERS(businesses_id,workers_worker_id) VALUES
 (1,2),
-(2,3);
+(2,3),
+(1,6);
 
 
