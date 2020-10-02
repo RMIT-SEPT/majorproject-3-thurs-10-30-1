@@ -28,7 +28,7 @@ public class BookingController
             return new ResponseEntity<>("Invalid Booking Object", HttpStatus.BAD_REQUEST);
         }
         Booking booking1 = bookingMicro.saveOrUpdate(booking);
-        return new ResponseEntity<>(booking, HttpStatus.CREATED);
+        return new ResponseEntity<>(booking1, HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
