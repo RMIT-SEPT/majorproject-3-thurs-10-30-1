@@ -30,4 +30,9 @@ public class BookingMicro {
     {
         return bookingRepo.existsById(id);
     }
+
+    public Iterable<Booking> getAllBookings()
+    {
+        return bookingRepo.findAll();
+    }
 }
