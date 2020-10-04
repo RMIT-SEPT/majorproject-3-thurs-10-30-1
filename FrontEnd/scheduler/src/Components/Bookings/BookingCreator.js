@@ -13,8 +13,8 @@ class BookingCreator extends Component
             services:undefined,
             workers: undefined,
             currentId:0,
-            currentServiceId:-1,
-            currentWorkerId:-1
+            currentServiceIndex:-1,
+            currentWorkerIndex:-1
         }
         this.onChangeNumber=this.onChangeNumber.bind(this);
         this.showServices=this.showServices.bind(this);
@@ -43,15 +43,15 @@ class BookingCreator extends Component
             })
 
         }
-        if (prevState.currentServiceId !== this.state.currentServiceId) {
-            console.log("there was a change of service ID: " + this.state.currentServiceId);
+        if (prevState.currentServiceIndex !== this.state.currentServiceIndex) {
+            console.log("there was a change of service ID: " + this.state.currentServiceIndex);
             if(this.state.services<0)
             {
             this.setState({
-                workers: this.state.services[this.state.currentServiceId].workers
+                workers: this.state.services[this.state.currentServiceIndex].workers
             });
             console.log(" Workers by chosen service:");
-            console.log(this.state.services[this.state.currentServiceId].workers);
+            console.log(this.state.services[this.state.currentServiceIndex].workers);
         }
         }
     }
@@ -112,7 +112,7 @@ class BookingCreator extends Component
 
             <br/>
             {serv
-                ? <select name="currentServiceId" value={this.state.currentServiceId} onChange={this.onChangeNumber}>
+                ? <select name="currentServiceIndex" value={this.state.currentServiceIndex} onChange={this.onChangeNumber}>
                     <option value="-1" > Please Select A Service:</option>
                     {realServ} </select>
 
@@ -121,8 +121,9 @@ class BookingCreator extends Component
                 </select>
             }
             <br/>
+
             {work
-                ? <select name="currentWorkerId" value={this.state.currentWorkerId} onChange={this.onChangeNumber}>
+                ? <select name="currentWorkerIndex" value={this.state.currentWorkerIndex} onChange={this.onChangeNumber}>
                     <option value="-1" > Please Select A Worker:</option>
                     {realWork} </select>
 
