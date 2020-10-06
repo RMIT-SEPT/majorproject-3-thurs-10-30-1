@@ -63,4 +63,9 @@ public class Business {
     public List<Worker> getWorkers() {
         return workers;
     }
+
+    public void addWorker(Worker worker)
+    {
+        workers.add(worker);
+    }
 }
