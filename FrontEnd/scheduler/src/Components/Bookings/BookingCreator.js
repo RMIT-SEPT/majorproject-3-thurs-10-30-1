@@ -101,17 +101,18 @@ class BookingCreator extends Component
     return (
         <div className = "bookingCreator">
             <h2 className="bookingListHeader">Book a New Service</h2>
-
+        <center>
+            <h3 className="bookingCreatorDropdowns" > Business </h3>
             {biz
                 ? <select name="currentId" value={this.state.currentId} onChange={this.onChangeNumber}>
                     <option value="-1" >Select a business </option>
                     {realBiz}
                 </select>
-
-                : <p></p>
+                :
+                <p></p>
             }
 
-            <br/>
+            <h3 className="bookingCreatorDropdowns"> Service </h3>
             {serv
                 ? <select name="currentServiceId" value={this.state.currentServiceId} onChange={this.onChangeNumber}>
                     <option value="-1" > Please Select A Service:</option>
@@ -121,7 +122,8 @@ class BookingCreator extends Component
                     <option value="-1" > Please Select A Service:</option>
                 </select>
             }
-            <br/>
+
+            <h3 className="bookingCreatorDropdowns" > Worker </h3>
             {work
                 ? <select name="currentWorkerId" value={this.state.currentWorkerId} onChange={this.onChangeNumber}>
                     <option value="-1" > Please Select A Worker:</option>
@@ -131,14 +133,16 @@ class BookingCreator extends Component
                     <option value="-1" > Please Select A Worker:</option>
                 </select>
             }
-            <br/>
+            <h3 className="bookingCreatorDropdowns" > Availabilities </h3>
             <select>
                 <option>Availabilities</option>
             </select>
             <br/>
 
-            <Button onClick={this.onclick}> Book</Button>
+            <Button className="BookButton" onClick={this.onclick}> Book</Button>
+        </center>
         </div>
+
     )
 }
 }

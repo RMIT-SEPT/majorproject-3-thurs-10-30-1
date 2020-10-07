@@ -203,7 +203,7 @@ html, body, #root, .App {
     font-weight: bold;
     text-align: center;
     color: #000000;
-    padding-bottom: 3%;
+    padding-bottom: 1%;
 }
 
 
@@ -330,6 +330,19 @@ margin-top:20%;
     width: 100%;
     height: 100%;
     position: relative;
+}
+/* Dashboard Booking Creator Page*/
+.bookingCreatorDropdowns
+{
+    font-size: 25px;
+    font-weight: bold;
+    margin-top:1%;
+}
+
+/* Dashboard Booking Creator Page*/
+.BookButton
+{
+    margin-top:2%;
 }
 
 
