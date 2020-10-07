@@ -11,7 +11,7 @@ class BookingCreator extends Component
         {
             businesses: undefined,
             services:undefined,
-            workers: undefined,
+            workerList: undefined,
             currentId:0,
             currentServiceId:-1,
             currentWorkerId:-1
@@ -36,7 +36,8 @@ class BookingCreator extends Component
             getServiceByBusiness(this.state.currentId).then(response => {
                 this.setState({
                     services: response.data,
-                    workers: undefined,
+                    currentServiceId:-1,
+                    workerList: undefined,
                 });
                 console.log(" Services by chose business");
                 console.log(this.state.services);
@@ -45,10 +46,10 @@ class BookingCreator extends Component
         }
         if (prevState.currentServiceId !== this.state.currentServiceId) {
             console.log("there was a change of service ID: " + this.state.currentServiceId);
-            if(this.state.services<0)
+            if(this.state.currentServiceId>=0)
             {
             this.setState({
-                workers: this.state.services[this.state.currentServiceId].workers
+                workerList: this.state.services[this.state.currentServiceId].workers
             });
             console.log(" Workers by chosen service:");
             console.log(this.state.services[this.state.currentServiceId].workers);
@@ -88,7 +89,7 @@ class BookingCreator extends Component
         }
 
         let realWork;
-        const work = this.state.workers;
+        const work = this.state.workerList;
         if(work)
         {
             realWork =  work.map((worker,index) => (
