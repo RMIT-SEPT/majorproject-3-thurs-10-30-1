@@ -2,13 +2,12 @@ import React, {Component} from 'react';
 
 class BookingList extends Component
 {
-   
 
     render() {
         let myBookings = this.props.bookings.map((booking) =>
         {
             return(
-                <h4 className="booking">
+                <h4 className="booking" key={booking.service}>
                 Customer Name: {booking.customer}
                 Staff Member: {booking.worker}
                 Service: {booking.service} 
@@ -20,7 +19,9 @@ class BookingList extends Component
 
     return (
         <div className= "bookingList"> 
-        <h2 className="bookingListHeader">Upcoming Bookings</h2>
+
+        <h2 className="pageHeader">Upcoming Bookings</h2>
+
         <div> {myBookings} </div>
         </div>
     )

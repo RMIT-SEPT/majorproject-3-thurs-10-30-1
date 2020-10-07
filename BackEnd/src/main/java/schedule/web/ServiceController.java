@@ -23,7 +23,7 @@ import schedule.model.service.TimeAvailability;
 
 @RestController
 @RequestMapping("/api/service")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin
 public class ServiceController {
     
     @Autowired

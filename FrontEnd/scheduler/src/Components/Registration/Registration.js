@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import Form from "react-bootstrap/Form";
-import {adminRegister, register} from "../../actions/auth";
+import {register} from "../../actions/auth";
 import {connect} from 'react-redux'
 
 export class Registration extends Component
@@ -12,20 +12,24 @@ export class Registration extends Component
             {
                 name:"",
                 username:"",
-                contactNumber:0,
+                contactNumber:"0",
                 email:"",
                 password:"",
-                admin:false,
                 successful:true,
             };
         this.onChange=this.onChange.bind(this);
+        this.onChangeNumber=this.onChangeNumber.bind(this);
         this.handleSubmit=this.handleSubmit.bind(this);
-        this.enableAdmin=this.enableAdmin.bind(this);
     }
 
     onChange = (e) =>
     {
         this.setState({[e.target.name]: e.target.value});
+    }
+
+    onChangeNumber = (e) =>
+    {
+        this.setState({[e.target.name]: parseInt(e.target.value)});
     }
 
     handleSubmit= async (e) =>
@@ -39,12 +43,12 @@ export class Registration extends Component
             contactNumber: this.state.contactNumber,
             email: this.state.email,
         }
+        console.log(user);
         this.setState({
             successful: false,
         });
 
-        if(!this.state.admin)
-        {
+
             this.props.dispatch(register(user,this.props.history))
                 .then(() => {
                     this.setState({
@@ -55,23 +59,7 @@ export class Registration extends Component
                     this.setState({
                         successful: false,
                     });
-                });
-        }
-        else {
-            this.props.dispatch(adminRegister(user, this.props.history))
-                .then(() => {
-                    this.setState({
-                        successful: true,
-                    });
                 })
-                .catch(() => {
-                    this.setState({
-                        successful: false,
-                    });
-                });
-        }
-
-
     }
 
     resetState()
@@ -87,13 +75,11 @@ export class Registration extends Component
         )
     }
 
-    enableAdmin()
-    {
-        this.setState(
-            {
-                admin:true
-            }
-            )
+    componentWillUnmount() {
+        // fix Warning: Can't perform a React state update on an unmounted component
+        this.setState = (state,callback)=>{
+            return;
+        };
     }
 
     render() {
@@ -118,14 +104,13 @@ export class Registration extends Component
                             </Form.Group>
 
                             <Form.Group >
-                                <Form.Control type="number" placeholder="Contact Number: " value={this.state.contactNumber} onChange={this.onChange} name="contactNumber"/>
+                                <Form.Control type="number" placeholder="Contact Number: " value={this.state.contactNumber} onChange={this.onChangeNumber} name="contactNumber"/>
                             </Form.Group>
 
                             <Form.Group controlId="formBasicPassword">
                                 <Form.Control type="password" placeholder="Password" name="password" value={this.state.password} onChange={this.onChange}/>
                             </Form.Group>
                         </div>
-                        <input type="radio" onClick={this.enableAdmin}/>
                         {message && (
                             <div className="form-group">
                                 <div className={ this.state.successful ? "alert alert-success" : "alert alert-danger" } role="alert">

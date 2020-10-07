@@ -1,7 +1,7 @@
 import axios from "axios";
 
 import { SET_CURRENT_USER } from './types';
-
+import { IP } from './networkDetails';
 
 
 export function setCurrentUser(user) {
@@ -11,54 +11,60 @@ export function setCurrentUser(user) {
     };
 }
 
-export const userLogin = (details) => {
-    return axios.post("http://localhost:8080/api/user/login", details)
+export const userLogin =  (details) => {
+    return axios.post(`http://${IP}:8080/api/user/login`, details)
         .then((response) => {
             if(!response.data)
             {
                 console.log("bad resp");
             }
-            else {
+            else
+            {
                 localStorage.setItem("user", JSON.stringify(response.data));
-                localStorage.setItem("Type", response.data.accountType);
             }
             return response.data;
         });
 };
 
+export const userUpdate = async (details) => {
+    const id = details.id;
+    return await axios.put("http://localhost:8080/api/user/update/" + id, details)
+}
+
+export const getAdmin = async (id) =>
+{
+    return await axios.get(`http://${IP}:8080/api/admin/${id}`);
+}
+
 export function lilLogout()
 {
-        localStorage.removeItem("user");
-        localStorage.removeItem("Type");
+    localStorage.removeItem("user");
 }
 
 export const userCreate = async (user) => {
 
-    return axios.post("http://localhost:8080/api/customer", user);
-}
-
-export const adminCreate = async (user) => {
-
-    return axios.post("http://localhost:8080/api/admin", user);
+    return await axios.post(`http://${IP}:8080/api/customer`, user);
 }
 
 export const workerCreate = async (user) => {
 
-    return axios.post("http://localhost:8080/api/worker", user);
+    return await axios.post(`http://${IP}:8080/api/worker`, user);
 }
 
-export const getCurrentUser = () => {
-    return JSON.parse(localStorage.getItem("user"));
-};
+export const addBusinessToWorker = async (userId,businessId) =>
+{
+    return await axios.post(`http://${IP}:8080/api/worker/${userId}/business/add/${businessId}`)
+}
 
-export const isLoggedIn = () => {
-    const user = JSON.parse(localStorage.getItem('user'));
-    if(user)
-    {
-        return true;
-    }
-    return false;
-};
+export const addServiceToWorker = async (userId,serviceId) =>
+{
+    return await axios.post(`http://${IP}:8080/api/worker/${userId}/service/add/${serviceId}`)
+}
+
+
+
+
+
 
 
 

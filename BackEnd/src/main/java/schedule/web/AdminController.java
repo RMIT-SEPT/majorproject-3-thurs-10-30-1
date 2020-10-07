@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -19,6 +20,7 @@ import javax.validation.Valid;
 
 @RestController
 @RequestMapping("/api/admin")
+@CrossOrigin
 public class AdminController {
 
     @Autowired
@@ -38,7 +40,7 @@ public class AdminController {
     public ResponseEntity<?> getAdminById(@PathVariable long id)
     {
         Admin admin = adminMicro.getAdminById(id);
-        return admin != null ? new ResponseEntity<>(admin, HttpStatus.FOUND) : 
+        return admin != null ? new ResponseEntity<>(admin, HttpStatus.OK) : 
             new ResponseEntity<>("User not found", HttpStatus.BAD_REQUEST);
     }
 }
