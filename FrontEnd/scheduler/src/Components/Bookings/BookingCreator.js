@@ -100,19 +100,45 @@ class BookingCreator extends Component
 
     return (
         <div className = "bookingCreator">
-      front-end/Profile
             <h2 className="bookingListHeader">Book a New Service</h2>
-                <center>
-                    {biz
-                     ? <select >
-                    <option> {biz.name}</option>
-                    <option>{biz2.name} </option>
-                    </select>
-                    : <p></p>}
-                </center>
-        <center> <DarkButton label={label}/> </center>
 
-         </div>
+            {biz
+                ? <select name="currentId" value={this.state.currentId} onChange={this.onChangeNumber}>
+                    <option value="-1" >Select a business </option>
+                    {realBiz}
+                </select>
+
+                : <p></p>
+            }
+
+            <br/>
+            {serv
+                ? <select name="currentServiceId" value={this.state.currentServiceId} onChange={this.onChangeNumber}>
+                    <option value="-1" > Please Select A Service:</option>
+                    {realServ} </select>
+
+                : <select>
+                    <option value="-1" > Please Select A Service:</option>
+                </select>
+            }
+            <br/>
+            {work
+                ? <select name="currentWorkerId" value={this.state.currentWorkerId} onChange={this.onChangeNumber}>
+                    <option value="-1" > Please Select A Worker:</option>
+                    {realWork} </select>
+
+                : <select>
+                    <option value="-1" > Please Select A Worker:</option>
+                </select>
+            }
+            <br/>
+            <select>
+                <option>Availabilities</option>
+            </select>
+            <br/>
+
+            <Button onClick={this.onclick}> Book</Button>
+        </div>
     )
 }
 }
