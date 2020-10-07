@@ -44,7 +44,7 @@ public class WorkerController {
         }
         user.setAccountType(AccountType.Worker);
         Worker worker = workerMicro.saveOrUpdate(new Worker(user.getUserId(), user));
-        return new ResponseEntity<>(worker, HttpStatus.CREATED);
+        return new ResponseEntity<>(worker, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")

@@ -46,14 +46,19 @@ export const userCreate = async (user) => {
     return await axios.post(`http://${IP}:8080/api/customer`, user);
 }
 
-export const adminCreate = async (user) => {
-
-    return await  axios.post(`http://${IP}:8080/api/admin`, user);
-}
-
 export const workerCreate = async (user) => {
 
     return await axios.post(`http://${IP}:8080/api/worker`, user);
+}
+
+export const addBusinessToWorker = async (userId,businessId) =>
+{
+    return await axios.post(`http://${IP}:8080/api/worker/${userId}/business/add/${businessId}`)
+}
+
+export const addServiceToWorker = async (userId,serviceId) =>
+{
+    return await axios.post(`http://${IP}:8080/api/worker/${userId}/service/add/${serviceId}`)
 }
 
 

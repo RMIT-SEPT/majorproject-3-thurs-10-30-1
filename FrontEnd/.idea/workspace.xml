@@ -2,10 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3d544343-65dd-4a79-bdae-6f23a9c69eaa" name="Default Changelist" comment="stateful service dropdown">
+      <change afterPath="$PROJECT_DIR$/scheduler/src/Components/Generics/CustomCheckbox.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BackEnd/src/main/java/schedule/web/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BackEnd/src/main/java/schedule/web/AdminController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BackEnd/src/main/java/schedule/web/WorkerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BackEnd/src/main/java/schedule/web/WorkerController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scheduler/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scheduler/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scheduler/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scheduler/src/Components/Registration/Registration.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/Components/Registration/Registration.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scheduler/src/Components/Registration/WorkerMaker.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/Components/Registration/WorkerMaker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scheduler/src/actions/BusinessActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/actions/BusinessActions.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scheduler/src/actions/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/actions/auth.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scheduler/src/actions/userActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/actions/userActions.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -72,6 +77,7 @@
       <workItem from="1601281351755" duration="497000" />
       <workItem from="1601512352340" duration="49000" />
       <workItem from="1601514530266" duration="5031000" />
+      <workItem from="1602027008334" duration="4403000" />
     </task>
     <task id="LOCAL-00001" summary="get business with admin implemented, awaiting custom jSON to break infinite service/worker loops">
       <created>1600993026539</created>
@@ -140,9 +146,21 @@
       <screen x="53" y="23" width="2507" height="1417" />
     </state>
     <state x="153" y="123" width="1287" height="1217" key="com.intellij.history.integration.ui.views.FileHistoryDialog/53.23.2507.1417@53.23.2507.1417" timestamp="1600992213417" />
-    <state x="595" y="652" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1601184913594">
+    <state x="595" y="652" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602027019668">
       <screen x="53" y="23" width="2507" height="1417" />
     </state>
-    <state x="595" y="652" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/53.23.2507.1417@53.23.2507.1417" timestamp="1601184913594" />
+    <state x="594" y="652" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/52.23.2508.1417@52.23.2508.1417" timestamp="1601800979659" />
+    <state x="595" y="652" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/53.23.2507.1417@53.23.2507.1417" timestamp="1602027019668" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/scheduler/src/reducers/auth.js</url>
+          <properties lambdaOrdinal="-1" />
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

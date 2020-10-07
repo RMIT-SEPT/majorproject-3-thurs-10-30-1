@@ -2,7 +2,8 @@ import React, {Component} from "react";
 import Form from "react-bootstrap/Form";
 import {workerRegister} from "../../actions/auth";
 import {connect} from 'react-redux'
-import {getAdmin} from "../../actions/userActions";
+import {addBusinessToWorker, getAdmin} from "../../actions/userActions";
+import CustomCheckbox from "../Generics/CustomCheckbox";
 
 export class WorkerMaker extends Component
 {
@@ -10,37 +11,53 @@ export class WorkerMaker extends Component
     {
         super(props);
         this.state=
-            {
-                name: "",
-                username: "",
-                contactNumber: 0,
-                email: "",
-                password: "",
-                successful: true,
-                services: undefined,
-                selectedOption:"",
-                businessID:0,
-            }
-            ;
+        {
+            name: "",
+            username: "",
+            contactNumber: 0,
+            email: "",
+            password: "",
+
+            successful: true,
+            services: undefined,
+            businessID:0,
+        };
         this.onChange=this.onChange.bind(this);
         this.handleSubmit=this.handleSubmit.bind(this);
         this.handleOptionChange=this.handleOptionChange.bind(this);
+        this.toggleCheckbox=this.toggleCheckbox.bind(this);
+    }
+
+    toggleCheckbox = key =>
+    {
+        if (this.selectedOptions.has(key))
+        {
+            this.selectedOptions.delete(key);
+        }
+        else
+            {
+            this.selectedOptions.add(key);
+        }
+        console.log(this.selectedOptions);
     }
 
     componentDidMount()
     {
+        this.selectedOptions = new Set();
         const id = this.props.user.userId;
-        console.log(id);
-
         getAdmin(id)
             .then(response => {
                 this.setState({
                     services: response.data.business.services,
                     businessID: response.data.business.id
-
                 });
-                console.log(this.state.services);
             })
+    }
+
+    componentWillUnmount() {
+        // fix Warning: Can't perform a React state update on an unmounted component
+        this.setState = (state,callback)=>{
+        };
     }
 
     handleOptionChange = (e) => {
@@ -70,14 +87,12 @@ export class WorkerMaker extends Component
             successful: false,
         });
 
-        this.props.dispatch(workerRegister(user,this.props.history))
+        this.props.dispatch(workerRegister(user,this.state.businessID,this.selectedOptions,this.props.history))
             .then(() => {
                 this.setState({
                     successful: true,
                 });
             })
-            //also dispatch something to add service  worker
-            //and business worker
             .catch(() => {
                 this.setState({
                     successful: false,
@@ -86,21 +101,18 @@ export class WorkerMaker extends Component
     }
 
     render() {
-        const { message } = this.props;
 
+        const { message } = this.props;
         let realServ;
         const serv = this.state.services;
         if(serv)
         {
-            realServ = serv.map((service,index) => (
-                <label key={index}>
-                <input type="radio"
-                       value={service.id}
-                       onChange={this.onChange}
-                       name="selectedOption"
-                />
-                    {service.name}
-                </label>
+            realServ = serv.map((service) => (
+                <CustomCheckbox
+                    label={service.name}
+                    handleCheckboxChange={this.toggleCheckbox}
+                    data={service.id}
+                    />
             ))
         }
 
