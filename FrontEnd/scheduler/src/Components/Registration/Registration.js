@@ -85,43 +85,55 @@ export class Registration extends Component
     render() {
         const { message } = this.props;
         return (
-            <div className="wholeReg">
-                <div className="regFormDiv">
-                    <h1 className="myHeader"> Register Here!</h1>
-                    <Form className="mr-auto" onSubmit={this.handleSubmit}>
-                        <div className="transparentDiv">
-                            <Form.Group>
-                                <Form.Control type="text" placeholder="Username: " value={this.state.username} onChange={this.onChange} name ="username"/>
-
-                            </Form.Group>
-
-                            <Form.Group controlId="formBasicEmail">
-                                <Form.Control type="email" placeholder="Enter email" value={this.state.email} onChange={this.onChange} name="email"/>
-                            </Form.Group>
-
-                            <Form.Group>
-                                <Form.Control type="text" placeholder="Person Name: " value={this.state.name} onChange={this.onChange} name="name"/>
-                            </Form.Group>
-
-                            <Form.Group >
-                                <Form.Control type="number" placeholder="Contact Number: " value={this.state.contactNumber} onChange={this.onChangeNumber} name="contactNumber"/>
-                            </Form.Group>
-
-                            <Form.Group controlId="formBasicPassword">
-                                <Form.Control type="password" placeholder="Password" name="password" value={this.state.password} onChange={this.onChange}/>
-                            </Form.Group>
-                        </div>
-                        {message && (
-                            <div className="form-group">
-                                <div className={ this.state.successful ? "alert alert-success" : "alert alert-danger" } role="alert">
-                                    {message}
+                <div className="RegistrationBackground">
+                    <div className= "Registration">
+                        <h1 className="myHeader"> Register Here!</h1>
+                            <Form className="mr-auto" onSubmit={this.handleSubmit}>
+                                <div className="transparentDiv">
+                                    <div className="RegistrationPageText"> Enter Username</div>
+                                        <Form.Group>
+                                            <div className="RegistrationTextFieldWidth">
+                                                <Form.Control type="text" placeholder="Username" value={this.state.username} onChange={this.onChange} name ="username" size= "50"/>
+                                            </div>
+                                        </Form.Group>
+                                    <div className="RegistrationPageText"> Enter Email</div>
+                                        <Form.Group controlId="formBasicEmail">
+                                            <div className="RegistrationTextFieldWidth">
+                                                <Form.Control type="email" placeholder="Email" value={this.state.email} onChange={this.onChange} name="email"/>
+                                            </div>
+                                        </Form.Group>
+                                    <div className="RegistrationPageText"> Enter Full Name </div>
+                                        <Form.Group>
+                                            <div className="RegistrationTextFieldWidth">
+                                                <Form.Control type="text" placeholder="Person Name" value={this.state.name} onChange={this.onChange} name="name"/>
+                                            </div>
+                                        </Form.Group>
+                                    <div className="RegistrationPageText"> Enter Contact Number</div>
+                                        <Form.Group >
+                                            <div className="RegistrationTextFieldWidth">
+                                                <Form.Control type="number" placeholder="Contact Number" value={this.state.contactNumber} onChange={this.onChange} name="contactNumber"/>
+                                            </div>
+                                        </Form.Group>
+                                    <div className="RegistrationPageText"> Enter Password </div>
+                                        <Form.Group controlId="formBasicPassword">
+                                            <div className="RegistrationTextFieldWidth">
+                                                <Form.Control type="password" placeholder="Password" name="password" value={this.state.password} onChange={this.onChange}/>
+                                            </div>
+                                        </Form.Group>
                                 </div>
-                            </div>
-                        )}
-                        <input type="submit" value="Register"/>
-                    </Form>
+
+                            <input type="radio" onClick={this.enableAdmin}/>
+                                {message && (
+                                    <div className="form-group">
+                                        <div className={ this.state.successful ? "alert alert-success" : "alert alert-danger" } role="alert">
+                                            {message}
+                                        </div>
+                                    </div>
+                                )}
+                           <center> <input type="submit" value="Register"/> </center>
+                         </Form>
+                    </div>
                 </div>
-            </div>
         )
     }
 }

@@ -21,7 +21,8 @@ export class Dashboard extends Component
     return (
 
         <div className="dashboardContainer">
-            {this.props.user ? <p>{this.props.user.name}</p> : <p> No user</p>}
+
+            {this.props.user ?  <p className = "DashboardWelcome"> Welcome {this.props.user.name} </p> : <p> No user</p>}
 
             {/*if customer*/}
             <BookingList bookings={bookings}/>
