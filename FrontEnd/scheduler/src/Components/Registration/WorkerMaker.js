@@ -2,24 +2,69 @@ import React, {Component} from "react";
 import Form from "react-bootstrap/Form";
 import {workerRegister} from "../../actions/auth";
 import {connect} from 'react-redux'
+import {addBusinessToWorker, getAdmin} from "../../actions/userActions";
+import CustomCheckbox from "../Generics/CustomCheckbox";
 
-export class workerMaker extends Component
+export class WorkerMaker extends Component
 {
     constructor(props)
     {
         super(props);
         this.state=
-            {
-                name:"",
-                username:"",
-                contactNumber:0,
-                email:"",
-                password:"",
-                successful:true,
-            };
+        {
+            name: "",
+            username: "",
+            contactNumber: 0,
+            email: "",
+            password: "",
+
+            successful: true,
+            services: undefined,
+            businessID:0,
+        };
         this.onChange=this.onChange.bind(this);
         this.handleSubmit=this.handleSubmit.bind(this);
+        this.handleOptionChange=this.handleOptionChange.bind(this);
+        this.toggleCheckbox=this.toggleCheckbox.bind(this);
     }
+
+    toggleCheckbox = key =>
+    {
+        if (this.selectedOptions.has(key))
+        {
+            this.selectedOptions.delete(key);
+        }
+        else
+            {
+            this.selectedOptions.add(key);
+        }
+        console.log(this.selectedOptions);
+    }
+
+    componentDidMount()
+    {
+        this.selectedOptions = new Set();
+        const id = this.props.user.userId;
+        getAdmin(id)
+            .then(response => {
+                this.setState({
+                    services: response.data.business.services,
+                    businessID: response.data.business.id
+                });
+            })
+    }
+
+    componentWillUnmount() {
+        // fix Warning: Can't perform a React state update on an unmounted component
+        this.setState = (state,callback)=>{
+        };
+    }
+
+    handleOptionChange = (e) => {
+    this.setState({
+        selectedOption: e.target.value
+    });
+}
 
     onChange = (e) =>
     {
@@ -37,11 +82,12 @@ export class workerMaker extends Component
             contactNumber: this.state.contactNumber,
             email: this.state.email,
         }
+        //get the currentServices
         this.setState({
             successful: false,
         });
 
-        this.props.dispatch(workerRegister(user,this.props.history))
+        this.props.dispatch(workerRegister(user,this.state.businessID,this.selectedOptions,this.props.history))
             .then(() => {
                 this.setState({
                     successful: true,
@@ -54,21 +100,22 @@ export class workerMaker extends Component
             });
     }
 
-    resetState()
-    {
-        this.setState(
-            {
-                name:"",
-                username:"",
-                contactNumber:0,
-                email:"",
-                password:""
-            }
-        )
-    }
-
     render() {
+
         const { message } = this.props;
+        let realServ;
+        const serv = this.state.services;
+        if(serv)
+        {
+            realServ = serv.map((service) => (
+                <CustomCheckbox
+                    label={service.name}
+                    handleCheckboxChange={this.toggleCheckbox}
+                    data={service.id}
+                    />
+            ))
+        }
+
         return (
             <div className="wholeReg">
                 <div className="regFormDiv">
@@ -103,6 +150,16 @@ export class workerMaker extends Component
                                 </div>
                             </div>
                         )}
+
+                        {serv
+                            ? <div>
+                                <h3> SELECT THE WORKERS SERVICES</h3>
+                                {realServ}
+                                </div>
+
+                            : <p></p>
+                        }
+
                         <input type="submit" value="Register"/>
                     </Form>
                 </div>
@@ -110,11 +167,16 @@ export class workerMaker extends Component
         )
     }
 }
+
 function mapStateToProps(state) {
-    const { message } = state.message;
+    const {message} = state.message;
+    const {user} = state.auth;
+    const {accountType}= state.accountType;
     return {
-        message,
+        user,
+        accountType,
+        message
     };
 }
 
-export default connect(mapStateToProps)(workerMaker);
+export default connect(mapStateToProps)(WorkerMaker);

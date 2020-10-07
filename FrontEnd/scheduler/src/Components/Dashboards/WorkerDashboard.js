@@ -2,7 +2,6 @@ import React, {Component} from "react";
 
 import WorkerBookingList from "../Bookings/WorkerBookingList";
 import {connect} from "react-redux";
-import {Dashboard} from "./Dashboard";
 
 
 export class WorkerDashboard extends Component {

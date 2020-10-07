@@ -5,8 +5,9 @@ import {
     LOGIN_FAIL,
     LOGOUT,
     SET_MESSAGE,
+    SET_ACCOUNT_TYPE,
 } from "./types";
-import {adminCreate, lilLogout, userCreate, userLogin, workerCreate} from "./userActions";
+import {addBusinessToWorker, addServiceToWorker, lilLogout, userCreate, userLogin, workerCreate} from "./userActions";
 
 export const register = (user,history) => (dispatch) => {
     return userCreate(user).then(
@@ -44,9 +45,24 @@ export const register = (user,history) => (dispatch) => {
         }
     );
 };
-export const adminRegister = (user,history) => (dispatch) => {
-    return adminCreate(user).then(
-        (response) => {
+export const workerRegister = (user,businessID, serviceSet,history) => (dispatch) => {
+        return workerCreate(user).then(
+            response => {
+            addBusinessToWorker(response.data.id, businessID).then(
+                r => {
+                    console.log("business added: ")
+                    console.log(r);
+                   for (const ID of serviceSet)
+                   {
+                       console.log(ID);
+                       addServiceToWorker(response.data.id, ID).then(
+                           r2 =>
+                           {
+                                console.log("service added: ");
+                                console.log(r2.data);
+                           });
+                   }
+                    });
             dispatch({
                 type: REGISTER_SUCCESS,
             });
@@ -55,42 +71,7 @@ export const adminRegister = (user,history) => (dispatch) => {
                 type: SET_MESSAGE,
                 payload: response.data.message,
             });
-            history.push("/");
-            return Promise.resolve();
-        },
-        (error) => {
-            const message =
-                (error.response &&
-                    error.response.data &&
-                    error.response.data.message) ||
-                error.message ||
-                error.toString();
-
-            dispatch({
-                type: REGISTER_FAIL,
-            });
-
-            dispatch({
-                type: SET_MESSAGE,
-                payload: message,
-            });
-
-            return Promise.reject();
-        }
-    );
-};
-export const workerRegister = (user,history) => (dispatch) => {
-    return workerCreate(user).then(
-        (response) => {
-            dispatch({
-                type: REGISTER_SUCCESS,
-            });
-
-            dispatch({
-                type: SET_MESSAGE,
-                payload: response.data.message,
-            });
-            history.push("/dashboard");
+            //history.push("/dashboard");
             return Promise.resolve();
         },
         (error) => {
@@ -118,10 +99,14 @@ export const workerRegister = (user,history) => (dispatch) => {
 export const login = (details) => (dispatch) => {
     return userLogin(details).then(
         (data) => {
-            console.log(data);
             dispatch({
                 type: LOGIN_SUCCESS,
                 payload: { user: data },
+            });
+
+            dispatch({
+                type: SET_ACCOUNT_TYPE,
+                payload: data.accountType
             });
 
             return Promise.resolve();

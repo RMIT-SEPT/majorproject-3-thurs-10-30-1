@@ -12,42 +12,34 @@ import {logout} from "./actions/auth";
 import AGMEnav from "./Components/Generics/AGMEnav";
 import {connect} from 'react-redux'
 import {history} from "./utils/history";
-
 import EditProfile from "./Components/Profile/EditProfile";
-
 import adminDashboard from "./Components/Dashboards/adminDashboard";
-import {workerMaker} from "./Components/Registration/workerMaker";
-
+import WorkerMaker from "./Components/Registration/WorkerMaker";
 
 
 class App extends Component {
     constructor(props) {
         super(props);
         this.logOut = this.logOut.bind(this);
-        this.state = {
-            admin: false,
-            worker: false,
-            currentUser: {}
-        };
         history.listen((location) => {
             props.dispatch(clearMessage()); // clear message when changing location
         });
     }
 
-    componentDidMount() {
-        const user = this.props.user;
-        if (user)
-        {
-            this.setState({
-                currentUser: user,
-                worker: user.accountType==="Worker",
-                admin: user.accountType==="Admin"
-            });
-        }
-    }
-
     logOut() {
         this.props.dispatch(logout());
+    }
+
+    componentDidMount() {
+        const accType = this.props.accountType;
+        if(accType==="Admin")
+        {
+            //set the businessId in the redux store
+        }
+        else if (accType==="Worker")
+        {
+            //set their services in the redux store?
+        }
     }
 
     render()
@@ -64,7 +56,7 @@ class App extends Component {
             <Route exact path="/editprofile" component={EditProfile} />
 
             <Route exact path="/adminHome" component ={adminDashboard}/>
-            <Route exact path="/workerMaker" component ={workerMaker}/>
+            <Route exact path="/workerMaker" component ={WorkerMaker}/>
 
         </Router>
     );
@@ -73,9 +65,11 @@ class App extends Component {
 
 
 function mapStateToProps(state) {
-    const { user } = state.auth;
+    const {user} = state.auth;
+    const {accountType}= state.accountType;
     return {
         user,
+        accountType,
     };
 }
 

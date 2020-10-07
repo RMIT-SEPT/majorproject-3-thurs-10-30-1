@@ -52,8 +52,8 @@ export class Login extends Component
         const {dispatch, history} = this.props;
          dispatch(login(details))
             .then(() => {
-                window.location.reload();
-                history.push("/dashboard");
+                // window.location.reload();
+                // history.push("/dashboard");
             }).catch(() => {
             this.setState({
                 loading: false

@@ -7,7 +7,7 @@ class BookingList extends Component
         let myBookings = this.props.bookings.map((booking) =>
         {
             return(
-                <h4 className="booking">
+                <h4 className="booking" key={booking.service}>
                 Customer Name: {booking.customer}
                 Staff Member: {booking.worker}
                 Service: {booking.service} 

@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import Form from "react-bootstrap/Form";
-import {adminRegister, register} from "../../actions/auth";
+import {register} from "../../actions/auth";
 import {connect} from 'react-redux'
 
 export class Registration extends Component
@@ -15,17 +15,21 @@ export class Registration extends Component
                 contactNumber:"0",
                 email:"",
                 password:"",
-                admin:false,
                 successful:true,
             };
         this.onChange=this.onChange.bind(this);
+        this.onChangeNumber=this.onChangeNumber.bind(this);
         this.handleSubmit=this.handleSubmit.bind(this);
-        this.enableAdmin=this.enableAdmin.bind(this);
     }
 
     onChange = (e) =>
     {
         this.setState({[e.target.name]: e.target.value});
+    }
+
+    onChangeNumber = (e) =>
+    {
+        this.setState({[e.target.name]: parseInt(e.target.value)});
     }
 
     handleSubmit= async (e) =>
@@ -44,8 +48,7 @@ export class Registration extends Component
             successful: false,
         });
 
-        if(!this.state.admin)
-        {
+
             this.props.dispatch(register(user,this.props.history))
                 .then(() => {
                     this.setState({
@@ -56,23 +59,7 @@ export class Registration extends Component
                     this.setState({
                         successful: false,
                     });
-                });
-        }
-        else {
-            this.props.dispatch(adminRegister(user, this.props.history))
-                .then(() => {
-                    this.setState({
-                        successful: true,
-                    });
                 })
-                .catch(() => {
-                    this.setState({
-                        successful: false,
-                    });
-                });
-        }
-
-
     }
 
     resetState()
@@ -88,13 +75,11 @@ export class Registration extends Component
         )
     }
 
-    enableAdmin()
-    {
-        this.setState(
-            {
-                admin:true
-            }
-            )
+    componentWillUnmount() {
+        // fix Warning: Can't perform a React state update on an unmounted component
+        this.setState = (state,callback)=>{
+            return;
+        };
     }
 
     render() {

@@ -5,6 +5,8 @@ import java.util.List;
 import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import schedule.model.Worker;
 
 @Entity(name = "schedule_service")
@@ -59,6 +61,7 @@ public class ScheduleService
         return availability;
     }
 
+    @JsonIgnoreProperties(value = {"services", "businesses"})
     public List<Worker> getWorkers()
     {
         return workers;
