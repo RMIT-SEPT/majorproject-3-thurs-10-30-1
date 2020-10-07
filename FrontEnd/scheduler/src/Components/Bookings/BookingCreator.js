@@ -8,20 +8,20 @@ class BookingCreator extends Component
     constructor(props) {
         super(props);
         this.state=
-        {
-            businesses: undefined,
-            services:undefined,
-            workers: undefined,
-            currentId:0,
-            currentServiceIndex:-1,
-            currentWorkerIndex:-1
-        }
+            {
+                businesses: undefined,
+                services:undefined,
+                workerList: undefined,
+                currentId:0,
+                currentServiceId:-1,
+                currentWorkerId:-1
+            }
         this.onChangeNumber=this.onChangeNumber.bind(this);
         this.showServices=this.showServices.bind(this);
     }
 
     componentDidMount() {
-       getAllBusiness()
+        getAllBusiness()
             .then(response => {
                 this.setState({
                     businesses: response.data,
@@ -36,23 +36,24 @@ class BookingCreator extends Component
             getServiceByBusiness(this.state.currentId).then(response => {
                 this.setState({
                     services: response.data,
-                    workers: undefined,
+                    currentServiceId:-1,
+                    workerList: undefined,
                 });
                 console.log(" Services by chose business");
                 console.log(this.state.services);
             })
 
         }
-        if (prevState.currentServiceIndex !== this.state.currentServiceIndex) {
-            console.log("there was a change of service ID: " + this.state.currentServiceIndex);
-            if(this.state.services<0)
+        if (prevState.currentServiceId !== this.state.currentServiceId) {
+            console.log("there was a change of service ID: " + this.state.currentServiceId);
+            if(this.state.currentServiceId>=0)
             {
-            this.setState({
-                workers: this.state.services[this.state.currentServiceIndex].workers
-            });
-            console.log(" Workers by chosen service:");
-            console.log(this.state.services[this.state.currentServiceIndex].workers);
-        }
+                this.setState({
+                    workerList: this.state.services[this.state.currentServiceId].workers
+                });
+                console.log(" Workers by chosen service:");
+                console.log(this.state.services[this.state.currentServiceId].workers);
+            }
         }
     }
 
@@ -70,12 +71,12 @@ class BookingCreator extends Component
     {
         let realBiz;
         const biz = this.state.businesses;
-       if(biz)
-       {
+        if(biz)
+        {
             realBiz =  biz.map(business => (
                 <option key={business.id} value={business.id}> {business.name} </option>
-           ))
-       }
+            ))
+        }
 
         let realServ;
 
@@ -88,7 +89,7 @@ class BookingCreator extends Component
         }
 
         let realWork;
-        const work = this.state.workers;
+        const work = this.state.workerList;
         if(work)
         {
             realWork =  work.map((worker,index) => (
@@ -97,50 +98,49 @@ class BookingCreator extends Component
         }
 
 
-    return (
-        <div className = "bookingCreator">
-        <h2 className="bookingListHeader">Book a New Service</h2>
+        return (
+            <div className = "bookingCreator">
+                <h2 className="bookingListHeader">Book a New Service</h2>
 
-            {biz
-                ? <select name="currentId" value={this.state.currentId} onChange={this.onChangeNumber}>
-                    <option value="-1" >Select a business </option>
-                    {realBiz}
-            </select>
+                {biz
+                    ? <select name="currentId" value={this.state.currentId} onChange={this.onChangeNumber}>
+                        <option value="-1" >Select a business </option>
+                        {realBiz}
+                    </select>
 
-                : <p></p>
-            }
+                    : <p></p>
+                }
 
-            <br/>
-            {serv
-                ? <select name="currentServiceIndex" value={this.state.currentServiceIndex} onChange={this.onChangeNumber}>
-                    <option value="-1" > Please Select A Service:</option>
-                    {realServ} </select>
+                <br/>
+                {serv
+                    ? <select name="currentServiceId" value={this.state.currentServiceId} onChange={this.onChangeNumber}>
+                        <option value="-1" > Please Select A Service:</option>
+                        {realServ} </select>
 
-                : <select>
-                    <option value="-1" > Please Select A Service:</option>
+                    : <select>
+                        <option value="-1" > Please Select A Service:</option>
+                    </select>
+                }
+                <br/>
+                {work
+                    ? <select name="currentWorkerId" value={this.state.currentWorkerId} onChange={this.onChangeNumber}>
+                        <option value="-1" > Please Select A Worker:</option>
+                        {realWork} </select>
+
+                    : <select>
+                        <option value="-1" > Please Select A Worker:</option>
+                    </select>
+                }
+                <br/>
+                <select>
+                    <option>Availabilities</option>
                 </select>
-            }
-            <br/>
+                <br/>
 
-            {work
-                ? <select name="currentWorkerIndex" value={this.state.currentWorkerIndex} onChange={this.onChangeNumber}>
-                    <option value="-1" > Please Select A Worker:</option>
-                    {realWork} </select>
-
-                : <select>
-                    <option value="-1" > Please Select A Worker:</option>
-                </select>
-            }
-            <br/>
-            <select>
-                <option>Availabilities</option>
-            </select>
-            <br/>
-
-            <Button onClick={this.onclick}> Book</Button>
-         </div>
-    )
-}
+                <Button onClick={this.onclick}> Book</Button>
+            </div>
+        )
+    }
 }
 
 export default BookingCreator;

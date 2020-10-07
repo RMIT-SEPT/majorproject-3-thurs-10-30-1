@@ -11,6 +11,11 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="createWorker" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="ProjectId" id="1hynC7hzX79fe3NOlWzifztE48o" />
@@ -21,6 +26,7 @@
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_MARK_IGNORED_FILES_AS_EXCLUDED" value="true" />
+    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
@@ -28,17 +34,16 @@
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
+    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="CLASS" />
-      <properties />
-      <listeners />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -62,6 +67,11 @@
       <workItem from="1601184909602" duration="5340000" />
       <workItem from="1601191737968" duration="430000" />
       <workItem from="1601281351755" duration="497000" />
+      <workItem from="1601512352340" duration="49000" />
+      <workItem from="1601514530266" duration="5031000" />
+      <workItem from="1602027008334" duration="4572000" />
+      <workItem from="1602040220428" duration="485000" />
+      <workItem from="1602040808352" duration="767000" />
     </task>
     <task id="LOCAL-00001" summary="get business with admin implemented, awaiting custom jSON to break infinite service/worker loops">
       <created>1600993026539</created>
@@ -91,7 +101,21 @@
       <option name="project" value="LOCAL" />
       <updated>1601191143056</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="fix issue reselecting placeholder in bookingMaker">
+      <created>1601512382688</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1601512382688</updated>
+    </task>
+    <task id="LOCAL-00006" summary="admin now has the ability to create workers, with services and businesses">
+      <created>1602032888169</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1602032888169</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -102,28 +126,32 @@
     <MESSAGE value="accounty type now implemented as a redux state" />
     <MESSAGE value="rebase ti get updates front end with JSON ignore" />
     <MESSAGE value="bookingCreator reactively responds to worker, service, business selection." />
-    <option name="LAST_COMMIT_MESSAGE" value="bookingCreator reactively responds to worker, service, business selection." />
+    <MESSAGE value="fix issue reselecting placeholder in bookingMaker" />
+    <MESSAGE value="admin now has the ability to create workers, with services and businesses" />
+    <option name="LAST_COMMIT_MESSAGE" value="admin now has the ability to create workers, with services and businesses" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="260" y="325" key="CommitChangelistDialog2" timestamp="1601191142812">
+    <state x="260" y="325" key="CommitChangelistDialog2" timestamp="1602032887896">
       <screen x="53" y="23" width="2507" height="1417" />
     </state>
-    <state x="260" y="325" key="CommitChangelistDialog2/53.23.2507.1417@53.23.2507.1417" timestamp="1601191142812" />
-    <state x="285" y="313" key="SettingsEditor" timestamp="1601187373401">
-      <screen x="53" y="23" width="2507" height="1417" />
+    <state x="260" y="325" key="CommitChangelistDialog2/53.23.2507.1417@53.23.2507.1417" timestamp="1602032887896" />
+    <state x="282" y="313" key="SettingsEditor" timestamp="1601517887489">
+      <screen x="50" y="23" width="2510" height="1417" />
     </state>
+    <state x="282" y="313" key="SettingsEditor/50.23.2510.1417@50.23.2510.1417" timestamp="1601517887489" />
     <state x="285" y="313" key="SettingsEditor/53.23.2507.1417@53.23.2507.1417" timestamp="1601187373401" />
-    <state x="396" y="471" key="Vcs.Push.Dialog.v2" timestamp="1601191145855">
+    <state x="396" y="471" key="Vcs.Push.Dialog.v2" timestamp="1602032894061">
       <screen x="53" y="23" width="2507" height="1417" />
     </state>
-    <state x="396" y="471" key="Vcs.Push.Dialog.v2/53.23.2507.1417@53.23.2507.1417" timestamp="1601191145855" />
+    <state x="396" y="471" key="Vcs.Push.Dialog.v2/53.23.2507.1417@53.23.2507.1417" timestamp="1602032894061" />
     <state x="153" y="123" width="1287" height="1217" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1600992213417">
       <screen x="53" y="23" width="2507" height="1417" />
     </state>
     <state x="153" y="123" width="1287" height="1217" key="com.intellij.history.integration.ui.views.FileHistoryDialog/53.23.2507.1417@53.23.2507.1417" timestamp="1600992213417" />
-    <state x="595" y="652" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1601184913594">
+    <state x="595" y="652" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602027019668">
       <screen x="53" y="23" width="2507" height="1417" />
     </state>
-    <state x="595" y="652" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/53.23.2507.1417@53.23.2507.1417" timestamp="1601184913594" />
+    <state x="594" y="652" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/52.23.2508.1417@52.23.2508.1417" timestamp="1601800979659" />
+    <state x="595" y="652" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/53.23.2507.1417@53.23.2507.1417" timestamp="1602027019668" />
   </component>
 </project>
