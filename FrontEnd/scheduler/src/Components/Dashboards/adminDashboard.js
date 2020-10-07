@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import { Tab, Tabs } from 'react-bootstrap'
 import WorkerBookingList from "../Bookings/WorkerBookingList";
+import ViewWorkerList from "../Dashboards/View/ViewWorkersList";
 import {connect} from "react-redux";
 
 
@@ -26,7 +27,7 @@ export class adminDashboard extends Component {
                     </Tab>
 
                     <Tab eventKey="viewWorkers" title="View Workers" >
-                        <div> I WILL SHOW ALL THE WORKERS</div>
+                        <ViewWorkerList />
                     </Tab>
                 </Tabs>
 
