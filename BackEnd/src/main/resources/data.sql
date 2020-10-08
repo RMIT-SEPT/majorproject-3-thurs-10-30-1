@@ -40,7 +40,9 @@ INSERT INTO BUSINESS_WORKERS(businesses_id,workers_worker_id) VALUES
 (1,6);
 
 INSERT INTO AVAILABILITY(day_of_week,hour,minute,worker_id,service_id) VALUES
-(1,9,0,2,1);
+(1,9,0,2,1),
+(2,7,0,2,1),
+(3,9,0,3,3);
 
 -- make services
 -- make businseses with those services
