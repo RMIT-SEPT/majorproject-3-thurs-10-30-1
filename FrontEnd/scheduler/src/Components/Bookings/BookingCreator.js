@@ -90,6 +90,7 @@ class BookingCreator extends Component
 
         let realWork;
         const work = this.state.workerList;
+        console.log(work);
         if(work)
         {
             realWork =  work.map((worker,index) => (
