@@ -34,6 +34,8 @@ public class TimeAvailability {
     private int hour;
     @Range(min = 0, max = 59)
     private int minute;
+    @Range(min = 0)
+    private int length;
 
     public Long getId() {
 
@@ -47,11 +49,12 @@ public class TimeAvailability {
     public TimeAvailability() {
     }
 
-    public TimeAvailability(Long id, int day, int hour, int minute) {
+    public TimeAvailability(Long id, int day, int hour, int minute, int length) {
         this.dayOfWeek = day;
         this.hour = hour;
         this.minute = minute;
         this.id = id;
+        this.length = length;
     }
 
     public boolean isAvailable(Date date) {
