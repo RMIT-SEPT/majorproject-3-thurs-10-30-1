@@ -24,7 +24,8 @@ class BookingCreator extends Component
                 currentId:0,
                 currentServiceId:-1,
                 currentWorkerId:-1,
-                currentAvail:-1
+                currentAvail:-1,
+                canSubmit:false
             }
         this.onChangeNumber=this.onChangeNumber.bind(this);
         this.onClick=this.onClick.bind(this);
@@ -47,9 +48,10 @@ class BookingCreator extends Component
             getServiceByBusiness(this.state.currentId).then(response => {
                 this.setState({
                     services: response.data,
-                    //currentServiceId:-1,
                     workerList: undefined,
                     availList:undefined,
+                    canSubmit:false,
+                    currentServiceId:-1,
                 });
             })
 
@@ -62,8 +64,8 @@ class BookingCreator extends Component
                     workerList: this.state.services[this.state.currentServiceId].workers,
                     currentWorkerId:-1,
                     availList:undefined,
+                    canSubmit:false
                 });
-                console.log(this.state.workerList);
             }
         }
 
@@ -73,7 +75,16 @@ class BookingCreator extends Component
             {
                 this.setState({
                     availList:this.state.services[this.state.currentServiceId].availablities,
-                    currentAvail:-1
+                    currentAvail:-1,
+                    canSubmit:false
+                });
+            }
+        }
+        if (prevState.currentAvail !== this.state.currentAvail) {
+            console.log("CHANGE OF AVAIL");
+            if (this.state.currentAvail >= 0) {
+                this.setState({
+                    canSubmit: true
                 });
             }
         }
@@ -213,7 +224,11 @@ class BookingCreator extends Component
                 }
                 <br/>
 
-                <Button onClick={this.onClick}> Book</Button>
+                {this.state.canSubmit
+                    ?
+                    <Button onClick={this.onClick}> Book</Button>
+                    : <Button disabled> Book</Button>
+                }
             </div>
         )
     }
