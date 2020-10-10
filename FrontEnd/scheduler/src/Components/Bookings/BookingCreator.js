@@ -1,5 +1,11 @@
 import React, {Component} from 'react';
-import {getAllBusiness, getAvailByService, getServiceByBusiness, newBooking} from "../../actions/BusinessActions";
+import {
+    getAllBusiness,
+    getAvailByService,
+    getServiceByBusiness,
+    newBooking,
+    tryCreateBooking
+} from "../../actions/BusinessActions";
 import {Button} from "react-bootstrap";
 import {connect} from 'react-redux'
 
@@ -37,40 +43,38 @@ class BookingCreator extends Component
     componentDidUpdate(prevProps, prevState, snapshot)
     {
         if (prevState.currentId !== this.state.currentId) {
-            console.log("there was a change of ID: " + this.state.currentId);
+            console.log("there was a change of Business: " + this.state.currentId);
             getServiceByBusiness(this.state.currentId).then(response => {
                 this.setState({
                     services: response.data,
-                    currentServiceId:-1,
+                    //currentServiceId:-1,
                     workerList: undefined,
                     availList:undefined,
                 });
-                console.log(" Services by chose business");
-                console.log(this.state.services);
             })
 
         }
         if (prevState.currentServiceId !== this.state.currentServiceId) {
-            console.log("there was a change of service to: " + this.state.currentServiceId);
+            console.log("there was a change of service: " + this.state.currentServiceId);
             if(this.state.currentServiceId>=0)
             {
                 this.setState({
                     workerList: this.state.services[this.state.currentServiceId].workers,
-                    availList:undefined
+                    currentWorkerId:-1,
+                    availList:undefined,
                 });
-                console.log(" Workers by chosen service:");
-                console.log(this.state.services[this.state.currentServiceId].workers);
+                console.log(this.state.workerList);
             }
         }
+
         if (prevState.currentWorkerId !== this.state.currentWorkerId) {
-            console.log("there was a change of Worker to: " + this.state.currentServiceId);
+            console.log("there was a change of Worker to: " + this.state.currentWorkerId);
             if(this.state.currentWorkerId>=0)
             {
                 this.setState({
                     availList:this.state.services[this.state.currentServiceId].availablities,
+                    currentAvail:-1
                 });
-                console.log("all Avails: ");
-                console.log(this.state.availList);
             }
         }
     }
@@ -80,6 +84,7 @@ class BookingCreator extends Component
         this.setState({[e.target.name]: parseInt(e.target.value)});
     }
 
+    //errorcheck things are Not NUll
     onClick = (e) =>
     {
         e.preventDefault();
@@ -94,12 +99,26 @@ class BookingCreator extends Component
                 end_time:0,
                 status:"Booked",
             }
-            console.log("ABOUT TO MAKE A BOOKING:");
-            console.log(booking);
-            newBooking(booking).then
-            ((response)=> {
-                    console.log(response);
-                })
+
+            //made up of the id of the avail the selected and the date they selected,
+            // date currently hardcoded, should be based off the avail
+        const bookingRequest =
+            {
+                id: this.state.availList[this.state.currentAvail].id,
+                date: "2020-12-12 09:00"
+            }
+            //id of selected service
+        console.log("LOGGING SERVICES:")
+        console.log(this.state.services);
+        console.log(this.state.services[this.state.currentServiceId]);
+        const serviceId = this.state.services[this.state.currentServiceId].id;
+
+        console.log("ABOUT TO MAKE A BOOKINGREQUEST USING:");
+        console.log(bookingRequest);
+        tryCreateBooking(bookingRequest,serviceId).then
+        ((response)=> {
+                console.log(response.data);
+            })
     }
 
 
@@ -139,13 +158,11 @@ class BookingCreator extends Component
         if(avail)
         {
             const actualWorker = this.state.workerList[this.state.currentWorkerId].id;
-            console.log("ACTUAL WORKER");
-            console.log(actualWorker);
             availList =  avail.map((avail,index) => {
                 if(avail.workedId===actualWorker)
-                    return <option key={avail.id} value={index}> Day: {avail.day} Hour:{avail.hour} </option>
+                    return <option key={avail.id} value={index}> Day: {avail.day} Hour: {avail.hour}:{avail.minute} </option>
 
-                return <option> </option>
+                return
             }
         )
         }

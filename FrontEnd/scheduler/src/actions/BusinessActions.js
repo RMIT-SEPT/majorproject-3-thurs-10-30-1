@@ -26,3 +26,10 @@ export const newBooking = async (booking) =>
     return await axios.post(`http://${IP}:8080/api/booking`,booking);
 }
 
+export const tryCreateBooking = async (bookingRequest,serviceId) =>
+{
+    return await axios.post(`http://${IP}:8080/api/service/${serviceId}/book`,bookingRequest);
+}
+
+
+

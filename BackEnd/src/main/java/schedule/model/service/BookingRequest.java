@@ -18,7 +18,6 @@ public class BookingRequest {
     @JsonFormat(pattern ="yyyy-mm-dd HH:mm")
     private Date date;
     
-
     public BookingRequest() {}
     public BookingRequest(Long id, Date date)
     {
