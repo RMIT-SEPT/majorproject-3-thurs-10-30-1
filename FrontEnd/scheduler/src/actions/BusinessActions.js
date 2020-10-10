@@ -21,3 +21,8 @@ export const getAvailByService = async (id) =>
     return await axios.post(`http://${IP}:8080/api/service/${id}/availabilities`);
 }
 
+export const newBooking = async (booking) =>
+{
+    return await axios.post(`http://${IP}:8080/api/booking`,booking);
+}
+

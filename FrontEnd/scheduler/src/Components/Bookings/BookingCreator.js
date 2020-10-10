@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import {getAllBusiness, getAvailByService, getServiceByBusiness} from "../../actions/BusinessActions";
+import {getAllBusiness, getAvailByService, getServiceByBusiness, newBooking} from "../../actions/BusinessActions";
 import {Button} from "react-bootstrap";
+import {connect} from 'react-redux'
 
 
 class BookingCreator extends Component
@@ -82,15 +83,23 @@ class BookingCreator extends Component
     onClick = (e) =>
     {
         e.preventDefault();
+        //availability, customer, worker, service, startTime, endTime, status
         const booking =
             {
-                business: this.state.businesses[this.state.currentId].id,
+                availabilitySlot: this.state.availList[this.state.currentAvail].id,
+                customer: this.props.user.userId,
+                worker: this.state.workerList[this.state.currentWorkerId].id,
                 service: this.state.services[this.state.currentServiceId].id,
-                Worker: this.state.workerList[this.state.currentWorkerId].id,
-                avail: this.state.availList[this.state.currentAvail].id,
+                start_time:this.state.availList[this.state.currentAvail].hour,
+                end_time:0,
+                status:"Booked",
             }
             console.log("ABOUT TO MAKE A BOOKING:");
-        console.log(booking);
+            console.log(booking);
+            newBooking(booking).then
+            ((response)=> {
+                    console.log(response);
+                })
     }
 
 
@@ -193,4 +202,13 @@ class BookingCreator extends Component
     }
 }
 
-export default BookingCreator;
+function mapStateToProps(state) {
+    const {user} = state.auth;
+    const {accountType}= state.accountType;
+    return {
+        user,
+        accountType,
+    };
+}
+
+export default connect (mapStateToProps) (BookingCreator);

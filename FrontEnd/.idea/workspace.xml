@@ -2,10 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3d544343-65dd-4a79-bdae-6f23a9c69eaa" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/../BackEnd/src/main/java/schedule/web/AdminController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BackEnd/src/main/java/schedule/web/AdminController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../BackEnd/src/main/resources/data.sql" beforeDir="false" afterPath="$PROJECT_DIR$/../BackEnd/src/main/resources/data.sql" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scheduler/src/Components/Bookings/BookingCreator.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/Components/Bookings/BookingCreator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scheduler/src/Components/Bookings/BookingList.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/Components/Bookings/BookingList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scheduler/src/actions/BusinessActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/actions/BusinessActions.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -69,6 +68,9 @@
       <workItem from="1602116729388" duration="360000" />
       <workItem from="1602120758356" duration="1942000" />
       <workItem from="1602122729942" duration="373000" />
+      <workItem from="1602123388237" duration="80000" />
+      <workItem from="1602202604754" duration="909000" />
+      <workItem from="1602218368017" duration="11000" />
     </task>
     <task id="LOCAL-00001" summary="get business with admin implemented, awaiting custom jSON to break infinite service/worker loops">
       <created>1600993026539</created>
@@ -119,7 +121,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602046385093</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="intagreation with database availabilities, depending on worker and service in booking creation. Booking object created, not yet set to DB.">
+      <created>1602123452116</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1602123452116</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -133,13 +142,14 @@
     <MESSAGE value="fix issue reselecting placeholder in bookingMaker" />
     <MESSAGE value="admin now has the ability to create workers, with services and businesses" />
     <MESSAGE value="workerList now displays correctly." />
-    <option name="LAST_COMMIT_MESSAGE" value="workerList now displays correctly." />
+    <MESSAGE value="intagreation with database availabilities, depending on worker and service in booking creation. Booking object created, not yet set to DB." />
+    <option name="LAST_COMMIT_MESSAGE" value="intagreation with database availabilities, depending on worker and service in booking creation. Booking object created, not yet set to DB." />
   </component>
   <component name="WindowStateProjectService">
-    <state x="260" y="325" key="CommitChangelistDialog2" timestamp="1602046384902">
+    <state x="260" y="325" key="CommitChangelistDialog2" timestamp="1602123451768">
       <screen x="53" y="23" width="2507" height="1417" />
     </state>
-    <state x="260" y="325" key="CommitChangelistDialog2/53.23.2507.1417@53.23.2507.1417" timestamp="1602046384902" />
+    <state x="260" y="325" key="CommitChangelistDialog2/53.23.2507.1417@53.23.2507.1417" timestamp="1602123451768" />
     <state x="82" y="135" key="MergeDialog" timestamp="1602051065083">
       <screen x="53" y="23" width="2507" height="1417" />
     </state>
@@ -153,10 +163,10 @@
     </state>
     <state x="282" y="313" key="SettingsEditor/50.23.2510.1417@50.23.2510.1417" timestamp="1601517887489" />
     <state x="285" y="313" key="SettingsEditor/53.23.2507.1417@53.23.2507.1417" timestamp="1601187373401" />
-    <state x="396" y="471" key="Vcs.Push.Dialog.v2" timestamp="1602046388673">
+    <state x="396" y="471" key="Vcs.Push.Dialog.v2" timestamp="1602123459281">
       <screen x="53" y="23" width="2507" height="1417" />
     </state>
-    <state x="396" y="471" key="Vcs.Push.Dialog.v2/53.23.2507.1417@53.23.2507.1417" timestamp="1602046388673" />
+    <state x="396" y="471" key="Vcs.Push.Dialog.v2/53.23.2507.1417@53.23.2507.1417" timestamp="1602123459281" />
     <state x="153" y="123" width="1287" height="1217" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1600992213417">
       <screen x="53" y="23" width="2507" height="1417" />
     </state>
