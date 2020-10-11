@@ -8,6 +8,7 @@ import javax.validation.constraints.NotBlank;
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 import schedule.model.service.ScheduleService;
+import schedule.model.service.TimeAvailability;
 
 @Entity
 public class Booking
@@ -27,6 +28,10 @@ public class Booking
     @NotBlank(message = "A service is required")
     @ManyToOne(optional = false)
     private ScheduleService service;
+
+    @NotBlank(message  = "An availability is required")
+    @OneToOne()
+    private TimeAvailability availabilitySlot;
 
     @NotBlank(message = "A start time is required")
     @JsonFormat(pattern ="yyyy-mm-dd@HH:mm")
@@ -49,8 +54,10 @@ public class Booking
             @NotBlank(message = "A service is required") ScheduleService service,
             @NotBlank(message = "A start time is required") Date start_time,
             @NotBlank(message = "An end time is required") Date end_time,
-            @NotBlank(message = "A status is required") String status) {
+            @NotBlank(message = "A status is required") String status,
+            @NotBlank(message = "An availability is required") TimeAvailability availability) {
         this.id = id;
+        this.availabilitySlot = availability;
         this.customer = customer;
         this.worker = worker;
         this.service = service;
@@ -58,7 +65,9 @@ public class Booking
         this.end_time = end_time;
         this.status = status;
     }
-
+    public TimeAvailability getAvailability() {
+        return availabilitySlot;
+    }
     public Long getId() {
         return id;
     }
