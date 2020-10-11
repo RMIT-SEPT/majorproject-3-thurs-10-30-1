@@ -29,7 +29,4 @@ class BookingList extends Component
 }
 }
 
-
-
-
 export default BookingList;
