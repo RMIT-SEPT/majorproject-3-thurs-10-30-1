@@ -121,8 +121,6 @@ export class Registration extends Component
                                             </div>
                                         </Form.Group>
                                 </div>
-
-                            <input type="radio" onClick={this.enableAdmin}/>
                                 {message && (
                                     <div className="form-group">
                                         <div className={ this.state.successful ? "alert alert-success" : "alert alert-danger" } role="alert">
