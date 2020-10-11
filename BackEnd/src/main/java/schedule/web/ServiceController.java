@@ -130,12 +130,12 @@ public class ServiceController {
         }
         for (Booking b : bookingMicro.getAllBookings())
         {
-            if (!b.getEnd_time().before(booking.getDate()) && !b.getStart_time().after(booking.getDate()))
+            if (b.getStart_time().equals(booking.getDate()))
             {
                 return new ResponseEntity<>("Booking taken", HttpStatus.BAD_REQUEST);
             }
         }
-
+        
         return new ResponseEntity<>("Booking made!", HttpStatus.CREATED);
     }
 
