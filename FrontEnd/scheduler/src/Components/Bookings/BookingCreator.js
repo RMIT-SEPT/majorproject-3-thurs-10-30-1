@@ -79,7 +79,6 @@ class BookingCreator extends Component
        }
 
         let realServ;
-
         const serv = this.state.services;
         if(serv)
         {

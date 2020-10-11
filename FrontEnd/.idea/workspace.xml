@@ -2,8 +2,14 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3d544343-65dd-4a79-bdae-6f23a9c69eaa" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/scheduler/src/Components/Dashboards/WorkerAvailabilities.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BackEnd/src/main/java/schedule/web/WorkerController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BackEnd/src/main/java/schedule/web/WorkerController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scheduler/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scheduler/src/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/App.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scheduler/src/Components/Bookings/BookingCreator.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/Components/Bookings/BookingCreator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scheduler/src/Components/Generics/AGMEnav.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/Components/Generics/AGMEnav.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scheduler/src/actions/userActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/actions/userActions.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +42,21 @@
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
+  <component name="RunManager">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -59,6 +80,7 @@
       <workItem from="1602027008334" duration="4572000" />
       <workItem from="1602040220428" duration="485000" />
       <workItem from="1602040808352" duration="767000" />
+      <workItem from="1602407155507" duration="43000" />
     </task>
     <task id="LOCAL-00001" summary="get business with admin implemented, awaiting custom jSON to break infinite service/worker loops">
       <created>1600993026539</created>
