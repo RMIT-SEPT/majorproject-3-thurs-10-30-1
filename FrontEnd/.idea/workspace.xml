@@ -13,7 +13,6 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$/.." value="createWorker" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
@@ -59,6 +58,7 @@
       <workItem from="1602027008334" duration="4572000" />
       <workItem from="1602040220428" duration="485000" />
       <workItem from="1602040808352" duration="767000" />
+
       <workItem from="1602050849184" duration="552000" />
       <workItem from="1602051586368" duration="15000" />
       <workItem from="1602071991270" duration="184000" />
@@ -72,6 +72,7 @@
       <workItem from="1602299273699" duration="1071000" />
       <workItem from="1602302861825" duration="2369000" />
       <workItem from="1602306609143" duration="962000" />
+
     </task>
     <task id="LOCAL-00001" summary="get business with admin implemented, awaiting custom jSON to break infinite service/worker loops">
       <created>1600993026539</created>
@@ -115,6 +116,7 @@
       <option name="project" value="LOCAL" />
       <updated>1602032888169</updated>
     </task>
+
     <task id="LOCAL-00007" summary="workerList now displays correctly.">
       <created>1602046385093</created>
       <option name="number" value="00007" />
@@ -144,6 +146,7 @@
       <updated>1602305434735</updated>
     </task>
     <option name="localTasksCounter" value="11" />
+
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -156,6 +159,7 @@
     <MESSAGE value="bookingCreator reactively responds to worker, service, business selection." />
     <MESSAGE value="fix issue reselecting placeholder in bookingMaker" />
     <MESSAGE value="admin now has the ability to create workers, with services and businesses" />
+
     <MESSAGE value="workerList now displays correctly." />
     <MESSAGE value="intagreation with database availabilities, depending on worker and service in booking creation. Booking object created, not yet set to DB." />
     <MESSAGE value="Booking object updated." />
@@ -184,6 +188,7 @@
       <screen x="53" y="23" width="2507" height="1417" />
     </state>
     <state x="396" y="471" key="Vcs.Push.Dialog.v2/53.23.2507.1417@53.23.2507.1417" timestamp="1602305447951" />
+
     <state x="153" y="123" width="1287" height="1217" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1600992213417">
       <screen x="53" y="23" width="2507" height="1417" />
     </state>
@@ -193,5 +198,15 @@
     </state>
     <state x="594" y="652" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/52.23.2508.1417@52.23.2508.1417" timestamp="1601800979659" />
     <state x="595" y="652" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/53.23.2507.1417@53.23.2507.1417" timestamp="1602027019668" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="javascript">
+          <url>file://$PROJECT_DIR$/scheduler/src/reducers/auth.js</url>
+          <option name="timeStamp" value="1" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

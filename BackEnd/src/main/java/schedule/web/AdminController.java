@@ -40,7 +40,7 @@ public class AdminController {
     public ResponseEntity<?> getAdminById(@PathVariable long id)
     {
         Admin admin = adminMicro.getAdminById(id);
-        return admin != null ? new ResponseEntity<>(admin, HttpStatus.FOUND) : 
+        return admin != null ? new ResponseEntity<>(admin, HttpStatus.OK) : 
             new ResponseEntity<>("User not found", HttpStatus.BAD_REQUEST);
     }
 }

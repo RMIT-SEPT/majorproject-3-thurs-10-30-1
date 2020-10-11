@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@react-native-community/checkbox": "^0.5.5",
     "axios": "^0.20.0",
     "babel": "^6.23.0",
     "boostrap": "^2.0.0",

@@ -15,6 +15,7 @@ class BookingCreator extends Component
     constructor(props) {
         super(props);
         this.state=
+
             {
                 businesses: undefined,
                 services:undefined,
@@ -27,6 +28,7 @@ class BookingCreator extends Component
                 currentAvail:-1,
                 canSubmit:false
             }
+
         this.onChangeNumber=this.onChangeNumber.bind(this);
         this.onClick=this.onClick.bind(this);
 
@@ -48,15 +50,18 @@ class BookingCreator extends Component
             getServiceByBusiness(this.state.currentId).then(response => {
                 this.setState({
                     services: response.data,
+
                     workerList: undefined,
                     availList:undefined,
                     canSubmit:false,
                     currentServiceId:-1,
+
                 });
             })
 
         }
         if (prevState.currentServiceId !== this.state.currentServiceId) {
+
             console.log("there was a change of service: " + this.state.currentServiceId);
             if(this.state.currentServiceId>=0)
             {
@@ -67,6 +72,7 @@ class BookingCreator extends Component
                     canSubmit:false
                 });
             }
+
         }
 
         if (prevState.currentWorkerId !== this.state.currentWorkerId) {
@@ -156,6 +162,7 @@ class BookingCreator extends Component
         }
 
         let workerList;
+
         const work = this.state.workerList;
         if(work)
         {
@@ -172,8 +179,8 @@ class BookingCreator extends Component
             availList =  avail.map((avail,index) => {
                 if(avail.workedId===actualWorker)
                     return <option key={avail.id} value={index}> Day: {avail.day} Hour: {avail.hour}:{avail.minute} </option>
-
                 return
+
             }
         )
         }
@@ -232,6 +239,7 @@ class BookingCreator extends Component
             </div>
         )
     }
+
 }
 
 function mapStateToProps(state) {

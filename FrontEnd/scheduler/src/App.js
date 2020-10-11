@@ -14,7 +14,7 @@ import {connect} from 'react-redux'
 import {history} from "./utils/history";
 import EditProfile from "./Components/Profile/EditProfile";
 import adminDashboard from "./Components/Dashboards/adminDashboard";
-import {WorkerMaker} from "./Components/Registration/WorkerMaker";
+import WorkerMaker from "./Components/Registration/WorkerMaker";
 
 
 class App extends Component {

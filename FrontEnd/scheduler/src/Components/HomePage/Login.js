@@ -69,24 +69,28 @@ export class Login extends Component
                 <div className="loginContainer">
                     <h1 className="myHeader"> SIGN IN</h1>
 
-                    <Form className="mr-auto" onSubmit={this.handleSubmit}>
+                    <Form onSubmit={this.handleSubmit}>
 
                         <div className="transparentDiv">
-                            <Form.Group controlId="formBasicEmail">
+
+                            <Form.Group>
                                 <Form.Control type="email" required placeholder="Enter email" value={this.state.email}
                                               onChange={this.onChange} name="email"/>
                             </Form.Group>
-                            <br/>
 
-                            <Form.Group controlId="formBasicPassword">
+                            <Form.Group>
                                 <Form.Control type="password" required placeholder="Password" name="password"
                                               value={this.state.password} onChange={this.onChange}/>
                             </Form.Group>
-                            <br/>
                         </div>
+
+                        <br/>
+
                         <Link to="/register" className="regLink"> No Account? Register here! </Link>
 
                         <br/>
+                        <br/>
+
                         <input type="submit" value="Login"/>
 
                         {message && (

@@ -67,4 +67,9 @@ public class Worker
     {
         return businesses;
     }
+
+    public void addService(ScheduleService service)
+    {
+        services.add(service);
+    }
 }
