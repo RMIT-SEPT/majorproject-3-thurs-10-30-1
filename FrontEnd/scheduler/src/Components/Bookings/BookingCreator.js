@@ -1,9 +1,7 @@
 import React, {Component} from 'react';
 import {
     getAllBusiness,
-    getAvailByService,
     getServiceByBusiness,
-    newBooking,
     tryCreateBooking
 } from "../../actions/BusinessActions";
 import {Button} from "react-bootstrap";

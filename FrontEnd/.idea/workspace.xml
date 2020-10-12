@@ -1,8 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="3d544343-65dd-4a79-bdae-6f23a9c69eaa" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/scheduler/src/Components/Registration/Registration.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/Components/Registration/Registration.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../BackEnd/src/main/java/schedule/model/Business.java" beforeDir="false" afterPath="$PROJECT_DIR$/../BackEnd/src/main/java/schedule/model/Business.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scheduler/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scheduler/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scheduler/src/Components/Bookings/BookingCreator.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/Components/Bookings/BookingCreator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scheduler/src/Components/Dashboards/WorkerAvailabilities.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/Components/Dashboards/WorkerAvailabilities.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +43,19 @@
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
+  </component>
+  <component name="RunManager">
+    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+      <option name="arquillianRunConfiguration">
+        <value>
+          <option name="containerStateName" value="" />
+        </value>
+      </option>
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -72,6 +93,10 @@
       <workItem from="1602299273699" duration="1071000" />
       <workItem from="1602302861825" duration="2369000" />
       <workItem from="1602306609143" duration="962000" />
+      <workItem from="1602463154184" duration="124000" />
+      <workItem from="1602465039315" duration="898000" />
+      <workItem from="1602466116105" duration="488000" />
+      <workItem from="1602472074601" duration="2499000" />
     </task>
     <task id="LOCAL-00001" summary="get business with admin implemented, awaiting custom jSON to break infinite service/worker loops">
       <created>1600993026539</created>
@@ -143,7 +168,14 @@
       <option name="project" value="LOCAL" />
       <updated>1602305434735</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="merge with front-end develop">
+      <created>1602407415350</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1602407415350</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -160,13 +192,14 @@
     <MESSAGE value="intagreation with database availabilities, depending on worker and service in booking creation. Booking object created, not yet set to DB." />
     <MESSAGE value="Booking object updated." />
     <MESSAGE value="simple boooking creation wth a hard-coded date- returns BOOKING SUCCESS" />
-    <option name="LAST_COMMIT_MESSAGE" value="simple boooking creation wth a hard-coded date- returns BOOKING SUCCESS" />
+    <MESSAGE value="merge with front-end develop" />
+    <option name="LAST_COMMIT_MESSAGE" value="merge with front-end develop" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="260" y="325" key="CommitChangelistDialog2" timestamp="1602305434414">
+    <state x="260" y="325" key="CommitChangelistDialog2" timestamp="1602407415198">
       <screen x="53" y="23" width="2507" height="1417" />
     </state>
-    <state x="260" y="325" key="CommitChangelistDialog2/53.23.2507.1417@53.23.2507.1417" timestamp="1602305434414" />
+    <state x="260" y="325" key="CommitChangelistDialog2/53.23.2507.1417@53.23.2507.1417" timestamp="1602407415198" />
     <state x="82" y="135" key="MergeDialog" timestamp="1602299496525">
       <screen x="53" y="23" width="2507" height="1417" />
     </state>
@@ -180,10 +213,10 @@
     </state>
     <state x="282" y="313" key="SettingsEditor/50.23.2510.1417@50.23.2510.1417" timestamp="1601517887489" />
     <state x="285" y="313" key="SettingsEditor/53.23.2507.1417@53.23.2507.1417" timestamp="1601187373401" />
-    <state x="396" y="471" key="Vcs.Push.Dialog.v2" timestamp="1602305447951">
+    <state x="396" y="471" key="Vcs.Push.Dialog.v2" timestamp="1602407419763">
       <screen x="53" y="23" width="2507" height="1417" />
     </state>
-    <state x="396" y="471" key="Vcs.Push.Dialog.v2/53.23.2507.1417@53.23.2507.1417" timestamp="1602305447951" />
+    <state x="396" y="471" key="Vcs.Push.Dialog.v2/53.23.2507.1417@53.23.2507.1417" timestamp="1602407419763" />
     <state x="153" y="123" width="1287" height="1217" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1600992213417">
       <screen x="53" y="23" width="2507" height="1417" />
     </state>
@@ -193,6 +226,10 @@
     </state>
     <state x="594" y="652" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/52.23.2508.1417@52.23.2508.1417" timestamp="1601800979659" />
     <state x="595" y="652" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/53.23.2507.1417@53.23.2507.1417" timestamp="1602027019668" />
+    <state x="1622" y="348" width="670" height="676" key="search.everywhere.popup" timestamp="1602473913752">
+      <screen x="53" y="23" width="2507" height="1417" />
+    </state>
+    <state x="1622" y="348" width="670" height="676" key="search.everywhere.popup/53.23.2507.1417@53.23.2507.1417" timestamp="1602473913752" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -111,6 +111,7 @@ public class Business {
         }
         JsonHelper.endArray(builder);
         JsonHelper.endScope(builder);
+    }
 
 
     public void addWorker(Worker worker)
