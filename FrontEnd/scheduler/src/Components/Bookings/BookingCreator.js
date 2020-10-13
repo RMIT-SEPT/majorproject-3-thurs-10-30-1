@@ -43,7 +43,7 @@ class BookingCreator extends Component
          <DarkButton label={label} />
          </div>
     )
-}
+    }
 }
 
 export default BookingCreator;
