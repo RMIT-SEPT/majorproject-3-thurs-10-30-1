@@ -139,44 +139,40 @@ class BookingCreator extends Component
     {
         let businessList;
         const biz = this.state.businesses;
-        if(biz)
-        {
-            businessList =  biz.map(business => (
+        if (biz) {
+            businessList = biz.map(business => (
                 <option key={business.id} value={business.id}> {business.name} </option>
             ))
         }
 
         let servList;
         const serv = this.state.services;
-        if(serv)
-        {
-            servList =  serv.map((service,index) => (
+        if (serv) {
+            servList = serv.map((service, index) => (
                 <option key={service.id} value={index}> {service.name} </option>
             ))
         }
 
         let workerList;
         const work = this.state.workerList;
-        if(work)
-        {
-            workerList =  work.map((worker,index) => {
+        if (work) {
+            workerList = work.map((worker, index) => {
                 return <option key={worker.id} value={index}> {worker.user.name} </option>
             })
         }
 
         let availList;
         const avail = this.state.availList;
-        if(avail)
-        {
+        if (avail) {
             const actualWorker = this.state.workerList[this.state.currentWorkerId].id;
-            availList =  avail.map((avail,index) => {
-                    if(avail.workedId===actualWorker)
-                        return <option key={avail.id} value={index}> Day: {numToDay(avail.day)} Hour: {avail.hour}:{avail.minute} </option>
+            availList = avail.map((avail, index) => {
+                    if (avail.workedId === actualWorker)
+                        return <option key={avail.id} value={index}>Day: {numToDay(avail.day)}
+                            Hour: {avail.hour}:{avail.minute} </option>
 
                 }
             )
         }
-
 
         return (
             <div className = "bookingCreator">
@@ -240,6 +236,7 @@ class BookingCreator extends Component
             </div>
         )
     }
+
 
 }
 

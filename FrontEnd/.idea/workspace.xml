@@ -1,123 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-
-  <component name="BranchesTreeState">
-    <expand>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:front-end" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:back-end" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:front-end" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-      <path>
-        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
-        <item name="GROUP_NODE:front-end" type="e8cecc67:BranchNodeDescriptor" />
-      </path>
-    </expand>
-    <select />
-
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="3d544343-65dd-4a79-bdae-6f23a9c69eaa" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/scheduler/src/utils/dateUtils.js" afterDir="false" />
+    <list default="true" id="0939d3c9-988a-456d-a2a3-f0fdab88e8f9" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scheduler/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scheduler/src/Components/Bookings/BookingCreator.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/Components/Bookings/BookingCreator.js" afterDir="false" />
-
-      <change beforePath="$PROJECT_DIR$/scheduler/src/Components/Dashboards/WorkerAvailabilities.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/Components/Dashboards/WorkerAvailabilities.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scheduler/src/Components/Registration/WorkerMaker.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/Components/Registration/WorkerMaker.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scheduler/src/actions/BusinessActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/actions/BusinessActions.js" afterDir="false" />
-
-      <change beforePath="$PROJECT_DIR$/scheduler/src/Components/Dashboards/View/ViewWorkersList.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/Components/Dashboards/View/ViewWorkersList.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scheduler/src/Components/Dashboards/adminDashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/Components/Dashboards/adminDashboard.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/scheduler/src/Components/Registration/Registration.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/Components/Registration/Registration.js" afterDir="false" />
-
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-
-  <component name="Git.Merge.Settings">
-    <option name="BRANCH" value="origin/front-end/develop" />
-
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="JavaScript File" />
-      </list>
-    </option>
-
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map />
+      <map>
+        <entry key="$PROJECT_DIR$/.." value="workerSetAvail" />
+      </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectId" id="1hynC7hzX79fe3NOlWzifztE48o" />
+  <component name="ProjectId" id="1ioDjkpuJL8hkvGb4rtMtGUviMj" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
-    <property name="ASKED_MARK_IGNORED_FILES_AS_EXCLUDED" value="true" />
-    <property name="Git.Branch.Popup.ShowAllRemotes" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
-    <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RunManager">
-    <configuration default="true" type="ArquillianJUnit" factoryName="" nameIsGenerated="true">
+    <configuration default="true" type="ArquillianTestNG" factoryName="" nameIsGenerated="true">
       <option name="arquillianRunConfiguration">
         <value>
           <option name="containerStateName" value="" />
         </value>
       </option>
-      <option name="TEST_OBJECT" value="class" />
+      <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -125,215 +47,59 @@
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
-    <task active="true" id="Default" summary="Default task">
-      <changelist id="3d544343-65dd-4a79-bdae-6f23a9c69eaa" name="Default Changelist" comment="" />
-      <created>1600992068765</created>
-      <option name="number" value="Default" />
-      <option name="presentableId" value="Default" />
-      <updated>1600992068765</updated>
-      <workItem from="1600992069968" duration="2425000" />
-      <workItem from="1600995067192" duration="2897000" />
-      <workItem from="1600998302845" duration="150000" />
-      <workItem from="1600998852442" duration="311000" />
-      <workItem from="1601169820081" duration="561000" />
-      <workItem from="1601175786506" duration="175000" />
-      <workItem from="1601176080194" duration="18000" />
-      <workItem from="1601184909602" duration="5340000" />
-      <workItem from="1601191737968" duration="430000" />
-      <workItem from="1601281351755" duration="497000" />
-      <workItem from="1601512352340" duration="49000" />
-      <workItem from="1601514530266" duration="5031000" />
-      <workItem from="1602027008334" duration="4572000" />
-      <workItem from="1602040220428" duration="485000" />
-      <workItem from="1602040808352" duration="767000" />
-      <workItem from="1602050849184" duration="552000" />
-      <workItem from="1602051586368" duration="15000" />
-      <workItem from="1602071991270" duration="184000" />
-      <workItem from="1602116616634" duration="75000" />
-      <workItem from="1602116729388" duration="360000" />
-      <workItem from="1602120758356" duration="1942000" />
-      <workItem from="1602122729942" duration="373000" />
-      <workItem from="1602123388237" duration="80000" />
-      <workItem from="1602202604754" duration="909000" />
-      <workItem from="1602218368017" duration="11000" />
-      <workItem from="1602299273699" duration="1071000" />
-      <workItem from="1602302861825" duration="2369000" />
-      <workItem from="1602306609143" duration="962000" />
-      <workItem from="1602463154184" duration="124000" />
-      <workItem from="1602465039315" duration="898000" />
-      <workItem from="1602466116105" duration="488000" />
-      <workItem from="1602472074601" duration="2656000" />
-      <workItem from="1602474972865" duration="106000" />
-      <workItem from="1602554702849" duration="5524000" />
-    </task>
-    <task id="LOCAL-00001" summary="get business with admin implemented, awaiting custom jSON to break infinite service/worker loops">
-      <created>1600993026539</created>
+    <task id="LOCAL-00001" summary="merge fix">
+      <created>1602562700552</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1600993026539</updated>
+      <updated>1602562700552</updated>
     </task>
-    <task id="LOCAL-00002" summary="accounty type now implemented as a redux state">
-      <created>1600998326656</created>
+    <task id="LOCAL-00002" summary="code tidy.">
+      <created>1602564789060</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1600998326656</updated>
+      <updated>1602564789060</updated>
     </task>
-    <task id="LOCAL-00003" summary="rebase ti get updates front end with JSON ignore">
-      <created>1601170049084</created>
+    <task id="LOCAL-00003" summary="add numtoDay to avail list in bookingCreator">
+      <created>1602564940562</created>
       <option name="number" value="00003" />
       <option name="presentableId" value="LOCAL-00003" />
       <option name="project" value="LOCAL" />
-      <updated>1601170049084</updated>
+      <updated>1602564940562</updated>
     </task>
-    <task id="LOCAL-00004" summary="bookingCreator reactively responds to worker, service, business selection.">
-      <created>1601191143056</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1601191143056</updated>
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="0939d3c9-988a-456d-a2a3-f0fdab88e8f9" name="Default Changelist" comment="" />
+      <created>1602565189101</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1602565189101</updated>
+      <workItem from="1602565190681" duration="513000" />
     </task>
-    <task id="LOCAL-00005" summary="fix issue reselecting placeholder in bookingMaker">
-      <created>1601512382688</created>
-      <option name="number" value="00005" />
-      <option name="presentableId" value="LOCAL-00005" />
-      <option name="project" value="LOCAL" />
-      <updated>1601512382688</updated>
-    </task>
-    <task id="LOCAL-00006" summary="admin now has the ability to create workers, with services and businesses">
-      <created>1602032888169</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1602032888169</updated>
-    </task>
-    <task id="LOCAL-00007" summary="workerList now displays correctly.">
-      <created>1602046385093</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1602046385093</updated>
-    </task>
-    <task id="LOCAL-00008" summary="intagreation with database availabilities, depending on worker and service in booking creation. Booking object created, not yet set to DB.">
-      <created>1602123452116</created>
-      <option name="number" value="00008" />
-      <option name="presentableId" value="LOCAL-00008" />
-      <option name="project" value="LOCAL" />
-      <updated>1602123452116</updated>
-    </task>
-    <task id="LOCAL-00009" summary="Booking object updated.">
-      <created>1602299383284</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1602299383284</updated>
-    </task>
-    <task id="LOCAL-00010" summary="simple boooking creation wth a hard-coded date- returns BOOKING SUCCESS">
-      <created>1602305434735</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1602305434735</updated>
-    </task>
-    <task id="LOCAL-00011" summary="merge with front-end develop">
-      <created>1602407415350</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1602407415350</updated>
-    </task>
-    <task id="LOCAL-00012" summary="base for availMaker form, using timepicker component">
-      <created>1602474688765</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1602474688765</updated>
-    </task>
-    <option name="localTasksCounter" value="13" />
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
-    <option name="oldMeFiltersMigrated" value="true" />
-  </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="get business with admin implemented, awaiting custom jSON to break infinite service/worker loops" />
-    <MESSAGE value="accounty type now implemented as a redux state" />
-    <MESSAGE value="rebase ti get updates front end with JSON ignore" />
-    <MESSAGE value="bookingCreator reactively responds to worker, service, business selection." />
-    <MESSAGE value="fix issue reselecting placeholder in bookingMaker" />
-    <MESSAGE value="admin now has the ability to create workers, with services and businesses" />
-    <MESSAGE value="workerList now displays correctly." />
-    <MESSAGE value="intagreation with database availabilities, depending on worker and service in booking creation. Booking object created, not yet set to DB." />
-    <MESSAGE value="Booking object updated." />
-    <MESSAGE value="simple boooking creation wth a hard-coded date- returns BOOKING SUCCESS" />
-    <MESSAGE value="merge with front-end develop" />
-    <MESSAGE value="base for availMaker form, using timepicker component" />
-    <option name="LAST_COMMIT_MESSAGE" value="base for availMaker form, using timepicker component" />
+    <MESSAGE value="merge fix" />
+    <MESSAGE value="code tidy." />
+    <MESSAGE value="add numtoDay to avail list in bookingCreator" />
+    <option name="LAST_COMMIT_MESSAGE" value="add numtoDay to avail list in bookingCreator" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="260" y="325" key="CommitChangelistDialog2" timestamp="1602474688482">
+    <state x="1183" y="325" key="CommitChangelistDialog2" timestamp="1602564940418">
       <screen x="53" y="23" width="2507" height="1417" />
     </state>
-    <state x="260" y="325" key="CommitChangelistDialog2/53.23.2507.1417@53.23.2507.1417" timestamp="1602474688482" />
-    <state x="82" y="135" key="MergeDialog" timestamp="1602299496525">
+    <state x="1183" y="325" key="CommitChangelistDialog2/53.23.2507.1417@53.23.2507.1417" timestamp="1602564940418" />
+    <state x="1369" y="471" key="Vcs.Push.Dialog.v2" timestamp="1602564945679">
       <screen x="53" y="23" width="2507" height="1417" />
     </state>
-    <state x="82" y="135" key="MergeDialog/53.23.2507.1417@53.23.2507.1417" timestamp="1602299496525" />
-    <state x="386" y="451" width="1090" height="580" key="MultipleFileMergeDialog" timestamp="1602299496542">
+    <state x="1369" y="471" key="Vcs.Push.Dialog.v2/53.23.2507.1417@53.23.2507.1417" timestamp="1602564945679" />
+    <state x="1567" y="652" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602565375646">
       <screen x="53" y="23" width="2507" height="1417" />
     </state>
-    <state x="386" y="451" width="1090" height="580" key="MultipleFileMergeDialog/53.23.2507.1417@53.23.2507.1417" timestamp="1602299496542" />
-    <state x="282" y="313" key="SettingsEditor" timestamp="1601517887489">
-      <screen x="50" y="23" width="2510" height="1417" />
-    </state>
-    <state x="282" y="313" key="SettingsEditor/50.23.2510.1417@50.23.2510.1417" timestamp="1601517887489" />
-    <state x="285" y="313" key="SettingsEditor/53.23.2507.1417@53.23.2507.1417" timestamp="1601187373401" />
-    <state x="396" y="471" key="Vcs.Push.Dialog.v2" timestamp="1602474697057">
-      <screen x="53" y="23" width="2507" height="1417" />
-    </state>
-    <state x="396" y="471" key="Vcs.Push.Dialog.v2/53.23.2507.1417@53.23.2507.1417" timestamp="1602474697057" />
-    <state x="153" y="123" width="1287" height="1217" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1600992213417">
-      <screen x="53" y="23" width="2507" height="1417" />
-    </state>
-    <state x="153" y="123" width="1287" height="1217" key="com.intellij.history.integration.ui.views.FileHistoryDialog/53.23.2507.1417@53.23.2507.1417" timestamp="1600992213417" />
-    <state x="595" y="652" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1602027019668">
-      <screen x="53" y="23" width="2507" height="1417" />
-    </state>
-    <state x="594" y="652" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/52.23.2508.1417@52.23.2508.1417" timestamp="1601800979659" />
-    <state x="595" y="652" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/53.23.2507.1417@53.23.2507.1417" timestamp="1602027019668" />
-
-    <state x="1622" y="348" width="670" height="676" key="search.everywhere.popup" timestamp="1602473913752">
-      <screen x="53" y="23" width="2507" height="1417" />
-    </state>
-    <state x="1622" y="348" width="670" height="676" key="search.everywhere.popup/53.23.2507.1417@53.23.2507.1417" timestamp="1602473913752" />
-
-    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup" timestamp="1602215698323">
-      <screen x="0" y="23" width="1680" height="958" />
-    </state>
-    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup/0.23.1680.958@0.23.1680.958" timestamp="1602215698323" />
-
-  </component>
-  <component name="XDebuggerManager">
-    <breakpoint-manager>
-      <breakpoints>
-        <line-breakpoint enabled="true" type="javascript">
-          <url>file://$PROJECT_DIR$/scheduler/src/reducers/auth.js</url>
-          <option name="timeStamp" value="1" />
-        </line-breakpoint>
-      </breakpoints>
-    </breakpoint-manager>
+    <state x="1567" y="652" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/53.23.2507.1417@53.23.2507.1417" timestamp="1602565375646" />
   </component>
 </project>
