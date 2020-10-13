@@ -117,7 +117,7 @@ public class ServiceController {
         //insert booking
         Booking newBooking = new Booking((long)0,
                                         customerMicro.getCustomerById(booking.getCustomerId()),
-                                        workerMicro.getWorkerById(foundAvailability.getWorkedId()),
+                                        workerMicro.getWorkerById(foundAvailability.getWorkerId()),
                                         service,
                                         booking.getDate(),
                                         "booked",
