@@ -3,10 +3,29 @@ import { Tab, Tabs } from 'react-bootstrap'
 import WorkerBookingList from "../Bookings/WorkerBookingList";
 import ViewWorkerList from "../Dashboards/View/ViewWorkersList";
 import {connect} from "react-redux";
-
-
+import {getAdmin} from "../../actions/userActions";
+import ViewServicesList from "./View/ViewServicesList";
 
 export class adminDashboard extends Component {
+
+    constructor(props) {
+        super(props);
+        this.state =
+            {
+                businessName: undefined,
+            };
+    }
+
+    componentDidMount()
+    {
+        const id = this.props.user.userId;
+        getAdmin(id)
+            .then(response => {
+                this.setState({
+                    businessName: response.data.business.name
+                });
+            })
+    }
 
     render() {
         let bookings = [
@@ -19,7 +38,7 @@ export class adminDashboard extends Component {
         let title = " Your Business Bookings"
         return (
             <div className="adminDashboardContainer">
-                <h2> Welcome {this.props.user.name}</h2>
+                <h2 className = "DashboardWelcome"> {this.state.businessName}</h2>
 
                 <Tabs defaultActiveKey="viewBookings" id="uncontrolled-tab-example">
                     <Tab eventKey="viewBookings" title="View Bookings">
@@ -28,6 +47,10 @@ export class adminDashboard extends Component {
 
                     <Tab eventKey="viewWorkers" title="View Workers" >
                         <ViewWorkerList />
+                    </Tab>
+
+                    <Tab eventKey="viewServices" title="viewServices" >
+                        <ViewServicesList/>
                     </Tab>
                 </Tabs>
 
