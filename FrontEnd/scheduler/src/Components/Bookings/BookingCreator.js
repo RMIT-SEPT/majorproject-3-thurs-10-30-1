@@ -175,10 +175,28 @@ class BookingCreator extends Component
                 if(avail.workedId===actualWorker)
                     return <option key={avail.id} value={index}> Day: {avail.day} Hour: {avail.hour}:{avail.minute} </option>
 
+
+    return (
+        <div className = "bookingCreator">
+            <h2 className="bookingListHeader">Book a New Service</h2>
+        <center>
+            <h3 className="bookingCreatorDropdowns" > Business </h3>
+            {biz
+                ? <select name="currentId" value={this.state.currentId} onChange={this.onChangeNumber}>
+                    <option value="-1" >Select a business </option>
+                    {realBiz}
+                </select>
+                :
+                <p></p>
             }
         )
         }
 
+            <h3 className="bookingCreatorDropdowns"> Service </h3>
+            {serv
+                ? <select name="currentServiceId" value={this.state.currentServiceId} onChange={this.onChangeNumber}>
+                    <option value="-1" > Please Select A Service:</option>
+                    {realServ} </select>
 
         return (
             <div className = "bookingCreator">

@@ -128,6 +128,7 @@ export class Registration extends Component
                                         </div>
                                     </div>
                                 )}
+
                            <center> <input type="submit" value="Register"/> </center>
                          </Form>
                     </div>

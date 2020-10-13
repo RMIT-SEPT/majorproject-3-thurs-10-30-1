@@ -1,24 +1,90 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
+
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:front-end" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:back-end" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:front-end" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:front-end" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3d544343-65dd-4a79-bdae-6f23a9c69eaa" name="Default Changelist" comment="">
       <change afterPath="$PROJECT_DIR$/scheduler/src/utils/dateUtils.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scheduler/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scheduler/src/Components/Bookings/BookingCreator.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/Components/Bookings/BookingCreator.js" afterDir="false" />
+
       <change beforePath="$PROJECT_DIR$/scheduler/src/Components/Dashboards/WorkerAvailabilities.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/Components/Dashboards/WorkerAvailabilities.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scheduler/src/Components/Registration/WorkerMaker.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/Components/Registration/WorkerMaker.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scheduler/src/actions/BusinessActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/actions/BusinessActions.js" afterDir="false" />
+
+      <change beforePath="$PROJECT_DIR$/scheduler/src/Components/Dashboards/View/ViewWorkersList.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/Components/Dashboards/View/ViewWorkersList.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scheduler/src/Components/Dashboards/adminDashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/Components/Dashboards/adminDashboard.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scheduler/src/Components/Registration/Registration.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/Components/Registration/Registration.js" afterDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+
   <component name="Git.Merge.Settings">
     <option name="BRANCH" value="origin/front-end/develop" />
+
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="JavaScript File" />
+      </list>
+    </option>
+
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
@@ -190,6 +256,18 @@
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="get business with admin implemented, awaiting custom jSON to break infinite service/worker loops" />
     <MESSAGE value="accounty type now implemented as a redux state" />
@@ -236,10 +314,17 @@
     </state>
     <state x="594" y="652" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/52.23.2508.1417@52.23.2508.1417" timestamp="1601800979659" />
     <state x="595" y="652" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/53.23.2507.1417@53.23.2507.1417" timestamp="1602027019668" />
+
     <state x="1622" y="348" width="670" height="676" key="search.everywhere.popup" timestamp="1602473913752">
       <screen x="53" y="23" width="2507" height="1417" />
     </state>
     <state x="1622" y="348" width="670" height="676" key="search.everywhere.popup/53.23.2507.1417@53.23.2507.1417" timestamp="1602473913752" />
+
+    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup" timestamp="1602215698323">
+      <screen x="0" y="23" width="1680" height="958" />
+    </state>
+    <state x="505" y="233" width="670" height="676" key="search.everywhere.popup/0.23.1680.958@0.23.1680.958" timestamp="1602215698323" />
+
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
