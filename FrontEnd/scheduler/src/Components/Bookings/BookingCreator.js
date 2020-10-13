@@ -6,7 +6,7 @@ import {
 } from "../../actions/BusinessActions";
 import {Button} from "react-bootstrap";
 import {connect} from 'react-redux'
-import {createDate} from "../../utils/dateUtils";
+import {createDate, numToDay} from "../../utils/dateUtils";
 
 
 class BookingCreator extends Component
@@ -49,7 +49,6 @@ class BookingCreator extends Component
             getServiceByBusiness(this.state.currentId).then(response => {
                 this.setState({
                     services: response.data,
-
                     workerList: undefined,
                     availList:undefined,
                     canSubmit:false,
@@ -83,6 +82,7 @@ class BookingCreator extends Component
                 });
             }
         }
+
         if (prevState.currentAvail !== this.state.currentAvail) {
             if (this.state.currentAvail >= 0) {
                 this.setState({
@@ -171,7 +171,7 @@ class BookingCreator extends Component
             const actualWorker = this.state.workerList[this.state.currentWorkerId].id;
             availList =  avail.map((avail,index) => {
                     if(avail.workedId===actualWorker)
-                        return <option key={avail.id} value={index}> Day: {avail.day} Hour: {avail.hour}:{avail.minute} </option>
+                        return <option key={avail.id} value={index}> Day: {numToDay(avail.day)} Hour: {avail.hour}:{avail.minute} </option>
 
                 }
             )
