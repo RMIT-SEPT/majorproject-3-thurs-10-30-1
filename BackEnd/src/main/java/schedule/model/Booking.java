@@ -15,14 +15,17 @@ public class Booking
 
     @NotBlank(message = "A customer is required")
     @ManyToOne(optional = false)
+    @JoinColumn(name = "customer_id")
     private Customer customer;
 
     @NotBlank(message = "A Worker is required")
     @ManyToOne(optional = false)
+    @JoinColumn(name = "worker_id")
     private Worker worker;
 
     @NotBlank(message = "A service is required")
     @ManyToOne(optional = false)
+    @JoinColumn(name = "service_id")
     private ScheduleService service;
 
     @NotBlank(message  = "An availability is required")
