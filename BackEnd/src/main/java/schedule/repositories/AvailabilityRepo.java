@@ -1,6 +1,6 @@
 package schedule.repositories;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.*;
 import schedule.model.service.*;
 
 

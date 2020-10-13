@@ -1,11 +1,10 @@
 package schedule.repositories;
 
-import org.springframework.data.jpa.repository.Query;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.*;
+import org.springframework.data.repository.*;
 import org.springframework.stereotype.Repository;
-import schedule.model.User;
-
-import java.util.ArrayList;
+import schedule.model.*;
+import java.util.*;
 
 @Repository
 public interface UserRepo extends CrudRepository<User, Long >

@@ -1,20 +1,10 @@
 package schedule.model.service;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-import java.util.TimeZone;
-
+import java.util.*;
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
-
-import org.hibernate.validator.constraints.Range;
-import org.springframework.context.annotation.Bean;
-import org.springframework.stereotype.Component;
-
-import schedule.model.Worker;
+import javax.validation.constraints.*;
+import org.hibernate.validator.constraints.*;
+import schedule.model.*;
 
 @Entity(name = "availability")
 public class TimeAvailability {

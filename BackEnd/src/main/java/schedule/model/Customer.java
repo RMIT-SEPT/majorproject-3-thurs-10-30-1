@@ -1,9 +1,8 @@
 package schedule.model;
 
-import java.util.List;
-
+import java.util.*;
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
+import javax.validation.constraints.*;
 
 @Entity
 public class Customer

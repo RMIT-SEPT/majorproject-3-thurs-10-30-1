@@ -1,17 +1,14 @@
 package schedule.web;
 
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.validation.BindingResult;
+import org.springframework.beans.factory.annotation.*;
+import org.springframework.http.*;
+import org.springframework.validation.*;
 import org.springframework.web.bind.annotation.*;
-import schedule.microservice.UserMicro;
-import schedule.model.User;
-
-import java.util.Map;
-
-import javax.validation.Valid;
+import schedule.microservice.*;
+import schedule.model.*;
+import java.util.*;
+import javax.validation.*;
 
 @RestController
 @RequestMapping("/api/user")

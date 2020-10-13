@@ -1,11 +1,9 @@
 package schedule.model;
 
-import java.util.List;
-
+import java.util.*;
 import javax.persistence.*;
-import javax.validation.constraints.NotNull;
-
-import schedule.model.service.ScheduleService;
+import javax.validation.constraints.*;
+import schedule.model.service.*;
 
 @Entity
 public class Worker

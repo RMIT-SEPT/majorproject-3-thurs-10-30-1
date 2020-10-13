@@ -1,10 +1,9 @@
 package schedule.repositories;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.repository.*;
 import org.springframework.stereotype.Repository;
 import schedule.model.service.*;
-
-import java.util.ArrayList;
+import java.util.*;
 
 @Repository
 public interface ServiceRepo extends CrudRepository<ScheduleService, Long>

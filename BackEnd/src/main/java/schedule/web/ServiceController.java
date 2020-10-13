@@ -1,84 +1,63 @@
 package schedule.web;
 
-import java.util.Calendar;
-import java.util.Date;
-import java.util.List;
-import java.util.TimeZone;
-
-import javax.validation.Valid;
-
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.ObjectError;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import schedule.microservice.BookingMicro;
-import schedule.microservice.ServiceMicro;
-import schedule.model.Booking;
-import schedule.model.service.BookingRequest;
-import schedule.model.service.ScheduleService;
-import schedule.model.service.TimeAvailability;
+import java.util.*;
+import javax.validation.*;
+import org.springframework.beans.factory.annotation.*;
+import org.springframework.http.*;
+import org.springframework.validation.*;
+import org.springframework.web.bind.annotation.*;
+import schedule.microservice.*;
+import schedule.model.*;
+import schedule.model.service.*;
 
 @RestController
 @RequestMapping("/api/service")
 @CrossOrigin(origins = "http://localhost:3000")
 public class ServiceController {
-    
+
     @Autowired
     private ServiceMicro serviceMicro;
     @Autowired
     private BookingMicro bookingMicro;
+    @Autowired
+    private WorkerMicro workerMicro;
+    @Autowired
+    private CustomerMicro customerMicro;
 
     @PostMapping("")
-    public ResponseEntity<?> createNewService(@Valid @RequestBody ScheduleService service, BindingResult result)
-    {
+    public ResponseEntity<?> createNewService(@Valid @RequestBody ScheduleService service, BindingResult result) {
         if (result.hasErrors()) {
             return new ResponseEntity<>("Invalud Schedule Object", HttpStatus.BAD_REQUEST);
-        }        
-        serviceMicro.saveOrUpdate( service);
-        return new ResponseEntity<>(service,HttpStatus.CREATED);
+        }
+        serviceMicro.saveOrUpdate(service);
+        return new ResponseEntity<>(service, HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<?> getServiceById(@PathVariable long id)
-    {
+    public ResponseEntity<?> getServiceById(@PathVariable long id) {
         ScheduleService service = serviceMicro.getServiceById(id);
-        return service != null ? new ResponseEntity<>(service, HttpStatus.FOUND) :
-            new ResponseEntity<>("Service not found", HttpStatus.BAD_REQUEST);
+        return service != null ? new ResponseEntity<>(service, HttpStatus.FOUND)
+                : new ResponseEntity<>("Service not found", HttpStatus.BAD_REQUEST);
     }
 
-
     @PostMapping("/{id}/availability")
-    public ResponseEntity<?> createNewAvailability(@Valid @RequestBody TimeAvailability availability, BindingResult result, @PathVariable long id)
-    {
-        if (result.hasErrors())
-        {
+    public ResponseEntity<?> createNewAvailability(@Valid @RequestBody TimeAvailability availability,
+            BindingResult result, @PathVariable long id) {
+        if (result.hasErrors()) {
             String err = "";
-            for (ObjectError error : result.getAllErrors())
-            {
+            for (ObjectError error : result.getAllErrors()) {
                 err += error.getDefaultMessage();
             }
             return new ResponseEntity<>("Invalid Availability Object\n" + err, HttpStatus.BAD_REQUEST);
         }
 
         ScheduleService service = serviceMicro.getServiceById(id);
-        if (service == null)
-        {
+        if (service == null) {
             return new ResponseEntity<>("Service not found", HttpStatus.BAD_REQUEST);
-        }
-        else
-        {
+        } else {
             service.getAvailablities().add(availability);
             serviceMicro.saveOrUpdate(service);
-            return new ResponseEntity<>(availability,HttpStatus.CREATED);
+            return new ResponseEntity<>(availability, HttpStatus.CREATED);
         }
     }
 
@@ -136,14 +115,24 @@ public class ServiceController {
             }
         }
         
+        //insert booking
+        Booking newBooking = new Booking((long)0,
+                                        customerMicro.getCustomerById(booking.getCustomerId()),
+                                        workerMicro.getWorkerById(foundAvailability.getWorkedId()),
+                                        service,
+                                        booking.getDate(),
+                                        "booked",
+                                        foundAvailability);
+
+        bookingMicro.saveOrUpdate(newBooking);        
+
         return new ResponseEntity<>("Booking made!", HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}/availabilities")
-    public ResponseEntity<?> getAvailabilities(@PathVariable long id)
-    {
+    public ResponseEntity<?> getAvailabilities(@PathVariable long id) {
         List<TimeAvailability> availabilities = serviceMicro.getAllAvailabilities(id);
-        return availabilities != null ? new ResponseEntity<>(availabilities, HttpStatus.FOUND) :
-            new ResponseEntity<>("Service not found", HttpStatus.BAD_REQUEST);
+        return availabilities != null ? new ResponseEntity<>(availabilities, HttpStatus.FOUND)
+                : new ResponseEntity<>("Service not found", HttpStatus.BAD_REQUEST);
     }
 }

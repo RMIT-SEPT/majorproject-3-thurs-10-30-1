@@ -1,14 +1,10 @@
 package schedule.model;
 
-import java.util.Date;
-
+import java.util.*;
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
-
-import schedule.model.service.ScheduleService;
-import schedule.model.service.TimeAvailability;
+import javax.validation.constraints.*;
+import com.fasterxml.jackson.annotation.*;
+import schedule.model.service.*;
 
 @Entity
 public class Booking
@@ -82,6 +78,8 @@ public class Booking
     public Date getStart_time() {
         return start_time;
     }
+
+
 
     public String getStatus() {
         return status;

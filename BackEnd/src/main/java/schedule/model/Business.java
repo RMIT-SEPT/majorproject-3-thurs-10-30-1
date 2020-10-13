@@ -1,13 +1,10 @@
 package schedule.model;
 
-import java.util.List;
+import java.util.*;
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
-import javax.validation.constraints.NotNull;
-
-import schedule.model.service.ScheduleService;
-import utitlity.JsonHelper;
+import javax.validation.constraints.*;
+import schedule.model.service.*;
+import utitlity.*;
 
 @Entity(name = "business")
 public class Business {
@@ -60,7 +57,7 @@ public class Business {
     public List<Worker> getWorkers() {
         return workers;
     }
-
+    //TODO: REMOVE
     public void toJson(StringBuilder builder) {
         JsonHelper.startScope(builder); 
         JsonHelper.addField("id", getId(), builder);

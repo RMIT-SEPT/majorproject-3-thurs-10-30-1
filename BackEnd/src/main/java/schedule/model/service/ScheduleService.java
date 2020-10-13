@@ -1,11 +1,9 @@
 package schedule.model.service;
 
-import java.util.List;
-
+import java.util.*;
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
-
-import schedule.model.Worker;
+import javax.validation.constraints.*;
+import schedule.model.*;
 
 @Entity(name = "schedule_service")
 @Table(name = "SERVICES")

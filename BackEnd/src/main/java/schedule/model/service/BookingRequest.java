@@ -1,14 +1,8 @@
 package schedule.model.service;
 
-import java.util.Date;
-
-import javax.persistence.Entity;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-
-import com.fasterxml.jackson.annotation.JsonFormat;
-
-import org.hibernate.cfg.annotations.IdBagBinder;
+import java.util.*;
+import javax.validation.constraints.*;
+import com.fasterxml.jackson.annotation.*;
 
 public class BookingRequest {
 
@@ -17,18 +11,25 @@ public class BookingRequest {
     @NotNull(message = "the field (\"date\" : yyyy-mm-dd HH:mm) is required")
     @JsonFormat(pattern ="yyyy-mm-dd HH:mm")
     private Date date;
-    
+    @NotNull(message = "the field (\"customerId\" : long) is required")
+    private Long customerId; 
 
     public BookingRequest() {}
-    public BookingRequest(Long id, Date date)
+    public BookingRequest(Long id, Date date, Long customerId)
     {
         this.date = date;
         this.id = id;
+        this.customerId = customerId;
     }
     
     public Long getId()
     {
         return id;
+    }
+
+    public Long getCustomerId()
+    {
+        return customerId;
     }
 
     public Date getDate()

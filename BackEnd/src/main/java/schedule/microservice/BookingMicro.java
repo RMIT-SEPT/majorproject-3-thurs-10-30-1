@@ -1,11 +1,10 @@
 package schedule.microservice;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import schedule.model.Booking;
-import schedule.repositories.BookingRepo;
-
-import java.util.ArrayList;
+import org.springframework.beans.factory.annotation.*;
+import org.springframework.stereotype.*;
+import schedule.model.*;
+import schedule.repositories.*;
+import java.util.*;
 
 
 @Service
