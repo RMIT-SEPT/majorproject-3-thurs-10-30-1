@@ -3,7 +3,6 @@ package schedule.model;
 import java.util.*;
 import javax.persistence.*;
 import javax.validation.constraints.*;
-import schedule.model.*;
 
 @Entity(name = "schedule_service")
 @Table(name = "SERVICES")
