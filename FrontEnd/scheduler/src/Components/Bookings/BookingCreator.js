@@ -181,64 +181,55 @@ class BookingCreator extends Component
                     return <option key={avail.id} value={index}> Day: {avail.day} Hour: {avail.hour}:{avail.minute} </option>
                 return
 
+
+    return (
+        <div className = "bookingCreator">
+            <h2 className="bookingListHeader">Book a New Service</h2>
+        <center>
+            <h3 className="bookingCreatorDropdowns" > Business </h3>
+            {biz
+                ? <select name="currentId" value={this.state.currentId} onChange={this.onChangeNumber}>
+                    <option value="-1" >Select a business </option>
+                    {realBiz}
+                </select>
+                :
+                <p></p>
             }
         )
         }
 
+            <h3 className="bookingCreatorDropdowns"> Service </h3>
+            {serv
+                ? <select name="currentServiceId" value={this.state.currentServiceId} onChange={this.onChangeNumber}>
+                    <option value="-1" > Please Select A Service:</option>
+                    {realServ} </select>
 
-        return (
-            <div className = "bookingCreator">
-                <h2 className="bookingListHeader">Book a New Service</h2>
+                : <select>
+                    <option value="-1" > Please Select A Service:</option>
+                </select>
+            }
 
-                {biz
-                    ? <select name="currentId" value={this.state.currentId} onChange={this.onChangeNumber}>
-                        <option value="-1" >Select a business </option>
-                        {businessList}
-                    </select>
+            <h3 className="bookingCreatorDropdowns" > Worker </h3>
+            {work
+                ? <select name="currentWorkerId" value={this.state.currentWorkerId} onChange={this.onChangeNumber}>
+                    <option value="-1" > Please Select A Worker:</option>
+                    {realWork} </select>
 
-                    : <p></p>
-                }
+                : <select>
+                    <option value="-1" > Please Select A Worker:</option>
+                </select>
+            }
+            <h3 className="bookingCreatorDropdowns" > Availabilities </h3>
+            <select>
+                <option>Availabilities</option>
+            </select>
+            <br/>
 
-                <br/>
-                {serv
-                    ? <select name="currentServiceId" value={this.state.currentServiceId} onChange={this.onChangeNumber}>
-                        <option value="-1" > Please Select A Service:</option>
-                        {servList} </select>
+            <Button className="BookButton" onClick={this.onclick}> Book</Button>
+        </center>
+        </div>
 
-                    : <select>
-                        <option value="-1" > Please Select A Service:</option>
-                    </select>
-                }
-                <br/>
-                {work
-                    ? <select name="currentWorkerId" value={this.state.currentWorkerId} onChange={this.onChangeNumber}>
-                        <option value="-1" > Please Select A Worker:</option>
-                        {workerList} </select>
-
-                    : <select>
-                        <option value="-1" > Please Select A Worker:</option>
-                    </select>
-                }
-                <br/>
-                {avail
-                    ? <select name="currentAvail" value={this.state.currentAvail} onChange={this.onChangeNumber}>
-                        <option value="-1" > Please Select an avail:</option>
-                        {availList} </select>
-
-                    : <select>
-                        <option value="-1" > Please Select an avail:</option>
-                    </select>
-                }
-                <br/>
-
-                {this.state.canSubmit
-                    ?
-                    <Button onClick={this.onClick}> Book</Button>
-                    : <Button disabled> Book</Button>
-                }
-            </div>
-        )
-    }
+    )
 
 }
 

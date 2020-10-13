@@ -203,7 +203,7 @@ html, body, #root, .App {
     font-weight: bold;
     text-align: center;
     color: #000000;
-    padding-bottom: 3%;
+    padding-bottom: 1%;
 }
 
 
@@ -226,13 +226,13 @@ html, body, #root, .App {
 /* Worker Dashboard*/
 .WorkerbookingList
 {
-  width: 55%;
-  float: left;
-  height: 650px;
-  outline-style: solid;
-  margin-left: 23%;
-  margin-top:2%;
-  background-color: white;
+    width: 55%;
+    float: left;
+    height: 650px;
+    outline-style: solid;
+    margin-left: 23%;
+    margin-top:1%;
+    background-color: white;
 }
 
 /* Registration Page */
@@ -331,5 +331,83 @@ margin-top:20%;
     height: 100%;
     position: relative;
 }
+/* Dashboard Booking Creator Page*/
+.bookingCreatorDropdowns
+{
+    font-size: 25px;
+    font-weight: bold;
+    margin-top:1%;
+}
+
+/* Dashboard Booking Creator Page*/
+.BookButton
+{
+    margin-top:2%;
+}
+/* Admin Dashboard View Workers Page*/
+.AdminViewDashboard
+{
+    width: 55%;
+    float: left;
+    height: 650px;
+    outline-style: solid;
+    margin-left: 23%;
+    margin-top:1%;
+    background-color: white;
+
+
+}
+/* Admin Dashboard View Workers Page*/
+.adminViewWorker {
+    width: 70mm;
+    height: 28mm;
+    margin-left: 7.5mm;
+    margin-bottom: 6%;
+    outline-style: solid;
+    background-color: #F2F2F2;
+    line-height: 35px;
+}
+
+/* Admin Dashboard View Worker */
+.viewAllWorkersGrid
+{
+    display: grid;
+    grid-template-columns: 300px 300px 300px ;
+    grid-row-gap: 5px
+}
+/* Admin Dashboard View Worker */
+.adminDashboardText
+{
+    margin-left: 7.5mm;
+    margin-top: 3mm;
+    font-size: medium;
+    font-weight: bold;
+}
+
+/* Admin Dashboard View Services Page*/
+.adminViewServices {
+    width: 100mm;
+    height: 30mm;
+    margin-left: 12mm;
+    margin-bottom: 6%;
+    outline-style: solid;
+    background-color: #F2F2F2;
+    line-height: 35px;
+}
+/* Admin Dashboard View Service */
+.viewAllServicesGrid
+{
+    display: grid;
+    grid-template-columns: 450px 450px;
+    grid-row-gap: 1px;
+    grid-column-gap: 1px;
+}
+
+
+
+
+
+
+
 
 
