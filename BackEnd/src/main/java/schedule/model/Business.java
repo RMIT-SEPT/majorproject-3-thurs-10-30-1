@@ -3,8 +3,6 @@ package schedule.model;
 import java.util.*;
 import javax.persistence.*;
 import javax.validation.constraints.*;
-import schedule.model.*;
-import utitlity.*;
 
 @Entity(name = "business")
 public class Business {
@@ -56,54 +54,5 @@ public class Business {
 
     public List<Worker> getWorkers() {
         return workers;
-    }
-    //TODO: REMOVE
-    public void toJson(StringBuilder builder) {
-        JsonHelper.startScope(builder); 
-        JsonHelper.addField("id", getId(), builder);
-        JsonHelper.addComma(builder);
-        JsonHelper.addField("name", getName(), builder);
-        JsonHelper.addComma(builder);
-        JsonHelper.startArray("services", builder);
-        int i = 0;
-        for (ScheduleService service : getServices()) {
-            i++;
-            if (i < getServices().size()) {
-                builder.append(service.getId() + ",");
-            } else {
-                builder.append(service.getId());
-            }
-        }
-        JsonHelper.endArray(builder); //end services array
-        JsonHelper.addComma(builder);
-        i = 0;
-        JsonHelper.startArray("workers", builder);
-        for (Worker worker : getWorkers()) {
-            i++;
-             if (i < getWorkers().size()) {
-                builder.append(worker.getId() + ",");
-            } else {
-                builder.append(worker.getId());
-            }
-        }
-        JsonHelper.endArray(builder); //end workers
-        JsonHelper.addComma(builder);
-        builder.append("],");
-        i = 0;
-        builder.append("\"admins\":[");
-        for (Admin admin : getAdmins())
-        {
-            i++;
-            if (i < getAdmins().size()) {
-                builder.append(admin.getId() + ",");
-            }
-            else
-            {
-                builder.append(admin.getId());
-            }
-        }
-        JsonHelper.endArray(builder);
-        JsonHelper.endScope(builder);
-
     }
 }

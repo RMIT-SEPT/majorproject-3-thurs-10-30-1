@@ -33,21 +33,8 @@ public class BusinessController {
     }
 
     @GetMapping(value = "/all", produces = MediaType.APPLICATION_JSON_VALUE)
-    public String getBusinessById() {
-        StringBuilder builder = new StringBuilder();
-        int j = 0;
-        builder.append("[");
-        for (Business business : businessMicro.getAllBusinesses()) {
-            j++;
-            business.toJson(builder); 
-            if (j < businessMicro.getAllBusinesses().size())
-            {
-                builder.append(",\n");
-            }
-        }
-        builder.append("]");
-
-        return builder.toString();
+    public List<Business> getAllBusinesses() {
+       return businessMicro.getAllBusinesses();
     }   
 
     @GetMapping(value = "/{id}/services")
