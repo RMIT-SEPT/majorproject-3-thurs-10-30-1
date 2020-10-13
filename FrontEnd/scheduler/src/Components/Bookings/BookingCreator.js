@@ -147,7 +147,6 @@ class BookingCreator extends Component
         }
 
         let servList;
-
         const serv = this.state.services;
         if(serv)
         {
@@ -157,7 +156,6 @@ class BookingCreator extends Component
         }
 
         let workerList;
-
         const work = this.state.workerList;
         if(work)
         {
@@ -192,7 +190,6 @@ class BookingCreator extends Component
 
                     : <p></p>
                 }
-
                 <br/>
                 {serv
                     ? <select name="currentServiceId" value={this.state.currentServiceId} onChange={this.onChangeNumber}>
@@ -225,7 +222,8 @@ class BookingCreator extends Component
                 }
                 <br/>
 
-                {this.state.canSubmit
+                {
+                    this.state.canSubmit
                     ?
                     <Button onClick={this.onClick}> Book</Button>
                     : <Button disabled> Book</Button>

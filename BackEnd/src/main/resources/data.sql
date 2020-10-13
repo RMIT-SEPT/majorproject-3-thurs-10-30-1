@@ -93,6 +93,9 @@ INSERT INTO AVAILABILITY(day_of_week,hour,minute,worker_id,service_id, length) V
 (4,16,0,3,3,15),
 (4,16,15,3,3,15),
 (5,17,0,3,3,15);
+
+INSERT INTO BOOKING(ID,END_TIME,START_TIME,STATUS,AVAILABILITY_SLOT_ID,CUSTOMER_CUSTOMER_ID,SERVICE_SERVICE_ID,WORKER_WORKER_ID) VALUES
+(1,"2020-12-12@9:30","2020-12-12@9:00","PENDING",1,4,1,2);
 -- make services
 -- make businseses with those services
 -- make users
