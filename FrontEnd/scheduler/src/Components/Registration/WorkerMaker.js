@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import Form from "react-bootstrap/Form";
 import {workerRegister} from "../../actions/auth";
 import {connect} from 'react-redux'
-import {addBusinessToWorker, getAdmin} from "../../actions/userActions";
+import {getAdmin} from "../../actions/userActions";
 import CustomCheckbox from "../Generics/CustomCheckbox";
 
 export class WorkerMaker extends Component
@@ -38,7 +38,6 @@ export class WorkerMaker extends Component
             {
             this.selectedOptions.add(key);
         }
-        console.log(this.selectedOptions);
     }
 
     componentDidMount()

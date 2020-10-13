@@ -6,6 +6,7 @@ import {
 } from "../../actions/BusinessActions";
 import {Button} from "react-bootstrap";
 import {connect} from 'react-redux'
+import {createDate} from "../../utils/dateUtils";
 
 
 class BookingCreator extends Component
@@ -24,12 +25,13 @@ class BookingCreator extends Component
                 currentServiceId:-1,
                 currentWorkerId:-1,
                 currentAvail:-1,
-                canSubmit:false
+                canSubmit:false,
+                successful:false,
+                message:"",
             }
 
         this.onChangeNumber=this.onChangeNumber.bind(this);
         this.onClick=this.onClick.bind(this);
-
     }
 
     componentDidMount() {
@@ -44,7 +46,6 @@ class BookingCreator extends Component
     componentDidUpdate(prevProps, prevState, snapshot)
     {
         if (prevState.currentId !== this.state.currentId) {
-            console.log("there was a change of Business: " + this.state.currentId);
             getServiceByBusiness(this.state.currentId).then(response => {
                 this.setState({
                     services: response.data,
@@ -58,9 +59,8 @@ class BookingCreator extends Component
             })
 
         }
-        if (prevState.currentServiceId !== this.state.currentServiceId) {
 
-            console.log("there was a change of service: " + this.state.currentServiceId);
+        if (prevState.currentServiceId !== this.state.currentServiceId) {
             if(this.state.currentServiceId>=0)
             {
                 this.setState({
@@ -74,7 +74,6 @@ class BookingCreator extends Component
         }
 
         if (prevState.currentWorkerId !== this.state.currentWorkerId) {
-            console.log("there was a change of Worker to: " + this.state.currentWorkerId);
             if(this.state.currentWorkerId>=0)
             {
                 this.setState({
@@ -85,7 +84,6 @@ class BookingCreator extends Component
             }
         }
         if (prevState.currentAvail !== this.state.currentAvail) {
-            console.log("CHANGE OF AVAIL");
             if (this.state.currentAvail >= 0) {
                 this.setState({
                     canSubmit: true
@@ -99,44 +97,43 @@ class BookingCreator extends Component
         this.setState({[e.target.name]: parseInt(e.target.value)});
     }
 
-    //errorcheck things are Not NUll
+
     onClick = (e) =>
     {
         e.preventDefault();
-        //availability, customer, worker, service, startTime, endTime, status
-        const booking =
-            {
-                availabilitySlot: this.state.availList[this.state.currentAvail].id,
-                customer: this.props.user.userId,
-                worker: this.state.workerList[this.state.currentWorkerId].id,
-                service: this.state.services[this.state.currentServiceId].id,
-                start_time:this.state.availList[this.state.currentAvail].hour,
-                end_time:0,
-                status:"Booked",
-            }
-
-            //made up of the id of the avail the selected and the date they selected,
-            // date currently hardcoded, should be based off the avail
+        const currentAvail = this.state.availList[this.state.currentAvail];
+        const myDate = createDate(currentAvail.hour,currentAvail.minute);
+        console.log(myDate);
         const bookingRequest =
-            {
-                id: this.state.availList[this.state.currentAvail].id,
-                date: "2020-12-12 09:00"
-            }
-            //id of selected service
-        console.log("LOGGING SERVICES:")
-        console.log(this.state.services);
-        console.log(this.state.services[this.state.currentServiceId]);
+        {
+            id: currentAvail.id,
+            date: myDate,
+        }
+
         const serviceId = this.state.services[this.state.currentServiceId].id;
-
-        console.log("ABOUT TO MAKE A BOOKINGREQUEST USING:");
-        console.log(bookingRequest);
         tryCreateBooking(bookingRequest,serviceId).then
-        ((response)=> {
+        ((response)=>
+        {
+            if(response.data==="Booking made!")
+            {
                 console.log(response.data);
-            })
+                this.setState(
+                    {
+                        message: "Booking Success!",
+                        successful: true,
+                    })
+            }
+            else
+            {
+                this.setState(
+                    {
+                        message: "Booking Failure!",
+                        successful: false,
+                    })
+            }
+        })
+
     }
-
-
 
     render()
     {
@@ -177,7 +174,6 @@ class BookingCreator extends Component
             availList =  avail.map((avail,index) => {
                 if(avail.workedId===actualWorker)
                     return <option key={avail.id} value={index}> Day: {avail.day} Hour: {avail.hour}:{avail.minute} </option>
-                return
 
             }
         )
@@ -234,6 +230,15 @@ class BookingCreator extends Component
                     <Button onClick={this.onClick}> Book</Button>
                     : <Button disabled> Book</Button>
                 }
+
+                {this.state.message && (
+                    <div className="form-group">
+                        <div className={ this.state.successful ? "alert alert-success" : "alert alert-danger" } role="alert">
+                            {this.state.message}
+                        </div>
+                    </div>
+                )}
+
             </div>
         )
     }
