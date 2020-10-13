@@ -15,20 +15,24 @@ public class Booking
     @NotBlank(message = "A customer is required")
     @ManyToOne(optional = false)
     @JoinColumn(name = "customer_id")
+    @JsonIgnore
     private Customer customer;
 
     @NotBlank(message = "A Worker is required")
     @ManyToOne(optional = false)
     @JoinColumn(name = "worker_id")
+    @JsonIgnore
     private Worker worker;
 
     @NotBlank(message = "A service is required")
     @ManyToOne(optional = false)
     @JoinColumn(name = "service_id")
+    @JsonIgnore
     private ScheduleService service;
 
     @NotBlank(message  = "An availability is required")
     @OneToOne()
+    @JsonIgnore
     private TimeAvailability availabilitySlot;
 
     @NotBlank(message = "A start time is required")
@@ -61,27 +65,49 @@ public class Booking
     public TimeAvailability getAvailability() {
         return availabilitySlot;
     }
+
+    @JsonProperty(value = "availability")
+    public Long getAvailabilityId() {
+        return availabilitySlot.getId();
+    }
+
     public Long getId() {
         return id;
     }
 
+    @JsonIgnore
 	public Customer getCustomer() {
 		return customer;
-	}
+    }
+    
+    @JsonProperty(value = "customer")
+    public Long getCustomerId() {
+        return customer.getId();
+    }
 
+    @JsonIgnore
     public Worker getWorker() {
         return worker;
     }
 
+    @JsonProperty(value = "worker")
+    public Long getWorkerId() {
+        return customer.getId();
+    }
+
+    @JsonIgnore
     public ScheduleService getService() {
         return service;
+    }
+
+    @JsonProperty(value = "service")
+    public Long getServiceId() {
+        return service.getId();
     }
 
     public Date getStart_time() {
         return start_time;
     }
-
-
 
     public String getStatus() {
         return status;

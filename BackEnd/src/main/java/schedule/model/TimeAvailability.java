@@ -3,6 +3,7 @@ package schedule.model;
 import java.util.*;
 import javax.persistence.*;
 import javax.validation.constraints.*;
+import com.fasterxml.jackson.annotation.*; 
 import org.hibernate.validator.constraints.*;
 
 @Entity(name = "availability")
@@ -12,6 +13,7 @@ public class TimeAvailability {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @JsonIgnore
     @NotNull
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "WORKER_ID")
@@ -27,11 +29,11 @@ public class TimeAvailability {
     private int length;
 
     public Long getId() {
-
         return id;
     }
 
-    public Long getWorkedId() {
+    @JsonProperty(value = "worker")
+    public Long getWorkerId() {
         return worker.getId();
     }
 
@@ -70,5 +72,11 @@ public class TimeAvailability {
     public int getMinute()
     {
         return minute;
+    }
+
+    @JsonIgnore
+    public Worker getWorker()
+    {
+        return worker;
     }
 }

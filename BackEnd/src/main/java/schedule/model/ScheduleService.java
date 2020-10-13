@@ -4,6 +4,9 @@ import java.util.*;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @Entity(name = "schedule_service")
 @Table(name = "SERVICES")
 public class ScheduleService
@@ -19,10 +22,12 @@ public class ScheduleService
     private String description;
 
     @OneToMany(mappedBy = "", cascade = CascadeType.ALL)
-    @JoinColumn(name = "service_id")
+    @JoinColumn(name = "service_id") 
+    @JsonIgnore
     private List<TimeAvailability> availability;
 
     @ManyToMany(mappedBy = "services")
+    @JsonIgnore
     private List<Worker> workers;
 
     public ScheduleService() {}
@@ -50,14 +55,33 @@ public class ScheduleService
         return description;
     }
 
-
+    @JsonIgnore
     public List<TimeAvailability> getAvailablities()
     {
         return availability;
     }
 
-    public List<Worker> getWorkers()
+    @JsonProperty("availabilities")
+    public List<Long> getAvailabilitiesId()
     {
-        return workers;
+        ArrayList<Long> ids = new ArrayList<>(availability.size());
+        for (TimeAvailability timeAvailability : availability)
+        {
+            ids.add(timeAvailability.getId());    
+        }
+
+        return ids;
+    }
+
+    @JsonProperty("workers")
+    public List<Long> getWorkers()
+    {
+        ArrayList<Long> ids = new ArrayList<>(workers.size());
+        for (Worker worker : workers)
+        {
+            ids.add(worker.getId());
+        } 
+
+        return ids;
     }
 }
