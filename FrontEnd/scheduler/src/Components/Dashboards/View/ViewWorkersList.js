@@ -20,11 +20,13 @@ export class ViewWorkersList extends Component {
             .then(response => {
                 console.log(response.data)
                     this.setState({
-                        workers: response.data.business.workers
+                        workers: response.data.business.workers,
+
                 });
                 console.log(this.state.workers)
             })
     }
+
 
     render() {
 
@@ -35,12 +37,16 @@ export class ViewWorkersList extends Component {
        if(work)
         {
             listWorkers =  work.map((worker,index) => (
-                <h4 className="adminView" key={worker.id} value={index}>
-                   Name: {worker.user.name}
-                   <br/>
-                   Email: {worker.user.email}
-                   <br/>
-                   Contact Number: {worker.user.contactNumber}
+                <h4 className="adminViewWorker" key={worker.id} value={index}>
+                    <h4 className="adminDashboardText">
+                            Name: {worker.user.name}
+                            <br/>
+                            Email: {worker.user.email}
+                            <br/>
+                           Contact Number: {worker.user.contactNumber}
+                           <br/>
+                           Service: {worker.user.services}
+                    </h4>
                 </h4>
             ))
         }
@@ -48,9 +54,9 @@ export class ViewWorkersList extends Component {
         return (
             <div className= "AdminViewDashboard">
 
-                <h2 className="pageHeader"> List of Staff</h2>
+                <h2 className="pageHeader"> All Staff Members</h2>
 
-                 <div className = "grid">
+                 <div className = "viewAllWorkersGrid">
                      {listWorkers}
                  </div>
 

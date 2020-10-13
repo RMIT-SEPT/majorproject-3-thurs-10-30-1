@@ -2,6 +2,7 @@ import React, {Component} from "react";
 
 import {getAdmin} from "../../../actions/userActions";
 import {connect} from "react-redux";
+import CustomCheckbox from "../../Generics/CustomCheckbox";
 
 export class ViewServicesList extends Component {
 
@@ -9,49 +10,60 @@ export class ViewServicesList extends Component {
         super(props);
         this.state =
             {
-                workers: undefined,
+                name: "",
+                username: "",
+                contactNumber: 0,
+                email: "",
+                password: "",
+
+                successful: true,
+                services: undefined,
+                businessID: 0,
             };
     }
 
     componentDidMount()
     {
+        this.selectedOptions = new Set();
         const id = this.props.user.userId;
         getAdmin(id)
             .then(response => {
-                console.log(response.data)
                 this.setState({
-                    workers: response.data.business.workers
+                    services: response.data.business.services,
+                    businessID: response.data.business.id,
+                    test: response.data.business.description
                 });
-                console.log(this.state.workers)
             })
     }
 
     render() {
 
-        let listWorkers;
-        const work = this.state.workers;
-        console.log(work);
-
-        if(work)
+        const { message } = this.props;
+        let realServ;
+        const serv = this.state.services;
+        if(serv)
         {
-            listWorkers =  work.map((worker,index) => (
-                <h4 className="adminView" key={worker.id} value={index}>
-                    Name: {worker.user.name}
+            realServ = serv.map((service) => (
+            <h4 className="adminViewServices" key={service.id}>
+                <h4 className="adminDashboardText">
+                    Service ID: {service.id}
                     <br/>
-                    Email: {worker.user.email}
+                    Service: {service.name}
                     <br/>
-                    Contact Number: {worker.user.contactNumber}
+                    Description:  {service.description}
+                    <br/>
                 </h4>
+            </h4>
             ))
         }
 
         return (
             <div className= "AdminViewDashboard">
 
-                <h2 className="pageHeader"> List of Staff</h2>
+                <h2 className="pageHeader"> All Services</h2>
 
-                <div className = "grid">
-                    {listWorkers}
+                <div className = "viewAllServicesGrid">
+                    {realServ}
                 </div>
 
             </div>

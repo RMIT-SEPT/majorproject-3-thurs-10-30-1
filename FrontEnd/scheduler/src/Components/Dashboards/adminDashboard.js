@@ -41,15 +41,15 @@ export class adminDashboard extends Component {
                 <h2 className = "DashboardWelcome"> {this.state.businessName}</h2>
 
                 <Tabs defaultActiveKey="viewBookings" id="uncontrolled-tab-example">
-                    <Tab eventKey="viewBookings" title="View Bookings">
+                    <Tab eventKey="viewBookings" title="All Bookings">
                         <WorkerBookingList bookings={bookings} title={title}/>
                     </Tab>
 
-                    <Tab eventKey="viewWorkers" title="View Workers" >
+                    <Tab eventKey="viewWorkers" title="All Workers" >
                         <ViewWorkerList />
                     </Tab>
 
-                    <Tab eventKey="viewServices" title="viewServices" >
+                    <Tab eventKey="viewServices" title="All Services" >
                         <ViewServicesList/>
                     </Tab>
                 </Tabs>

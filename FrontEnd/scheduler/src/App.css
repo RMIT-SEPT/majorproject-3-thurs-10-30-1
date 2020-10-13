@@ -358,10 +358,9 @@ margin-top:20%;
 
 }
 /* Admin Dashboard View Workers Page*/
-.adminView {
-    font-size: medium;
+.adminViewWorker {
     width: 70mm;
-    height: 40mm;
+    height: 28mm;
     margin-left: 7.5mm;
     margin-bottom: 6%;
     outline-style: solid;
@@ -369,12 +368,46 @@ margin-top:20%;
     line-height: 35px;
 }
 
-.grid
+/* Admin Dashboard View Worker */
+.viewAllWorkersGrid
 {
     display: grid;
     grid-template-columns: 300px 300px 300px ;
     grid-row-gap: 5px
-    
 }
+/* Admin Dashboard View Worker */
+.adminDashboardText
+{
+    margin-left: 7.5mm;
+    margin-top: 3mm;
+    font-size: medium;
+    font-weight: bold;
+}
+
+/* Admin Dashboard View Services Page*/
+.adminViewServices {
+    width: 100mm;
+    height: 30mm;
+    margin-left: 12mm;
+    margin-bottom: 6%;
+    outline-style: solid;
+    background-color: #F2F2F2;
+    line-height: 35px;
+}
+/* Admin Dashboard View Service */
+.viewAllServicesGrid
+{
+    display: grid;
+    grid-template-columns: 450px 450px;
+    grid-row-gap: 1px;
+    grid-column-gap: 1px;
+}
+
+
+
+
+
+
+
 
 
