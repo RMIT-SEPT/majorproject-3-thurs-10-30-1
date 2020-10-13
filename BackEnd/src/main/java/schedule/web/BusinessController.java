@@ -12,7 +12,7 @@ import schedule.model.*;
 
 @RestController
 @RequestMapping("/api/business")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin
 public class BusinessController {
 
     @Autowired

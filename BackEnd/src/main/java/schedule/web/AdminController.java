@@ -10,6 +10,7 @@ import javax.validation.*;
 
 @RestController
 @RequestMapping("/api/admin")
+@CrossOrigin
 public class AdminController {
 
     @Autowired

@@ -10,6 +10,7 @@ import javax.validation.*;
 
 @RestController
 @RequestMapping("/api/booking")
+@CrossOrigin
 public class BookingController
 {
     @Autowired

@@ -10,6 +10,7 @@ import javax.validation.*;
 
 @RestController
 @RequestMapping("/api/worker")
+@CrossOrigin
 public class WorkerController {
 
     @Autowired
