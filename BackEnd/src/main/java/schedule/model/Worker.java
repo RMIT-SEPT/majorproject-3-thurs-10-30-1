@@ -3,10 +3,11 @@ package schedule.model;
 import java.util.*;
 import javax.persistence.*;
 import javax.validation.constraints.*;
+import com.fasterxml.jackson.annotation.*;
+
 
 @Entity
-public class Worker
-{
+public class Worker {
     @Id
     private Long id;
 
@@ -16,17 +17,21 @@ public class Worker
     @NotNull(message = "A user account is required")
     private User user;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "worker")
     private List<Booking> bookings;
 
+    @JsonIgnore
     @ManyToMany
     @JoinColumn(name = "service_id")
     private List<ScheduleService> services;
 
+    @JsonIgnore
     @ManyToMany(mappedBy = "workers")
     private List<Business> businesses;
 
-    public Worker() {};
+    public Worker() {
+    };
 
     public Worker(Long id, @NotNull(message = "A user account is required") User user) {
         this.id = id;
@@ -49,17 +54,50 @@ public class Worker
         return user;
     }
 
+    @JsonIgnore
     public List<Booking> getBookings() {
         return bookings;
     }
 
+    @JsonProperty("bookings")
+    public List<Long> getBookingIds() {
+        // TODO: Cache this guy
+        ArrayList<Long> bookingIds = new ArrayList<>(bookings.size());
+        for (Booking booking : bookings) {
+            bookingIds.add(booking.getId());
+        }
+
+        return bookingIds;
+    }
+
+    @JsonIgnore
     public List<ScheduleService> getServices() {
         return services;
     }
 
+    @JsonProperty("services")
+    public List<Long> getServiceIds() {
+        ArrayList<Long> serviceIds = new ArrayList<>(services.size());
+        for (ScheduleService service : services) {
+            serviceIds.add(service.getId());
+        }
 
-    public List<Business> getBusinesses()
-    {
+        return serviceIds;
+    }
+
+    @JsonIgnore
+    public List<Business> getBusinesses() {
         return businesses;
+    }
+
+    @JsonProperty("businesses")
+    public List<Long> getBusinessIds() {
+        ArrayList<Long> businessIds = new ArrayList<>(businesses.size());
+
+        for (Business business : businesses) {
+            businessIds.add(business.getId());
+        }
+
+        return businessIds;
     }
 }

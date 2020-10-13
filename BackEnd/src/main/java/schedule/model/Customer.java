@@ -3,6 +3,7 @@ package schedule.model;
 import java.util.*;
 import javax.persistence.*;
 import javax.validation.constraints.*;
+import com.fasterxml.jackson.annotation.*;
 
 @Entity
 public class Customer
@@ -17,6 +18,7 @@ public class Customer
     private User user;
 
     @OneToMany(mappedBy = "customer")
+    @JsonIgnore
     private List<Booking> bookings;
 
     public Customer() {}
@@ -40,7 +42,18 @@ public class Customer
         return user;
     }
 
+    @JsonIgnore
     public List<Booking> getBookings() {
         return bookings;
+    }
+
+    @JsonProperty("bookings")
+    public List<Long> getBookingIds() {
+        ArrayList<Long> ids = new ArrayList<>(bookings.size());
+        for (Booking booking : bookings)
+        {
+            ids.add(booking.getId());
+        }
+        return ids;
     }
 }
