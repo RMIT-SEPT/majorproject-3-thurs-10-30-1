@@ -51,7 +51,7 @@ public class WorkerController {
     public ResponseEntity<?> getWorkerById(@PathVariable long id)
     {
         Worker worker = workerMicro.getWorkerById(id);
-        return worker != null ? new ResponseEntity<>(worker, HttpStatus.FOUND) : 
+        return worker != null ? new ResponseEntity<>(worker, HttpStatus.OK) : 
             new ResponseEntity<>("User not found", HttpStatus.BAD_REQUEST);
     }
 

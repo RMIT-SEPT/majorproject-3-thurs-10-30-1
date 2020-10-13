@@ -45,7 +45,10 @@ export class AGMEnav extends Component
 
                 {
                     accType==="Worker"
-                    ? <NavItem> <Link to="/workerHome"> Worker Home </Link></NavItem>
+                    ?<Nav>
+                        <NavItem> <Link to="/workerHome"> Worker Home </Link></NavItem>
+                            <NavItem> <Link to="/Availabilities"> Availabilities </Link></NavItem>
+                        </Nav>
                     : <p></p>
                 }
 

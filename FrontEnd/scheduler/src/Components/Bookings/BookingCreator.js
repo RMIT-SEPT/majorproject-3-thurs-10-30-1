@@ -1,13 +1,12 @@
 import React, {Component} from 'react';
 import {
     getAllBusiness,
-    getAvailByService,
     getServiceByBusiness,
-    newBooking,
     tryCreateBooking
 } from "../../actions/BusinessActions";
 import {Button} from "react-bootstrap";
 import {connect} from 'react-redux'
+import {createDate, numToDay} from "../../utils/dateUtils";
 
 
 class BookingCreator extends Component
@@ -26,12 +25,13 @@ class BookingCreator extends Component
                 currentServiceId:-1,
                 currentWorkerId:-1,
                 currentAvail:-1,
-                canSubmit:false
+                canSubmit:false,
+                successful:false,
+                message:"",
             }
 
         this.onChangeNumber=this.onChangeNumber.bind(this);
         this.onClick=this.onClick.bind(this);
-
     }
 
     componentDidMount() {
@@ -46,11 +46,9 @@ class BookingCreator extends Component
     componentDidUpdate(prevProps, prevState, snapshot)
     {
         if (prevState.currentId !== this.state.currentId) {
-            console.log("there was a change of Business: " + this.state.currentId);
             getServiceByBusiness(this.state.currentId).then(response => {
                 this.setState({
                     services: response.data,
-
                     workerList: undefined,
                     availList:undefined,
                     canSubmit:false,
@@ -60,9 +58,8 @@ class BookingCreator extends Component
             })
 
         }
-        if (prevState.currentServiceId !== this.state.currentServiceId) {
 
-            console.log("there was a change of service: " + this.state.currentServiceId);
+        if (prevState.currentServiceId !== this.state.currentServiceId) {
             if(this.state.currentServiceId>=0)
             {
                 this.setState({
@@ -76,7 +73,6 @@ class BookingCreator extends Component
         }
 
         if (prevState.currentWorkerId !== this.state.currentWorkerId) {
-            console.log("there was a change of Worker to: " + this.state.currentWorkerId);
             if(this.state.currentWorkerId>=0)
             {
                 this.setState({
@@ -86,8 +82,8 @@ class BookingCreator extends Component
                 });
             }
         }
+
         if (prevState.currentAvail !== this.state.currentAvail) {
-            console.log("CHANGE OF AVAIL");
             if (this.state.currentAvail >= 0) {
                 this.setState({
                     canSubmit: true
@@ -101,44 +97,43 @@ class BookingCreator extends Component
         this.setState({[e.target.name]: parseInt(e.target.value)});
     }
 
-    //errorcheck things are Not NUll
+
     onClick = (e) =>
     {
         e.preventDefault();
-        //availability, customer, worker, service, startTime, endTime, status
-        const booking =
-            {
-                availabilitySlot: this.state.availList[this.state.currentAvail].id,
-                customer: this.props.user.userId,
-                worker: this.state.workerList[this.state.currentWorkerId].id,
-                service: this.state.services[this.state.currentServiceId].id,
-                start_time:this.state.availList[this.state.currentAvail].hour,
-                end_time:0,
-                status:"Booked",
-            }
-
-            //made up of the id of the avail the selected and the date they selected,
-            // date currently hardcoded, should be based off the avail
+        const currentAvail = this.state.availList[this.state.currentAvail];
+        const myDate = createDate(currentAvail.hour,currentAvail.minute);
+        console.log(myDate);
         const bookingRequest =
             {
-                id: this.state.availList[this.state.currentAvail].id,
-                date: "2020-12-12 09:00"
+                id: currentAvail.id,
+                date: myDate,
             }
-            //id of selected service
-        console.log("LOGGING SERVICES:")
-        console.log(this.state.services);
-        console.log(this.state.services[this.state.currentServiceId]);
+
         const serviceId = this.state.services[this.state.currentServiceId].id;
-
-        console.log("ABOUT TO MAKE A BOOKINGREQUEST USING:");
-        console.log(bookingRequest);
         tryCreateBooking(bookingRequest,serviceId).then
-        ((response)=> {
+        ((response)=>
+        {
+            if(response.data==="Booking made!")
+            {
                 console.log(response.data);
-            })
+                this.setState(
+                    {
+                        message: "Booking Success!",
+                        successful: true,
+                    })
+            }
+            else
+            {
+                this.setState(
+                    {
+                        message: "Booking Failure!",
+                        successful: false,
+                    })
+            }
+        })
+
     }
-
-
 
     render()
     {
@@ -152,7 +147,6 @@ class BookingCreator extends Component
         }
 
         let servList;
-
         const serv = this.state.services;
         if(serv)
         {
@@ -162,7 +156,6 @@ class BookingCreator extends Component
         }
 
         let workerList;
-
         const work = this.state.workerList;
         if(work)
         {
@@ -177,59 +170,76 @@ class BookingCreator extends Component
         {
             const actualWorker = this.state.workerList[this.state.currentWorkerId].id;
             availList =  avail.map((avail,index) => {
-                if(avail.workedId===actualWorker)
-                    return <option key={avail.id} value={index}> Day: {avail.day} Hour: {avail.hour}:{avail.minute} </option>
-                return
+                    if(avail.workedId===actualWorker)
+                        return <option key={avail.id} value={index}> Day: {numToDay(avail.day)} Hour: {avail.hour}:{avail.minute} </option>
 
-
-    return (
-        <div className = "bookingCreator">
-            <h2 className="bookingListHeader">Book a New Service</h2>
-        <center>
-            <h3 className="bookingCreatorDropdowns" > Business </h3>
-            {biz
-                ? <select name="currentId" value={this.state.currentId} onChange={this.onChangeNumber}>
-                    <option value="-1" >Select a business </option>
-                    {realBiz}
-                </select>
-                :
-                <p></p>
-            }
-        )
+                }
+            )
         }
 
-            <h3 className="bookingCreatorDropdowns"> Service </h3>
-            {serv
-                ? <select name="currentServiceId" value={this.state.currentServiceId} onChange={this.onChangeNumber}>
-                    <option value="-1" > Please Select A Service:</option>
-                    {realServ} </select>
 
-                : <select>
-                    <option value="-1" > Please Select A Service:</option>
-                </select>
-            }
+        return (
+            <div className = "bookingCreator">
+                <h2 className="bookingListHeader">Book a New Service</h2>
 
-            <h3 className="bookingCreatorDropdowns" > Worker </h3>
-            {work
-                ? <select name="currentWorkerId" value={this.state.currentWorkerId} onChange={this.onChangeNumber}>
-                    <option value="-1" > Please Select A Worker:</option>
-                    {realWork} </select>
+                {biz
+                    ? <select name="currentId" value={this.state.currentId} onChange={this.onChangeNumber}>
+                        <option value="-1" >Select a business </option>
+                        {businessList}
+                    </select>
 
-                : <select>
-                    <option value="-1" > Please Select A Worker:</option>
-                </select>
-            }
-            <h3 className="bookingCreatorDropdowns" > Availabilities </h3>
-            <select>
-                <option>Availabilities</option>
-            </select>
-            <br/>
+                    : <p></p>
+                }
+                <br/>
+                {serv
+                    ? <select name="currentServiceId" value={this.state.currentServiceId} onChange={this.onChangeNumber}>
+                        <option value="-1" > Please Select A Service:</option>
+                        {servList} </select>
 
-            <Button className="BookButton" onClick={this.onclick}> Book</Button>
-        </center>
-        </div>
+                    : <select>
+                        <option value="-1" > Please Select A Service:</option>
+                    </select>
+                }
+                <br/>
+                {work
+                    ? <select name="currentWorkerId" value={this.state.currentWorkerId} onChange={this.onChangeNumber}>
+                        <option value="-1" > Please Select A Worker:</option>
+                        {workerList} </select>
 
-    )
+                    : <select>
+                        <option value="-1" > Please Select A Worker:</option>
+                    </select>
+                }
+                <br/>
+                {avail
+                    ? <select name="currentAvail" value={this.state.currentAvail} onChange={this.onChangeNumber}>
+                        <option value="-1" > Please Select an avail:</option>
+                        {availList} </select>
+
+                    : <select>
+                        <option value="-1" > Please Select an avail:</option>
+                    </select>
+                }
+                <br/>
+
+                {
+                    this.state.canSubmit
+                    ?
+                    <Button onClick={this.onClick}> Book</Button>
+                    : <Button disabled> Book</Button>
+                }
+
+                {this.state.message && (
+                    <div className="form-group">
+                        <div className={ this.state.successful ? "alert alert-success" : "alert alert-danger" } role="alert">
+                            {this.state.message}
+                        </div>
+                    </div>
+                )}
+
+            </div>
+        )
+    }
 
 }
 

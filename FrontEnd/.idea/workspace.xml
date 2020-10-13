@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+
   <component name="BranchesTreeState">
     <expand>
       <path>
@@ -47,32 +51,44 @@
       </path>
     </expand>
     <select />
+
   </component>
   <component name="ChangeListManager">
     <list default="true" id="3d544343-65dd-4a79-bdae-6f23a9c69eaa" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/scheduler/src/utils/dateUtils.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scheduler/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/App.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scheduler/src/Components/Bookings/BookingCreator.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/Components/Bookings/BookingCreator.js" afterDir="false" />
+
+      <change beforePath="$PROJECT_DIR$/scheduler/src/Components/Dashboards/WorkerAvailabilities.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/Components/Dashboards/WorkerAvailabilities.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scheduler/src/Components/Registration/WorkerMaker.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/Components/Registration/WorkerMaker.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scheduler/src/actions/BusinessActions.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/actions/BusinessActions.js" afterDir="false" />
+
       <change beforePath="$PROJECT_DIR$/scheduler/src/Components/Dashboards/View/ViewWorkersList.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/Components/Dashboards/View/ViewWorkersList.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scheduler/src/Components/Dashboards/adminDashboard.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/Components/Dashboards/adminDashboard.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/scheduler/src/Components/Registration/Registration.js" beforeDir="false" afterPath="$PROJECT_DIR$/scheduler/src/Components/Registration/Registration.js" afterDir="false" />
+
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+
+  <component name="Git.Merge.Settings">
+    <option name="BRANCH" value="origin/front-end/develop" />
+
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
       </list>
     </option>
+
   </component>
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
-      <map>
-      </map>
+      <map />
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
@@ -130,8 +146,6 @@
       <workItem from="1602027008334" duration="4572000" />
       <workItem from="1602040220428" duration="485000" />
       <workItem from="1602040808352" duration="767000" />
-
-
       <workItem from="1602050849184" duration="552000" />
       <workItem from="1602051586368" duration="15000" />
       <workItem from="1602071991270" duration="184000" />
@@ -145,7 +159,12 @@
       <workItem from="1602299273699" duration="1071000" />
       <workItem from="1602302861825" duration="2369000" />
       <workItem from="1602306609143" duration="962000" />
-
+      <workItem from="1602463154184" duration="124000" />
+      <workItem from="1602465039315" duration="898000" />
+      <workItem from="1602466116105" duration="488000" />
+      <workItem from="1602472074601" duration="2656000" />
+      <workItem from="1602474972865" duration="106000" />
+      <workItem from="1602554702849" duration="5524000" />
     </task>
     <task id="LOCAL-00001" summary="get business with admin implemented, awaiting custom jSON to break infinite service/worker loops">
       <created>1600993026539</created>
@@ -189,7 +208,6 @@
       <option name="project" value="LOCAL" />
       <updated>1602032888169</updated>
     </task>
-
     <task id="LOCAL-00007" summary="workerList now displays correctly.">
       <created>1602046385093</created>
       <option name="number" value="00007" />
@@ -218,8 +236,21 @@
       <option name="project" value="LOCAL" />
       <updated>1602305434735</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
-
+    <task id="LOCAL-00011" summary="merge with front-end develop">
+      <created>1602407415350</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1602407415350</updated>
+    </task>
+    <task id="LOCAL-00012" summary="base for availMaker form, using timepicker component">
+      <created>1602474688765</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1602474688765</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -244,18 +275,19 @@
     <MESSAGE value="bookingCreator reactively responds to worker, service, business selection." />
     <MESSAGE value="fix issue reselecting placeholder in bookingMaker" />
     <MESSAGE value="admin now has the ability to create workers, with services and businesses" />
-
     <MESSAGE value="workerList now displays correctly." />
     <MESSAGE value="intagreation with database availabilities, depending on worker and service in booking creation. Booking object created, not yet set to DB." />
     <MESSAGE value="Booking object updated." />
     <MESSAGE value="simple boooking creation wth a hard-coded date- returns BOOKING SUCCESS" />
-    <option name="LAST_COMMIT_MESSAGE" value="simple boooking creation wth a hard-coded date- returns BOOKING SUCCESS" />
+    <MESSAGE value="merge with front-end develop" />
+    <MESSAGE value="base for availMaker form, using timepicker component" />
+    <option name="LAST_COMMIT_MESSAGE" value="base for availMaker form, using timepicker component" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="260" y="325" key="CommitChangelistDialog2" timestamp="1602305434414">
+    <state x="260" y="325" key="CommitChangelistDialog2" timestamp="1602474688482">
       <screen x="53" y="23" width="2507" height="1417" />
     </state>
-    <state x="260" y="325" key="CommitChangelistDialog2/53.23.2507.1417@53.23.2507.1417" timestamp="1602305434414" />
+    <state x="260" y="325" key="CommitChangelistDialog2/53.23.2507.1417@53.23.2507.1417" timestamp="1602474688482" />
     <state x="82" y="135" key="MergeDialog" timestamp="1602299496525">
       <screen x="53" y="23" width="2507" height="1417" />
     </state>
@@ -269,11 +301,10 @@
     </state>
     <state x="282" y="313" key="SettingsEditor/50.23.2510.1417@50.23.2510.1417" timestamp="1601517887489" />
     <state x="285" y="313" key="SettingsEditor/53.23.2507.1417@53.23.2507.1417" timestamp="1601187373401" />
-    <state x="396" y="471" key="Vcs.Push.Dialog.v2" timestamp="1602305447951">
+    <state x="396" y="471" key="Vcs.Push.Dialog.v2" timestamp="1602474697057">
       <screen x="53" y="23" width="2507" height="1417" />
     </state>
-    <state x="396" y="471" key="Vcs.Push.Dialog.v2/53.23.2507.1417@53.23.2507.1417" timestamp="1602305447951" />
-
+    <state x="396" y="471" key="Vcs.Push.Dialog.v2/53.23.2507.1417@53.23.2507.1417" timestamp="1602474697057" />
     <state x="153" y="123" width="1287" height="1217" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1600992213417">
       <screen x="53" y="23" width="2507" height="1417" />
     </state>
@@ -283,10 +314,17 @@
     </state>
     <state x="594" y="652" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/52.23.2508.1417@52.23.2508.1417" timestamp="1601800979659" />
     <state x="595" y="652" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/53.23.2507.1417@53.23.2507.1417" timestamp="1602027019668" />
+
+    <state x="1622" y="348" width="670" height="676" key="search.everywhere.popup" timestamp="1602473913752">
+      <screen x="53" y="23" width="2507" height="1417" />
+    </state>
+    <state x="1622" y="348" width="670" height="676" key="search.everywhere.popup/53.23.2507.1417@53.23.2507.1417" timestamp="1602473913752" />
+
     <state x="505" y="233" width="670" height="676" key="search.everywhere.popup" timestamp="1602215698323">
       <screen x="0" y="23" width="1680" height="958" />
     </state>
     <state x="505" y="233" width="670" height="676" key="search.everywhere.popup/0.23.1680.958@0.23.1680.958" timestamp="1602215698323" />
+
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

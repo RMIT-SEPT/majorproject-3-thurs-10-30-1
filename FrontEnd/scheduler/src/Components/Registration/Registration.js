@@ -121,8 +121,13 @@ export class Registration extends Component
                                             </div>
                                         </Form.Group>
                                 </div>
-
-                                <br/>
+                                {message && (
+                                    <div className="form-group">
+                                        <div className={ this.state.successful ? "alert alert-success" : "alert alert-danger" } role="alert">
+                                            {message}
+                                        </div>
+                                    </div>
+                                )}
 
                            <center> <input type="submit" value="Register"/> </center>
                          </Form>
