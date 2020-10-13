@@ -3,7 +3,6 @@ package schedule.model;
 import java.util.*;
 import javax.persistence.*;
 import javax.validation.constraints.*;
-import schedule.model.service.*;
 
 @Entity
 public class Worker
@@ -21,6 +20,7 @@ public class Worker
     private List<Booking> bookings;
 
     @ManyToMany
+    @JoinColumn(name = "service_id")
     private List<ScheduleService> services;
 
     @ManyToMany(mappedBy = "workers")

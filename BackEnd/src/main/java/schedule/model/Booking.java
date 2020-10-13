@@ -4,7 +4,6 @@ import java.util.*;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import com.fasterxml.jackson.annotation.*;
-import schedule.model.service.*;
 
 @Entity
 public class Booking

@@ -3,7 +3,7 @@ package schedule.microservice;
 import java.util.*;
 import org.springframework.beans.factory.annotation.*;
 import org.springframework.stereotype.*;
-import schedule.model.service.*;
+import schedule.model.*;
 import schedule.repositories.*;
 
 @Service

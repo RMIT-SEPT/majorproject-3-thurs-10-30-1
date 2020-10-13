@@ -3,7 +3,7 @@ package schedule.model;
 import java.util.*;
 import javax.persistence.*;
 import javax.validation.constraints.*;
-import schedule.model.service.*;
+import schedule.model.*;
 import utitlity.*;
 
 @Entity(name = "business")

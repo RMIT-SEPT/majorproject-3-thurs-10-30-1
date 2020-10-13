@@ -1,10 +1,9 @@
-package schedule.model.service;
+package schedule.model;
 
 import java.util.*;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import org.hibernate.validator.constraints.*;
-import schedule.model.*;
 
 @Entity(name = "availability")
 public class TimeAvailability {

@@ -1,4 +1,4 @@
-package schedule.model.service;
+package schedule.model;
 
 import java.util.*;
 import javax.validation.constraints.*;

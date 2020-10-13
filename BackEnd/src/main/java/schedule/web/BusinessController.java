@@ -8,7 +8,6 @@ import org.springframework.http.*;
 import org.springframework.validation.*;
 import schedule.microservice.*;
 import schedule.model.*;
-import schedule.model.service.*;
 
 
 @RestController
