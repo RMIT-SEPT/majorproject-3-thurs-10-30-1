@@ -178,52 +178,57 @@ class BookingCreator extends Component
             <div className = "bookingCreator">
                 <h2 className="bookingListHeader">Book a New Service</h2>
 
-                {biz
-                    ? <select name="currentId" value={this.state.currentId} onChange={this.onChangeNumber}>
-                        <option value="-1" >Select a business </option>
-                        {businessList}
-                    </select>
+                <center>
+                    <h3 className="bookingCreatorDropdowns" > Business </h3>
+                    {biz
+                        ? <select name="currentId" value={this.state.currentId} onChange={this.onChangeNumber}>
+                            <option value="-1">Select a business</option>
+                            {businessList}
+                        </select>
+                        :
+                        <p></p>
+                    }
 
-                    : <p></p>
-                }
-                <br/>
-                {serv
-                    ? <select name="currentServiceId" value={this.state.currentServiceId} onChange={this.onChangeNumber}>
-                        <option value="-1" > Please Select A Service:</option>
-                        {servList} </select>
 
-                    : <select>
-                        <option value="-1" > Please Select A Service:</option>
-                    </select>
-                }
-                <br/>
-                {work
-                    ? <select name="currentWorkerId" value={this.state.currentWorkerId} onChange={this.onChangeNumber}>
+                    <h3 className="bookingCreatorDropdowns"> Service </h3>
+                    {serv
+                        ? <select name="currentServiceId" value={this.state.currentServiceId} onChange={this.onChangeNumber}>
+                            <option value="-1" > Please Select A Service:</option>
+                            {servList} </select>
+                        : <select>
+                            <option value="-1" > Please Select A Service:</option>
+                        </select>
+                    }
+
+                    <h3 className="bookingCreatorDropdowns" > Worker </h3>
+                    {work
+                        ? <select name="currentWorkerId" value={this.state.currentWorkerId} onChange={this.onChangeNumber}>
+                            <option value="-1" > Please Select A Worker:</option>
+                            {workerList} </select>
+                        : <select>
                         <option value="-1" > Please Select A Worker:</option>
-                        {workerList} </select>
+                        </select>
+                    }
 
-                    : <select>
-                        <option value="-1" > Please Select A Worker:</option>
-                    </select>
-                }
-                <br/>
-                {avail
-                    ? <select name="currentAvail" value={this.state.currentAvail} onChange={this.onChangeNumber}>
-                        <option value="-1" > Please Select an avail:</option>
-                        {availList} </select>
+                    <h3 className="bookingCreatorDropdowns" > Availabilities </h3>
+                    {avail
+                        ? <select name="currentAvail" value={this.state.currentAvail} onChange={this.onChangeNumber}>
+                            <option value="-1" > Please Select an avail:</option>
+                            {availList} </select>
+                            : <select>
+                            <option value="-1" > Please Select an avail:</option>
+                        </select>
+                    }
 
-                    : <select>
-                        <option value="-1" > Please Select an avail:</option>
-                    </select>
-                }
-                <br/>
+                </center>
 
-                {
-                    this.state.canSubmit
-                    ?
-                    <Button onClick={this.onClick}> Book</Button>
-                    : <Button disabled> Book</Button>
-                }
+                <center>
+                    <div className="BookButton">
+                        {this.state.canSubmit
+                            ?
+                         <Button onClick={this.onClick}> Book</Button>
+                            : <Button disabled> Book</Button>
+                        }
 
                 {this.state.message && (
                     <div className="form-group">
@@ -232,6 +237,8 @@ class BookingCreator extends Component
                         </div>
                     </div>
                 )}
+                    </div>
+                </center>
 
             </div>
         )
