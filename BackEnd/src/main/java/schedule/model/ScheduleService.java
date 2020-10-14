@@ -73,15 +73,20 @@ public class ScheduleService
         return ids;
     }
 
-    @JsonProperty("workers")
-    public List<Long> getWorkers()
-    {
-        ArrayList<Long> ids = new ArrayList<>(workers.size());
-        for (Worker worker : workers)
-        {
-            ids.add(worker.getId());
-        } 
+    // TODO Need to see if this method is worth using
+    // @JsonProperty("workers")
+    // public List<Long> getWorkers()
+    // {
+    //     ArrayList<Long> ids = new ArrayList<>(workers.size());
+    //     for (Worker worker : workers)
+    //     {
+    //         ids.add(worker.getId());
+    //     } 
+    //     return ids;
+    // }
 
-        return ids;
+    public List<Worker> getWorkers()
+    {
+        return workers;
     }
 }
