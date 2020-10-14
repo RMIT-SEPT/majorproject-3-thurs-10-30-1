@@ -40,12 +40,13 @@ public class ServiceController {
     }
 
     @PostMapping("/{id}/addAvailability")
-    public ResponseEntity<?> createNewAvailability(@Valid @RequestBody TimeAvailability availability,
+    public ResponseEntity<?> createNewAvailability(@Valid @RequestBody TimeAvailabilityRequest availability,
             BindingResult result, @PathVariable long id) {
+        System.out.println(availability.getHour());
         if (result.hasErrors()) {
             String err = "";
-            for (ObjectError error : result.getAllErrors()) {
-                err += error.getDefaultMessage();
+            for (FieldError error : result.getFieldErrors()) {
+                err += error.getObjectName() + " " + error.getDefaultMessage() + "\n";
             }
             return new ResponseEntity<>("Invalid Availability Object\n" + err, HttpStatus.BAD_REQUEST);
         }
@@ -54,7 +55,13 @@ public class ServiceController {
         if (service == null) {
             return new ResponseEntity<>("Service not found", HttpStatus.BAD_REQUEST);
         } else {
-            service.getAvailablities().add(availability);
+            Worker worker = workerMicro.getWorkerById(availability.getWorkerId());
+            if (worker == null)
+                return new ResponseEntity<>("Worker not found", HttpStatus.BAD_REQUEST);
+
+            TimeAvailability newAvailability = new TimeAvailability(availability.getDay(),availability.getHour(),availability.getMinute(),availability.getLength(), worker);
+
+            service.getAvailablities().add(newAvailability);
             serviceMicro.saveOrUpdate(service);
             return new ResponseEntity<>(availability,HttpStatus.OK);
         }
