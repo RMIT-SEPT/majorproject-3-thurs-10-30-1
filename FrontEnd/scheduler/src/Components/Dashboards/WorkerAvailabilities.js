@@ -6,6 +6,7 @@ import {Button} from "react-bootstrap";
 import TimePicker from 'react-time-picker'
 import {numToDay, timeToken} from "../../utils/dateUtils";
 import {createNewAvail} from "../../actions/BusinessActions";
+import { Tab, Tabs } from 'react-bootstrap'
 
 
 export class WorkerAvailabilities extends Component
@@ -111,20 +112,28 @@ export class WorkerAvailabilities extends Component
 
     render()
     {
-        let businessList;
-         if(this.state.businesses)
-         {
-             businessList = this.state.businesses.map((business) => (
-                 <div key={business.id}> {business.name }</div>
-             ))
-         }
+        //let businessList;
+         // if(this.state.businesses)
+         // {
+         //     businessList = this.state.businesses.map((business) => (
+         //         <Tab key={business.id} title={business.name}>
+         //             {
+         //                 availList = business.services.map((avail,index) =>
+         //                 {
+         //                     console.log(avail);
+         //                     if(avail.workedId === this.state.id)
+         //                        return <li key={index}> Day: {numToDay(avail.day)} Time: {avail.hour}:{avail.minute} </li>
+         //                 })
+         //             }
+         //         </Tab>
+         //     ))
+         // }
 
         let availList;
         if(this.state.services)
         {
             availList = this.state.services.map((service) => (
-                <div key={service.id}>
-                    {service.name}
+                <Tab eventKey={service.id} title={" Times for: " +service.name}>
                     <ul>
                     {
                         service.availablities.map((avail,index) =>
@@ -134,7 +143,7 @@ export class WorkerAvailabilities extends Component
                         }
                         )}
                     </ul>
-                </div>
+                </Tab>
             ))
         }
 
@@ -149,12 +158,13 @@ export class WorkerAvailabilities extends Component
 
         return(
             <div>
-                {businessList}
+                <Tabs defaultActiveKey="viewBookings" id="uncontrolled-tab-example">
                 {availList}
+                </Tabs>
                 <br/>
 
                 <Form onSubmit={this.onSubmit}>
-                    <h2> AVAIL MAKER FORM</h2>
+                    <h2> INPUT A NEW AVAIL </h2>
                     <h4> Select Service</h4>
 
                     <select value={this.state.currentServiceId} name="currentServiceId" onChange={this.onChange}>
