@@ -97,4 +97,9 @@ public class Business {
         }
         return ids;
     }
+
+    public void addWorker(Worker worker)
+    {
+        workers.add(worker);
+    }
 }
