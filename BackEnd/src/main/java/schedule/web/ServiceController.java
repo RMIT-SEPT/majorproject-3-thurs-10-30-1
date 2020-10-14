@@ -119,4 +119,11 @@ public class ServiceController {
         return availabilities != null ? new ResponseEntity<>(availabilities, HttpStatus.OK)
                 : new ResponseEntity<>("Service not found", HttpStatus.BAD_REQUEST);
     }
+
+    @GetMapping("/{id}/workers")
+    public ResponseEntity<?> getServiceWorkers(@PathVariable long id) {
+        ScheduleService service = serviceMicro.getServiceById(id);
+        return service != null ? new ResponseEntity<>(service.getWorkers(), HttpStatus.OK)
+                : new ResponseEntity<>("Service not found", HttpStatus.BAD_REQUEST);
+    }
 }

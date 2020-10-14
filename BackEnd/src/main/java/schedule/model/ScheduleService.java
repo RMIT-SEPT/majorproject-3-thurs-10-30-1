@@ -74,7 +74,7 @@ public class ScheduleService
     }
 
     @JsonProperty("workers")
-    public List<Long> getWorkers()
+    public List<Long> getWorkersIds()
     {
         ArrayList<Long> ids = new ArrayList<>(workers.size());
         for (Worker worker : workers)
@@ -82,5 +82,11 @@ public class ScheduleService
             ids.add(worker.getId());
         } 
         return ids;
+    }
+
+    @JsonIgnore
+    public List<Worker> getWorkers()
+    {
+        return workers;
     }
 }

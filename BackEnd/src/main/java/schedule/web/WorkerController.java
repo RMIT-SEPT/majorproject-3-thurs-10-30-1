@@ -38,6 +38,12 @@ public class WorkerController {
             new ResponseEntity<>("User not found", HttpStatus.BAD_REQUEST);
     }
 
+    @GetMapping("/all")
+    public ResponseEntity<?> getAllWorkers(@PathVariable long id)
+    {
+        return new ResponseEntity<>(workerMicro.getAllWorkers(), HttpStatus.OK);
+    }
+
     @PostMapping("/{id}/business/add/{businessId}")
     public ResponseEntity<?> addBusiness(@PathVariable long id, @PathVariable long businessId)
     {
