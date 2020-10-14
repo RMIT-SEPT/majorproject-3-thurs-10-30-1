@@ -32,10 +32,3 @@ public class BookingController
             new ResponseEntity<>("Booking not found", HttpStatus.NOT_FOUND);
     }
 }
-
-/*
-public ResponseEntity<Person> createNewPerson(@RequestBody Person person) {
-
-        Person person1 = personService.saveOrUpdatePerson(person);
-        return new ResponseEntity<Person>(person, HttpStatus.CREA
- */

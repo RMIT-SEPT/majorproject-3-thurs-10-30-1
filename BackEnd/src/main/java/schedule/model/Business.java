@@ -24,7 +24,7 @@ public class Business {
     @JsonIgnore
     private List<ScheduleService> services;
 
-    @OneToMany()
+    @OneToMany(mappedBy = "business")
     @JsonIgnore
     private List<Admin> admins;
 
@@ -97,6 +97,4 @@ public class Business {
         }
         return ids;
     }
-
-
 }

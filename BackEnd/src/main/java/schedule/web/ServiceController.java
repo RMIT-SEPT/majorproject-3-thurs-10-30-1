@@ -56,7 +56,7 @@ public class ServiceController {
         } else {
             service.getAvailablities().add(availability);
             serviceMicro.saveOrUpdate(service);
-            return new ResponseEntity<>(availability, HttpStatus.CREATED);
+            return new ResponseEntity<>(availability,HttpStatus.OK);
         }
     }
 

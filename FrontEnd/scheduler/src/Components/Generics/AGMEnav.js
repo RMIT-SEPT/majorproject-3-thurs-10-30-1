@@ -34,27 +34,37 @@ const StyledNav = styled.div`
 
 export class AGMEnav extends Component
 {
-    componentDidMount() {
-        const user = this.props.user;
-        if (user)
-        {
-            this.setState({
-                currentUser: user,
-                worker: user.accountType==="Worker",
-                admin: user.accountType==="Admin"
-            });
-        }
-    }
 
     render()
     {
+        const accType = this.props.accountType;
         const userLinks = (
             <Nav className="m-xl-auto">
                 <NavItem> <Link to="/profile"> Profile   </Link></NavItem>
                 <NavItem> <Link to ="/dashboard"> Dashboard </Link></NavItem>
+
+                {
+                    accType==="Worker"
+                    ?<Nav>
+                        <NavItem> <Link to="/workerHome"> Worker Home </Link></NavItem>
+                            <NavItem> <Link to="/Availabilities"> Availabilities </Link></NavItem>
+                        </Nav>
+                    : <p></p>
+                }
+
+
+                {
+                    accType==="Admin"
+                        ? <Nav>
+                            <NavItem> <Link to="/adminHome"> Admin Home </Link></NavItem>
+                            <NavItem> <Link to="/workerMaker"> Create a worker </Link></NavItem>
+                        </Nav>
+                        : <p></p>
+                }
                 <NavLink className="logout" href="/" onClick={this.props.logout}> Logout </NavLink>
             </Nav>
         );
+
         const guestLinks = (
             <Nav className="m-xl-auto">
                 <NavItem> <Link to="/"> Home</Link>  </NavItem>
@@ -88,8 +98,10 @@ AGMEnav.propTypes = {
 
 function mapStateToProps(state) {
     const { user } = state.auth;
+    const {accountType}= state.accountType;
     return {
         user,
+        accountType,
     };
 }
 

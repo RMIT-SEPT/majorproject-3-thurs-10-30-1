@@ -100,4 +100,9 @@ public class Worker {
 
         return businessIds;
     }
+    
+    public void addService(ScheduleService service)
+    {
+        services.add(service);
+    }
 }
