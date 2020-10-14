@@ -1,7 +1,4 @@
 import groovy.json.JsonException;
-import junit.framework.Assert;
-
-import javax.validation.constraints.Null;
 
 import org.junit.Test;
 
