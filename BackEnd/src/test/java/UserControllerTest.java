@@ -72,7 +72,7 @@ public class UserControllerTest
     {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-        JSONObject user = JSON.parseFromFile(JSON.getJSONFilePath("creat_user.json"));
+        JSONObject user = JSON.parseFromFile(JSON.getJSONFilePath("createNewUser_ValidValues_CREATED.json"));
         HttpEntity<String> request = new HttpEntity<>(user.toString(), headers);
         String url = "http://localhost:" + port + "/api/user";
         ResponseEntity<String> responseEntityStr = restTemplate.postForEntity(url, request, String.class);
@@ -87,13 +87,7 @@ public class UserControllerTest
     {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-        JSONObject user = new JSONObject(
-        "{" +
-        "    \"username\" : \"Moose\"," +
-        "    \"password\" : \"password\"," +
-        "    \"contactNumber\" : 123," +
-        "    \"email\" : \"person@gmail.com\"" +
-        "}");
+        JSONObject user = JSON.parseFromFile(JSON.getJSONFilePath("createNewUser_MissingName_BAD_REQUEST.json"));
         HttpEntity<String> request = new HttpEntity<>(user.toString(), headers);
         String url = "http://localhost:" + port + "/api/user";
         ResponseEntity<String> responseEntityStr = restTemplate.postForEntity(url, request, String.class);
@@ -108,13 +102,7 @@ public class UserControllerTest
     {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-        JSONObject user = new JSONObject(
-            "{" +
-            "    \"name\" : \"Michael\"," +
-            "    \"password\" : \"password\"," +
-            "    \"contactNumber\" : 123," +
-            "    \"email\" : \"person@gmail.com\"" +
-            "}");
+        JSONObject user = JSON.parseFromFile(JSON.getJSONFilePath("createNewUser_MissingUsername_BAD_REQUEST.json"));
         HttpEntity<String> request = new HttpEntity<>(user.toString(), headers);
         String url = "http://localhost:" + port + "/api/user";
         ResponseEntity<String> responseEntityStr = restTemplate.postForEntity(url, request, String.class);
@@ -129,13 +117,7 @@ public class UserControllerTest
     {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-        JSONObject user = new JSONObject(
-            "{" +
-            "    \"name\" : \"Michael\"," +
-            "    \"username\" : \"Moose\"," +
-            "    \"contactNumber\" : 123," +
-            "    \"email\" : \"person@gmail.com\"" +
-            "}");
+        JSONObject user = JSON.parseFromFile(JSON.getJSONFilePath("createNewUser_MissingPassword_BAD_REQUEST.json"));
         HttpEntity<String> request = new HttpEntity<>(user.toString(), headers);
         String url = "http://localhost:" + port + "/api/user";
         ResponseEntity<String> responseEntityStr = restTemplate.postForEntity(url, request, String.class);
@@ -150,7 +132,7 @@ public class UserControllerTest
     {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-        JSONObject user = JSON.parseFromFile(JSON.getJSONFilePath("not_create_missing_email.json"));
+        JSONObject user = JSON.parseFromFile(JSON.getJSONFilePath("createNewUser_MissingEmail_BAD_REQUEST.json"));
         HttpEntity<String> request = new HttpEntity<>(user.toString(), headers);
         String url = "http://localhost:" + port + "/api/user";
         ResponseEntity<String> responseEntityStr = restTemplate.postForEntity(url, request, String.class);
@@ -165,14 +147,7 @@ public class UserControllerTest
     {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-        JSONObject user = new JSONObject(
-            "{" +
-            "    \"name\" : \"Michael\"," +
-            "    \"username\" : \"Moose\"," +
-            "    \"password\" : \"password\"," +
-            "    \"contactNumber\" : 123," +
-            "    \"email\" : \"persongmail.com\"" +
-            "}");
+        JSONObject user = JSON.parseFromFile(JSON.getJSONFilePath("createNewUser_InvalidEmailNoAtSymbol_BAD_REQUEST.json"));
         HttpEntity<String> request = new HttpEntity<>(user.toString(), headers);
         String url = "http://localhost:" + port + "/api/user";
         ResponseEntity<String> responseEntityStr = restTemplate.postForEntity(url, request, String.class);
@@ -187,7 +162,7 @@ public class UserControllerTest
     {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-        JSONObject user = JSON.parseFromFile(JSON.getJSONFilePath("not_create_invalid_email.json"));
+        JSONObject user = JSON.parseFromFile(JSON.getJSONFilePath("createNewUser_InvalidEmailOnlyAtSymbol_BAD_REQUEST.json"));
         HttpEntity<String> request = new HttpEntity<>(user.toString(), headers);
         String url = "http://localhost:" + port + "/api/user";
         ResponseEntity<String> responseEntityStr = restTemplate.postForEntity(url, request, String.class);
