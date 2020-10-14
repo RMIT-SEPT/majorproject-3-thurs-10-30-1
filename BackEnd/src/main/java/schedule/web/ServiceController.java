@@ -8,7 +8,6 @@ import org.springframework.validation.*;
 import org.springframework.web.bind.annotation.*;
 import schedule.microservice.*;
 import schedule.model.*;
-import schedule.model.*;
 
 @RestController
 @RequestMapping("/api/service")
