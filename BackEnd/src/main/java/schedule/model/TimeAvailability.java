@@ -76,4 +76,9 @@ public class TimeAvailability {
     {
         return worker;
     }
+
+    public int getLength()
+    {
+        return length;
+    }
 }
