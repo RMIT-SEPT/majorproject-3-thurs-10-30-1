@@ -62,51 +62,49 @@ public class ServiceController {
     }
 
     @PostMapping("/{id}/book")
-    public ResponseEntity<?> tryCreateBooking(@Valid @RequestBody BookingRequest booking, BindingResult result, @PathVariable long id)
-    {
-        if (result.hasErrors())
-        {
+    public ResponseEntity<?> tryCreateBooking(@Valid @RequestBody BookingRequest booking, BindingResult result,
+            @PathVariable long id) {
+        Customer customer = customerMicro.getCustomerById(booking.getCustomerId());
+        if (customer == null)
+            return new ResponseEntity<>("Bad customer id", HttpStatus.BAD_REQUEST);
+
+        if (result.hasErrors()) {
             StringBuilder sb = new StringBuilder();
             sb.append("Invalid booking request body\n");
-            for (ObjectError err : result.getAllErrors())
-            {
+            for (ObjectError err : result.getAllErrors()) {
                 sb.append(err.getDefaultMessage() + '\n');
             }
             return new ResponseEntity<>(sb.toString(), HttpStatus.BAD_REQUEST);
         }
 
         ScheduleService service = serviceMicro.getServiceById(id);
-        if (service == null)
-        {
+        if (service == null) {
             return new ResponseEntity<>("No service for the given id\n", HttpStatus.BAD_REQUEST);
         }
         TimeAvailability foundAvailability = null;
-        for (TimeAvailability availability : service.getAvailablities())
-        {
-            if (availability.getId().equals(booking.getId()))
-            {
+        for (TimeAvailability availability : service.getAvailablities()) {
+            if (availability.getId().equals(booking.getId())) {
                 foundAvailability = availability;
                 break;
             }
         }
 
-        if (foundAvailability == null)
-        {
+        if (foundAvailability == null) {
             return new ResponseEntity<>("No availability for the given id\n", HttpStatus.BAD_REQUEST);
         }
-        
-        for (Booking b : bookingMicro.getAllBookings())
-        {
-            if (b.getDate().equals(booking.getDate()))
-            {
+
+        for (Booking b : bookingMicro.getAllBookings()) {
+            if (b.getDate().equals(booking.getDate())) {
                 return new ResponseEntity<>("Booking taken", HttpStatus.BAD_REQUEST);
             }
         }
-        
-       
 
+        Worker worker = foundAvailability.getWorker();
+        Booking newBooking = new Booking((long) 0, customer, worker, service, booking.getDate(), "booked",
+                foundAvailability);
+        newBooking = bookingMicro.saveOrUpdate(newBooking);
 
-        return new ResponseEntity<>("Valid Booking!", HttpStatus.CREATED);
+        return new ResponseEntity<>(newBooking.getId(), HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}/availabilities")
