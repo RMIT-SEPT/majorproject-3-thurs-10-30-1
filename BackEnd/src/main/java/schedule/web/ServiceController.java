@@ -35,7 +35,7 @@ public class ServiceController {
     @GetMapping("/{id}")
     public ResponseEntity<?> getServiceById(@PathVariable long id) {
         ScheduleService service = serviceMicro.getServiceById(id);
-        return service != null ? new ResponseEntity<>(service, HttpStatus.FOUND)
+        return service != null ? new ResponseEntity<>(service, HttpStatus.OK)
                 : new ResponseEntity<>("Service not found", HttpStatus.BAD_REQUEST);
     }
 
@@ -116,7 +116,7 @@ public class ServiceController {
     @GetMapping("/{id}/availabilities")
     public ResponseEntity<?> getAvailabilities(@PathVariable long id) {
         List<TimeAvailability> availabilities = serviceMicro.getAllAvailabilities(id);
-        return availabilities != null ? new ResponseEntity<>(availabilities, HttpStatus.FOUND)
+        return availabilities != null ? new ResponseEntity<>(availabilities, HttpStatus.OK)
                 : new ResponseEntity<>("Service not found", HttpStatus.BAD_REQUEST);
     }
 }

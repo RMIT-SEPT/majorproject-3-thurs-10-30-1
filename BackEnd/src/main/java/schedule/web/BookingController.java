@@ -28,7 +28,7 @@ public class BookingController
     @GetMapping("/{id}")
     public ResponseEntity<?> getBookingById(@PathVariable long id)
     {
-        return bookingMicro.bookingExistsById(id) ? new ResponseEntity<>(bookingMicro.getBookingById(id).get(0), HttpStatus.FOUND)  : 
+        return bookingMicro.bookingExistsById(id) ? new ResponseEntity<>(bookingMicro.getBookingById(id).get(0), HttpStatus.OK)  : 
             new ResponseEntity<>("Booking not found", HttpStatus.NOT_FOUND);
     }
 }

@@ -28,20 +28,20 @@ public class BusinessController {
     @GetMapping("/{id}")
     public ResponseEntity<?> getBusinessById(@PathVariable long id) {
         Business business = businessMicro.getBusinessById(id);
-        return business != null ? new ResponseEntity<>(business, HttpStatus.FOUND) :
+        return business != null ? new ResponseEntity<>(business, HttpStatus.OK) :
             new ResponseEntity<>("Business not found", HttpStatus.BAD_REQUEST);
     }
 
     @GetMapping(value = "/all", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> getAllBusinesses() {
-       return new ResponseEntity<>(businessMicro.getAllBusinesses(), HttpStatus.FOUND);
+       return new ResponseEntity<>(businessMicro.getAllBusinesses(), HttpStatus.OK);
     }
 
     @GetMapping(value = "/{id}/services")
     public ResponseEntity<?> getBusinessServices(@PathVariable long id)
     {
         Business business = businessMicro.getBusinessById(id);
-        return business != null ? new ResponseEntity<>(business.getServices(), HttpStatus.FOUND) :
+        return business != null ? new ResponseEntity<>(business.getServices(), HttpStatus.OK) :
             new ResponseEntity<>("Business not found", HttpStatus.BAD_REQUEST);
     }
 }
