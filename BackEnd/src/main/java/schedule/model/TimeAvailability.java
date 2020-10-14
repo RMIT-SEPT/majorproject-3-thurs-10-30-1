@@ -20,7 +20,7 @@ public class TimeAvailability {
     private Worker worker;
 
     @Range(min = 1, max = 7)
-    private int dayOfWeek;
+    private int day;
     @Range(min = 0, max = 23)
     private int hour;
     @Range(min = 0, max = 59)
@@ -40,17 +40,17 @@ public class TimeAvailability {
     public TimeAvailability() {
     }
 
-    public TimeAvailability(Long id, int day, int hour, int minute, int length) {
-        this.dayOfWeek = day;
+    public TimeAvailability(int day, int hour, int minute, int length, Worker worker) {
+        this.day = day;
         this.hour = hour;
         this.minute = minute;
-        this.id = id;
         this.length = length;
+        this.worker = worker;
     }
 
     public boolean isAvailable(LocalDateTime date) {
         boolean value = true;
-        value &= date.getDayOfWeek().getValue() == dayOfWeek;
+        value &= date.getDayOfWeek().getValue() == day;
         value &= date.getHour() == hour;
         value &= date.getMinute() == minute;
         return value;
@@ -58,7 +58,7 @@ public class TimeAvailability {
 
     public int getDay()
     {
-        return dayOfWeek;
+        return day;
     }
 
     public int getHour()
