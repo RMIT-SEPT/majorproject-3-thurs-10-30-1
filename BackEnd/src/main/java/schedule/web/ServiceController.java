@@ -95,19 +95,9 @@ public class ServiceController {
             return new ResponseEntity<>("No availability for the given id\n", HttpStatus.BAD_REQUEST);
         }
         
-        if (!foundAvailability.isAvailable(booking.getDate()))
-        {
-            String formatted = "Bad availability time\n";
-            formatted += booking.getDate().getDayOfWeek();
-            formatted += ":";
-            formatted += booking.getDate().getHour();
-            formatted += ":";
-            formatted += booking.getDate().getMinute();
-            return new ResponseEntity<>(formatted, HttpStatus.BAD_REQUEST);
-        }
         for (Booking b : bookingMicro.getAllBookings())
         {
-            if (b.getDate().equals(booking.getDate().toLocalDate()))
+            if (b.getDate().equals(booking.getDate()))
             {
                 return new ResponseEntity<>("Booking taken", HttpStatus.BAD_REQUEST);
             }
