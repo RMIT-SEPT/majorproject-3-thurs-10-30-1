@@ -4,6 +4,7 @@ import {workerRegister} from "../../actions/auth";
 import {connect} from 'react-redux'
 import {getAdmin} from "../../actions/userActions";
 import CustomCheckbox from "../Generics/CustomCheckbox";
+import {getServiceByBusiness} from "../../actions/BusinessActions";
 
 export class WorkerMaker extends Component
 {
@@ -45,11 +46,22 @@ export class WorkerMaker extends Component
         this.selectedOptions = new Set();
         const id = this.props.user.userId;
         getAdmin(id)
-            .then(response => {
+            .then(response =>
+            {
+                console.log(response.data);
                 this.setState({
-                    services: response.data.business.services,
                     businessID: response.data.business.id
                 });
+
+                getServiceByBusiness(this.state.businessID)
+                    .then(r =>
+                    {
+                        this.setState(
+                            {
+                                services:r.data
+                            }
+                        )
+                    })
             })
     }
 

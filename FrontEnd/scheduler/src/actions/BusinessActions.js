@@ -16,6 +16,11 @@ export const getAvailByService = async (id) =>
     return await axios.post(`http://${IP}:8080/api/service/${id}/availabilities`);
 }
 
+export const getServiceById = async (id) =>
+{
+    return await axios.get(`http://${IP}:8080/api/service/${id}`);
+}
+
 export const newBooking = async (booking) =>
 {
     return await axios.post(`http://${IP}:8080/api/booking`,booking);
@@ -30,6 +35,8 @@ export const createNewAvail = async (avail,serviceId) =>
 {
     return await axios.post(`http://${IP}:8080/api/service/${serviceId}/availability`,avail)
 }
+
+
 
 
 

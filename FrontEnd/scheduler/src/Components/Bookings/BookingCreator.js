@@ -1,12 +1,14 @@
 import React, {Component} from 'react';
 import {
     getAllBusiness,
-    getServiceByBusiness,
+    getServiceByBusiness, getServiceById,
     tryCreateBooking
 } from "../../actions/BusinessActions";
 import {Button} from "react-bootstrap";
 import {connect} from 'react-redux'
 import {createDate, numToDay} from "../../utils/dateUtils";
+import {getWorker} from "../../actions/userActions";
+import WorkerDropDown from "./WorkerDropDown";
 
 
 class BookingCreator extends Component
@@ -21,7 +23,7 @@ class BookingCreator extends Component
                 workerList: undefined,
                 availList:undefined,
 
-                currentId:0,
+                currentId:-1,
                 currentServiceId:-1,
                 currentWorkerId:-1,
                 currentAvail:-1,
@@ -36,7 +38,9 @@ class BookingCreator extends Component
 
     componentDidMount() {
         getAllBusiness()
-            .then(response => {
+            .then(response =>
+            {
+                console.log(response.data);
                 this.setState({
                     businesses: response.data,
                 });
@@ -45,18 +49,23 @@ class BookingCreator extends Component
 
     componentDidUpdate(prevProps, prevState, snapshot)
     {
-        if (prevState.currentId !== this.state.currentId) {
-            getServiceByBusiness(this.state.currentId).then(response => {
-                this.setState({
-                    services: response.data,
-                    workerList: undefined,
-                    availList:undefined,
-                    canSubmit:false,
-                    currentServiceId:-1,
-
-                });
-            })
-
+        if (prevState.currentId !== this.state.currentId)
+        {
+            console.log(this.state.businesses);
+            const id = this.state.businesses[this.state.currentId].id;
+            getServiceByBusiness(id)
+                .then(resp => {
+                    console.log("loggin resp");
+                    console.log(resp.data);
+                    this.setState(
+                        {
+                            services: resp.data,
+                            workerList: undefined,
+                            availList: undefined,
+                            canSubmit: false,
+                            currentServiceId: -1,
+                        });
+                })
         }
 
         if (prevState.currentServiceId !== this.state.currentServiceId) {
@@ -135,29 +144,41 @@ class BookingCreator extends Component
 
     }
 
+
     render()
     {
         let businessList;
         const biz = this.state.businesses;
-        if (biz) {
-            businessList = biz.map(business => (
-                <option key={business.id} value={business.id}> {business.name} </option>
+        if (biz)
+        {
+            businessList = biz.map((business,index) => (
+                <option key={index} value={index}> {business.name} </option>
             ))
         }
 
         let servList;
         const serv = this.state.services;
-        if (serv) {
-            servList = serv.map((service, index) => (
-                <option key={service.id} value={index}> {service.name} </option>
+
+        if (serv)
+        {
+            servList = serv.map((service, index) =>(
+                   <option key={service.id} value={index}> {service.name} </option>
             ))
         }
 
         let workerList;
         const work = this.state.workerList;
-        if (work) {
-            workerList = work.map((worker, index) => {
-                return <option key={worker.id} value={index}> {worker.user.name} </option>
+
+        if (work)
+        {
+            workerList = work.map((worker, index) =>
+            {
+                getWorker(worker).then(r =>
+                {
+                    console.log("making this worker:");
+                    console.log(r.data);
+                    return <option key={worker} value={index}> {r.data.user.name} </option>;
+                })
             })
         }
 
@@ -193,7 +214,7 @@ class BookingCreator extends Component
                     <h3 className="bookingCreatorDropdowns"> Service </h3>
                     {serv
                         ? <select name="currentServiceId" value={this.state.currentServiceId} onChange={this.onChangeNumber}>
-                            <option value="-1" > Please Select A Service:</option>
+                            <option value="-1" > PLEASE Select A Service:</option>
                             {servList} </select>
                         : <select>
                             <option value="-1" > Please Select A Service:</option>
@@ -203,10 +224,11 @@ class BookingCreator extends Component
                     <h3 className="bookingCreatorDropdowns" > Worker </h3>
                     {work
                         ? <select name="currentWorkerId" value={this.state.currentWorkerId} onChange={this.onChangeNumber}>
-                            <option value="-1" > Please Select A Worker:</option>
+                            <option value="-1" > PLEASE Select A Worker:</option>
                             {workerList} </select>
+                        //? <WorkerDropDown onChange={this.onChangeNumber} value={this.state.currentWorkerID} workerList={this.state.workerList}/>
                         : <select>
-                        <option value="-1" > Please Select A Worker:</option>
+                            <option value="-1" > Please Select A Worker:</option>
                         </select>
                     }
 
@@ -215,7 +237,7 @@ class BookingCreator extends Component
                         ? <select name="currentAvail" value={this.state.currentAvail} onChange={this.onChangeNumber}>
                             <option value="-1" > Please Select an avail:</option>
                             {availList} </select>
-                            : <select>
+                        : <select>
                             <option value="-1" > Please Select an avail:</option>
                         </select>
                     }
@@ -226,17 +248,17 @@ class BookingCreator extends Component
                     <div className="BookButton">
                         {this.state.canSubmit
                             ?
-                         <Button onClick={this.onClick}> Book</Button>
+                            <Button onClick={this.onClick}> Book</Button>
                             : <Button disabled> Book</Button>
                         }
 
-                {this.state.message && (
-                    <div className="form-group">
-                        <div className={ this.state.successful ? "alert alert-success" : "alert alert-danger" } role="alert">
-                            {this.state.message}
-                        </div>
-                    </div>
-                )}
+                        {this.state.message && (
+                            <div className="form-group">
+                                <div className={ this.state.successful ? "alert alert-success" : "alert alert-danger" } role="alert">
+                                    {this.state.message}
+                                </div>
+                            </div>
+                        )}
                     </div>
                 </center>
 
