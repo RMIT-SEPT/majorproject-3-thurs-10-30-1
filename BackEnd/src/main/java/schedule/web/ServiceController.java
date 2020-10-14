@@ -40,7 +40,7 @@ public class ServiceController {
                 : new ResponseEntity<>("Service not found", HttpStatus.BAD_REQUEST);
     }
 
-    @PostMapping("/{id}/availability")
+    @PostMapping("/{id}/addAvailability")
     public ResponseEntity<?> createNewAvailability(@Valid @RequestBody TimeAvailability availability,
             BindingResult result, @PathVariable long id) {
         if (result.hasErrors()) {
