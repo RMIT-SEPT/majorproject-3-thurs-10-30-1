@@ -73,7 +73,6 @@ public class ScheduleService
         return ids;
     }
 
-    //TODO Need to see if this method is worth using
     @JsonProperty("workers")
     public List<Long> getWorkers()
     {
@@ -84,9 +83,4 @@ public class ScheduleService
         } 
         return ids;
     }
-
-    // public List<Worker> getWorkers()
-    // {
-    //     return workers;
-    // }
 }
