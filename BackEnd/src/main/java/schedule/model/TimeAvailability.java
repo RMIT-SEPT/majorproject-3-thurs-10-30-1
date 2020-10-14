@@ -1,6 +1,6 @@
 package schedule.model;
 
-import java.util.*;
+import java.time.LocalDateTime;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import com.fasterxml.jackson.annotation.*; 
@@ -48,14 +48,11 @@ public class TimeAvailability {
         this.length = length;
     }
 
-    public boolean isAvailable(Date date) {
+    public boolean isAvailable(LocalDateTime date) {
         boolean value = true;
-        Calendar c = Calendar.getInstance();
-        c.setTimeZone(TimeZone.getTimeZone("GMT"));
-        c.setTime(date);
-        value &= c.get(Calendar.DAY_OF_WEEK) == dayOfWeek;
-        value &= c.get(Calendar.HOUR_OF_DAY) == hour;
-        value &= c.get(Calendar.MINUTE) == minute;
+        value &= date.getDayOfWeek().getValue() == dayOfWeek;
+        value &= date.getHour() == hour;
+        value &= date.getMinute() == minute;
         return value;
     }
 

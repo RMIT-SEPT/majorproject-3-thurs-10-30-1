@@ -1,6 +1,6 @@
 package schedule.model;
 
-import java.util.*;
+import java.time.*;
 import javax.persistence.*;
 import javax.validation.constraints.*;
 import com.fasterxml.jackson.annotation.*;
@@ -36,8 +36,8 @@ public class Booking
     private TimeAvailability availabilitySlot;
 
     @NotBlank(message = "A start time is required")
-    @JsonFormat(pattern ="yyyy-mm-dd@HH:mm")
-    private Date start_time;
+    @JsonFormat(pattern ="YYYY-MM-dd")
+    private LocalDate start_time;
 
 
     @NotBlank(message = "A status is required")
@@ -51,7 +51,7 @@ public class Booking
     public Booking(Long id, @NotBlank(message = "A customer is required") Customer customer,
             @NotBlank(message = "A Worker is required") Worker worker,
             @NotBlank(message = "A service is required") ScheduleService service,
-            @NotBlank(message = "A start time is required") Date start_time,
+            @NotBlank(message = "A start time is required") LocalDate start_time,
             @NotBlank(message = "A status is required") String status,
             @NotBlank(message = "An availability is required") TimeAvailability availability) {
         this.id = id;
@@ -84,17 +84,6 @@ public class Booking
     public Long getCustomerId() {
         return customer.getId();
     }
-
-    @JsonIgnore
-    public Worker getWorker() {
-        return worker;
-    }
-
-    @JsonProperty(value = "worker")
-    public Long getWorkerId() {
-        return customer.getId();
-    }
-
     @JsonIgnore
     public ScheduleService getService() {
         return service;
@@ -105,7 +94,7 @@ public class Booking
         return service.getId();
     }
 
-    public Date getStart_time() {
+    public LocalDate getDate() {
         return start_time;
     }
 

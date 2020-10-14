@@ -8,10 +8,11 @@ import org.springframework.validation.*;
 import org.springframework.web.bind.annotation.*;
 import schedule.microservice.*;
 import schedule.model.*;
+import schedule.model.*;
 
 @RestController
 @RequestMapping("/api/service")
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:3000")
 public class ServiceController {
 
     @Autowired
@@ -96,36 +97,26 @@ public class ServiceController {
         
         if (!foundAvailability.isAvailable(booking.getDate()))
         {
-            Calendar c = Calendar.getInstance();
-            c.setTime(booking.getDate());
             String formatted = "Bad availability time\n";
-            formatted += c.get(Calendar.DAY_OF_WEEK);
+            formatted += booking.getDate().getDayOfWeek();
             formatted += ":";
-            formatted += c.get(Calendar.HOUR_OF_DAY);
+            formatted += booking.getDate().getHour();
             formatted += ":";
-            formatted += c.get(Calendar.MINUTE);
+            formatted += booking.getDate().getMinute();
             return new ResponseEntity<>(formatted, HttpStatus.BAD_REQUEST);
         }
         for (Booking b : bookingMicro.getAllBookings())
         {
-            if (b.getStart_time().equals(booking.getDate()))
+            if (b.getDate().equals(booking.getDate().toLocalDate()))
             {
                 return new ResponseEntity<>("Booking taken", HttpStatus.BAD_REQUEST);
             }
         }
         
-        //insert booking
-        Booking newBooking = new Booking((long)0,
-                                        customerMicro.getCustomerById(booking.getCustomerId()),
-                                        workerMicro.getWorkerById(foundAvailability.getWorkerId()),
-                                        service,
-                                        booking.getDate(),
-                                        "booked",
-                                        foundAvailability);
+       
 
-        bookingMicro.saveOrUpdate(newBooking);        
 
-        return new ResponseEntity<>("Booking made!", HttpStatus.CREATED);
+        return new ResponseEntity<>("Valid Booking!", HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}/availabilities")
