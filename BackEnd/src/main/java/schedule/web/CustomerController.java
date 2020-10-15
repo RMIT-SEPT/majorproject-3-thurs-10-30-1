@@ -34,13 +34,3 @@ public class CustomerController {
             new ResponseEntity<>("User not found", HttpStatus.BAD_REQUEST);
     }
 }
-
-
-
-
-/*
-public ResponseEntity<Person> createNewPerson(@RequestBody Person person) {
-
-        Person person1 = personService.saveOrUpdatePerson(person);
-        return new ResponseEntity<Person>(person, HttpStatus.CREA
- */
