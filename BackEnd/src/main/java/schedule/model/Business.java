@@ -102,4 +102,9 @@ public class Business {
     {
         workers.add(worker);
     }
+
+    public void addService(ScheduleService scheduleService)
+    {
+        services.add(scheduleService);
+    }
 }

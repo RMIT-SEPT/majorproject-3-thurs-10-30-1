@@ -40,6 +40,12 @@ public class ScheduleService
         this.availability = availability;
     }
 
+    public ScheduleService(@NotBlank(message = "Service name is required") String name,
+    @NotBlank(message = "Description is required") String description) {
+        this.name = name;
+        this.description = description;
+    }
+
     public Long getId()
     {
         return serviceId;

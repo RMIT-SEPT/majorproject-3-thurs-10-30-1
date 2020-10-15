@@ -44,4 +44,17 @@ public class BusinessController {
         return business != null ? new ResponseEntity<>(business.getServices(), HttpStatus.OK) :
             new ResponseEntity<>("Business not found", HttpStatus.BAD_REQUEST);
     }
+
+    @PostMapping("/{id}/service/create")
+    public ResponseEntity<?> addBusinessServices(@PathVariable long id, @RequestBody ScheduleService scheduleService)
+    {
+        Business business = businessMicro.getBusinessById(id);
+        if (business != null)
+        {
+            business.addService(scheduleService);
+            businessMicro.saveOrUpdate(business);
+            return new ResponseEntity<>(business, HttpStatus.OK);
+        }
+        else return new ResponseEntity<>("Business not found", HttpStatus.BAD_REQUEST);
+    }
 }
