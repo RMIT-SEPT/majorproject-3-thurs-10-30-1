@@ -5,15 +5,16 @@ import ViewWorkerList from "../Dashboards/View/ViewWorkersList";
 import {connect} from "react-redux";
 import {getAdmin} from "../../actions/userActions";
 import ViewServicesList from "./View/ViewServicesList";
+import {Redirect} from "react-router-dom";
 
 export class adminDashboard extends Component {
 
     constructor(props) {
         super(props);
         this.state =
-            {
-                businessName: undefined,
-            };
+        {
+            businessName: undefined,
+        };
     }
 
     componentDidMount()
@@ -35,6 +36,12 @@ export class adminDashboard extends Component {
             {workerName: 'Zac ', service: "IT Services ", time: "11:15 ", date: "16/10"},
             {workerName: 'Ali ', service: "Ali's Hairdresses ", time: "18:45 ", date: "20/10"},
         ]
+
+        if(!this.props.isLoggedIn)
+        {
+            return <Redirect to="/" />;
+        }
+
         let title = " Your Business Bookings"
         return (
             <div className="adminDashboardContainer">
@@ -61,8 +68,10 @@ export class adminDashboard extends Component {
 
 function mapStateToProps(state) {
     const {user} = state.auth;
+    const {isLoggedIn} = state.auth;
     return {
         user,
+        isLoggedIn,
     };
 }
 

@@ -3,7 +3,7 @@ import Nav from "react-bootstrap/Nav";
 import '../../App.css';
 import styled from 'styled-components';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Link, Redirect} from "react-router-dom";
+import {Link} from "react-router-dom";
 import {NavItem, Navbar, NavLink} from "react-bootstrap";
 import {NavDropdown} from "react-bootstrap";
 import Logo from "../../media/Logo(Text).png";

@@ -5,6 +5,7 @@ import {connect} from 'react-redux'
 import {getAdmin} from "../../actions/userActions";
 import CustomCheckbox from "../Generics/CustomCheckbox";
 import {getServiceByBusiness} from "../../actions/BusinessActions";
+import {Redirect} from "react-router-dom";
 
 export class WorkerMaker extends Component
 {
@@ -111,7 +112,12 @@ export class WorkerMaker extends Component
             });
     }
 
-    render() {
+    render()
+    {
+        if(!this.props.isLoggedIn)
+        {
+            return <Redirect to="/" />;
+        }
 
         const { message } = this.props;
         let realServ;
@@ -183,10 +189,12 @@ function mapStateToProps(state) {
     const {message} = state.message;
     const {user} = state.auth;
     const {accountType}= state.accountType;
+    const {isLoggedIn} = state.auth;
     return {
         user,
         accountType,
-        message
+        message,
+        isLoggedIn
     };
 }
 

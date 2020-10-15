@@ -71,7 +71,6 @@ export const workerRegister = (user,businessID, serviceSet,history) => (dispatch
                 type: SET_MESSAGE,
                 payload: response.data.message,
             });
-            //history.push("/dashboard");
             return Promise.resolve();
         },
         (error) => {

@@ -1,14 +1,32 @@
-import React from 'react';
+import React, {Component} from "react";
 
 import ProfileInfo from "../Profile/ProfileInfo";
+import {connect} from "react-redux";
+import {Redirect} from "react-router-dom";
 
-export default function Profile(props)
+class Profile extends Component
 {
-    return (
-        <div className="profileContainer">
+    render()
+    {
+        if(!this.props.isLoggedIn)
+        {
+            return <Redirect to="/" />;
+        }
 
-            <ProfileInfo />
-
-        </div>
-    )
+        return (
+            <div className="profileContainer">
+                <ProfileInfo />
+            </div>
+        )
+    }
 }
+
+function mapStateToProps(state) {
+    const {user} = state.auth;
+    const {isLoggedIn} = state.auth;
+    return {
+        user,
+        isLoggedIn,
+    };
+}
+export default connect(mapStateToProps) (Profile);

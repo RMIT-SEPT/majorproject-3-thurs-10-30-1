@@ -25,31 +25,24 @@ class BookingList extends Component
             )
         })
 
-
-
-
     }
 
-    render() {
-        let myBookings = this.props.bookings.map((booking) =>
+    render()
+    {
+        let bookingList;
+        let myBookings = this.state.bookings;
+        if (myBookings)
         {
-            return(
-                <h4 className="booking" key={booking.service}>
-                Customer Name: {booking.customer}
-                Staff Member: {booking.worker}
-                Service: {booking.service} 
-                Start Time: {booking.start_time}
-                End Time: {booking.end_time}
-                </h4>
-            );
-        });
+            console.log(myBookings);
+            bookingList= myBookings.map((booking,index) =>(
+                <div key={index} className="booking"> I HAVE A BOOKING! ITS ID IS: {booking.id}</div>
+                ))
+        }
 
     return (
-        <div className= "bookingList"> 
-
+        <div className= "bookingList">
         <h2 className="pageHeader">Upcoming Bookings</h2>
-
-        <div> {myBookings} </div>
+        <div> {bookingList} </div>
         </div>
     )
         

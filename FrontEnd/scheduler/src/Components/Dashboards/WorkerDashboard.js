@@ -2,6 +2,7 @@ import React, {Component} from "react";
 
 import WorkerBookingList from "../Bookings/WorkerBookingList";
 import {connect} from "react-redux";
+import {Redirect} from "react-router-dom";
 
 
 export class WorkerDashboard extends Component {
@@ -15,6 +16,10 @@ export class WorkerDashboard extends Component {
             {workerName: 'Ali ', service: "Ali's Hairdresses ", time: "18:45 ", date: "20/10"},
         ]
 
+        if(!this.props.isLoggedIn)
+        {
+            return <Redirect to="/" />;
+        }
 
         return (
             <div className="dashboardContainer2">
@@ -27,8 +32,10 @@ export class WorkerDashboard extends Component {
 
 function mapStateToProps(state) {
         const {user} = state.auth;
+        const {isLoggedIn} = state.auth
         return {
             user,
+            isLoggedIn
         };
     }
 

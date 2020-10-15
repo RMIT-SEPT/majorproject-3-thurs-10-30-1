@@ -1,11 +1,11 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
-import {getWorker} from "../../actions/userActions";
 import Form from "react-bootstrap/Form";
 import {Button} from "react-bootstrap";
 import TimePicker from 'react-time-picker'
 import {numToDay, timeToken} from "../../utils/dateUtils";
 import {createNewAvail, getAvailByService, getServiceByWorker} from "../../actions/BusinessActions";
+import {Redirect} from "react-router-dom";
 
 
 export class WorkerAvailabilities extends Component
@@ -111,33 +111,34 @@ export class WorkerAvailabilities extends Component
             console.log("Service id:" + servId);
             createNewAvail(timeAvailabilityRequest,servId).then((response) =>
             {
-                    if(response)
-                    {
-                        console.log(response.data);
-                        this.setState(
-                            {
-                                successful:true,
-                                message:"avail Successful!",
-                            });
-                    }
-                    else
-                    {
-                       this.setState(
-                           {
-                               successful:false,
-                               message:"fail lmao"
-                           }
-                       )
-                    }
-                })
+                if(response)
+                {
+                    console.log(response.data);
+                    this.setState(
+                        {
+                            successful:true,
+                            message:"avail Successful!",
+                        });
+                }
+                else
+                {
+                   this.setState(
+                       {
+                           successful:false,
+                           message:"fail lmao"
+                       })
+                }
+            })
         }
 
     }
 
-
-
     render()
     {
+        if(!this.props.isLoggedIn)
+        {
+            return <Redirect to="/" />;
+        }
 
         let serviceList;
         if(this.state.services) {
@@ -221,8 +222,10 @@ export class WorkerAvailabilities extends Component
 
 function mapStateToProps(state) {
     const {user} = state.auth;
+    const {isLoggedIn} = state.auth;
     return {
         user,
+        isLoggedIn,
     };
 }
 

@@ -16,11 +16,6 @@ export const getAvailByService = async (id) =>
     return await axios.get(`http://${IP}:8080/api/service/${id}/availabilities`);
 }
 
-export const getServiceById = async (id) =>
-{
-    return await axios.get(`http://${IP}:8080/api/service/${id}`);
-}
-
 export const getWorkerByService = async (id) =>
 {
     return await axios.get(`http://${IP}:8080/api/service/${id}/workers`);

@@ -2,7 +2,6 @@ import React, {Component} from "react";
 
 import {getAdmin} from "../../../actions/userActions";
 import {connect} from "react-redux";
-import CustomCheckbox from "../../Generics/CustomCheckbox";
 import {getServiceByBusiness} from "../../../actions/BusinessActions";
 
 export class ViewServicesList extends Component {
@@ -44,8 +43,6 @@ export class ViewServicesList extends Component {
     }
 
     render() {
-
-        const { message } = this.props;
         let realServ;
         const serv = this.state.services;
         if(serv)

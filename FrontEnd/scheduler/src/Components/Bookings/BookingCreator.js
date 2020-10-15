@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {
     getAllBusiness, getAvailByService,
-    getServiceByBusiness, getServiceById, getWorkerByService,
+    getServiceByBusiness, getWorkerByService,
     tryCreateBooking
 } from "../../actions/BusinessActions";
 import {Button} from "react-bootstrap";
