@@ -1,33 +1,34 @@
+import {formatDate} from "react-calendar";
 
 export const numToDay = (num) =>
 {
     if(num===1)
     {
-        return "Monday"
+        return "Mon"
     }
     if(num===2)
     {
-        return "Tuesday"
+        return "Tues"
     }
     if(num===3)
     {
-        return "Wednesday"
+        return "Wed"
     }
     if(num===4)
     {
-        return "Thursday"
+        return "Thu"
     }
     if(num===5)
     {
-        return "Friday"
+        return "Fri"
     }
     if(num===6)
     {
-        return "Saturday"
+        return "Sat"
     }
     if(num===7)
     {
-        return "Sunday"
+        return "Sun"
     }
 }
 
@@ -37,9 +38,11 @@ export const timeToken = (time,index) =>
     return res[index];
 }
 
-export const createDate = (hour,minute) =>
+export const createDate = (year,month,day) =>
 {
-    return "2020-12-14";
-        //+" "+hour+":"+minute;
+    return (year+"-"+month+"-"+day);
 }
+
+
+
 

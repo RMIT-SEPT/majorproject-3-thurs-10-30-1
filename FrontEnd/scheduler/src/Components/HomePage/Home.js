@@ -21,6 +21,8 @@ class Home extends Component {
             <div className="homeContainer">
                 <About/>
                 <Login handleAuth={this.handleAuth} />
+
+
             </div>)
     }
 }

@@ -7,7 +7,7 @@ import {
 import {Button} from "react-bootstrap";
 import {connect} from 'react-redux'
 import {createDate, numToDay} from "../../utils/dateUtils";
-import {getWorker} from "../../actions/userActions";
+import MyCal from "../Generics/myCal";
 
 
 class BookingCreator extends Component
@@ -25,6 +25,13 @@ class BookingCreator extends Component
             currentServiceId:-1,
             currentWorkerId:-1,
             currentAvail:-1,
+
+            date: new Date(),
+            dayOfWeek: undefined,
+            dayOfMonth:undefined,
+            month:undefined,
+            year:undefined,
+
             canSubmit:false,
             successful:false,
             message:"",
@@ -32,14 +39,20 @@ class BookingCreator extends Component
 
         this.onChangeNumber=this.onChangeNumber.bind(this);
         this.onClick=this.onClick.bind(this);
+        this.onChangeDate=this.onChangeDate.bind(this);
     }
 
     componentDidMount() {
+        const date = this.state.date;
         getAllBusiness()
             .then(response =>
             {
                 this.setState({
                     businesses: response.data,
+                    dayOfWeek:date.getDay(),
+                    dayOfMonth:date.getDate(),
+                    month:date.getMonth(),
+                    year:date.getFullYear()
                 });
             })
     }
@@ -116,18 +129,41 @@ class BookingCreator extends Component
         this.setState({[e.target.name]: parseInt(e.target.value)});
     }
 
+    onChangeDate = date =>
+    {
+        console.log(date);
+        let thisDay = date.getDay();
+        let thisDate = date.getDate();
+        const thisMonth = date.getMonth()+1;
+        const thisYear = date.getFullYear();
+        if(thisDay===0)
+        {
+            thisDay=7;
+        }
+
+        this.setState(
+            {
+            dayOfWeek:thisDay,
+            dayOfMonth: thisDate,
+            month: thisMonth,
+            year: thisYear,}
+            )
+    }
+
 
     onClick = (e) =>
     {
         e.preventDefault();
         const currentAvail = this.state.availList[this.state.currentAvail];
-        const myDate = createDate(currentAvail.hour,currentAvail.minute);
+        const myDate = createDate(this.state.year,this.state.month,this.state.dayOfMonth);
+        console.log(myDate);
         const bookingRequest =
         {
             availabilityId: currentAvail.id,
             customerId:this.props.user.userId,
             date: myDate,
         }
+
         const serviceId = this.state.services[this.state.currentServiceId].id;
         console.log("making a booking with this request: ");
         console.log(bookingRequest);
@@ -192,15 +228,12 @@ class BookingCreator extends Component
         const avail = this.state.availList;
 
         if (avail) {
-            console.log("logging avail in availLIst");
-            console.log(avail);
             const actualWorker = this.state.workerList[this.state.currentWorkerId].id;
-            console.log(actualWorker);
+            const chosenDay = this.state.dayOfWeek;
             availList = avail.map((avail, index) => {
-                    if (avail.worker === actualWorker)
+                    if (avail.worker === actualWorker && avail.day===chosenDay)
                         return <option key={avail.id} value={index}>Day: {numToDay(avail.day)}
                         Hour: {avail.hour}:{avail.minute} </option>
-
                 }
             )
         }
@@ -236,7 +269,6 @@ class BookingCreator extends Component
                         ? <select name="currentWorkerId" value={this.state.currentWorkerId} onChange={this.onChangeNumber}>
                             <option value="-1" > PLEASE Select A Worker:</option>
                             {workerList} </select>
-                        //? <WorkerDropDown onChange={this.onChangeNumber} value={this.state.currentWorkerID} workerList={this.state.workerList}/>
                         : <select>
                             <option value="-1" > Please Select A Worker:</option>
                         </select>
@@ -255,7 +287,15 @@ class BookingCreator extends Component
                 </center>
 
                 <center>
+
                     <div className="BookButton">
+                        <br/>
+
+                        <MyCal value={this.state.date}
+                                  onChange={this.onChangeDate}
+                                  minDate={new Date()}
+                        />
+
                         {this.state.canSubmit
                             ?
                             <Button onClick={this.onClick}> Book</Button>
