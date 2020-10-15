@@ -35,7 +35,7 @@ public class WorkerController {
     {
         Worker worker = workerMicro.getWorkerById(id);
         return worker != null ? new ResponseEntity<>(worker, HttpStatus.OK) : 
-            new ResponseEntity<>("User not found", HttpStatus.BAD_REQUEST);
+            new ResponseEntity<>("Worker not found", HttpStatus.BAD_REQUEST);
     }
 
     @GetMapping("/all")
@@ -48,7 +48,7 @@ public class WorkerController {
     public ResponseEntity<?> addBusiness(@PathVariable long id, @PathVariable long businessId)
     {
         Worker worker = workerMicro.getWorkerById(id);
-        if (worker == null) return new ResponseEntity<>("User not found", HttpStatus.BAD_REQUEST);
+        if (worker == null) return new ResponseEntity<>("Worker not found", HttpStatus.BAD_REQUEST);
         else
         {
             Business business = businessMicro.getBusinessById(businessId);
@@ -66,7 +66,7 @@ public class WorkerController {
     public ResponseEntity<?> addService(@PathVariable long id, @PathVariable long serviceId)
     {
         Worker worker = workerMicro.getWorkerById(id);
-        if (worker == null) return new ResponseEntity<>("User not found", HttpStatus.BAD_REQUEST);
+        if (worker == null) return new ResponseEntity<>("Worker not found", HttpStatus.BAD_REQUEST);
         else
         {
             ScheduleService service = serviceMicro.getServiceById(serviceId);
@@ -77,5 +77,13 @@ public class WorkerController {
                 return new ResponseEntity<>(workerMicro.saveOrUpdate(worker), HttpStatus.ACCEPTED);
             }
         }
+    }
+
+    @GetMapping("/{id}/services")
+    public ResponseEntity<?> getAllServices(@PathVariable long id)
+    {
+        Worker worker = workerMicro.getWorkerById(id);
+        return worker != null ? new ResponseEntity<>(worker.getServices(), HttpStatus.OK) :
+            new ResponseEntity<>("Worker not found", HttpStatus.BAD_REQUEST);
     }
 }
