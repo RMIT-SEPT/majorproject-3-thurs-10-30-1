@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.*;
 public class BookingRequest {
 
     @NotNull(message = "the field (\"id\" : long) is required")
-    private Long id;
+    private Long availabilityId;
     @NotNull(message = "the field (\"date\" : yyyy-mm-dd HH:mm) is required")
     @JsonFormat(pattern ="yyyy-MM-dd")
     private LocalDate date;
@@ -18,13 +18,13 @@ public class BookingRequest {
     public BookingRequest(Long id, LocalDate date, Long customerId)
     {
         this.date = date;
-        this.id = id;
+        this.availabilityId = id;
         this.customerId = customerId;
     }
     
     public Long getId()
     {
-        return id;
+        return availabilityId;
     }
 
     public Long getCustomerId()
