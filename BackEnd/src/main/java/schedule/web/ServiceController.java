@@ -126,4 +126,17 @@ public class ServiceController {
         return service != null ? new ResponseEntity<>(service.getWorkers(), HttpStatus.OK)
                 : new ResponseEntity<>("Service not found", HttpStatus.BAD_REQUEST);
     }
+
+    @GetMapping("/{id}/bookings")
+    public ResponseEntity<?> getServiceBookings(@PathVariable long id)
+    {
+        ArrayList<Booking> bookings = new ArrayList<>();
+        for (Booking b : bookingMicro.getAllBookings())
+        {
+            if (b.getServiceId() == id)
+                bookings.add(b);
+        }
+
+        return new ResponseEntity<>(bookings,HttpStatus.OK);
+    }
 }

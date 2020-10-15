@@ -86,4 +86,14 @@ public class WorkerController {
         return worker != null ? new ResponseEntity<>(worker.getServices(), HttpStatus.OK) :
             new ResponseEntity<>("Worker not found", HttpStatus.BAD_REQUEST);
     }
+
+    @GetMapping("/{id}/bookings")
+    public ResponseEntity<?> getAllBookings(@PathVariable long id)
+    {
+        Worker worker = workerMicro.getWorkerById(id);
+        if (worker == null)
+            return new ResponseEntity<>("Worker not found", HttpStatus.BAD_REQUEST);
+
+        return new ResponseEntity<>(worker.getBookings(), HttpStatus.OK);
+    }
 }
