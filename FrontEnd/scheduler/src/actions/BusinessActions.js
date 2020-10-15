@@ -41,7 +41,7 @@ export const tryCreateBooking = async (bookingRequest,serviceId) =>
     }
     catch (err)
     {
-        console.log(err);
+        console.log(err.message);
     }
 }
 
