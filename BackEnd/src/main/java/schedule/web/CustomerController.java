@@ -33,4 +33,12 @@ public class CustomerController {
         return customer != null ? new ResponseEntity<>(customer, HttpStatus.OK) : 
             new ResponseEntity<>("User not found", HttpStatus.BAD_REQUEST);
     }
+
+    @GetMapping("/{id}/bookings")
+    public ResponseEntity<?> getBookings(@PathVariable long id)
+    {
+        Customer customer = customerMicro.getCustomerById(id);
+        return customer != null ? new ResponseEntity<>(customer.getBookings(), HttpStatus.OK) : 
+            new ResponseEntity<>("User not found", HttpStatus.BAD_REQUEST);
+    }
 }
