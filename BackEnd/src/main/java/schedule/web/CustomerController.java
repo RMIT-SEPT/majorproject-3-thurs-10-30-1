@@ -38,7 +38,7 @@ public class CustomerController {
     public ResponseEntity<?> getBookings(@PathVariable long id)
     {
         Customer customer = customerMicro.getCustomerById(id);
-        return customer != null ? new ResponseEntity<>(customer.getBookings(), HttpStatus.OK) : 
+        return customer != null ? new ResponseEntity<>(customer.getBookings(), HttpStatus.OK) :
             new ResponseEntity<>("User not found", HttpStatus.BAD_REQUEST);
     }
 }

@@ -67,6 +67,8 @@ public class ScheduleService
         return availability;
     }
 
+    
+
     @JsonProperty("availabilities")
     public List<Long> getAvailabilitiesId()
     {

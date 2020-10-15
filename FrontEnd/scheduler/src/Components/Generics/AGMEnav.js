@@ -3,7 +3,7 @@ import Nav from "react-bootstrap/Nav";
 import '../../App.css';
 import styled from 'styled-components';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import {Link} from "react-router-dom";
+import {Link, Redirect} from "react-router-dom";
 import {NavItem, Navbar, NavLink} from "react-bootstrap";
 import {NavDropdown} from "react-bootstrap";
 import Logo from "../../media/Logo(Text).png";
@@ -41,7 +41,16 @@ export class AGMEnav extends Component
         const userLinks = (
             <Nav className="m-xl-auto">
                 <NavItem> <Link to="/profile"> Profile   </Link></NavItem>
-                <NavItem> <Link to ="/dashboard"> Dashboard </Link></NavItem>
+
+
+                {
+                    accType==="Customer"
+                    ?<Nav>
+                            <NavItem> <Link to ="/dashboard"> Dashboard </Link></NavItem>
+                        </Nav>
+                        :
+                        <p></p>
+                }
 
                 {
                     accType==="Worker"

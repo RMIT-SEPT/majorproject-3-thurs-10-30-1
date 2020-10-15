@@ -3,6 +3,7 @@ import React, {Component} from "react";
 import {getAdmin} from "../../../actions/userActions";
 import {connect} from "react-redux";
 import CustomCheckbox from "../../Generics/CustomCheckbox";
+import {getServiceByBusiness} from "../../../actions/BusinessActions";
 
 export class ViewServicesList extends Component {
 
@@ -29,10 +30,16 @@ export class ViewServicesList extends Component {
         getAdmin(id)
             .then(response => {
                 this.setState({
-                    services: response.data.business.services,
                     businessID: response.data.business.id,
-                    test: response.data.business.description
                 });
+                getServiceByBusiness(this.state.businessID)
+                    .then(resp =>{
+                        this.setState(
+                            {
+                                services:resp.data,
+                            }
+                        )
+                    })
             })
     }
 

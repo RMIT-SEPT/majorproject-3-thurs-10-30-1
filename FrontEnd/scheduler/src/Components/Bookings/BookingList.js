@@ -1,7 +1,34 @@
 import React, {Component} from 'react';
+import {connect} from "react-redux";
+import {getBookingForCustomer} from "../../actions/userActions";
 
 class BookingList extends Component
 {
+    constructor(props) {
+        super(props);
+        this.state=
+        {
+            id:this.props.user.userId,
+            bookings:undefined,
+        }
+    }
+
+    componentDidMount()
+    {
+        getBookingForCustomer(this.state.id).then(resp =>
+        {
+            console.log(resp.data);
+            this.setState(
+                {
+                    bookings:resp.data
+                }
+            )
+        })
+
+
+
+
+    }
 
     render() {
         let myBookings = this.props.bookings.map((booking) =>
@@ -29,4 +56,11 @@ class BookingList extends Component
 }
 }
 
-export default BookingList;
+function mapStateToProps(state) {
+    const {user} = state.auth;
+    return {
+        user,
+    };
+}
+
+export default connect(mapStateToProps) (BookingList);

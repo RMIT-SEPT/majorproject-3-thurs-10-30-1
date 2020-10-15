@@ -2,6 +2,7 @@ import React, {Component} from "react";
 
 import {getAdmin} from "../../../actions/userActions";
 import {connect} from "react-redux";
+import {getWorkerByBusiness} from "../../../actions/BusinessActions";
 
 export class ViewWorkersList extends Component {
 
@@ -9,6 +10,7 @@ export class ViewWorkersList extends Component {
         super(props);
         this.state =
             {
+                businessId: undefined,
                 workers: undefined,
             };
     }
@@ -20,20 +22,24 @@ export class ViewWorkersList extends Component {
             .then(response => {
                 console.log(response.data)
                     this.setState({
-                        workers: response.data.business.workers,
-
+                        businessId: response.data.business.id,
                 });
-                console.log(this.state.workers)
+                getWorkerByBusiness(this.state.businessId)
+                    .then(resp =>{
+                        this.setState(
+                            {
+                                workers:resp.data
+                            })
+                    })
             })
     }
 
 
-    render() {
-
+    render()
+    {
         let listWorkers;
         const work = this.state.workers;
         console.log(work);
-
        if(work)
         {
             listWorkers =  work.map((worker,index) => (

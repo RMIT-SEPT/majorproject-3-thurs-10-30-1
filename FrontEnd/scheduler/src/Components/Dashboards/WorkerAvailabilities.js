@@ -5,7 +5,7 @@ import Form from "react-bootstrap/Form";
 import {Button} from "react-bootstrap";
 import TimePicker from 'react-time-picker'
 import {numToDay, timeToken} from "../../utils/dateUtils";
-import {createNewAvail} from "../../actions/BusinessActions";
+import {createNewAvail, getAvailByService, getServiceByWorker} from "../../actions/BusinessActions";
 
 
 export class WorkerAvailabilities extends Component
@@ -14,9 +14,10 @@ export class WorkerAvailabilities extends Component
         super(props);
         this.state =
             {
-                id:undefined,
-                businesses: undefined,
+                id:this.props.user.userId,
                 services: undefined,
+                avails:undefined,
+
                 currentServiceId:-1,
                 time:undefined,
                 duration:30,
@@ -28,6 +29,48 @@ export class WorkerAvailabilities extends Component
         this.onChangeTime=this.onChangeTime.bind(this);
         this.onChange=this.onChange.bind(this);
         this.onSubmit=this.onSubmit.bind(this);
+    }
+
+    componentDidMount() {
+        const myId = this.state.id;
+        getServiceByWorker(myId)
+            .then(response => {
+                console.log("logging services");
+                console.log(response.data);
+                this.setState(
+                    {
+                        services:response.data,
+                        //businessIds:response.data.businesses
+                    })
+                getAvailByService(this.state.currentServiceId)
+                    .then(r =>
+                    {
+                        console.log(r.data);
+                        this.setState({
+                            avails: r.data,
+                        })
+                    })
+            });
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot)
+    {
+        if(prevState.currentServiceId!==this.state.currentServiceId ||
+        prevState.message!== this.state.message)
+        {
+            console.log("there was a change:");
+            console.log(this.state.services);
+            console.log(this.state.currentServiceId);
+            getAvailByService(this.state.currentServiceId)
+                .then(r =>
+                {
+                    console.log(r.data);
+                    this.setState({
+                        avails: r.data,
+                    })
+                })
+        }
+
     }
 
     onChange = (e) =>
@@ -55,88 +98,46 @@ export class WorkerAvailabilities extends Component
             console.log(hourToken);
             console.log(minuteToken);
 
-            const avail =
+            const timeAvailabilityRequest =
             {
-                dayOfWeek: this.state.day,
+                day: this.state.day,
                 hour: hourToken,
                 minute: minuteToken,
-                worker: this.state.id,
-                duration: this.state.duration,
+                workerId: this.state.id,
+                length: this.state.duration,
             }
 
-            console.log(avail);
+            console.log(timeAvailabilityRequest);
             console.log("Service id:" + servId);
-            createNewAvail(avail,servId).then((response) => {
-                    console.log(response.data);
-                    this.setState(
-                        {
-                            successful:true,
-                           message:"Booking Successful!"
-                        });
-
-                    if(response.data==="error")
+            createNewAvail(timeAvailabilityRequest,servId).then((response) =>
+            {
+                    if(response)
                     {
-                        //error state
+                        console.log(response.data);
+                        this.setState(
+                            {
+                                successful:true,
+                                message:"avail Successful!",
+                            });
+                    }
+                    else
+                    {
+                       this.setState(
+                           {
+                               successful:false,
+                               message:"fail lmao"
+                           }
+                       )
                     }
                 })
         }
 
-        else
-        {
-            this.setState(
-                {
-                    successful:false,
-                    message:"Error, please select a service"
-                }
-            )
-        }
-
     }
 
-    componentDidMount() {
-        const myId = this.props.user.userId;
-        this.setState({
-            id:myId
-        });
-        getWorker(myId)
-            .then(response => {
-                this.setState(
-                    {
-                        services:response.data.services,
-                        businesses:response.data.businesses
-                    }
-                )
-                });
-    }
+
 
     render()
     {
-        let businessList;
-         if(this.state.businesses)
-         {
-             businessList = this.state.businesses.map((business) => (
-                 <div key={business.id}> {business.name }</div>
-             ))
-         }
-
-        let availList;
-        if(this.state.services)
-        {
-            availList = this.state.services.map((service) => (
-                <div key={service.id}>
-                    {service.name}
-                    <ul>
-                    {
-                        service.availablities.map((avail,index) =>
-                        {
-                            if(avail.workedId === this.state.id)
-                               return  <li key={index}> Day: {numToDay(avail.day)} Time: {avail.hour}:{avail.minute} </li>
-                        }
-                        )}
-                    </ul>
-                </div>
-            ))
-        }
 
         let serviceList;
         if(this.state.services) {
@@ -145,23 +146,31 @@ export class WorkerAvailabilities extends Component
             ))
         }
 
+        let availList;
+        if(this.state.avails)
+        {
+            availList = this.state.avails.map((avail,index) =>
+            {
+                    if(avail.worker === this.state.id)
+                       return  <li key={index}> Day: {numToDay(avail.day)} Time: {avail.hour}:{avail.minute} </li>
+            })
+        }
+
         const format="HH:mm";
 
         return(
             <div>
-                {businessList}
-                {availList}
                 <br/>
-
                 <Form onSubmit={this.onSubmit}>
+
                     <h2> AVAIL MAKER FORM</h2>
                     <h4> Select Service</h4>
 
                     <select value={this.state.currentServiceId} name="currentServiceId" onChange={this.onChange}>
-                        <option value={-1} > Select a service: </option>
+                        <option value={-1} disabled > Select a service: </option>
                         {serviceList}
                     </select>
-
+                    {availList}
                     <br/>
                     <h4> Select Day</h4>
                     <select value={this.state.day} name="day" onChange={this.onChange} required>

@@ -110,7 +110,7 @@ public class ServiceController {
                 foundAvailability);
         newBooking = bookingMicro.saveOrUpdate(newBooking);
 
-        return new ResponseEntity<>(newBooking.getId(), HttpStatus.CREATED);
+        return new ResponseEntity<>(newBooking.getId(), HttpStatus.OK);
     }
 
     @GetMapping("/{id}/availabilities")

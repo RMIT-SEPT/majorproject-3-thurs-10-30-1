@@ -1,14 +1,13 @@
 import React, {Component} from 'react';
 import {
-    getAllBusiness,
-    getServiceByBusiness, getServiceById,
+    getAllBusiness, getAvailByService,
+    getServiceByBusiness, getServiceById, getWorkerByService,
     tryCreateBooking
 } from "../../actions/BusinessActions";
 import {Button} from "react-bootstrap";
 import {connect} from 'react-redux'
 import {createDate, numToDay} from "../../utils/dateUtils";
 import {getWorker} from "../../actions/userActions";
-import WorkerDropDown from "./WorkerDropDown";
 
 
 class BookingCreator extends Component
@@ -16,21 +15,20 @@ class BookingCreator extends Component
     constructor(props) {
         super(props);
         this.state=
+        {
+            businesses: undefined,
+            services:undefined,
+            workerList: undefined,
+            availList:undefined,
 
-            {
-                businesses: undefined,
-                services:undefined,
-                workerList: undefined,
-                availList:undefined,
-
-                currentId:-1,
-                currentServiceId:-1,
-                currentWorkerId:-1,
-                currentAvail:-1,
-                canSubmit:false,
-                successful:false,
-                message:"",
-            }
+            currentId:-1,
+            currentServiceId:-1,
+            currentWorkerId:-1,
+            currentAvail:-1,
+            canSubmit:false,
+            successful:false,
+            message:"",
+        }
 
         this.onChangeNumber=this.onChangeNumber.bind(this);
         this.onClick=this.onClick.bind(this);
@@ -40,7 +38,6 @@ class BookingCreator extends Component
         getAllBusiness()
             .then(response =>
             {
-                console.log(response.data);
                 this.setState({
                     businesses: response.data,
                 });
@@ -55,7 +52,7 @@ class BookingCreator extends Component
             const id = this.state.businesses[this.state.currentId].id;
             getServiceByBusiness(id)
                 .then(resp => {
-                    console.log("loggin resp");
+                    console.log("loggin service resp");
                     console.log(resp.data);
                     this.setState(
                         {
@@ -68,15 +65,22 @@ class BookingCreator extends Component
                 })
         }
 
-        if (prevState.currentServiceId !== this.state.currentServiceId) {
+        if (prevState.currentServiceId !== this.state.currentServiceId)
+        {
             if(this.state.currentServiceId>=0)
             {
-                this.setState({
-                    workerList: this.state.services[this.state.currentServiceId].workers,
-                    currentWorkerId:-1,
-                    availList:undefined,
-                    canSubmit:false
-                });
+                const id = this.state.services[this.state.currentServiceId].id;
+                getWorkerByService(id)
+                    .then(resp => {
+                        console.log("logging worker resp:");
+                        console.log(resp.data);
+                        this.setState({
+                            workerList: resp.data,
+                            currentWorkerId:-1,
+                            availList:undefined,
+                            canSubmit:false
+                        });
+                    })
             }
 
         }
@@ -84,11 +88,17 @@ class BookingCreator extends Component
         if (prevState.currentWorkerId !== this.state.currentWorkerId) {
             if(this.state.currentWorkerId>=0)
             {
-                this.setState({
-                    availList:this.state.services[this.state.currentServiceId].availablities,
-                    currentAvail:-1,
-                    canSubmit:false
-                });
+                const id = this.state.services[this.state.currentServiceId].id;
+                getAvailByService(id)
+                    .then(resp => {
+                        console.log("logging avail resp");
+                        console.log(resp.data);
+                        this.setState({
+                            availList:resp.data,
+                            currentAvail:-1,
+                            canSubmit:false
+                        });
+                    })
             }
         }
 
@@ -112,39 +122,42 @@ class BookingCreator extends Component
         e.preventDefault();
         const currentAvail = this.state.availList[this.state.currentAvail];
         const myDate = createDate(currentAvail.hour,currentAvail.minute);
-        console.log(myDate);
         const bookingRequest =
-            {
-                id: currentAvail.id,
-                date: myDate,
-            }
-
+        {
+            availabilityId: currentAvail.id,
+            customerId:this.props.user.userId,
+            date: myDate,
+        }
         const serviceId = this.state.services[this.state.currentServiceId].id;
+        console.log("making a booking with this request: ");
+        console.log(bookingRequest);
+        console.log("and this service: ")
+        console.log(serviceId);
         tryCreateBooking(bookingRequest,serviceId).then
         ((response)=>
         {
-            if(response.data==="Booking made!")
+            if(response)
             {
-                console.log(response.data);
+                console.log(response);
                 this.setState(
                     {
                         message: "Booking Success!",
                         successful: true,
                     })
             }
+
             else
             {
                 this.setState(
                     {
-                        message: "Booking Failure!",
+                        message: "Booking FAIL!",
                         successful: false,
                     })
             }
+
         })
 
     }
-
-
     render()
     {
         let businessList;
@@ -168,28 +181,25 @@ class BookingCreator extends Component
 
         let workerList;
         const work = this.state.workerList;
-
         if (work)
         {
-            workerList = work.map((worker, index) =>
-            {
-                getWorker(worker).then(r =>
-                {
-                    console.log("making this worker:");
-                    console.log(r.data);
-                    return <option key={worker} value={index}> {r.data.user.name} </option>;
-                })
-            })
+            workerList = work.map((worker, index) => (
+                    <option key={worker.id} value={index}> {worker.user.name} </option>
+            ))
         }
 
         let availList;
         const avail = this.state.availList;
+
         if (avail) {
+            console.log("logging avail in availLIst");
+            console.log(avail);
             const actualWorker = this.state.workerList[this.state.currentWorkerId].id;
+            console.log(actualWorker);
             availList = avail.map((avail, index) => {
-                    if (avail.workedId === actualWorker)
+                    if (avail.worker === actualWorker)
                         return <option key={avail.id} value={index}>Day: {numToDay(avail.day)}
-                            Hour: {avail.hour}:{avail.minute} </option>
+                        Hour: {avail.hour}:{avail.minute} </option>
 
                 }
             )
