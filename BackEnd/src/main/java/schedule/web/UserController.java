@@ -47,16 +47,18 @@ public class UserController {
         else return new ResponseEntity<>("Password not provided", HttpStatus.BAD_REQUEST);
     }
 
-    @PutMapping("/update/{id}")
-    public ResponseEntity<?> updateUser(@Valid @RequestBody User user, @PathVariable long id, BindingResult result)
+    @PutMapping("/update")
+    public ResponseEntity<?> updateUser(@Valid @RequestBody UserUpdateRequest userRequest, @PathVariable long id, BindingResult result)
     {
         if (result.hasErrors()){
             return new ResponseEntity<>("Invalid User Object", HttpStatus.BAD_REQUEST);
         }
-        if (userMicro.userExistsById(id))
+        User user = userMicro.getUserById(id);
+        if (user != null)
         {
-            user.setUserId(id);
-            return new ResponseEntity<>(userMicro.saveOrUpdate(user), HttpStatus.OK);
+            if (userRequest.passwordIsEmpty()) userRequest.setPassword(user.getPassword());
+            userRequest.setAccountType(user.getAccountType());
+            return new ResponseEntity<>(userMicro.saveOrUpdate(userRequest.createUser()), HttpStatus.OK);
         }
         else return new ResponseEntity<>("User being updated does not exist", HttpStatus.BAD_REQUEST);
     }
