@@ -246,7 +246,7 @@ class BookingCreator extends Component
                     <h3 className="bookingCreatorDropdowns" > Business </h3>
                     {biz
                         ? <select name="currentId" value={this.state.currentId} onChange={this.onChangeNumber}>
-                            <option value="-1">Select a business</option>
+                            <option value="-1" disabled>Select a business</option>
                             {businessList}
                         </select>
                         :
@@ -257,17 +257,17 @@ class BookingCreator extends Component
                     <h3 className="bookingCreatorDropdowns"> Service </h3>
                     {serv
                         ? <select name="currentServiceId" value={this.state.currentServiceId} onChange={this.onChangeNumber}>
-                            <option value="-1" > PLEASE Select A Service:</option>
+                            <option value="-1" disabled> Please Select A Service:</option>
                             {servList} </select>
                         : <select>
-                            <option value="-1" > Please Select A Service:</option>
+                            <option value="-1"> Please Select A Service:</option>
                         </select>
                     }
 
                     <h3 className="bookingCreatorDropdowns" > Worker </h3>
                     {work
                         ? <select name="currentWorkerId" value={this.state.currentWorkerId} onChange={this.onChangeNumber}>
-                            <option value="-1" > PLEASE Select A Worker:</option>
+                            <option value="-1"disabled> Please Select A Worker:</option>
                             {workerList} </select>
                         : <select>
                             <option value="-1" > Please Select A Worker:</option>
@@ -277,7 +277,7 @@ class BookingCreator extends Component
                     <h3 className="bookingCreatorDropdowns" > Availabilities </h3>
                     {avail
                         ? <select name="currentAvail" value={this.state.currentAvail} onChange={this.onChangeNumber}>
-                            <option value="-1" > Please Select an avail:</option>
+                            <option value="-1" disabled > Please Select an avail:</option>
                             {availList} </select>
                         : <select>
                             <option value="-1" > Please Select an avail:</option>

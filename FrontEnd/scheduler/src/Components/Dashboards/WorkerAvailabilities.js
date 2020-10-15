@@ -42,14 +42,14 @@ export class WorkerAvailabilities extends Component
                         services:response.data,
                         //businessIds:response.data.businesses
                     })
-                getAvailByService(this.state.currentServiceId)
-                    .then(r =>
-                    {
-                        console.log(r.data);
-                        this.setState({
-                            avails: r.data,
-                        })
-                    })
+                // getAvailByService(this.state.currentServiceId)
+                //     .then(r =>
+                //     {
+                //         console.log(r.data);
+                //         this.setState({
+                //             avails: r.data,
+                //         })
+                //     })
             });
     }
 
@@ -171,8 +171,10 @@ export class WorkerAvailabilities extends Component
                         <option value={-1} disabled > Select a service: </option>
                         {serviceList}
                     </select>
+
                     {availList}
                     <br/>
+
                     <h4> Select Day</h4>
                     <select value={this.state.day} name="day" onChange={this.onChange} required>
                         <option value={1}> Monday</option>
@@ -184,6 +186,7 @@ export class WorkerAvailabilities extends Component
                         <option value={7}> Sunday</option>
                     </select>
                     <br/>
+
                     <h4> Select Start Time</h4>
 
                     <TimePicker
