@@ -57,4 +57,14 @@ public class BusinessController {
         }
         else return new ResponseEntity<>("Business not found", HttpStatus.BAD_REQUEST);
     }
+
+    @GetMapping(value = "/{id}/workers")
+    public ResponseEntity<?> getWorkersFromBusiness(@PathVariable long id)
+    {
+        Business business = businessMicro.getBusinessById(id);
+        if (business == null)
+            return new ResponseEntity<>("Bad business id", HttpStatus.BAD_REQUEST);
+
+        return new ResponseEntity<>(business.getWorkers(),HttpStatus.OK);
+    }
 }
