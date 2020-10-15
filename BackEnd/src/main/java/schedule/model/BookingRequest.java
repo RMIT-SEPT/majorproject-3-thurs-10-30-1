@@ -8,7 +8,7 @@ public class BookingRequest {
 
     @NotNull(message = "the field (\"id\" : long) is required")
     private Long availabilityId;
-    @NotNull(message = "the field (\"date\" : yyyy-mm-dd HH:mm) is required")
+    @NotNull(message = "the field (\"date\" : yyyy-mm-dd) is required")
     @JsonFormat(pattern ="yyyy-MM-dd")
     private LocalDate date;
     @NotNull(message = "the field (\"customerId\" : long) is required")
@@ -22,7 +22,7 @@ public class BookingRequest {
         this.customerId = customerId;
     }
     
-    public Long getId()
+    public Long getAvailabilityId()
     {
         return availabilityId;
     }

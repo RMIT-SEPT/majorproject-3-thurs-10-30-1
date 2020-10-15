@@ -89,7 +89,7 @@ public class ServiceController {
         }
         TimeAvailability foundAvailability = null;
         for (TimeAvailability availability : service.getAvailablities()) {
-            if (availability.getId().equals(booking.getId())) {
+            if (availability.getId().equals(booking.getAvailabilityId())) {
                 foundAvailability = availability;
                 break;
             }
