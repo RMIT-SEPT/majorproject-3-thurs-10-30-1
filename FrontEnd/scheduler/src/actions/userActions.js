@@ -72,3 +72,8 @@ export const getBookingForCustomer= async (id) =>
     return await axios.get(`http://${IP}:8080/api/customer/${id}/bookings`)
 }
 
+export const getBookingByWorker= async (id) =>
+{
+    return await axios.get(`http://${IP}:8080/api/worker/${id}/bookings`)
+}
+

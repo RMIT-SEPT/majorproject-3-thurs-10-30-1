@@ -42,6 +42,8 @@ export class ViewServicesList extends Component {
             })
     }
 
+    //display bookings here
+
     render() {
         let realServ;
         const serv = this.state.services;
@@ -56,6 +58,7 @@ export class ViewServicesList extends Component {
                     <br/>
                     Description:  {service.description}
                     <br/>
+                    Bookings:
                 </h4>
             </h4>
             ))

@@ -1,6 +1,5 @@
 import React, {Component} from "react";
 import { Tab, Tabs } from 'react-bootstrap'
-import WorkerBookingList from "../Bookings/WorkerBookingList";
 import ViewWorkerList from "../Dashboards/View/ViewWorkersList";
 import {connect} from "react-redux";
 import {getAdmin} from "../../actions/userActions";
@@ -42,18 +41,17 @@ export class adminDashboard extends Component {
             return <Redirect to="/" />;
         }
 
-        let title = " Your Business Bookings"
         return (
             <div className="adminDashboardContainer">
                 <h2 className = "DashboardWelcome"> {this.state.businessName}</h2>
 
-                <Tabs defaultActiveKey="viewBookings" id="uncontrolled-tab-example">
-                    <Tab eventKey="viewBookings" title="All Bookings">
-                        <WorkerBookingList bookings={bookings} title={title}/>
-                    </Tab>
-
+                <Tabs defaultActiveKey="viewWorkers" id="uncontrolled-tab-example">
                     <Tab eventKey="viewWorkers" title="All Workers" >
                         <ViewWorkerList />
+                    </Tab>
+
+                    <Tab eventKey="viewBookings" title="All Bookings">
+                        <div> How should we display bookings</div>
                     </Tab>
 
                     <Tab eventKey="viewServices" title="All Services" >

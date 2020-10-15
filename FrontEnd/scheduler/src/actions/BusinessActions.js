@@ -50,6 +50,13 @@ export const getServiceByWorker = async (id) =>
     return await axios.get(`http://${IP}:8080/api/worker/${id}/services`);
 }
 
+export const addServiceToBusiness = async (service,id) =>
+{
+    return await axios.post(`http://${IP}:8080/api/business/${id}/service/create`,service);
+}
+
+
+
 
 
 

@@ -3,9 +3,33 @@ import BookingCreator from "../Bookings/BookingCreator";
 import BookingList from "../Bookings/BookingList";
 import {connect} from "react-redux";
 import {Redirect} from "react-router-dom";
+import {getBookingForCustomer} from "../../actions/userActions";
 
 export class Dashboard extends Component
 {
+    constructor(props)
+    {
+        super(props);
+        this.state=
+        {
+            bookings:undefined,
+            id:undefined,
+        }
+    }
+
+    componentDidMount()
+    {
+        console.log(this.props.user);
+        getBookingForCustomer(this.props.user.userId).then(resp =>
+        {
+            console.log(resp.data);
+            this.setState(
+                {
+                    bookings:resp.data
+                }
+            )
+        })
+    }
 
   render()
   {
@@ -14,11 +38,15 @@ export class Dashboard extends Component
           return <Redirect to="/" />;
       }
 
-    return (
 
+    return (
         <div className="dashboardContainer">
             <p className = "DashboardWelcome">Welcome {this.props.user.name}</p>
-            <BookingList />
+            {this.state.bookings
+                ?<BookingList bookings={this.state.bookings} />
+                :
+                <div> No Bookings</div>
+            }
             <BookingCreator />
         </div>
     )
@@ -37,3 +65,5 @@ function mapStateToProps(state) {
 }
 
 export default connect(mapStateToProps) (Dashboard);
+
+
