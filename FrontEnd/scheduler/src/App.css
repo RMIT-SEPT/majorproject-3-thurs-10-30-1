@@ -347,7 +347,7 @@ margin-top:20%;
 /* Admin Dashboard View Workers Page*/
 .AdminViewDashboard
 {
-    width: 55%;
+    width: 65%;
     float: left;
     height: 650px;
     outline-style: solid;
@@ -386,8 +386,8 @@ margin-top:20%;
 
 /* Admin Dashboard View Services Page*/
 .adminViewServices {
-    width: 100mm;
-    height: 30mm;
+    width: 50%;
+    height: 90%;
     margin-left: 12mm;
     margin-bottom: 6%;
     outline-style: solid;
@@ -399,8 +399,8 @@ margin-top:20%;
 {
     display: grid;
     grid-template-columns: 450px 450px;
-    grid-row-gap: 1px;
-    grid-column-gap: 1px;
+    grid-row-gap: 1%;
+    grid-column-gap: .5%;
 }
 
 

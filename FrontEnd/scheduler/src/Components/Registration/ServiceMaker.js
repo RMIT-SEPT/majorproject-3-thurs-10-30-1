@@ -3,7 +3,8 @@ import Form from "react-bootstrap/Form";
 import {connect} from 'react-redux'
 import {addServiceToWorker, getAdmin} from "../../actions/userActions";
 import {Redirect} from "react-router-dom";
-import {addServiceToBusiness} from "../../actions/BusinessActions";
+import {addServiceToBusiness, getWorkerByBusiness} from "../../actions/BusinessActions";
+import CustomCheckbox from "../Generics/CustomCheckbox";
 
 export class ServiceMaker extends Component
 {
@@ -17,13 +18,34 @@ export class ServiceMaker extends Component
                 successful: true,
                 businessId:undefined,
                 message:undefined,
+                workers:undefined,
             };
         this.onChange=this.onChange.bind(this);
         this.handleSubmit=this.handleSubmit.bind(this);
+        this.handleOptionChange=this.handleOptionChange.bind(this);
+        this.toggleCheckbox=this.toggleCheckbox.bind(this);
     }
 
+    toggleCheckbox = key =>
+    {
+        if (this.selectedOptions.has(key))
+        {
+            this.selectedOptions.delete(key);
+        }
+        else
+        {
+            this.selectedOptions.add(key);
+        }
+    }
+
+    handleOptionChange = (e) => {
+        this.setState({
+            selectedOption: e.target.value
+        });
+    }
     componentDidMount()
     {
+        this.selectedOptions = new Set();
         const id = this.props.user.userId;
         getAdmin(id)
             .then(response => {
@@ -31,6 +53,14 @@ export class ServiceMaker extends Component
                 this.setState({
                     businessId: response.data.business.id
                 });
+                getWorkerByBusiness(this.state.businessId)
+                    .then(resp =>{
+                        this.setState(
+                            {
+                                workers:resp.data
+                            });
+
+                    })
             })
     }
 
@@ -45,9 +75,9 @@ export class ServiceMaker extends Component
         e.preventDefault();
         const service =
         {
-            serviceName: this.state.serviceName,
-            serviceDesc: this.state.serviceDesc,
-            availability: null
+            name: this.state.serviceName,
+            description: this.state.serviceDesc,
+            workers: this.state.selectedOption,
         }
         console.log(service);
         console.log("business ID:")
@@ -59,7 +89,8 @@ export class ServiceMaker extends Component
             if(resp)
             {
                 this.setState({
-                    successful: true
+                    successful: true,
+                    message:'Service Created! Make another?',
                 });
                 console.log(resp.data);
             }
@@ -82,6 +113,20 @@ export class ServiceMaker extends Component
             return <Redirect to="/" />;
         }
 
+        let workerOptions;
+        const work = this.state.workers;
+        if(work)
+        {
+            workerOptions = work.map((worker) => (
+                <CustomCheckbox
+                    label={worker.user.name}
+                    handleCheckboxChange={this.toggleCheckbox}
+                    data={worker.id}
+                    key={worker.id}
+                />
+            ))
+        }
+
         return (
                 <div className="regFormDiv">
                     <h1 className="myHeader"> Create A Service here!</h1>
@@ -95,8 +140,16 @@ export class ServiceMaker extends Component
                             <Form.Group>
                                 <Form.Control type="text" placeholder="Service description...: " value={this.state.serviceDesc} onChange={this.onChange} name="serviceDesc"/>
                             </Form.Group>
-
                         </div>
+                        {work
+                            ? <div>
+                                <h3> SELECT SOME WORKERS</h3>
+                                {workerOptions}
+                            </div>
+
+                            : <p></p>
+                        }
+
 
                         {this.state.message && (
                             <div className="form-group">

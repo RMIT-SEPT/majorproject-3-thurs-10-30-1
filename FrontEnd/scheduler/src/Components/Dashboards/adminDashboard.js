@@ -5,6 +5,7 @@ import {connect} from "react-redux";
 import {getAdmin} from "../../actions/userActions";
 import ViewServicesList from "./View/ViewServicesList";
 import {Redirect} from "react-router-dom";
+import {getServiceByBusiness, getWorkerByBusiness} from "../../actions/BusinessActions";
 
 export class adminDashboard extends Component {
 
@@ -13,6 +14,9 @@ export class adminDashboard extends Component {
         this.state =
         {
             businessName: undefined,
+            businessId: undefined,
+            services:undefined,
+            workers:undefined,
         };
     }
 
@@ -21,20 +25,34 @@ export class adminDashboard extends Component {
         const id = this.props.user.userId;
         getAdmin(id)
             .then(response => {
+                const id = response.data.business.id;
                 this.setState({
+                    businessId: id,
                     businessName: response.data.business.name
                 });
-            })
-    }
 
+                getWorkerByBusiness(id)
+                    .then(resp =>{
+                        console.log("workers");
+                        console.log(resp.data);
+                        this.setState(
+                            {
+                                workers:resp.data
+                            });
+
+                    })
+                getServiceByBusiness(id)
+                    .then(resp =>{
+                        this.setState(
+                            {
+                                services:resp.data
+                            });
+
+                    })
+            })
+
+    }
     render() {
-        let bookings = [
-            {workerName: 'Ali ', service: "Ali's Hairdresser ", time: "13:30 ", date: "04/10"},
-            {workerName: 'Max ', service: "Clearing Max ", time: "8:00 ", date: "10/10"},
-            {workerName: 'Fady ', service: "Fady Car-Mechanic ", time: "15:30 ", date: "12/10"},
-            {workerName: 'Zac ', service: "IT Services ", time: "11:15 ", date: "16/10"},
-            {workerName: 'Ali ', service: "Ali's Hairdresses ", time: "18:45 ", date: "20/10"},
-        ]
 
         if(!this.props.isLoggedIn)
         {
@@ -47,7 +65,7 @@ export class adminDashboard extends Component {
 
                 <Tabs defaultActiveKey="viewWorkers" id="uncontrolled-tab-example">
                     <Tab eventKey="viewWorkers" title="All Workers" >
-                        <ViewWorkerList />
+                        <ViewWorkerList workers={this.state.workers} services={this.state.services} />
                     </Tab>
 
                     <Tab eventKey="viewBookings" title="All Bookings">
@@ -55,7 +73,7 @@ export class adminDashboard extends Component {
                     </Tab>
 
                     <Tab eventKey="viewServices" title="All Services" >
-                        <ViewServicesList/>
+                        <ViewServicesList services={this.state.services}/>
                     </Tab>
                 </Tabs>
 
