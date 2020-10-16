@@ -22,7 +22,6 @@ export class WorkerDashboard extends Component {
         const id = this.props.user.userId;
         getBookingByWorker(id)
             .then(response => {
-                console.log(response.data)
                 this.setState({
                     bookings: response.data
                 });

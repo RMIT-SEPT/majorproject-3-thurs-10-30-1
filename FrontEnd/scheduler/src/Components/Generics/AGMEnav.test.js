@@ -5,7 +5,6 @@ import Enzyme from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import {NavbarBrand, NavLink} from "react-bootstrap";
 import {Link} from "react-router-dom";
-import configureStore from 'redux-mock-store'
 
 
 Enzyme.configure({adapter : new Adapter()});
@@ -36,10 +35,4 @@ describe("AGMEnav unit test",() =>
         expect(wrapper.containsMatchingElement(NavbarBrand)).toBe(true);
     });
 
-
-    // it("should logout when logout is clicked", () =>
-    // {
-    //     wrapper.find('logout').simulate('click', {preventDefault() {}})
-    //     expect(mockLoginfn.mock.calls.length).toBe(1)
-    // });
 })

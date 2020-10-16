@@ -10,7 +10,7 @@ import {createDate, numToDay} from "../../utils/dateUtils";
 import MyCal from "../Generics/myCal";
 
 
-class BookingCreator extends Component
+export class BookingCreator extends Component
 {
     constructor(props) {
         super(props);
@@ -65,8 +65,6 @@ class BookingCreator extends Component
             const id = this.state.businesses[this.state.currentId].id;
             getServiceByBusiness(id)
                 .then(resp => {
-                    console.log("loggin service resp");
-                    console.log(resp.data);
                     this.setState(
                         {
                             services: resp.data,
@@ -85,8 +83,6 @@ class BookingCreator extends Component
                 const id = this.state.services[this.state.currentServiceId].id;
                 getWorkerByService(id)
                     .then(resp => {
-                        console.log("logging worker resp:");
-                        console.log(resp.data);
                         this.setState({
                             workerList: resp.data,
                             currentWorkerId:-1,
@@ -104,8 +100,6 @@ class BookingCreator extends Component
                 const id = this.state.services[this.state.currentServiceId].id;
                 getAvailByService(id)
                     .then(resp => {
-                        console.log("logging avail resp");
-                        console.log(resp.data);
                         this.setState({
                             availList:resp.data,
                             currentAvail:-1,
@@ -165,10 +159,6 @@ class BookingCreator extends Component
         }
 
         const serviceId = this.state.services[this.state.currentServiceId].id;
-        console.log("making a booking with this request: ");
-        console.log(bookingRequest);
-        console.log("and this service: ")
-        console.log(serviceId);
         tryCreateBooking(bookingRequest,serviceId).then
         ((response)=>
         {

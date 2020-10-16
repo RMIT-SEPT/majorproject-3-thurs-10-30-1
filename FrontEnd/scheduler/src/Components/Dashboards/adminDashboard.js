@@ -33,8 +33,6 @@ export class adminDashboard extends Component {
 
                 getWorkerByBusiness(id)
                     .then(resp =>{
-                        console.log("workers");
-                        console.log(resp.data);
                         this.setState(
                             {
                                 workers:resp.data

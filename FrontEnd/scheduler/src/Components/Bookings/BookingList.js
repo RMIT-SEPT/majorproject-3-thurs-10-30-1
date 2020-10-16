@@ -8,7 +8,6 @@ class BookingList extends Component
         let bookingList;
         let myBookings = this.props.bookings;
 
-        console.log(myBookings);
         bookingList= myBookings.map((booking,index) =>(
             <div key={index} className="booking"> I HAVE A BOOKING! ITS ID IS: {booking.id}</div>
             ))

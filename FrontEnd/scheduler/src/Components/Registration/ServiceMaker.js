@@ -79,10 +79,6 @@ export class ServiceMaker extends Component
             description: this.state.serviceDesc,
             workers: this.state.selectedOption,
         }
-        console.log(service);
-        console.log("business ID:")
-        console.log(this.state.businessId);
-
         addServiceToBusiness(service,this.state.businessId)
         .then(resp=>
         {
@@ -92,7 +88,6 @@ export class ServiceMaker extends Component
                     successful: true,
                     message:'Service Created! Make another?',
                 });
-                console.log(resp.data);
             }
             else
             {

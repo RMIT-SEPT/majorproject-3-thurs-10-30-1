@@ -18,8 +18,6 @@ class WorkerDropDown extends Component
             {
                 getWorker(worker).then(r =>
                 {
-                    console.log("making this worker:");
-                    console.log(r.data);
                     return <option key={worker} value={index}> {r.data.user.name} </option>;
                 })
             })

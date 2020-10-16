@@ -35,21 +35,10 @@ export class WorkerAvailabilities extends Component
         const myId = this.state.id;
         getServiceByWorker(myId)
             .then(response => {
-                console.log("logging services");
-                console.log(response.data);
                 this.setState(
                     {
                         services:response.data,
-                        //businessIds:response.data.businesses
                     })
-                // getAvailByService(this.state.currentServiceId)
-                //     .then(r =>
-                //     {
-                //         console.log(r.data);
-                //         this.setState({
-                //             avails: r.data,
-                //         })
-                //     })
             });
     }
 
@@ -58,13 +47,9 @@ export class WorkerAvailabilities extends Component
         if(prevState.currentServiceId!==this.state.currentServiceId ||
         prevState.message!== this.state.message)
         {
-            console.log("there was a change:");
-            console.log(this.state.services);
-            console.log(this.state.currentServiceId);
             getAvailByService(this.state.currentServiceId)
                 .then(r =>
                 {
-                    console.log(r.data);
                     this.setState({
                         avails: r.data,
                     })
@@ -95,9 +80,6 @@ export class WorkerAvailabilities extends Component
             const time = this.state.time;
             const hourToken = parseInt(timeToken(time, 0));
             const minuteToken = parseInt(timeToken(time, 1));
-            console.log(hourToken);
-            console.log(minuteToken);
-
             const timeAvailabilityRequest =
             {
                 day: this.state.day,
@@ -107,13 +89,10 @@ export class WorkerAvailabilities extends Component
                 length: this.state.duration,
             }
 
-            console.log(timeAvailabilityRequest);
-            console.log("Service id:" + servId);
             createNewAvail(timeAvailabilityRequest,servId).then((response) =>
             {
                 if(response)
                 {
-                    console.log(response.data);
                     this.setState(
                         {
                             successful:true,
@@ -132,7 +111,6 @@ export class WorkerAvailabilities extends Component
         }
 
     }
-
     render()
     {
         if(!this.props.isLoggedIn)
