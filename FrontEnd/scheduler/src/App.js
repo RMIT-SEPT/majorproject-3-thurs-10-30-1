@@ -16,6 +16,7 @@ import EditProfile from "./Components/Profile/EditProfile";
 import adminDashboard from "./Components/Dashboards/adminDashboard";
 import WorkerMaker from "./Components/Registration/WorkerMaker";
 import WorkerAvailabilities from "./Components/Dashboards/WorkerAvailabilities";
+import ServiceMaker from "./Components/Registration/ServiceMaker";
 
 
 class App extends Component {
@@ -31,18 +32,6 @@ class App extends Component {
         this.props.dispatch(logout());
     }
 
-    componentDidMount() {
-        const accType = this.props.accountType;
-        if(accType==="Admin")
-        {
-            //set the businessId in the redux store
-        }
-        else if (accType==="Worker")
-        {
-            //set their services in the redux store?
-        }
-    }
-
     render()
   {
     return (
@@ -54,12 +43,10 @@ class App extends Component {
             <Route exact path="/profile" component ={Profile}/>
             <Route exact path="/workerHome" component ={WorkerDashboard}/>
             <Route exact path="/Availabilities" component ={WorkerAvailabilities}/>
-
             <Route exact path="/editprofile" component={EditProfile} />
-
             <Route exact path="/adminHome" component ={adminDashboard}/>
             <Route exact path="/workerMaker" component ={WorkerMaker}/>
-
+            <Route exact path="/serviceMaker" component ={ServiceMaker}/>
         </Router>
     );
   }
@@ -69,9 +56,11 @@ class App extends Component {
 function mapStateToProps(state) {
     const {user} = state.auth;
     const {accountType}= state.accountType;
+    const {isLoggedIn} = state.auth;
     return {
         user,
         accountType,
+        isLoggedIn
     };
 }
 

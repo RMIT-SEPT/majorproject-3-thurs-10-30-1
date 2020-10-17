@@ -71,7 +71,6 @@ export const workerRegister = (user,businessID, serviceSet,history) => (dispatch
                 type: SET_MESSAGE,
                 payload: response.data.message,
             });
-            //history.push("/dashboard");
             return Promise.resolve();
         },
         (error) => {
@@ -99,6 +98,8 @@ export const workerRegister = (user,businessID, serviceSet,history) => (dispatch
 export const login = (details) => (dispatch) => {
     return userLogin(details).then(
         (data) => {
+            console.log("GOOD DATA");
+            console.log(data);
             dispatch({
                 type: LOGIN_SUCCESS,
                 payload: { user: data },
@@ -108,16 +109,13 @@ export const login = (details) => (dispatch) => {
                 type: SET_ACCOUNT_TYPE,
                 payload: data.accountType
             });
-
             return Promise.resolve();
         },
         (error) => {
-            const message =
-                (error.response &&
-                    error.response.data &&
-                    error.response.data.message) ||
-                error.message ||
-                error.toString();
+            console.log("LOGGING ERROR IN REDUCER");
+            console.log(error.response.data);
+
+            const message =error.response.data
 
             dispatch({
                 type: LOGIN_FAIL,

@@ -1,43 +1,38 @@
 import React, {Component} from "react";
-
-import {getAdmin} from "../../../actions/userActions";
 import {connect} from "react-redux";
 
 export class ViewWorkersList extends Component {
 
     constructor(props) {
         super(props);
-        this.state =
-            {
-                workers: undefined,
-            };
+        this.getServices=this.getServices.bind(this);
     }
 
-    componentDidMount()
+    getServices = (services,worker) =>
     {
-        const id = this.props.user.userId;
-        getAdmin(id)
-            .then(response => {
-                console.log(response.data)
-                    this.setState({
-                        workers: response.data.business.workers,
-
-                });
-                console.log(this.state.workers)
+        let servList = new Set();
+        services.map(service=>
+        {
+            worker.services.map(workerService =>
+            {
+                if(workerService===service.id)
+                {
+                    servList.add(<li key={service.id}>{service.name}</li>)
+                }
             })
+        })
+        return servList;
     }
 
-
-    render() {
-
+    render()
+    {
         let listWorkers;
-        const work = this.state.workers;
-        console.log(work);
-
+        const work = this.props.workers;
+        const serv = this.props.services;
        if(work)
         {
-            listWorkers =  work.map((worker,index) => (
-                <h4 className="adminViewWorker" key={worker.id} value={index}>
+            listWorkers =  work.map((worker) => (
+                <div className="adminViewWorker" key={worker.id}>
                     <h4 className="adminDashboardText">
                             Name: {worker.user.name}
                             <br/>
@@ -45,9 +40,18 @@ export class ViewWorkersList extends Component {
                             <br/>
                            Contact Number: {worker.user.contactNumber}
                            <br/>
-                           Service: {worker.user.services}
+
+                        {serv
+                           ?
+                            <div>
+                                Services:
+                                {this.getServices(serv,worker)}
+                            </div>
+
+                            :<p></p>}
+
                     </h4>
-                </h4>
+                </div>
             ))
         }
        

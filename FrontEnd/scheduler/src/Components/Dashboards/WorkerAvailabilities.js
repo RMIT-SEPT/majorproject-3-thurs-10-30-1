@@ -1,11 +1,11 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
-import {getWorker} from "../../actions/userActions";
 import Form from "react-bootstrap/Form";
 import {Button} from "react-bootstrap";
 import TimePicker from 'react-time-picker'
 import {numToDay, timeToken} from "../../utils/dateUtils";
-import {createNewAvail} from "../../actions/BusinessActions";
+import {createNewAvail, getAvailByService, getServiceByWorker} from "../../actions/BusinessActions";
+import {Redirect} from "react-router-dom";
 
 
 export class WorkerAvailabilities extends Component
@@ -14,9 +14,10 @@ export class WorkerAvailabilities extends Component
         super(props);
         this.state =
             {
-                id:undefined,
-                businesses: undefined,
+                id:this.props.user.userId,
                 services: undefined,
+                avails:undefined,
+
                 currentServiceId:-1,
                 time:undefined,
                 duration:30,
@@ -28,6 +29,33 @@ export class WorkerAvailabilities extends Component
         this.onChangeTime=this.onChangeTime.bind(this);
         this.onChange=this.onChange.bind(this);
         this.onSubmit=this.onSubmit.bind(this);
+    }
+
+    componentDidMount() {
+        const myId = this.state.id;
+        getServiceByWorker(myId)
+            .then(response => {
+                this.setState(
+                    {
+                        services:response.data,
+                    })
+            });
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot)
+    {
+        if(prevState.currentServiceId!==this.state.currentServiceId ||
+        prevState.message!== this.state.message)
+        {
+            getAvailByService(this.state.currentServiceId)
+                .then(r =>
+                {
+                    this.setState({
+                        avails: r.data,
+                    })
+                })
+        }
+
     }
 
     onChange = (e) =>
@@ -52,90 +80,42 @@ export class WorkerAvailabilities extends Component
             const time = this.state.time;
             const hourToken = parseInt(timeToken(time, 0));
             const minuteToken = parseInt(timeToken(time, 1));
-            console.log(hourToken);
-            console.log(minuteToken);
-
-            const avail =
+            const timeAvailabilityRequest =
             {
-                dayOfWeek: this.state.day,
+                day: this.state.day,
                 hour: hourToken,
                 minute: minuteToken,
-                worker: this.state.id,
-                duration: this.state.duration,
+                workerId: this.state.id,
+                length: this.state.duration,
             }
 
-            console.log(avail);
-            console.log("Service id:" + servId);
-            createNewAvail(avail,servId).then((response) => {
-                    console.log(response.data);
+            createNewAvail(timeAvailabilityRequest,servId).then((response) =>
+            {
+                if(response)
+                {
                     this.setState(
                         {
                             successful:true,
-                           message:"Booking Successful!"
+                            message:"Availability successfully added!",
                         });
-
-                    if(response.data==="error")
-                    {
-                        //error state
-                    }
-                })
-        }
-
-        else
-        {
-            this.setState(
-                {
-                    successful:false,
-                    message:"Error, please select a service"
                 }
-            )
+                else
+                {
+                   this.setState(
+                       {
+                           successful:false,
+                           message:"There was an error. Please input a time with no existing availability"
+                       })
+                }
+            })
         }
 
     }
-
-    componentDidMount() {
-        const myId = this.props.user.userId;
-        this.setState({
-            id:myId
-        });
-        getWorker(myId)
-            .then(response => {
-                this.setState(
-                    {
-                        services:response.data.services,
-                        businesses:response.data.businesses
-                    }
-                )
-                });
-    }
-
     render()
     {
-        let businessList;
-         if(this.state.businesses)
-         {
-             businessList = this.state.businesses.map((business) => (
-                 <div key={business.id}> {business.name }</div>
-             ))
-         }
-
-        let availList;
-        if(this.state.services)
+        if(!this.props.isLoggedIn)
         {
-            availList = this.state.services.map((service) => (
-                <div key={service.id}>
-                    {service.name}
-                    <ul>
-                    {
-                        service.availablities.map((avail,index) =>
-                        {
-                            if(avail.workedId === this.state.id)
-                               return  <li key={index}> Day: {numToDay(avail.day)} Time: {avail.hour}:{avail.minute} </li>
-                        }
-                        )}
-                    </ul>
-                </div>
-            ))
+            return <Redirect to="/" />;
         }
 
         let serviceList;
@@ -145,24 +125,35 @@ export class WorkerAvailabilities extends Component
             ))
         }
 
+        let availList;
+        if(this.state.avails)
+        {
+            availList = this.state.avails.map((avail,index) =>
+            {
+                    if(avail.worker === this.state.id)
+                       return  <li key={index}> Day: {numToDay(avail.day)} Time: {avail.hour}:{avail.minute} </li>
+            })
+        }
+
         const format="HH:mm";
 
         return(
-            <div>
-                {businessList}
-                {availList}
-                <br/>
+            <div className="availContainer">
+                <div className="availForm">
+                <Form onSubmit={this.onSubmit} className="availForm">
 
-                <Form onSubmit={this.onSubmit}>
-                    <h2> AVAIL MAKER FORM</h2>
+                    <h2> Set A New Availability:</h2>
+                    <br/>
                     <h4> Select Service</h4>
 
                     <select value={this.state.currentServiceId} name="currentServiceId" onChange={this.onChange}>
-                        <option value={-1} > Select a service: </option>
+                        <option value={-1} disabled > Select a service: </option>
                         {serviceList}
                     </select>
 
+
                     <br/>
+
                     <h4> Select Day</h4>
                     <select value={this.state.day} name="day" onChange={this.onChange} required>
                         <option value={1}> Monday</option>
@@ -174,6 +165,7 @@ export class WorkerAvailabilities extends Component
                         <option value={7}> Sunday</option>
                     </select>
                     <br/>
+
                     <h4> Select Start Time</h4>
 
                     <TimePicker
@@ -194,16 +186,21 @@ export class WorkerAvailabilities extends Component
                     />
 
                     <br/>
+                    <br/>
                     <Button type="submit"> Make Avail </Button>
-                </Form>
-
-                {this.state.message && (
-                    <div className="form-group">
+                    {this.state.message && (
                         <div className={ this.state.successful ? "alert alert-success" : "alert alert-danger" } role="alert">
                             {this.state.message}
                         </div>
-                    </div>
-                )}
+                    )}
+                </Form>
+
+
+                </div>
+                <div className="availList">
+                    <h4> View Your Current Availability:</h4>
+                    {availList}
+                </div>
 
             </div>
         )
@@ -212,8 +209,10 @@ export class WorkerAvailabilities extends Component
 
 function mapStateToProps(state) {
     const {user} = state.auth;
+    const {isLoggedIn} = state.auth;
     return {
         user,
+        isLoggedIn,
     };
 }
 

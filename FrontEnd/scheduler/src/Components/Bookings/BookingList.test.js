@@ -2,29 +2,40 @@ import React from "react";
 import {shallow, mount} from "enzyme";
 import Enzyme from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
-import {Form, FormControl} from "react-bootstrap";
-import BookingList from "./BookingList";
+import {BookingList} from "./BookingList";
 
 Enzyme.configure({adapter : new Adapter()});
 
 
 describe("Booking List Unit Test",() => {
+
     let bookings = [
-        {customer: 'Test ',worker: 'Ali ', service: "Ali's Hairdresser ", start_time: "13:30 ", end_time: "13:30"},
-        {customer: 'Test ',worker: 'Max ', service: "Clearing Max ", start_time: "8:00 ", end_time: "8:00"},
-        {customer: 'Test ',worker: 'Fady ', service: "Fady Car-Mechanic ", start_time: "15:30 ", end_time: "15:30"},
-        {customer: 'Test ',worker: 'Zac ', service: "IT Services ", start_time: "11:15 ", end_time: "11:15"}, 
-        {customer: 'Test ',worker: 'Ali ', service: "Ali's Hairdresses ", start_time: "18:45 ", end_time: "18:45"},
+        {availability:1,
+        customer:4,
+        date:"2020-10-12",
+        id:1,
+        service:1,
+        start_time:"2020-10-12",
+        status:"booked"
+        }
     ]
-    const booking = shallow(<BookingList bookings = {bookings}/>);
+    const wrapper = shallow(<BookingList bookings = {bookings}/>);
 
-        it("test worker name to show the same", () => 
-        {
-            expect(booking.find('h4')).toHaveLength(5);
-        });
+    it("Should have 1 h2", () =>
+    {
+        expect(wrapper.find('h2')).toHaveLength(1);
+    });
 
-        it("test worker name to show the same", () => 
-        {
-            expect(booking.find('h4').at(0).text()).toEqual("Customer Name: Test Staff Member: Ali Service: Ali's Hairdresser Start Time: 13:30 End Time: 13:30");
-        });
+    it("Should have 1 h2 with a certain message", () =>
+    {
+        expect(wrapper.find('h2').at(0).text()).toEqual("Upcoming Bookings");
+    });
+
+
+    it("Should have 2 divs when given one booking", () =>
+    {
+        expect(wrapper.find('div')).toHaveLength(2);
+    });
+
+
 })

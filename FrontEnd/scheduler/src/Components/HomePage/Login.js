@@ -52,8 +52,6 @@ export class Login extends Component
         const {dispatch, history} = this.props;
          dispatch(login(details))
             .then(() => {
-                // window.location.reload();
-                // history.push("/dashboard");
             }).catch(() => {
             this.setState({
                 loading: false
@@ -62,8 +60,21 @@ export class Login extends Component
     }
         render() {
             const { isLoggedIn, message } = this.props;
-            if (isLoggedIn) {
-                return <Redirect to="/dashboard" />;
+            if (isLoggedIn)
+            {
+                if(this.props.accountType==="Worker")
+                {
+                    return <Redirect to="workerHome" />;
+                }
+                else if (this.props.accountType==="Admin")
+                {
+                    return <Redirect to="/adminHome" />;
+                }
+                else if (this.props.accountType==="Customer")
+                {
+                    return <Redirect to="/dashboard" />;
+                }
+
             }
             return (
                 <div className="loginContainer">
@@ -110,9 +121,11 @@ export class Login extends Component
 function mapStateToProps(state) {
     const {isLoggedIn} = state.auth;
     const {message} = state.message;
+    const {accountType}= state.accountType;
     return {
         isLoggedIn,
-        message
+        message,
+        accountType,
     };
 }
 

@@ -4,7 +4,12 @@ import {workerRegister} from "../../actions/auth";
 import {connect} from 'react-redux'
 import {getAdmin} from "../../actions/userActions";
 import CustomCheckbox from "../Generics/CustomCheckbox";
+
+import {getServiceByBusiness} from "../../actions/BusinessActions";
+import {Redirect} from "react-router-dom";
+
 import DarkButton from "../Generics/DarkButton";
+
 
 export class WorkerMaker extends Component
 {
@@ -46,16 +51,26 @@ export class WorkerMaker extends Component
         this.selectedOptions = new Set();
         const id = this.props.user.userId;
         getAdmin(id)
-            .then(response => {
+            .then(response =>
+            {
+                console.log(response.data);
                 this.setState({
-                    services: response.data.business.services,
                     businessID: response.data.business.id
                 });
+
+                getServiceByBusiness(this.state.businessID)
+                    .then(r =>
+                    {
+                        this.setState(
+                            {
+                                services:r.data
+                            }
+                        )
+                    })
             })
     }
 
     componentWillUnmount() {
-        // fix Warning: Can't perform a React state update on an unmounted component
         this.setState = (state,callback)=>{
         };
     }
@@ -100,7 +115,12 @@ export class WorkerMaker extends Component
             });
     }
 
-    render() {
+    render()
+    {
+        if(!this.props.isLoggedIn)
+        {
+            return <Redirect to="/" />;
+        }
 
         const { message } = this.props;
         let realServ;
@@ -197,10 +217,12 @@ function mapStateToProps(state) {
     const {message} = state.message;
     const {user} = state.auth;
     const {accountType}= state.accountType;
+    const {isLoggedIn} = state.auth;
     return {
         user,
         accountType,
-        message
+        message,
+        isLoggedIn
     };
 }
 

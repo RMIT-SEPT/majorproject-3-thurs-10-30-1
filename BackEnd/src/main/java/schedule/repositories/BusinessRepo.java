@@ -1,10 +1,8 @@
 package schedule.repositories;
 
-import java.util.ArrayList;
-
-import org.springframework.data.repository.CrudRepository;
-
-import schedule.model.Business;
+import java.util.*;
+import org.springframework.data.repository.*;
+import schedule.model.*;
 
 public interface BusinessRepo extends CrudRepository<Business, Long>{
 

@@ -21,7 +21,7 @@ INSERT INTO WORKER(WORKER_ID) VALUES
 (6);
 
 INSERT INTO CUSTOMER(CUSTOMER_ID) VALUES
-(1);
+(4);
 
 INSERT INTO SERVICES (name, description,business_id) VALUES
 ('Haircut','A great haircut service',1),
@@ -39,7 +39,7 @@ INSERT INTO BUSINESS_WORKERS(businesses_id,workers_worker_id) VALUES
 (2,3),
 (1,6);
 
-INSERT INTO AVAILABILITY(day_of_week,hour,minute,worker_id,service_id, length) VALUES
+INSERT INTO AVAILABILITY(day,hour,minute,worker_id,service_id, length) VALUES
 (1,9,0,2,1,30),
 (1,9,30,2,1,30),
 (1,10,0,2,1,30),
@@ -94,10 +94,7 @@ INSERT INTO AVAILABILITY(day_of_week,hour,minute,worker_id,service_id, length) V
 (4,16,15,3,3,15),
 (5,17,0,3,3,15);
 
-INSERT INTO BOOKING(ID,END_TIME,START_TIME,STATUS,AVAILABILITY_SLOT_ID,CUSTOMER_CUSTOMER_ID,SERVICE_SERVICE_ID,WORKER_WORKER_ID) VALUES
-(1,"2020-12-12@9:30","2020-12-12@9:00","PENDING",1,4,1,2);
--- make services
--- make businseses with those services
--- make users
--- make workers out of those users and those services
+
+INSERT INTO BOOKING(start_time,status,availability_slot_id,customer_id,service_id,worker_id) VALUES
+('2020-10-12','booked',1,4,1,2);
 

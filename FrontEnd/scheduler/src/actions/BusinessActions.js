@@ -13,23 +13,50 @@ export const getServiceByBusiness = async (id) =>
 
 export const getAvailByService = async (id) =>
 {
-    return await axios.post(`http://${IP}:8080/api/service/${id}/availabilities`);
+    return await axios.get(`http://${IP}:8080/api/service/${id}/availabilities`);
 }
 
-export const newBooking = async (booking) =>
+export const getWorkerByService = async (id) =>
 {
-    return await axios.post(`http://${IP}:8080/api/booking`,booking);
+    return await axios.get(`http://${IP}:8080/api/service/${id}/workers`);
 }
+
+export const getWorkerByBusiness = async (id) =>
+{
+    return await axios.get(`http://${IP}:8080/api/business/${id}/workers`);
+}
+
 
 export const tryCreateBooking = async (bookingRequest,serviceId) =>
 {
-    return await axios.post(`http://${IP}:8080/api/service/${serviceId}/book`,bookingRequest);
+    try
+    {
+        return await axios.post(`http://${IP}:8080/api/service/${serviceId}/book`,bookingRequest);
+    }
+    catch (err)
+    {
+        console.log(err.message);
+    }
 }
 
 export const createNewAvail = async (avail,serviceId) =>
 {
-    return await axios.post(`http://${IP}:8080/api/service/${serviceId}/availability`,avail)
+    return await axios.post(`http://${IP}:8080/api/service/${serviceId}/addAvailability`,avail)
 }
+
+export const getServiceByWorker = async (id) =>
+{
+    return await axios.get(`http://${IP}:8080/api/worker/${id}/services`);
+}
+
+export const addServiceToBusiness = async (service,id) =>
+{
+    return await axios.post(`http://${IP}:8080/api/business/${id}/service/create`,service);
+}
+
+
+
+
 
 
 

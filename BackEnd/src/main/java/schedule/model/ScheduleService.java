@@ -1,13 +1,11 @@
-package schedule.model.service;
+package schedule.model;
 
-import java.util.List;
-
+import java.util.*;
 import javax.persistence.*;
-import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.*;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-
-import schedule.model.Worker;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 
 @Entity(name = "schedule_service")
 @Table(name = "SERVICES")
@@ -24,10 +22,12 @@ public class ScheduleService
     private String description;
 
     @OneToMany(mappedBy = "", cascade = CascadeType.ALL)
-    @JoinColumn(name = "service_id")
+    @JoinColumn(name = "service_id") 
+    @JsonIgnore
     private List<TimeAvailability> availability;
 
     @ManyToMany(mappedBy = "services")
+    @JsonIgnore
     private List<Worker> workers;
 
     public ScheduleService() {}
@@ -38,6 +38,12 @@ public class ScheduleService
         this.name = name;
         this.description = description;
         this.availability = availability;
+    }
+
+    public ScheduleService(@NotBlank(message = "Service name is required") String name,
+    @NotBlank(message = "Description is required") String description) {
+        this.name = name;
+        this.description = description;
     }
 
     public Long getId()
@@ -55,13 +61,38 @@ public class ScheduleService
         return description;
     }
 
-
+    @JsonIgnore
     public List<TimeAvailability> getAvailablities()
     {
         return availability;
     }
 
-    @JsonIgnoreProperties(value = {"services", "businesses"})
+    
+
+    @JsonProperty("availabilities")
+    public List<Long> getAvailabilitiesId()
+    {
+        ArrayList<Long> ids = new ArrayList<>(availability.size());
+        for (TimeAvailability timeAvailability : availability)
+        {
+            ids.add(timeAvailability.getId());    
+        }
+
+        return ids;
+    }
+
+    @JsonProperty("workers")
+    public List<Long> getWorkersIds()
+    {
+        ArrayList<Long> ids = new ArrayList<>(workers.size());
+        for (Worker worker : workers)
+        {
+            ids.add(worker.getId());
+        } 
+        return ids;
+    }
+
+    @JsonIgnore
     public List<Worker> getWorkers()
     {
         return workers;

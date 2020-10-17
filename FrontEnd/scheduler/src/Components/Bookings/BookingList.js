@@ -1,32 +1,32 @@
 import React, {Component} from 'react';
+import {connect} from "react-redux";
 
-class BookingList extends Component
+export class BookingList extends Component
 {
+    render()
+    {
+        let bookingList;
+        let myBookings = this.props.bookings;
 
-    render() {
-        let myBookings = this.props.bookings.map((booking) =>
-        {
-            return(
-                <h4 className="booking" key={booking.service}>
-                Customer Name: {booking.customer}
-                Staff Member: {booking.worker}
-                Service: {booking.service} 
-                Start Time: {booking.start_time}
-                End Time: {booking.end_time}
-                </h4>
-            );
-        });
+        bookingList= myBookings.map((booking,index) =>(
+            <div key={index} className="booking"> I HAVE A BOOKING! ITS ID IS: {booking.id}</div>
+            ))
 
     return (
-        <div className= "bookingList"> 
-
+        <div className= "bookingList">
         <h2 className="pageHeader">Upcoming Bookings</h2>
-
-        <div> {myBookings} </div>
+         {bookingList}
         </div>
     )
         
 }
 }
 
-export default BookingList;
+function mapStateToProps(state) {
+    const {user} = state.auth;
+    return {
+        user,
+    };
+}
+
+export default connect(mapStateToProps) (BookingList);

@@ -2,8 +2,6 @@
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 import schedule.microservice.UserMicro;
-import schedule.model.User;
-import schedule.repositories.UserRepo;
 import schedule.web.UserController;
 
 @SpringBootTest

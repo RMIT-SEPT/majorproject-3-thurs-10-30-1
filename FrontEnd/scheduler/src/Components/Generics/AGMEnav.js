@@ -41,7 +41,14 @@ export class AGMEnav extends Component
         const userLinks = (
             <Nav className="m-xl-auto">
                 <NavItem> <Link to="/profile"> Profile   </Link></NavItem>
-                <NavItem> <Link to ="/dashboard"> Dashboard </Link></NavItem>
+                {
+                    accType==="Customer"
+                    ?<Nav>
+                            <NavItem> <Link to ="/dashboard"> Dashboard </Link></NavItem>
+                        </Nav>
+                        :
+                        <p></p>
+                }
 
                 {
                     accType==="Worker"
@@ -57,7 +64,8 @@ export class AGMEnav extends Component
                     accType==="Admin"
                         ? <Nav>
                             <NavItem> <Link to="/adminHome"> Admin Home </Link></NavItem>
-                            <NavItem> <Link to="/workerMaker"> Create a worker </Link></NavItem>
+                            <NavItem> <Link to="/workerMaker"> Create a Worker </Link></NavItem>
+                            <NavItem> <Link to="/serviceMaker"> Create a Service </Link></NavItem>
                         </Nav>
                         : <p></p>
                 }

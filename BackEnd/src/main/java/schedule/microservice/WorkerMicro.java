@@ -1,9 +1,11 @@
 package schedule.microservice;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import schedule.model.Worker;
-import schedule.repositories.WorkerRepo;
+import java.util.ArrayList;
+
+import org.springframework.beans.factory.annotation.*;
+import org.springframework.stereotype.*;
+import schedule.model.*;
+import schedule.repositories.*;
 
 @Service
 public class WorkerMicro {
@@ -19,6 +21,16 @@ public class WorkerMicro {
     public Worker getWorkerById(long id)
     {
         return workerRepo.findById(id).orElse(null);
+    }
+
+    public ArrayList<Worker> getAllWorkers()
+    {
+        ArrayList<Worker> workers = new ArrayList<Worker>();
+        for (Worker worker : workerRepo.findAll())
+        {
+            workers.add(worker);
+        }
+        return workers;
     }
 
     public boolean workerExistsById(long id)

@@ -1,9 +1,9 @@
 package schedule.microservice;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
-import schedule.model.User;
-import schedule.repositories.UserRepo;
+import org.springframework.beans.factory.annotation.*;
+import org.springframework.stereotype.*;
+import schedule.model.*;
+import schedule.repositories.*;
 
 @Service
 public class UserMicro {
