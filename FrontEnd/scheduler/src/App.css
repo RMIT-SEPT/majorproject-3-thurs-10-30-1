@@ -125,6 +125,7 @@ html, body, #root, .App {
 .transparentDiv
 {
     opacity: .8;
+
 }
 
 @keyframes App-logo-spin
@@ -311,7 +312,7 @@ margin-top:20%;
     font-size: 25px;
     text-align: center;
     color: #000000;
-    padding-bottom: 3%;
+    padding-bottom: 0%;
 }
 
 /* Profile Page */
@@ -448,6 +449,41 @@ margin-top:20%;
 
 
 
+/* Create Worker Page */
+.createWorkerContainer
+{
+    background-image: url(./media/background5.png);
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+
+/* Create Worker Page */
+.createWorkerPage
+{
+    width: 55%;
+    float: left;
+    height: 700px;
+    outline-style: solid;
+    margin-left: 23%;
+    margin-top:2.5%;
+    background-color: white;
+}
+/* Create Worker Page */
+.workersPageText
+{
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+    color: #000000;
+}
+
+.EditProfileTextFieldWidth
+{
+    width: 75%;
+    margin-left: 0%;
+}
 
 
 
