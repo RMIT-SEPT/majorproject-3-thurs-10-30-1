@@ -6,8 +6,7 @@ import javax.validation.constraints.*;
 import com.fasterxml.jackson.annotation.*;
 
 @Entity
-public class Booking
-{
+public class Booking {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -30,31 +29,24 @@ public class Booking
     @JsonIgnore
     private ScheduleService service;
 
-    @NotNull(message  = "An availability is required")
+    @NotNull(message = "An availability is required")
     @OneToOne()
     @JsonIgnore
     private TimeAvailability availabilitySlot;
 
     @NotNull(message = "A start time is required")
-    @JsonFormat(pattern ="yyyy-MM-dd")
+    @JsonFormat(pattern = "yyyy-MM-dd")
     private LocalDate start_time;
-
 
     @NotBlank(message = "A status is required")
     private String status;
 
-    public Booking()
-    {
+    public Booking() {
 
     }
 
-    public Booking(Long id,
-            Customer customer,
-            Worker worker,
-            ScheduleService service,
-            LocalDate start_time,
-            String status,
-            TimeAvailability availability) {
+    public Booking(Long id, Customer customer, Worker worker, ScheduleService service, LocalDate start_time,
+            String status, TimeAvailability availability) {
         this.id = id;
         this.availabilitySlot = availability;
         this.customer = customer;
@@ -63,6 +55,7 @@ public class Booking
         this.start_time = start_time;
         this.status = status;
     }
+
     public TimeAvailability getAvailability() {
         return availabilitySlot;
     }
@@ -76,18 +69,34 @@ public class Booking
         return id;
     }
 
-    @JsonIgnore
-	public Customer getCustomer() {
-		return customer;
+    @JsonProperty(value = "workerName")
+    public String getWorkerName() {
+        return worker.getUser().getName();
     }
-    
+
+    @JsonIgnore
+    public Customer getCustomer() {
+        return customer;
+    }
+
     @JsonProperty(value = "customer")
     public Long getCustomerId() {
         return customer.getId();
     }
+
+    @JsonProperty(value = "customerName")
+    public String getCustomerName() {
+        return customer.getUser().getName();
+    }
+
     @JsonIgnore
     public ScheduleService getService() {
         return service;
+    }
+
+    @JsonProperty(value = "serviceName")
+    public String getServiceName() {
+        return service.getName();
     }
 
     @JsonProperty(value = "service")
