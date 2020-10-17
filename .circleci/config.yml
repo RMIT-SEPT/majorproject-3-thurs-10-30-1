@@ -8,7 +8,10 @@ jobs:
     working_directory: ~/schedule # directory where steps will run
     docker:
       - image: circleci/openjdk:8-jdk
-
+    environment:
+      ECR_REPOSITORY_NAME: spring-server
+      SPRING_IMAGE: 907085117837.dkr.ecr.us-east-1.amazonaws.com/spring-server:latest
+      REACT_IMAGE: 907085117837.dkr.ecr.us-east-1.amazonaws.com/react-server:latest
     steps:
       - checkout
       - setup_remote_docker
@@ -16,11 +19,11 @@ jobs:
           name: List
           command: |
             ls -al
-      - run:
-          name: Setup common environment variables
-          command: |
-            echo 'export ECR_REPOSITORY_NAME="${AWS_RESOURCE_NAME_PREFIX}"' >> $BASH_ENV
-            echo 'export FULL_IMAGE_NAME="${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${ECR_REPOSITORY_NAME}:latest"' >> $BASH_ENV
+      # - run:
+      #     name: Setup common environment variables
+      #     command: |
+      #       echo 'export ECR_REPOSITORY_NAME="${AWS_RESOURCE_NAME_PREFIX}"' >> $BASH_ENV
+      #       echo 'export FULL_IMAGE_NAME="${AWS_ACCOUNT_ID}.dkr.ecr.${AWS_DEFAULT_REGION}.amazonaws.com/${ECR_REPOSITORY_NAME}:latest"' >> $BASH_ENV
 
 
       - restore_cache: # restore the saved cache after the first run or if `pom.xml` has changed
@@ -59,12 +62,14 @@ jobs:
       - run:
           name: Build image
           command: |
-            docker build -t $FULL_IMAGE_NAME BackEnd
+            docker build -t $SPRING_IMAGE BackEnd
+            docker build -t $REACT_IMAGE FrontEnd
       - run:
           name: Push image
           command: |
-            eval $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
-            docker push $FULL_IMAGE_NAME
+            aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 907085117837.dkr.ecr.us-east-1.amazonaws.com
+            docker push $SPRING_IMAGE
+            docker push $REACT_IMAGE
 workflows:
   build-deploy-qa:
     jobs:
