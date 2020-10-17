@@ -54,7 +54,8 @@ export const userCreate = async (user) => {
 }
 
 export const workerCreate = async (user) => {
-
+    console.log("creating worker");
+    console.log(user);
     return await axios.post(`http://${IP}:8080/api/worker`, user);
 }
 

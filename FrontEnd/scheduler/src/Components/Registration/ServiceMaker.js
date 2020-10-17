@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import Form from "react-bootstrap/Form";
 import {connect} from 'react-redux'
-import {addServiceToWorker, getAdmin} from "../../actions/userActions";
+import {getAdmin} from "../../actions/userActions";
 import {Redirect} from "react-router-dom";
 import {addServiceToBusiness, getWorkerByBusiness} from "../../actions/BusinessActions";
 import CustomCheckbox from "../Generics/CustomCheckbox";

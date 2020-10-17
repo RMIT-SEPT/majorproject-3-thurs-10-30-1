@@ -39,11 +39,11 @@ public class UserController {
     public ResponseEntity<?> validateUser(@RequestBody Map<String, String> json)
     {
         User user = null;
-        if (json.containsKey("identifier")) user = userMicro.getUserByUsernameOrEmail(json.get("identifier"));
+        if (json.containsKey("identifier")) user = userMicro.getUserByEmail(json.get("identifier"));
         else return new ResponseEntity<>("username or email not provided", HttpStatus.BAD_REQUEST);
         if (json.containsKey("password"))
             return user != null && user.getPassword().equals(json.get("password")) ? new ResponseEntity<>(user, HttpStatus.ACCEPTED) :
-                new ResponseEntity<>(false, HttpStatus.BAD_REQUEST);
+                new ResponseEntity<>("Error: Email or Password incorrect", HttpStatus.BAD_REQUEST);
         else return new ResponseEntity<>("Password not provided", HttpStatus.BAD_REQUEST);
     }
 
