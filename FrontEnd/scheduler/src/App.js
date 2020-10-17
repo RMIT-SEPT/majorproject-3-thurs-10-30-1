@@ -68,9 +68,11 @@ class App extends Component {
 function mapStateToProps(state) {
     const {user} = state.auth;
     const {accountType}= state.accountType;
+    const {isLoggedIn} = state.auth;
     return {
         user,
         accountType,
+        isLoggedIn
     };
 }
 

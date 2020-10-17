@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 
-class BookingList extends Component
+export class BookingList extends Component
 {
     render()
     {
@@ -15,7 +15,7 @@ class BookingList extends Component
     return (
         <div className= "bookingList">
         <h2 className="pageHeader">Upcoming Bookings</h2>
-        <div> {bookingList} </div>
+         {bookingList}
         </div>
     )
         

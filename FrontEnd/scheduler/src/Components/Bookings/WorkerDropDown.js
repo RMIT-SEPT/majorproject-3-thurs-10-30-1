@@ -6,7 +6,7 @@ class WorkerDropDown extends Component
     constructor(props)
     {
         super(props);
-        this.onChange=this.props.onChange;
+
     }
 
     render()
@@ -16,16 +16,13 @@ class WorkerDropDown extends Component
         {
             workerList = work.map((worker, index) =>
             {
-                getWorker(worker).then(r =>
-                {
-                    return <option key={worker} value={index}> {r.data.user.name} </option>;
-                })
+                return <option key={worker.id} value={index}> {worker.user.name} </option>;
             })
         }
 
         return(
-            <select onChange={this.onChange} value={this.props.value}>
-                <option value="-1" > PLEASE Select A Worker:</option>
+            <select onChange={this.props.onChange} value={this.props.value} name={this.props.name}>
+                <option value="-1" disabled > Please Select A Worker:</option>
                 {workerList}
             </select>
         )

@@ -147,11 +147,11 @@ html, body, #root, .App {
 .bookingList
 {
   width: 55%;
-  float: left;
   height: 700px;
+    margin-left: 1%;
+    display: inline-block;
   outline-style: solid;
-  margin-left: 3%;
-  margin-top:0%;
+margin-top: 2%;
   background-color: white;
 }
 
@@ -182,7 +182,7 @@ html, body, #root, .App {
   float: right;
   outline: solid;
   margin-right: 3%;
-  margin-top:5%;
+
   background-color: white;
 }
 
@@ -208,12 +208,10 @@ html, body, #root, .App {
 
 
 /* Worker Dashboard */
-.dashboardContainer2
-{
-  background-image: url(./media/background3.png);
-  width: 100%;
-  height: 100%;
-  position: relative; 
+.dashboardContainer2 {
+    background-image: url(./media/background3.png);
+    width: 100%;
+    height: 100%;
 }
 
 .adminDashboardContainer{
@@ -357,6 +355,16 @@ margin-top:20%;
 
 
 }
+
+.WorkerViewDashboard
+{
+    width: 30%;
+    float: right;
+    outline-style: solid;
+    margin-top:2%;
+    background-color: white;
+    margin-right: 10%;
+}
 /* Admin Dashboard View Workers Page*/
 .adminViewWorker {
     width: 70mm;
@@ -388,8 +396,18 @@ margin-top:20%;
 .adminViewServices {
     width: 50%;
     height: 90%;
-    margin-left: 12mm;
+    margin-left: 10%;
     margin-bottom: 6%;
+    outline-style: solid;
+    background-color: #F2F2F2;
+    line-height: 35px;
+}
+
+.workerViewServices {
+    width: 50%;
+    height: 100%;
+    margin-left: 28%;
+    margin-bottom: 10%;
     outline-style: solid;
     background-color: #F2F2F2;
     line-height: 35px;
@@ -402,6 +420,32 @@ margin-top:20%;
     grid-row-gap: 1%;
     grid-column-gap: .5%;
 }
+
+.availForm
+{
+    margin-left: 20%;
+    margin-top: 5%;
+    display: inline;
+    float: left;
+}
+
+.availList
+{
+    float: right;
+    margin-right: 25%;
+    display: inline;
+    margin-top: 5%;
+    padding: 2%;
+    outline-style: solid;
+}
+
+.availContainer
+{
+    margin-left: 10%;
+    display: inline;
+}
+
+
 
 
 

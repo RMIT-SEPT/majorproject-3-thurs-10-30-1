@@ -96,7 +96,7 @@ export class WorkerAvailabilities extends Component
                     this.setState(
                         {
                             successful:true,
-                            message:"avail Successful!",
+                            message:"Availability successfully added!",
                         });
                 }
                 else
@@ -104,7 +104,7 @@ export class WorkerAvailabilities extends Component
                    this.setState(
                        {
                            successful:false,
-                           message:"fail lmao"
+                           message:"There was an error. Please input a time with no existing availability"
                        })
                 }
             })
@@ -138,11 +138,12 @@ export class WorkerAvailabilities extends Component
         const format="HH:mm";
 
         return(
-            <div>
-                <br/>
-                <Form onSubmit={this.onSubmit}>
+            <div className="availContainer">
+                <div className="availForm">
+                <Form onSubmit={this.onSubmit} className="availForm">
 
-                    <h2> AVAIL MAKER FORM</h2>
+                    <h2> Set A New Availability:</h2>
+                    <br/>
                     <h4> Select Service</h4>
 
                     <select value={this.state.currentServiceId} name="currentServiceId" onChange={this.onChange}>
@@ -150,7 +151,7 @@ export class WorkerAvailabilities extends Component
                         {serviceList}
                     </select>
 
-                    {availList}
+
                     <br/>
 
                     <h4> Select Day</h4>
@@ -185,16 +186,21 @@ export class WorkerAvailabilities extends Component
                     />
 
                     <br/>
+                    <br/>
                     <Button type="submit"> Make Avail </Button>
-                </Form>
-
-                {this.state.message && (
-                    <div className="form-group">
+                    {this.state.message && (
                         <div className={ this.state.successful ? "alert alert-success" : "alert alert-danger" } role="alert">
                             {this.state.message}
                         </div>
-                    </div>
-                )}
+                    )}
+                </Form>
+
+
+                </div>
+                <div className="availList">
+                    <h4> View Your Current Availability:</h4>
+                    {availList}
+                </div>
 
             </div>
         )

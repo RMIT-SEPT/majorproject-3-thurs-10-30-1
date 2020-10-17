@@ -4,6 +4,8 @@ import {connect} from "react-redux";
 import {Redirect} from "react-router-dom";
 import {getBookingByWorker} from "../../actions/userActions";
 import BookingList from "../Bookings/BookingList";
+import {getServiceByWorker} from "../../actions/BusinessActions";
+import ViewServicesSmall from "./View/ViewServiceSmall";
 
 
 export class WorkerDashboard extends Component {
@@ -14,6 +16,7 @@ export class WorkerDashboard extends Component {
                 id:this.props.user.userId,
                 bookings:undefined,
                 businessId: undefined,
+                services:undefined
             }
     }
 
@@ -25,6 +28,12 @@ export class WorkerDashboard extends Component {
                 this.setState({
                     bookings: response.data
                 });
+                getServiceByWorker(id)
+                    .then(r =>{
+                        this.setState({
+                            services:r.data
+                        })
+                    })
             })
     }
 
@@ -38,10 +47,11 @@ export class WorkerDashboard extends Component {
         return (
             <div className="dashboardContainer2">
                 {this.state.bookings
-                ?<BookingList bookings={this.state.bookings}/>
+                ?
+                    <BookingList bookings={this.state.bookings}/>
                     :<div> NON BOOKINGS</div>
                 }
-
+                <ViewServicesSmall services={this.state.services}/>
             </div>
         )
     }
