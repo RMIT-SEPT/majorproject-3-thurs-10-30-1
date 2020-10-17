@@ -50,33 +50,44 @@ class ProfileInfo extends Component
             <div className="editProfileContainer">
 
                 <div className="profilePage">
-                <h2 className="pageHeader"> Edit Profile Information </h2>
+                    <h2 className="pageHeader"> Edit Profile Information </h2>
+                    <Form onSubmit={this.handleSubmit}>
 
-                <div className="profileText"> UserName </div>
+                        <center>
+                        <div className="profileInfo"> Username: </div>
+                            <Form.Group>
+                                <div className="EditProfileTextFieldWidth">
+                                    <Form.Control type="text" placeholder= {this.props.user.username} value={this.state.username} onChange={this.onChange} name ="username"/>
+                                </div>
+                             </Form.Group>
 
-                <Form onSubmit={this.handleSubmit}>
-                <Form.Group>
-                    <Form.Control type="text" placeholder= {this.props.user.username} value={this.state.username} onChange={this.onChange} name ="username"/>
-                </Form.Group>
+                        <div className="profileInfo"> Name: </div>
+                            <Form.Group>
+                                <div className="EditProfileTextFieldWidth">
+                                    <Form.Control type="text" placeholder= {this.props.user.name} value={this.state.name} onChange={this.onChange} name ="name"/>
+                                </div>
+                            </Form.Group>
 
-                <div className="profileText"> Name </div>
-                <Form.Group>
-                    <Form.Control type="text" placeholder= {this.props.user.name} value={this.state.name} onChange={this.onChange} name ="name"/>
-                </Form.Group>
+                        <div className="profileInfo"> Email: </div>
+                            <Form.Group>
+                                <div className="EditProfileTextFieldWidth">
+                                    <Form.Control type="text" placeholder= {this.props.user.email} value={this.state.email} onChange={this.onChange} name ="email"/>
+                                </div>
+                            </Form.Group>
 
-                <div className="profileText"> Email </div>
-                <Form.Group>
-                    <Form.Control type="text" placeholder= {this.props.user.email} value={this.state.email} onChange={this.onChange} name ="email"/>
-                </Form.Group>
+                        <div className="profileInfo"> Contact Number: </div>
+                            <Form.Group>
+                                <div className="EditProfileTextFieldWidth">
+                                    <Form.Control type="number" placeholder= {this.props.user.contactNumber} value={this.state.contactNumber} onChange={this.onChange} name ="contactNumber"/>
+                                </div>
+                            </Form.Group>
+                        </center>
 
-                {/*<div className="profileText"> Contact Number </div>*/}
-                {/*<Form.Group>*/}
-                {/*    <Form.Control type="number" placeholder= {this.props.user.contactNumber} value={this.state.contactNumber} onChange={this.onChange} name ="contactNumber"/>*/}
-                {/*</Form.Group>*/}
+                        <br/>
 
-                {this.props.user ? <h4 className="profileInfo"> Account Type: <div className="profileText"> {this.props.user.accountType} </div> </h4> : <p> Account Type = Null</p>}
+                        {this.props.user ? <h4 className="profileInfo"> Account Type: <div className="profileText"> {this.props.user.accountType} </div> </h4> : <p> Account Type = Null</p>}
 `
-                 {/*Does Not work yet*/}
+
                 {/*<input type="submit" title="Submit(non-functional)" disabled/>*/}
 
                 </Form>

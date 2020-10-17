@@ -4,6 +4,7 @@ import {workerRegister} from "../../actions/auth";
 import {connect} from 'react-redux'
 import {getAdmin} from "../../actions/userActions";
 import CustomCheckbox from "../Generics/CustomCheckbox";
+import DarkButton from "../Generics/DarkButton";
 
 export class WorkerMaker extends Component
 {
@@ -116,31 +117,49 @@ export class WorkerMaker extends Component
         }
 
         return (
-            <div className="wholeReg">
-                <div className="regFormDiv">
-                    <h1 className="myHeader"> Create A worker here!</h1>
-                    <Form className="mr-auto" onSubmit={this.handleSubmit}>
-                        <div className="transparentDiv">
-                            <Form.Group>
-                                <Form.Control type="text" placeholder="Username: " value={this.state.username} onChange={this.onChange} name ="username"/>
-                            </Form.Group>
+            <div className="createWorkerContainer">
+                <div className="createWorkerPage">
+                    <h2 className="pageHeader"> Create a Worker</h2>
 
-                            <Form.Group controlId="formBasicEmail">
-                                <Form.Control type="email" placeholder="Enter email" value={this.state.email} onChange={this.onChange} name="email"/>
-                            </Form.Group>
+                        <Form onSubmit={this.handleSubmit}>
 
-                            <Form.Group>
-                                <Form.Control type="text" placeholder="Person Name: " value={this.state.name} onChange={this.onChange} name="name"/>
-                            </Form.Group>
+                            <div className="transparentDiv">
 
-                            <Form.Group >
-                                <Form.Control type="number" placeholder="Contact Number: " value={this.state.contactNumber} onChange={this.onChange} name="contactNumber"/>
-                            </Form.Group>
+                                <div className="workersPageText"> Enter Username</div>
+                                    <Form.Group>
+                                        <div className="RegistrationTextFieldWidth">
+                                            <Form.Control className="test" type="text" placeholder="Username: " value={this.state.username} onChange={this.onChange} name ="username"/>
+                                        </div>
+                                    </Form.Group>
 
-                            <Form.Group controlId="formBasicPassword">
-                                <Form.Control type="password" placeholder="Password" name="password" value={this.state.password} onChange={this.onChange}/>
-                            </Form.Group>
-                        </div>
+                                <div className="workersPageText"> Enter Email</div>
+                                    <Form.Group controlId="formBasicEmail">
+                                        <div className="RegistrationTextFieldWidth">
+                                            <Form.Control type="email" placeholder="Enter email" value={this.state.email} onChange={this.onChange} name="email"/>
+                                        </div>
+                                    </Form.Group>
+
+                                <div className="workersPageText"> Enter Name</div>
+                                    <Form.Group>
+                                        <div className="RegistrationTextFieldWidth">
+                                            <Form.Control type="text" placeholder="Workers Name: " value={this.state.name} onChange={this.onChange} name="name"/>
+                                        </div>
+                                    </Form.Group>
+
+                                <div className="workersPageText"> Enter Contact Number</div>
+                                    <Form.Group >
+                                        <div className="RegistrationTextFieldWidth">
+                                            <Form.Control type="number" placeholder="Contact Number: " value={this.state.contactNumber} onChange={this.onChange} name="contactNumber"/>
+                                        </div>
+                                    </Form.Group>
+
+                                <div className="workersPageText"> Enter Password</div>
+                                    <Form.Group controlId="formBasicPassword">
+                                        <div className="RegistrationTextFieldWidth">
+                                            <Form.Control type="password" placeholder="Password" name="password" value={this.state.password} onChange={this.onChange}/>
+                                        </div>
+                                    </Form.Group>
+                            </div>
 
                         {message && (
                             <div className="form-group">
@@ -152,14 +171,21 @@ export class WorkerMaker extends Component
 
                         {serv
                             ? <div>
-                                <h3> SELECT THE WORKERS SERVICES</h3>
-                                {realServ}
-                                </div>
+                                <center>
+                                    <h3 className="workersPageText"> Select the Workers Service </h3>
+                                        {realServ}
+                                </center>
+                            </div>
 
                             : <p></p>
                         }
 
-                        <input type="submit" value="Register"/>
+                            <br/>
+
+                        <center>
+                            <input type="submit" value="Register"/>
+                        </center>
+
                     </Form>
                 </div>
             </div>
