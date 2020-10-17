@@ -8,7 +8,7 @@ import {Button} from "react-bootstrap";
 import {connect} from 'react-redux'
 import {createDate, numToDay} from "../../utils/dateUtils";
 import MyCal from "../Generics/myCal";
-import WorkerDropDown from "./WorkerDropDown";
+import WorkerDropDown from "../Generics/WorkerDropDown"
 
 
 export class BookingCreator extends Component
@@ -177,11 +177,10 @@ export class BookingCreator extends Component
             {
                 this.setState(
                     {
-                        message: "Booking FAIL!",
+                        message: "Booking Fail, select a time without an existing booking!",
                         successful: false,
                     })
             }
-
         })
 
     }

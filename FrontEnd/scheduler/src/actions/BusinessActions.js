@@ -31,7 +31,6 @@ export const tryCreateBooking = async (bookingRequest,serviceId) =>
 {
     try
     {
-
         return await axios.post(`http://${IP}:8080/api/service/${serviceId}/book`,bookingRequest);
     }
     catch (err)

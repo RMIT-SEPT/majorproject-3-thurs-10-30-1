@@ -26,6 +26,7 @@ export const userLogin =  (details) => {
         });
 };
 
+
 export const userUpdate = async (details) => {
     const id = details.id;
     return await axios.put("http://localhost:8080/api/user/update/" + id, details)

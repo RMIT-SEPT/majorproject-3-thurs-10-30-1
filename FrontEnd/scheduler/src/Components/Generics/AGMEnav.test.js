@@ -5,25 +5,47 @@ import Enzyme from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import {NavbarBrand, NavLink} from "react-bootstrap";
 import {Link} from "react-router-dom";
+import configureStore from "redux-mock-store";
+import Dashboard from "../Dashboards/Dashboard";
 
 
 Enzyme.configure({adapter : new Adapter()});
 
+const initialState = {
+    auth:
+        {
+            user:
+                [
+                    {
+                        accountType:"Admin",
+                        contactNumber:47,
+                        email:"m@m.com",
+                        password:"p",
+                        userId:4,
+                        username:"MaxMax"
+                    }
+                ],
+            isLoggedIn:true,
+        },
+    accountType:{accountType: "Admin"}
+
+};
+
+const mockStore = configureStore();
+let wrapper;
+let store;
+const mockFn = jest.fn();
+
+beforeEach(() =>{
+
+    store=mockStore(initialState);
+    console.log(store);
+    wrapper = shallow(<AGMEnav store={store} logout={mockFn}/>);
+})
+
+
 describe("AGMEnav unit test",() =>
 {
-    let user={
-    name: "max",
-    username: "max",
-    password: "password",
-    contactNumber: 12,
-    email: "max@max.com",
-    accountType:2
-}
-
-    const mockFn = jest.fn();
-
-    let wrapper = shallow(<AGMEnav logout={mockFn} />)
-    wrapper.setState({user:user});
 
     it("should have 2 navlink items while a user it not logged in", () =>
     {

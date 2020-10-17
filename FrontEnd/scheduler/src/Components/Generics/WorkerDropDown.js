@@ -6,7 +6,6 @@ class WorkerDropDown extends Component
     constructor(props)
     {
         super(props);
-
     }
 
     render()

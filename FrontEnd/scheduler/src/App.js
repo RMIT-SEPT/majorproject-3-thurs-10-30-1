@@ -32,18 +32,6 @@ class App extends Component {
         this.props.dispatch(logout());
     }
 
-    componentDidMount() {
-        const accType = this.props.accountType;
-        if(accType==="Admin")
-        {
-            //set the businessId in the redux store
-        }
-        else if (accType==="Worker")
-        {
-            //set their services in the redux store?
-        }
-    }
-
     render()
   {
     return (
