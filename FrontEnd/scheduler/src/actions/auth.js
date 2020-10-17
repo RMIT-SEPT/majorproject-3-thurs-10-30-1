@@ -46,21 +46,22 @@ export const register = (user,history) => (dispatch) => {
     );
 };
 export const workerRegister = (user,businessID, serviceSet,history) => (dispatch) => {
-        return workerCreate(user).then(
+        workerCreate(user).then(
             response => {
-            addBusinessToWorker(response.data.id, businessID).then(
-                r => {
+                console.log(response);
+            addBusinessToWorker(response.data.id, businessID)
+                .then(r => {
                     console.log("business added: ")
                     console.log(r);
                    for (const ID of serviceSet)
                    {
                        console.log(ID);
                        addServiceToWorker(response.data.id, ID).then(
-                           r2 =>
-                           {
-                                console.log("service added: ");
-                                console.log(r2.data);
-                           });
+                       r2 =>
+                       {
+                            console.log("service added: ");
+                            console.log(r2.data);
+                       });
                    }
                     });
             dispatch({
@@ -98,8 +99,6 @@ export const workerRegister = (user,businessID, serviceSet,history) => (dispatch
 export const login = (details) => (dispatch) => {
     return userLogin(details).then(
         (data) => {
-            console.log("GOOD DATA");
-            console.log(data);
             dispatch({
                 type: LOGIN_SUCCESS,
                 payload: { user: data },
@@ -112,11 +111,8 @@ export const login = (details) => (dispatch) => {
             return Promise.resolve();
         },
         (error) => {
-            console.log("LOGGING ERROR IN REDUCER");
             console.log(error.response.data);
-
             const message =error.response.data
-
             dispatch({
                 type: LOGIN_FAIL,
             });
