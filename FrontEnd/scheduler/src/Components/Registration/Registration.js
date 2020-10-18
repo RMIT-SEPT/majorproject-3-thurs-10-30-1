@@ -47,6 +47,8 @@ export class Registration extends Component
             successful: false,
         });
 
+        console.log(user);
+
 
             this.props.dispatch(register(user,this.props.history))
                 .then(() => {
