@@ -1,20 +1,12 @@
 package schedule.web;
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.beans.factory.annotation.*;
+import org.springframework.http.*;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import schedule.microservice.BookingMicro;
-import schedule.model.Booking;
-
-import javax.validation.Valid;
+import org.springframework.web.bind.annotation.*;
+import schedule.microservice.*;
+import schedule.model.*;
+import javax.validation.*;
 
 @RestController
 @RequestMapping("/api/booking")
@@ -36,14 +28,7 @@ public class BookingController
     @GetMapping("/{id}")
     public ResponseEntity<?> getBookingById(@PathVariable long id)
     {
-        return bookingMicro.bookingExistsById(id) ? new ResponseEntity<>(bookingMicro.getBookingById(id).get(0), HttpStatus.FOUND)  : 
+        return bookingMicro.bookingExistsById(id) ? new ResponseEntity<>(bookingMicro.getBookingById(id).get(0), HttpStatus.OK)  : 
             new ResponseEntity<>("Booking not found", HttpStatus.NOT_FOUND);
     }
 }
-
-/*
-public ResponseEntity<Person> createNewPerson(@RequestBody Person person) {
-
-        Person person1 = personService.saveOrUpdatePerson(person);
-        return new ResponseEntity<Person>(person, HttpStatus.CREA
- */

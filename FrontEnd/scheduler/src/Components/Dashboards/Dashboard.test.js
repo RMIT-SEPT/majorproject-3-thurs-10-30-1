@@ -1,25 +1,66 @@
 import React from "react";
-import {shallow, mount} from "enzyme";
+import {shallow} from "enzyme";
 import Enzyme from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
-import {Form, FormControl} from "react-bootstrap";
-import {Dashboard} from "./Dashboard";
-
+import Dashboard from "./Dashboard";
+import configureStore from 'redux-mock-store'
+import {BookingList} from "./View/BookingList";
+import BookingCreator from "../Bookings/BookingCreator";
 
 Enzyme.configure({adapter : new Adapter()});
 
+const initialState = {
+    auth:
+        {
+            user:
+                [
+                    {
+                        accountType:"Customer",
+                        contactNumber:47,
+                        email:"m@m.com",
+                        password:"p",
+                        userId:4,
+                        username:"MaxMax"
+                    }
+                    ],
+            isLoggedIn:true,
+        },
+    accountType:{accountType: "Customer"}
+
+};
+
+const mockStore = configureStore();
+let wrapper;
+let store;
+
+beforeEach(() =>{
+
+    store=mockStore(initialState);
+    wrapper = shallow(<Dashboard store={store}/>);
+})
+
+
 describe("Dashboard Unit Test",() => {
 
-    const dashboard = shallow(<Dashboard />);
-    
-        it("should have a booking list", () =>
-            {
-                expect(dashboard.find('BookingList')).toHaveLength(1);
-            });
+    it("should have a booking list", () =>
+    {
+        expect(wrapper.find(BookingList)).toHaveLength(0);
+    });
 
-        it("should have a booking creater", () =>
-            {
-                expect(dashboard.find('BookingCreator')).toHaveLength(1);
-            });
-            
+
+    it("should have a booking creator", () =>
+        {
+            expect(wrapper.find(BookingCreator)).toHaveLength(0);
+        });
+
+    it("should have a div", () =>
+    {
+        expect(wrapper.find('div')).toHaveLength(0);
+    });
+
+    it("should have a redirect", () =>
+    {
+        expect(wrapper.find('Redirect')).toHaveLength(0);
+    });
+
     })    

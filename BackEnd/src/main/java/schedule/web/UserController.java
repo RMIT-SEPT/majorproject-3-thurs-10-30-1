@@ -1,17 +1,14 @@
 package schedule.web;
 
 
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
-import org.springframework.validation.BindingResult;
+import org.springframework.beans.factory.annotation.*;
+import org.springframework.http.*;
+import org.springframework.validation.*;
 import org.springframework.web.bind.annotation.*;
-import schedule.microservice.UserMicro;
-import schedule.model.User;
-
-import java.util.Map;
-
-import javax.validation.Valid;
+import schedule.microservice.*;
+import schedule.model.*;
+import java.util.*;
+import javax.validation.*;
 
 @RestController
 @RequestMapping("/api/user")
@@ -27,14 +24,14 @@ public class UserController {
             return new ResponseEntity<>("Invalid User Object", HttpStatus.BAD_REQUEST);
         }
         User user1 = userMicro.saveOrUpdate(user);
-        return new ResponseEntity<>(user1, HttpStatus.CREATED);
+        return new ResponseEntity<>(user1, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<?> getUserById(@PathVariable long id)
     {
         User user = userMicro.getUserById(id);
-        return user != null ? new ResponseEntity<>(user, HttpStatus.FOUND) :
+        return user != null ? new ResponseEntity<>(user, HttpStatus.OK) :
             new ResponseEntity<>("User not found", HttpStatus.BAD_REQUEST);
     }
 
@@ -42,24 +39,26 @@ public class UserController {
     public ResponseEntity<?> validateUser(@RequestBody Map<String, String> json)
     {
         User user = null;
-        if (json.containsKey("identifier")) user = userMicro.getUserByUsernameOrEmail(json.get("identifier"));
+        if (json.containsKey("identifier")) user = userMicro.getUserByEmail(json.get("identifier"));
         else return new ResponseEntity<>("username or email not provided", HttpStatus.BAD_REQUEST);
         if (json.containsKey("password"))
             return user != null && user.getPassword().equals(json.get("password")) ? new ResponseEntity<>(user, HttpStatus.ACCEPTED) :
-                new ResponseEntity<>(false, HttpStatus.BAD_REQUEST);
+                new ResponseEntity<>("Error: Email or Password incorrect", HttpStatus.BAD_REQUEST);
         else return new ResponseEntity<>("Password not provided", HttpStatus.BAD_REQUEST);
     }
 
-    @PutMapping("/update/{id}")
-    public ResponseEntity<?> updateUser(@Valid @RequestBody User user, @PathVariable long id, BindingResult result)
+    @PutMapping("/{id}/update")
+    public ResponseEntity<?> updateUser(@Valid @RequestBody UserUpdateRequest userRequest, @PathVariable long id, BindingResult result)
     {
         if (result.hasErrors()){
             return new ResponseEntity<>("Invalid User Object", HttpStatus.BAD_REQUEST);
         }
-        if (userMicro.userExistsById(id))
+        User user = userMicro.getUserById(id);
+        if (user != null)
         {
-            user.setUserId(id);
-            return new ResponseEntity<>(userMicro.saveOrUpdate(user), HttpStatus.OK);
+            if (userRequest.passwordIsEmpty()) userRequest.setPassword(user.getPassword());
+            userRequest.setAccountType(user.getAccountType());
+            return new ResponseEntity<>(userMicro.saveOrUpdate(userRequest.createUser()), HttpStatus.OK);
         }
         else return new ResponseEntity<>("User being updated does not exist", HttpStatus.BAD_REQUEST);
     }
