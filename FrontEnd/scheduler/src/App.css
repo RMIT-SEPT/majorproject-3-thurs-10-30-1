@@ -154,6 +154,7 @@ html, body, #root, .App {
     outline-style: solid;
     margin-top:0%;
     background-color: white;
+    overflow: scroll;
 }
 
 /* Customer Dashboard */
@@ -167,6 +168,7 @@ html, body, #root, .App {
     background-color: #F2F2F2;
     line-height: 55px;
     font-weight: bold;
+
 }
 
 .regFormDiv
@@ -354,6 +356,7 @@ margin-top:20%;
     margin-left: 22%;
     margin-top:1%;
     background-color: white;
+    overflow: scroll;
 }
 
 .WorkerViewDashboard
@@ -376,6 +379,7 @@ margin-top:20%;
     outline-style: solid;
     background-color: #F2F2F2;
     line-height: 35px;
+    overflow: scroll;
 }
 
 /* Admin Dashboard View Worker */
