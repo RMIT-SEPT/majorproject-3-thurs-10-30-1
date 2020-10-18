@@ -109,4 +109,13 @@ public class UserControllerTest
             makeRequest("UserControllerTest/createNewUser_InvalidEmailOnlyAtSymbol_BAD_REQUEST.json", "/api/user");
         Assertions.assertEquals(HttpStatus.BAD_REQUEST, responseEntityStr.getStatusCode(), responseEntityStr.getBody());
     }
+
+    @Test
+    public void login_ValidDetails_ACCEPTED() throws Exception
+    {
+        makeRequest("UserControllerTest/createNewUser.json", "/api/user");
+        ResponseEntity<String> responseEntityStr =
+            makeRequest("UserControllerTest/login_ValidDetails_ACCEPTED.json", "/api/user/login");
+        Assertions.assertEquals(HttpStatus.ACCEPTED, responseEntityStr.getStatusCode(), responseEntityStr.getBody());
+    }
 }

@@ -1,7 +1,7 @@
 { 
-    "name" : "Michael", 
-    "username" : "Moose", 
+    "name" : "Testing Name", 
+    "username" : "ABC123Easy", 
     "password" : "password", 
     "contactNumber" : 123, 
-    "email" : "moose10141@gmail.com" 
+    "email" : "anemail@mail.com" 
 }
