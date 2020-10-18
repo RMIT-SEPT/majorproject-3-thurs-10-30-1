@@ -1,38 +1,17 @@
 package schedule.web;
 
-import java.util.List;
-
-import javax.validation.Valid;
-
-import com.fasterxml.jackson.core.JsonParser;
-
-import org.h2.util.json.JSONArray;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.configurationprocessor.json.JSONException;
-import org.springframework.boot.configurationprocessor.json.JSONObject;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.MediaType;
-import org.springframework.http.ResponseEntity;
-import org.springframework.validation.BindingResult;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-
-import schedule.microservice.BusinessMicro;
-import schedule.model.Business;
-import schedule.model.service.ScheduleService;
-
-import org.springframework.web.bind.annotation.RequestParam;
+import javax.validation.*;
+import org.springframework.web.bind.annotation.*;
+import org.springframework.beans.factory.annotation.*;
+import org.springframework.http.*;
+import org.springframework.validation.*;
+import schedule.microservice.*;
+import schedule.model.*;
 
 
 @RestController
 @RequestMapping("/api/business")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin
 public class BusinessController {
 
     @Autowired
@@ -43,37 +22,49 @@ public class BusinessController {
         if (result.hasErrors()) {
             return new ResponseEntity<>("Invalid Business Object", HttpStatus.BAD_REQUEST);
         }
-        Business newBusiness = businessMicro.saveOrUpdate(business);
-        return new ResponseEntity<>(business, HttpStatus.CREATED);
+        return new ResponseEntity<>(businessMicro.saveOrUpdate(business), HttpStatus.CREATED);
     }
 
     @GetMapping("/{id}")
-    public Business getBusinessById(@PathVariable long id) {
-        return businessMicro.businessExistsById(id) ? businessMicro.getBusinessById(id) : null;
+    public ResponseEntity<?> getBusinessById(@PathVariable long id) {
+        Business business = businessMicro.getBusinessById(id);
+        return business != null ? new ResponseEntity<>(business, HttpStatus.OK) :
+            new ResponseEntity<>("Business not found", HttpStatus.BAD_REQUEST);
     }
 
     @GetMapping(value = "/all", produces = MediaType.APPLICATION_JSON_VALUE)
-    public String getBusinessById() {
-        StringBuilder builder = new StringBuilder();
-        int j = 0;
-        builder.append("[");
-        for (Business business : businessMicro.getAllBusinesses()) {
-            j++;
-            business.toJson(builder); 
-            if (j < businessMicro.getAllBusinesses().size())
-            {
-                builder.append(",\n");
-            }
-        }
-        builder.append("]");
-
-        return builder.toString();
-    }   
+    public ResponseEntity<?> getAllBusinesses() {
+       return new ResponseEntity<>(businessMicro.getAllBusinesses(), HttpStatus.OK);
+    }
 
     @GetMapping(value = "/{id}/services")
-    public List<ScheduleService> getBusinessServices(@PathVariable long id)
+    public ResponseEntity<?> getBusinessServices(@PathVariable long id)
     {
         Business business = businessMicro.getBusinessById(id);
-        return business != null ? business.getServices() : null;
+        return business != null ? new ResponseEntity<>(business.getServices(), HttpStatus.OK) :
+            new ResponseEntity<>("Business not found", HttpStatus.BAD_REQUEST);
+    }
+
+    @PostMapping("/{id}/service/create")
+    public ResponseEntity<?> addBusinessServices(@PathVariable long id, @RequestBody ScheduleService scheduleService)
+    {
+        Business business = businessMicro.getBusinessById(id);
+        if (business != null)
+        {
+            business.addService(scheduleService);
+            businessMicro.saveOrUpdate(business);
+            return new ResponseEntity<>(business, HttpStatus.OK);
+        }
+        else return new ResponseEntity<>("Business not found", HttpStatus.BAD_REQUEST);
+    }
+
+    @GetMapping(value = "/{id}/workers")
+    public ResponseEntity<?> getWorkersFromBusiness(@PathVariable long id)
+    {
+        Business business = businessMicro.getBusinessById(id);
+        if (business == null)
+            return new ResponseEntity<>("Bad business id", HttpStatus.BAD_REQUEST);
+
+        return new ResponseEntity<>(business.getWorkers(),HttpStatus.OK);
     }
 }

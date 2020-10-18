@@ -1,0 +1,7 @@
+{ 
+    "name" : "Testing Name", 
+    "username" : "ABC123Easy", 
+    "password" : "password", 
+    "contactNumber" : 123, 
+    "email" : "anemail@mail.com" 
+}
