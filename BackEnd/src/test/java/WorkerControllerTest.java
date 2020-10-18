@@ -1,5 +1,3 @@
-import javax.print.DocFlavor.STRING;
-
 import org.json.simple.JSONObject;
 import org.junit.Before;
 import org.junit.Test;
@@ -30,10 +28,10 @@ public class WorkerControllerTest
 
     @Autowired
     private WorkerController controller;
-    
+
     @Autowired
     private TestRestTemplate restTemplate;
-    
+
     @Test
     public void contextLoads() throws Exception
     {
@@ -46,108 +44,69 @@ public class WorkerControllerTest
         Database.cleanDatabase();
     }
 
-    @Test
-    public void createNewWorker_ValidValues_OK() throws Exception
+    private ResponseEntity<String> makeRequest(String jsonFilename, String apiURL) throws Exception
     {
         HttpHeaders headers = new HttpHeaders();
         headers.setContentType(MediaType.APPLICATION_JSON);
-        JSONObject worker = JSON.parseFromFile(JSON.getJSONFilePath("WorkerControllerTest/createNewWorker_ValidValues_OK.json"));
-        HttpEntity<String> request = new HttpEntity<>(worker.toString(), headers);
-        String url = "http://localhost:" + port + "/api/worker";
-        ResponseEntity<String> responseEntityStr = restTemplate.postForEntity(url, request, String.class);
-        boolean created = responseEntityStr.getStatusCode().equals(HttpStatus.OK);
-        String message = responseEntityStr.getBody();
-        System.out.println(port);
-        Assertions.assertTrue(created,message);
+        JSONObject json = JSON.parseFromFile(JSON.getJSONFilePath(jsonFilename));
+        HttpEntity<String> request = new HttpEntity<>(json.toString(), headers);
+        String url = "http://localhost:" + port + apiURL;
+        return restTemplate.postForEntity(url, request, String.class);
+    }
+
+    @Test
+    public void createNewWorker_ValidValues_OK() throws Exception
+    {
+        ResponseEntity<String> responseEntityStr =
+            makeRequest("WorkerControllerTest/createNewWorker_ValidValues_OK.json", "/api/worker");
+        Assertions.assertEquals(HttpStatus.OK, responseEntityStr.getStatusCode(), responseEntityStr.getBody());
     }
 
     @Test
     public void createNewWorker_MissingName_BAD_REQUEST() throws Exception
     {
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON);
-        JSONObject worker = JSON.parseFromFile(JSON.getJSONFilePath("WorkerControllerTest/createNewWorker_MissingName_BAD_REQUEST.json"));
-        HttpEntity<String> request = new HttpEntity<>(worker.toString(), headers);
-        String url = "http://localhost:" + port + "/api/worker";
-        ResponseEntity<String> responseEntityStr = restTemplate.postForEntity(url, request, String.class);
-        boolean notCreated = responseEntityStr.getStatusCode().equals(HttpStatus.BAD_REQUEST);
-        String message = responseEntityStr.getBody();
-        System.out.println(port);
-        Assertions.assertTrue(notCreated,message);
+        ResponseEntity<String> responseEntityStr =
+            makeRequest("WorkerControllerTest/createNewWorker_MissingName_BAD_REQUEST.json", "/api/worker");
+        Assertions.assertEquals(HttpStatus.BAD_REQUEST, responseEntityStr.getStatusCode(), responseEntityStr.getBody());
     }
 
     @Test
     public void createNewWorker_MissingUsername_BAD_REQUEST() throws Exception
     {
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON);
-        JSONObject worker = JSON.parseFromFile(JSON.getJSONFilePath("WorkerControllerTest/createNewWorker_MissingUsername_BAD_REQUEST.json"));
-        HttpEntity<String> request = new HttpEntity<>(worker.toString(), headers);
-        String url = "http://localhost:" + port + "/api/worker";
-        ResponseEntity<String> responseEntityStr = restTemplate.postForEntity(url, request, String.class);
-        boolean notCreated = responseEntityStr.getStatusCode().equals(HttpStatus.BAD_REQUEST);
-        String message = responseEntityStr.getBody();
-        System.out.println(port);
-        Assertions.assertTrue(notCreated,message);
+        ResponseEntity<String> responseEntityStr =
+            makeRequest("WorkerControllerTest/createNewWorker_MissingUsername_BAD_REQUEST.json", "/api/worker");
+        Assertions.assertEquals(HttpStatus.BAD_REQUEST, responseEntityStr.getStatusCode(), responseEntityStr.getBody());
     }
 
     @Test
     public void createNewWorker_MissingPassword_BAD_REQUEST() throws Exception
     {
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON);
-        JSONObject worker = JSON.parseFromFile(JSON.getJSONFilePath("WorkerControllerTest/createNewWorker_MissingPassword_BAD_REQUEST.json"));
-        HttpEntity<String> request = new HttpEntity<>(worker.toString(), headers);
-        String url = "http://localhost:" + port + "/api/worker";
-        ResponseEntity<String> responseEntityStr = restTemplate.postForEntity(url, request, String.class);
-        boolean notCreated = responseEntityStr.getStatusCode().equals(HttpStatus.BAD_REQUEST);
-        String message = responseEntityStr.getBody();
-        System.out.println(port);
-        Assertions.assertTrue(notCreated,message);
+        ResponseEntity<String> responseEntityStr =
+            makeRequest("WorkerControllerTest/createNewWorker_MissingPassword_BAD_REQUEST.json", "/api/worker");
+        Assertions.assertEquals(HttpStatus.BAD_REQUEST, responseEntityStr.getStatusCode(), responseEntityStr.getBody());
     }
 
     @Test
     public void createNewWorker_MissingEmail_BAD_REQUEST() throws Exception
     {
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON);
-        JSONObject worker = JSON.parseFromFile(JSON.getJSONFilePath("WorkerControllerTest/createNewWorker_MissingEmail_BAD_REQUEST.json"));
-        HttpEntity<String> request = new HttpEntity<>(worker.toString(), headers);
-        String url = "http://localhost:" + port + "/api/worker";
-        ResponseEntity<String> responseEntityStr = restTemplate.postForEntity(url, request, String.class);
-        boolean notCreated = responseEntityStr.getStatusCode().equals(HttpStatus.BAD_REQUEST);
-        String message = responseEntityStr.getBody();
-        System.out.println(port);
-        Assertions.assertTrue(notCreated,message);
+        ResponseEntity<String> responseEntityStr =
+            makeRequest("WorkerControllerTest/createNewWorker_MissingEmail_BAD_REQUEST.json", "/api/worker");
+        Assertions.assertEquals(HttpStatus.BAD_REQUEST, responseEntityStr.getStatusCode(), responseEntityStr.getBody());
     }
 
     @Test
     public void createNewWorker_InvalidEmailNoAtSymbol_BAD_REQUEST() throws Exception
     {
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON);
-        JSONObject worker = JSON.parseFromFile(JSON.getJSONFilePath("WorkerControllerTest/createNewWorker_InvalidEmailNoAtSymbol_BAD_REQUEST.json"));
-        HttpEntity<String> request = new HttpEntity<>(worker.toString(), headers);
-        String url = "http://localhost:" + port + "/api/worker";
-        ResponseEntity<String> responseEntityStr = restTemplate.postForEntity(url, request, String.class);
-        boolean notCreated = responseEntityStr.getStatusCode().equals(HttpStatus.BAD_REQUEST);
-        String message = responseEntityStr.getBody();
-        System.out.println(port);
-        Assertions.assertTrue(notCreated,message);
+        ResponseEntity<String> responseEntityStr =
+            makeRequest("WorkerControllerTest/createNewWorker_InvalidEmailNoAtSymbol_BAD_REQUEST.json", "/api/worker");
+        Assertions.assertEquals(HttpStatus.BAD_REQUEST, responseEntityStr.getStatusCode(), responseEntityStr.getBody());
     }
 
     @Test
     public void createNewWorker_InvalidEmailOnlyAtSymbol_BAD_REQUEST() throws Exception
     {
-        HttpHeaders headers = new HttpHeaders();
-        headers.setContentType(MediaType.APPLICATION_JSON);
-        JSONObject worker = JSON.parseFromFile(JSON.getJSONFilePath("WorkerControllerTest/createNewWorker_InvalidEmailOnlyAtSymbol_BAD_REQUEST.json"));
-        HttpEntity<String> request = new HttpEntity<>(worker.toString(), headers);
-        String url = "http://localhost:" + port + "/api/worker";
-        ResponseEntity<String> responseEntityStr = restTemplate.postForEntity(url, request, String.class);
-        boolean notCreated = responseEntityStr.getStatusCode().equals(HttpStatus.BAD_REQUEST);
-        String message = responseEntityStr.getBody();
-        System.out.println(port);
-        Assertions.assertTrue(notCreated,message);
+        ResponseEntity<String> responseEntityStr =
+            makeRequest("WorkerControllerTest/createNewWorker_InvalidEmailOnlyAtSymbol_BAD_REQUEST.json", "/api/worker");
+        Assertions.assertEquals(HttpStatus.BAD_REQUEST, responseEntityStr.getStatusCode(), responseEntityStr.getBody());
     }
 }
