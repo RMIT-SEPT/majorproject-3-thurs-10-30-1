@@ -36,6 +36,9 @@ public class Worker {
     public Worker(Long id, @NotNull(message = "A user account is required") User user) {
         this.id = id;
         this.user = user;
+        this.bookings = new ArrayList<>();
+        this.services = new ArrayList<>();
+        this.businesses = new ArrayList<>();
     }
 
     public Worker(Long id, @NotNull(message = "A user account is required") User user, List<Booking> bookings,
