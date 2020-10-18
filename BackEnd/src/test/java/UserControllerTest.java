@@ -76,7 +76,7 @@ public class UserControllerTest
         HttpEntity<String> request = new HttpEntity<>(user.toString(), headers);
         String url = "http://localhost:" + port + "/api/user";
         ResponseEntity<String> responseEntityStr = restTemplate.postForEntity(url, request, String.class);
-        boolean created = responseEntityStr.getStatusCode().equals(HttpStatus.CREATED);
+        boolean created = responseEntityStr.getStatusCode().equals(HttpStatus.OK);
         String message = responseEntityStr.getBody();
         System.out.println(port);
         Assertions.assertTrue(created,message);
