@@ -99,6 +99,27 @@ public class Booking {
         return service.getName();
     }
 
+    @JsonProperty(value = "day")
+    public int getDay() {
+        return availabilitySlot.getDay();
+    }
+    
+    @JsonProperty(value = "hour")
+    public int getHour() {
+        return availabilitySlot.getHour();
+    }
+
+    @JsonProperty(value = "minute")
+    public int getMinute() {
+        return availabilitySlot.getMinute();
+    }
+
+    @JsonProperty(value = "length")
+    public int getLength()
+    {
+        return availabilitySlot.getLength();
+    }
+
     @JsonProperty(value = "service")
     public Long getServiceId() {
         return service.getId();

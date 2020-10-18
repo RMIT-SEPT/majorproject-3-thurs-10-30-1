@@ -6,6 +6,7 @@ import org.junit.runner.RunWith;
 import org.junit.jupiter.api.Assertions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
+import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 import schedule.App;
@@ -18,12 +19,14 @@ import schedule.repositories.WorkerRepo;
 import schedule.web.UserController;
 import utils.JSON;
 
+import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
 
-@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT, classes= App.class)
+@DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
+@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.ANY)
 @RunWith(SpringRunner.class)
 @ActiveProfiles(profiles = "test")
 public class UserControllerTest
@@ -56,16 +59,6 @@ public class UserControllerTest
         Assertions.assertNotNull(controller);
     }
 
-    @Before
-    public void clean_database()
-    {
-        workerRepo.deleteAll();
-        adminRepo.deleteAll();
-        businessRepo.deleteAll();
-        serviceRepo.deleteAll();
-        customerRepo.deleteAll();
-        userRepo.deleteAll();
-    }
 
     @Test
     public void createNewUser_ValidValues_CREATED() throws Exception
