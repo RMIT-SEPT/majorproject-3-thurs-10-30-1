@@ -46,3 +46,34 @@ Special Hairdressing and Main Street Massage.
 ('Customer','Max','MaxMax','password',47,'Maximillianyoung0@gmail.com'),
 ('Admin','Kara','BigKara','password',4,'kara@kara.com');
 
+# building, deploying and running the application
+in order to build the application the two docker files located in BackEnd and FrontEnd can be used to construct containers  
+using the command `docker build -t <image name>`
+to deploy these newly created images using the AWS ECR service the following should be done
+- create a file in `~/.aws` called `credentials` which contains the session information from the AWS CLI
+- run the command `aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 907085117837.dkr.ecr.us-east-1.amazonaws.com`
+- then run `docker build -t <ecr repository name> .` for each dockerfile
+    - `docker build -t spring-server .`
+    - `docker build -t react-server .`
+- then run `docker tag spring-server:latest 907085117837.dkr.ecr.us-east-1.amazonaws.com/<ecr repository name>:latest`
+    - then run `docker tag spring-server:latest 907085117837.dkr.ecr.us-east-1.amazonaws.com/spring-server:latest`
+    - then run `docker tag spring-server:latest 907085117837.dkr.ecr.us-east-1.amazonaws.com/react-server:latest`
+- then run `docker push 907085117837.dkr.ecr.us-east-1.amazonaws.com/<ecr repository name>:latest`
+    - then run `docker push 907085117837.dkr.ecr.us-east-1.amazonaws.com/spring-server:latest`
+    - then run `docker push 907085117837.dkr.ecr.us-east-1.amazonaws.com/react-server:latest`
+Once the ecr has been updated ssh into the ec2 instance that has docker and aws requirements installed
+- create a file in `~/.aws` called `credentials` which contains the session information from the AWS CLI
+- run the command `aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 907085117837.dkr.ecr.us-east-1.amazonaws.com`
+- run `docker pull <ecr URI>` for each of the ecr repositories
+    - `docker pull 907085117837.dkr.ecr.us-east-1.amazonaws.com/spring-server`
+    - `docker pull 907085117837.dkr.ecr.us-east-1.amazonaws.com/react-server`
+Once the ec2 instance has the images you can run the servers using the following commands
+- `docker run -it -p 80:3000 -e CHOKIDAR_USEPOLLING=true -d 907085117837.dkr.ecr.us-east-1.amazonaws.com/react-server`
+- `docker run -it -p 8080:8080 -e CHOKIDAR_USEPOLLING=true -d 907085117837.dkr.ecr.us-east-1.amazonaws.com/spring-server`
+
+# Deployment pipeline setup
+Our deployment pipeline is as follows
+- Once code is merged to master CircleCi will execute tests on the BackEnd and FrontEnd
+    - the full CircleCi process can be found in the `.circleci/config.yml` file
+- upon passing the tests, CircleCi will construct docker images which will be pushed to the ECR repositories for the BackEnd and FrontEnd
+- then the ec2 instance must pull the ecr images and run them via docker commands
