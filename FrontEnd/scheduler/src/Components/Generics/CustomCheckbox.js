@@ -1,6 +1,7 @@
 import React, { Component} from 'react';
 import PropTypes from 'prop-types';
 
+//small components to allow selection of multiple things- very generic
 class CustomCheckbox extends Component {
     state = {
         isChecked: false,

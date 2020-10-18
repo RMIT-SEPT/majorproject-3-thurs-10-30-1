@@ -39,7 +39,6 @@ const mockFn = jest.fn();
 beforeEach(() =>{
 
     store=mockStore(initialState);
-    console.log(store);
     wrapper = shallow(<AGMEnav store={store} logout={mockFn}/>);
 })
 

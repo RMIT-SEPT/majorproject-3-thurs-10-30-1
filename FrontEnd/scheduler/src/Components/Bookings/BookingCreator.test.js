@@ -1,19 +1,31 @@
 import React from "react";
-import {shallow, mount} from "enzyme";
+import {shallow} from "enzyme";
 import Enzyme from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import {BookingCreator} from "./BookingCreator";
+import MyCal from "../Generics/myCal";
 
 Enzyme.configure({adapter : new Adapter()});
 
 
-describe("Booking Creator Unit Test",() => {
+let wrapper;
 
-    const Creator = shallow(<BookingCreator />);
+beforeEach(() =>
+    {
+        wrapper = shallow(<BookingCreator />);
+
+    })
+describe("Booking Creator Unit Test",() => {
 
     it("should render with 4 option elements", () =>
         {
-            expect(Creator.find('option')).toHaveLength(3);
+            expect(wrapper.find('option')).toHaveLength(3);
         });
+
+    it("should render with 1 myCal element", () =>
+    {
+        expect(wrapper.find(MyCal)).toHaveLength(1);
+    });
+
 
     })

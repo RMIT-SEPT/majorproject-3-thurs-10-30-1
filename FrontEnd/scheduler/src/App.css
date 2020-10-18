@@ -147,13 +147,14 @@ html, body, #root, .App {
 /* Customer Dashboard */
 .bookingList
 {
-  width: 55%;
-  height: 700px;
-    margin-left: 1%;
+    width: 55%;
+    height: 700px;
+    margin-left: 2.7%;
     display: inline-block;
-  outline-style: solid;
-margin-top: 2%;
-  background-color: white;
+    outline-style: solid;
+    margin-top:0%;
+    background-color: white;
+    overflow: scroll;
 }
 
 /* Customer Dashboard */
@@ -166,6 +167,8 @@ margin-top: 2%;
     outline-style: solid;
     background-color: #F2F2F2;
     line-height: 55px;
+    font-weight: bold;
+
 }
 
 .regFormDiv
@@ -179,7 +182,7 @@ margin-top: 2%;
 .bookingCreator
 {
   width: 36%;
-  height: 800px;
+  height:730px;
   float: right;
   outline: solid;
   margin-right: 3%;
@@ -204,7 +207,6 @@ margin-top: 2%;
     font-weight: bold;
     text-align: center;
     color: #000000;
-    padding-bottom: 1%;
 }
 
 
@@ -282,18 +284,19 @@ margin-top:20%;
     font-weight: bold;
     text-align: center;
     color: #000000;
+    margin-top: 5mm;
     padding-bottom: 1%;
 }
 
 /* Profile Page */
 .profilePage
 {
-    width: 55%;
+    width: 45%;
     float: left;
-    height: 700px;
+    height: 540px;
     outline-style: solid;
-    margin-left: 23%;
-    margin-top:2%;
+    margin-left: 28%;
+    margin-top:5%;
     background-color: white;
 }
 
@@ -341,7 +344,7 @@ margin-top:20%;
 /* Dashboard Booking Creator Page*/
 .BookButton
 {
-    margin-top:2%;
+    margin-top:1.5%;
 }
 /* Admin Dashboard View Workers Page*/
 .AdminViewDashboard
@@ -353,28 +356,30 @@ margin-top:20%;
     margin-left: 22%;
     margin-top:1%;
     background-color: white;
-
-
+    overflow: scroll;
 }
 
 .WorkerViewDashboard
 {
-    width: 30%;
+    width: 38%;
+    height: 150mm;
     float: right;
     outline-style: solid;
     margin-top:2%;
     background-color: white;
-    margin-right: 10%;
+    margin-right: 2.7%;
+
 }
 /* Admin Dashboard View Workers Page*/
 .adminViewWorker {
     width: 70mm;
-    height: 28mm;
+    height: 36mm;
     margin-left: 7.5mm;
     margin-bottom: 6%;
     outline-style: solid;
     background-color: #F2F2F2;
     line-height: 35px;
+    overflow: scroll;
 }
 
 /* Admin Dashboard View Worker */
@@ -388,7 +393,8 @@ margin-top:20%;
 .adminDashboardText
 {
     margin-left: 7.5mm;
-    margin-top: 3mm;
+    margin-top: 1.5mm;
+    margin-bottom: 1.5mm;
     font-size: medium;
     font-weight: bold;
 }
@@ -405,10 +411,10 @@ margin-top:20%;
 }
 
 .workerViewServices {
-    width: 50%;
-    height: 100%;
-    margin-left: 28%;
-    margin-bottom: 10%;
+    width:73mm;
+    height:30mm;
+    margin-left: 10%;
+    margin-bottom: 5%;
     outline-style: solid;
     background-color: #F2F2F2;
     line-height: 35px;
@@ -424,26 +430,34 @@ margin-top:20%;
 
 .availForm
 {
-    margin-left: 20%;
-    margin-top: 5%;
-    display: inline;
+
+    margin-left: 35%;
+    margin-top: 0%;
     float: left;
+    display: inline;
+
 }
 
 .availList
 {
     float: right;
-    margin-right: 25%;
+    margin-right: 10%;
     display: inline;
-    margin-top: 5%;
-    padding: 2%;
+    margin-top: 2%;
     outline-style: solid;
+    width: 700px;
+    height: 700px;
+    background-color: white;
+    overflow: scroll;
 }
 
 .availContainer
 {
-    margin-left: 10%;
-    display: inline;
+    background-image: url(./media/background5.png);
+    width: 100%;
+    height: 100%;
+    position: relative;
+
 }
 
 
@@ -485,8 +499,111 @@ margin-top:20%;
     margin-left: 0%;
 }
 
+/* Add Service Page */
+.createServiceContainer
+{
+    background-image: url(./media/background1.png);
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
 
+/* Add Service Page */
+.createServicePage
+{
+    width: 55%;
+    float: left;
+    height: 430px;
+    outline-style: solid;
+    margin-left: 23%;
+    margin-top:5%;
+    background-color: white;
+}
+/* Admin Dashboard View Worker */
+.newListGrid
+{
+    display: grid;
+    grid-template-columns: 150px 150px 150px 150px 150px;
+    grid-row-gap: 5px;
+    margin-left: 23mm;
+}
+/* Edit Profile Page */
+.editProfilePage
+{
+    width: 45%;
+    float: left;
+    height: 650px;
+    outline-style: solid;
+    margin-left: 28%;
+    margin-top:3%;
+    background-color: white;
+}
+/* Worker Dashboard*/
 
+.workerSmallServices
+{
+    display: grid;
+    grid-template-columns:300px 300px;
+    grid-row-gap: 1%;
+    grid-column-gap: .5%;
+}
+/* Worker Dashboard View Service */
+.WorkerServicesText
+{
+    margin-left: 9mm;
+    margin-top: 2mm;
+    margin-bottom: 2mm;
+    font-size: medium;
+    font-weight: bold;
+}
+
+/* Add Availability for Worker */
+.workerAvailability
+{
+    width: 38%;
+    height: 550px;
+    margin-left: 8%;
+    display: inline-block;
+    outline-style: solid;
+    margin-top:5%;
+    background-color: white;
+}
+/* Add Availability for Worker */
+.workerAvailHeader
+{
+    font-size: 30px;
+    font-style: normal;
+    font-weight: bold;
+    text-align: center;
+    color: #000000;
+    margin-top: 3mm;
+    padding-bottom: 1%;
+}
+
+/* Add Availability for Worker */
+.workerAvailTimes
+{
+    font-size: 15px;
+    font-style: normal;
+    font-weight: bold;
+    text-align: center;
+    color: #000000;
+    margin-top: 1mm;
+    padding-bottom: 1%;
+}
+
+/* Add Availability for Worker */
+.workerAvailSetTitle
+{
+    font-size: 25px;
+    text-align: center;
+    color: #000000;
+    padding-bottom: 0%;
+}
+.workerAvailDropDown
+{
+    margin-bottom: 7mm;
+}
 
 
 

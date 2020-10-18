@@ -26,7 +26,8 @@ public class Customer
     public Customer(Long id, @NotNull(message = "A user account is required") User user) {
         this.id = id;
         this.user = user;
-    };
+        this.bookings = new ArrayList<>();
+    }
 
     public Customer(Long id, @NotNull(message = "A user account is required") User user, List<Booking> bookings) {
         this.id = id;

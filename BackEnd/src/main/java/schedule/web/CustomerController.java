@@ -23,7 +23,7 @@ public class CustomerController {
         }
         user.setAccountType(AccountType.Customer);
         Customer customer = customerMicro.saveOrUpdate(new Customer(user.getUserId(), user));
-        return new ResponseEntity<>(customer, HttpStatus.CREATED);
+        return new ResponseEntity<>(customer, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")

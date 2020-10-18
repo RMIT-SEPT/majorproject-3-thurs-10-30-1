@@ -9,7 +9,7 @@ export class ViewServicesSmall extends Component {
         {
             realServ = serv.map((service) => (
                 <div className="workerViewServices" key={service.id}>
-                    <h4 className="adminDashboardText">
+                    <h4 className="WorkerServicesText">
                         Service ID: {service.id}
                         <br/>
                         Service: {service.name}
@@ -23,7 +23,9 @@ export class ViewServicesSmall extends Component {
         return (
             <div className= "WorkerViewDashboard">
                 <h2 className="pageHeader"> My Services</h2>
+                <div className="workerSmallServices">
                     {realServ}
+                </div>
             </div>
         )
     }
