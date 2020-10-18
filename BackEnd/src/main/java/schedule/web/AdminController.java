@@ -23,7 +23,7 @@ public class AdminController {
         }
         user.setAccountType(AccountType.Admin);
         Admin admin = adminMicro.saveOrUpdate(new Admin(user.getUserId(), user));
-        return new ResponseEntity<>(admin, HttpStatus.CREATED);
+        return new ResponseEntity<>(admin, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")
