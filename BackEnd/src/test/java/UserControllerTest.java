@@ -6,27 +6,19 @@ import org.junit.runner.RunWith;
 import org.junit.jupiter.api.Assertions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
-import org.springframework.test.annotation.DirtiesContext;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 import schedule.App;
-import schedule.repositories.AdminRepo;
-import schedule.repositories.BusinessRepo;
-import schedule.repositories.CustomerRepo;
-import schedule.repositories.ServiceRepo;
-import schedule.repositories.UserRepo;
-import schedule.repositories.WorkerRepo;
 import schedule.web.UserController;
+import utils.Database;
 import utils.JSON;
 
-import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.web.server.LocalServerPort;
 
-@DirtiesContext(classMode = DirtiesContext.ClassMode.BEFORE_EACH_TEST_METHOD)
-@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.ANY)
+@SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT, classes= App.class)
 @RunWith(SpringRunner.class)
 @ActiveProfiles(profiles = "test")
 public class UserControllerTest
@@ -40,25 +32,17 @@ public class UserControllerTest
     @Autowired
     private TestRestTemplate restTemplate;
     
-    @Autowired 
-    private UserRepo userRepo;
-    @Autowired
-    private AdminRepo adminRepo;
-    @Autowired
-    private WorkerRepo workerRepo;
-    @Autowired
-    private CustomerRepo customerRepo;
-    @Autowired
-    private BusinessRepo businessRepo;
-    @Autowired
-    private ServiceRepo serviceRepo;
-
     @Test
     public void contextLoads() throws Exception
     {
         Assertions.assertNotNull(controller);
     }
 
+    @Before
+    public void clean_database()
+    {
+        Database.cleanDatabase();
+    }
 
     @Test
     public void createNewUser_ValidValues_CREATED() throws Exception
