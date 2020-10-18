@@ -21,7 +21,7 @@ export const register = (user,history) => (dispatch) => {
 
             dispatch({
                 type: SET_MESSAGE,
-                payload: response.data.message,
+                payload: "Registration success!",
             });
             history.push("/");
             return Promise.resolve();
@@ -31,11 +31,7 @@ export const register = (user,history) => (dispatch) => {
             console.log(error.data);
             console.log(error.response.data);
             const message =
-                (error.response &&
-                    error.response.data &&
-                    error.response.data.message) ||
-                error.message ||
-                error.toString();
+                "Error! that user already exists!"
 
             dispatch({
                 type: REGISTER_FAIL,
@@ -79,6 +75,7 @@ export const workerRegister = (user,businessID, serviceSet,history) => (dispatch
                 payload: response.data.message,
             });
             history.push("/adminHome");
+
             return Promise.resolve();
         },
         (error) => {

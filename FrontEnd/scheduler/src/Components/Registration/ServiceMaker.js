@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import Form from "react-bootstrap/Form";
 import {connect} from 'react-redux'
-import {getAdmin} from "../../actions/userActions";
+import {addServiceToWorker, getAdmin} from "../../actions/userActions";
 import {Redirect} from "react-router-dom";
 import {addServiceToBusiness, getWorkerByBusiness} from "../../actions/BusinessActions";
 import CustomCheckbox from "../Generics/CustomCheckbox";
@@ -87,10 +87,13 @@ export class ServiceMaker extends Component
         {
             if(resp)
             {
+                console.log(resp.data);
+                console.log(resp.data.services[resp.data.services.length-1]);
                 this.setState({
                     successful: true,
                     message:'Service Created! Make another?',
                 });
+                addServiceToWorker(this.state.workers[0].id,resp.data.services[resp.data.services.length-1]);
             }
             else
             {

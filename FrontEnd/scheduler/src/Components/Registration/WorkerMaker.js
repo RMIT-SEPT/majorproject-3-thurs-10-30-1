@@ -24,6 +24,7 @@ export class WorkerMaker extends Component
             password: "",
 
             successful: true,
+            message:"",
             services: undefined,
             businessID:0,
         };
@@ -100,18 +101,13 @@ export class WorkerMaker extends Component
             successful: false,
         });
 
-        this.props.dispatch(workerRegister(user,this.state.businessID,this.selectedOptions,this.props.history))
-            .then(() => {
-                this.setState({
-                    successful: true,
-                });
-            })
-            .catch(() => {
-                this.setState({
-                    successful: false,
-                });
-            });
-    }
+        const {dispatch, history} = this.props;
+        dispatch(workerRegister(user,this.state.businessID,this.selectedOptions,this.props.history))
+        this.setState({
+            successful: false,
+            message:"Error! that user already exists"
+        });
+        }
 
     render()
     {
@@ -120,7 +116,7 @@ export class WorkerMaker extends Component
             return <Redirect to="/" />;
         }
 
-        const { message } = this.props;
+        const { message } = this.state.message;
         let realServ;
         const serv = this.state.services;
         if(serv)
@@ -180,13 +176,11 @@ export class WorkerMaker extends Component
                                     </Form.Group>
                             </div>
 
-                        {message && (
-                            <div className="form-group">
+                            {this.state.message && (
                                 <div className={ this.state.successful ? "alert alert-success" : "alert alert-danger" } role="alert">
-                                    {message}
+                                    {this.state.message}
                                 </div>
-                            </div>
-                        )}
+                            )}
 
                         {serv
                             ? <div>
