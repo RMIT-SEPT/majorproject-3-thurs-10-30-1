@@ -47,7 +47,7 @@ public class UserController {
         else return new ResponseEntity<>("Password not provided", HttpStatus.BAD_REQUEST);
     }
 
-    @PutMapping("/update")
+    @PutMapping("/{id}/update")
     public ResponseEntity<?> updateUser(@Valid @RequestBody UserUpdateRequest userRequest, @PathVariable long id, BindingResult result)
     {
         if (result.hasErrors()){

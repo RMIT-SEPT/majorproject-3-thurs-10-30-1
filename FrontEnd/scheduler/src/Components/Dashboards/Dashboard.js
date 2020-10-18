@@ -19,10 +19,8 @@ export class Dashboard extends Component
 
     componentDidMount()
     {
-        console.log(this.props.user);
         getBookingForCustomer(this.props.user.userId).then(resp =>
         {
-            console.log(resp.data);
             this.setState(
                 {
                     bookings:resp.data

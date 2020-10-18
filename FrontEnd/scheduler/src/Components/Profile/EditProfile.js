@@ -2,22 +2,26 @@ import React, {Component} from 'react';
 import {connect} from "react-redux";
 import Form from "react-bootstrap/Form";
 import {userUpdate} from "../../actions/userActions";
+import {updateUserStore} from "../../actions/auth";
 
 
-class ProfileInfo extends Component
+class EditProfile extends Component
 {
+
 
     constructor(props)
     {
         super(props);
         this.state=
-            {
-                name:"",
-                username:"",
-                contactNumber:0,
-                email:"",
-                password:"",
-            };
+        {
+            name:this.props.user.name,
+            username:this.props.user.name,
+            contactNumber:this.props.user.contactNumber,
+            email:this.props.user.email,
+            successful:true,
+            message:""
+
+        };
         this.onChange=this.onChange.bind(this);
         this.handleSubmit=this.handleSubmit.bind(this);
     }
@@ -29,20 +33,40 @@ class ProfileInfo extends Component
 
     handleSubmit= async (e) => {
         e.preventDefault();
-        const user =
+        const myId = this.props.user.userId;
+        const userUpdateRequest =
         {
+            userId:myId,
             name: this.state.name,
             username: this.state.username,
-            password: this.props.user.password,
             contactNumber: this.state.contactNumber,
             email: this.state.email,
         }
-        console.log(user);
-
-        const res = userUpdate(user);
-        console.log(res.data);
+        console.log("MY UPDATE REq");
+        console.log(userUpdateRequest);
+       userUpdate(myId,userUpdateRequest).then(r=>
+       {
+           console.log(r.data);
+           if(r)
+           {
+               const {dispatch, history} = this.props;
+               dispatch(updateUserStore(r.data))
+               this.setState(
+                   {
+                       successful:true,
+                       message:"Profile Updated!!",
+                   });
+           }
+           else
+           {
+               this.setState(
+                   {
+                       successful:false,
+                       message:"There was an error. Please retry"
+                   })
+           }
+       })
     }
-
 
 
     render() {
@@ -86,11 +110,14 @@ class ProfileInfo extends Component
                         <br/>
 
                         {this.props.user ? <h4 className="profileInfo"> Account Type: <div className="profileText"> {this.props.user.accountType} </div> </h4> : <p> Account Type = Null</p>}
-`
 
-                {/*<input type="submit" title="Submit(non-functional)" disabled/>*/}
-
+                <input type="submit" title="Update" />
                 </Form>
+                    {this.state.message && (
+                        <div className={ this.state.successful ? "alert alert-success" : "alert alert-danger" } role="alert">
+                            {this.state.message}
+                        </div>
+                    )}
                 </div>
             </div>
         )
@@ -104,4 +131,4 @@ function mapStateToProps(state) {
     };
 }
 
-export default connect(mapStateToProps) (ProfileInfo);
+export default connect(mapStateToProps) (EditProfile);

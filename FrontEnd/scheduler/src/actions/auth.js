@@ -5,7 +5,7 @@ import {
     LOGIN_FAIL,
     LOGOUT,
     SET_MESSAGE,
-    SET_ACCOUNT_TYPE,
+    SET_ACCOUNT_TYPE, UPDATE_USER,
 } from "./types";
 import {addBusinessToWorker, addServiceToWorker, lilLogout, userCreate, userLogin, workerCreate} from "./userActions";
 
@@ -140,6 +140,17 @@ export const login = (details) => (dispatch) => {
         }
     );
 };
+
+export const updateUserStore = (details) => (dispatch) =>
+{
+    dispatch({
+        type:UPDATE_USER,
+        payload:details
+    });
+}
+
+
+
 
 export const logout = () => (dispatch) => {
     lilLogout();
