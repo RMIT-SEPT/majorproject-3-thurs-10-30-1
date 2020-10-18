@@ -26,7 +26,7 @@ export default function (state = initialState, action) {
         case REGISTER_FAIL:
             return {
                 ...state,
-                isLoggedIn: false,
+                isLoggedIn: true,
             };
         case LOGIN_SUCCESS:
             return {

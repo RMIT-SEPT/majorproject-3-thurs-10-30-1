@@ -52,6 +52,8 @@ export class adminDashboard extends Component {
             })
 
     }
+    //if not logged in, do not allow access.
+    //render a list of workers and services for admins to inspect.
     render() {
 
         if(!this.props.isLoggedIn)

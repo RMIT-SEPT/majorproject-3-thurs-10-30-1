@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 
+//simple display or workers, no need to call API
+//also is passed in services, and uses a simple method to display relevant services for each worker.
 export class ViewWorkersList extends Component {
 
     constructor(props) {

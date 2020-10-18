@@ -43,6 +43,7 @@ export class BookingCreator extends Component
         this.onChangeDate=this.onChangeDate.bind(this);
     }
 
+    //on mount, get all businesses IN the data base and a current date for the calendar. Display these to the users.
     componentDidMount() {
         const date = this.state.date;
         getAllBusiness()
@@ -58,6 +59,11 @@ export class BookingCreator extends Component
             })
     }
 
+    //as each state updates, use that selection to inform the next level of booking creation.
+    //Users select a business -> get all that businesses services and display them
+    //users then select a service, use that service to get all relevant workers and display them and so on.
+    //if a user backtracks, clear all info that is no longer correct
+    //if all fields are selected, enable the booking button.
     componentDidUpdate(prevProps, prevState, snapshot)
     {
         if (prevState.currentId !== this.state.currentId)
@@ -124,6 +130,7 @@ export class BookingCreator extends Component
         this.setState({[e.target.name]: parseInt(e.target.value)});
     }
 
+    //date parsing
     onChangeDate = date =>
     {
         console.log(date);
@@ -146,6 +153,9 @@ export class BookingCreator extends Component
     }
 
 
+    //create a bookingREquest object as per API requirement
+    //if if passes, display BOOKING SUCCESS, and it will apear in the booking list upon reload.
+    //if fail, it will not be created and an erorr message will be displauyed
     onClick = (e) =>
     {
         e.preventDefault();

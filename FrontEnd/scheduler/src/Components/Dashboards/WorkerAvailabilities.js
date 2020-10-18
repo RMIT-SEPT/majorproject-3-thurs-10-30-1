@@ -8,6 +8,7 @@ import {createNewAvail, getAvailByService, getServiceByWorker} from "../../actio
 import {Redirect} from "react-router-dom";
 
 
+//component to allow workers to create their availabilities for a given day of the week.
 export class WorkerAvailabilities extends Component
 {
     constructor(props) {
@@ -31,6 +32,7 @@ export class WorkerAvailabilities extends Component
         this.onSubmit=this.onSubmit.bind(this);
     }
 
+    //get all services for the logged in worker.
     componentDidMount() {
         const myId = this.state.id;
         getServiceByWorker(myId)
@@ -42,6 +44,7 @@ export class WorkerAvailabilities extends Component
             });
     }
 
+    //if currently selected service changes, re-contact the API to get THAT services list of avails.
     componentDidUpdate(prevProps, prevState, snapshot)
     {
         if(prevState.currentServiceId!==this.state.currentServiceId ||
@@ -168,6 +171,7 @@ export class WorkerAvailabilities extends Component
 
                     <h4> Select Start Time</h4>
 
+                    {/*cool timepicker library from react*/}
                     <TimePicker
                         onChange={this.onChangeTime}
                         value={this.state.time}

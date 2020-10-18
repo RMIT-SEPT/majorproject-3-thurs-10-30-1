@@ -4,6 +4,7 @@ import { SET_CURRENT_USER } from './types';
 import { IP } from './networkDetails';
 
 
+//simple API calls.
 export function setCurrentUser(user) {
     return {
         type: SET_CURRENT_USER,
@@ -25,7 +26,6 @@ export const userLogin =  (details) => {
             return response.data;
         });
 };
-
 
 export const userUpdate = async (details) => {
     const id = details.id;

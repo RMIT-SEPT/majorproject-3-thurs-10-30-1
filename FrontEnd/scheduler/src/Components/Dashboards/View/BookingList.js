@@ -12,7 +12,9 @@ export class BookingList extends Component
             <div key={index} className="booking">
             Customer: {booking.customerName} {'\n'}
             Worker: {booking.workerName} {'\n'}
-            Service: {booking.serviceName}
+            Service: {booking.serviceName} {'\n'}
+            Date: {booking.date}{'\n'}
+            Time: {booking.start_time}
             </div>
             ))
 

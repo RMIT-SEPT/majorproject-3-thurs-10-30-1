@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 
+
+//simple display of list of services, is passed list as props so no need to call API
 export class ViewServicesList extends Component {
     render() {
         let realServ;
