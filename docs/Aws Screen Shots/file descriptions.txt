@@ -12,5 +12,5 @@ Screen Shot 4:
 This screen shot shows the react webpage with a user logged in who was created in the spring application that is all running on the aws server
 at 54.226.19.14
 
-Screen Shot 5:
+Docker Deployment on AWS (located in docs):
 This screen shot shows the two servers running on the ec2 instance as docker containers
