@@ -288,9 +288,6 @@ export class BookingCreator extends Component
                 <center>
 
                     <div className="BookButton">
-                        <br/>
-
-
 
                         {this.state.canSubmit
                             ?
