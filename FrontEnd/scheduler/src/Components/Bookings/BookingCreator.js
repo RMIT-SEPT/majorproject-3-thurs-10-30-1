@@ -257,9 +257,7 @@ export class BookingCreator extends Component
                             <option value="-1" > Please Select A Worker:</option>
                         </select>
                     }
-                    <br/>
-                    <br/>
-                    Please Select a day:
+                    <h3 className="bookingCreatorDropdowns" > Select a day: </h3>
                     <MyCal value={this.state.date}
                            onChange={this.onChangeDate}
                            minDate={new Date()}

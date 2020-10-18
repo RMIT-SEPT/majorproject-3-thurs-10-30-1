@@ -147,13 +147,13 @@ html, body, #root, .App {
 /* Customer Dashboard */
 .bookingList
 {
-  width: 55%;
-  height: 700px;
-    margin-left: 1%;
+    width: 55%;
+    height: 700px;
+    margin-left: 2.7%;
     display: inline-block;
-  outline-style: solid;
-margin-top: 2%;
-  background-color: white;
+    outline-style: solid;
+    margin-top: 0%;
+    background-color: white;
 }
 
 /* Customer Dashboard */
@@ -369,7 +369,7 @@ margin-top:20%;
 /* Admin Dashboard View Workers Page*/
 .adminViewWorker {
     width: 70mm;
-    height: 28mm;
+    height: 36mm;
     margin-left: 7.5mm;
     margin-bottom: 6%;
     outline-style: solid;
@@ -388,7 +388,8 @@ margin-top:20%;
 .adminDashboardText
 {
     margin-left: 7.5mm;
-    margin-top: 3mm;
+    margin-top: 1.5mm;
+    margin-bottom: 1.5mm;
     font-size: medium;
     font-weight: bold;
 }
@@ -485,7 +486,34 @@ margin-top:20%;
     margin-left: 0%;
 }
 
+/* Add Service Page */
+.createServiceContainer
+{
+    background-image: url(./media/background1.png);
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
 
+/* Add Service Page */
+.createServicePage
+{
+    width: 55%;
+    float: left;
+    height: 430px;
+    outline-style: solid;
+    margin-left: 23%;
+    margin-top:5%;
+    background-color: white;
+}
+/* Admin Dashboard View Worker */
+.newListGrid
+{
+    display: grid;
+    grid-template-columns: 150px 150px 150px 150px 150px;
+    grid-row-gap: 5px;
+    margin-left: 23mm;
+}
 
 
 
