@@ -14,7 +14,7 @@ export class BookingList extends Component
             Worker: {booking.workerName} {'\n'}
             Service: {booking.serviceName} {'\n'}
             Date: {booking.date}{'\n'}
-            Time: {booking.start_time}
+            Time: {booking.hour}:{booking.minute}
             </div>
             ))
 

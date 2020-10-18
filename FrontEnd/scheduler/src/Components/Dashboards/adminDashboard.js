@@ -25,8 +25,6 @@ export class adminDashboard extends Component {
         const id = this.props.user.userId;
         getAdmin(id)
             .then(response => {
-                console.log("ADMIN");
-                console.log(response.data);
                 const id = response.data.business.id;
                 this.setState({
                     businessId: id,

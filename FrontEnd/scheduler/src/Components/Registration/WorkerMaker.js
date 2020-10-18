@@ -53,7 +53,6 @@ export class WorkerMaker extends Component
         getAdmin(id)
             .then(response =>
             {
-                console.log(response.data);
                 this.setState({
                     businessID: response.data.business.id
                 });
@@ -129,6 +128,7 @@ export class WorkerMaker extends Component
         {
             realServ = serv.map((service) => (
                 <CustomCheckbox
+                    key={service.id}
                     label={service.name}
                     handleCheckboxChange={this.toggleCheckbox}
                     data={service.id}
