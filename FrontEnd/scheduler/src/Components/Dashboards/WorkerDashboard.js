@@ -46,12 +46,13 @@ export class WorkerDashboard extends Component {
 
         return (
             <div className="dashboardContainer2">
-                {this.state.bookings
-                ?
-                    <BookingList bookings={this.state.bookings}/>
-                    :<div> NON BOOKINGS</div>
-                }
-                <ViewServicesSmall services={this.state.services}/>
+                <p className = "DashboardWelcome">Welcome {this.props.user.name}</p>
+                    {this.state.bookings
+                    ?
+                        <BookingList bookings={this.state.bookings}/>
+                        :<div> NO BOOKINGS</div>
+                    }
+                    <ViewServicesSmall services={this.state.services}/>
             </div>
         )
     }

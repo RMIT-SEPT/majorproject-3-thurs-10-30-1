@@ -126,23 +126,37 @@ export class ServiceMaker extends Component
         }
 
         return (
-                <div className="regFormDiv">
-                    <h1 className="myHeader"> Create A Service here!</h1>
-                    <Form className="mr-auto" onSubmit={this.handleSubmit}>
-                        <div className="transparentDiv">
-                            <Form.Group>
-                                <Form.Control type="text" placeholder="Service name: " value={this.state.serviceName} onChange={this.onChange} name ="serviceName"/>
-                            </Form.Group>
+            <div className="createServiceContainer">
+                <div className="createServicePage">
+                    <h2 className="pageHeader"> Add New Service</h2>
+                        <Form onSubmit={this.handleSubmit}>
 
+                                <div className="transparentDiv">
 
-                            <Form.Group>
-                                <Form.Control type="text" placeholder="Service description...: " value={this.state.serviceDesc} onChange={this.onChange} name="serviceDesc"/>
-                            </Form.Group>
-                        </div>
+                                    <div className="workersPageText">Service Name</div>
+                                        <Form.Group>
+                                            <div className="RegistrationTextFieldWidth">
+                                                <Form.Control type="text" placeholder="Service name: " value={this.state.serviceName} onChange={this.onChange} name ="serviceName"/>
+                                            </div>
+                                        </Form.Group>
+
+                                    <div className="workersPageText"> Service Description </div>
+                                    <Form.Group>
+                                        <div className="RegistrationTextFieldWidth">
+                                            <Form.Control type="text" placeholder="Service description...: " value={this.state.serviceDesc} onChange={this.onChange} name="serviceDesc"/>
+                                        </div>
+                                    </Form.Group>
+
+                                </div>
+
                         {work
                             ? <div>
-                                <h3> SELECT SOME WORKERS</h3>
-                                {workerOptions}
+                                <center>
+                                    <div className="workersPageText"> Link Workers to New Service </div>
+                                        <div className="newListGrid">
+                                            {workerOptions}
+                                        </div>
+                                    </center>
                             </div>
 
                             : <p></p>
@@ -157,8 +171,12 @@ export class ServiceMaker extends Component
                             </div>
                         )}
 
-                        <input type="submit" value="Create"/>
+                        <center>
+                            <input type="submit" value="Create"/>
+                        </center>
+
                     </Form>
+                </div>
             </div>
         )
     }

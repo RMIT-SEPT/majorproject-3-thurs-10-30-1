@@ -131,79 +131,84 @@ export class WorkerAvailabilities extends Component
         let availList;
         if(this.state.avails)
         {
-            availList = this.state.avails.map((avail,index) =>
-            {
+            availList = this.state.avails.map((avail,index) => {
                     if(avail.worker === this.state.id)
-                       return  <li key={index}> Day: {numToDay(avail.day)} Time: {avail.hour}:{avail.minute} </li>
+                       return <div className = "workerAvailTimes">
+                           Day: {numToDay(avail.day)} Time: {avail.hour}:{avail.minute}
+                    </div>
+
+
+
             })
         }
 
         const format="HH:mm";
 
         return(
+
             <div className="availContainer">
-                <div className="availForm">
-                <Form onSubmit={this.onSubmit} className="availForm">
+                <div className= "workerAvailability">
+                    <h2 className="workerAvailHeader">Set your Availability</h2>
 
-                    <h2> Set A New Availability:</h2>
-                    <br/>
-                    <h4> Select Service</h4>
+                            <Form onSubmit={this.onSubmit} className="availForm">
+                                <center>
+                                <h4 className="workerAvailSetTitle"> Select Service</h4>
+                                    <select className = "workerAvailDropDown" value={this.state.currentServiceId} name="currentServiceId" onChange={this.onChange}>
+                                        <option value={-1} disabled > Select a service: </option>
+                                        {serviceList}
+                                    </select>
+                                <br/>
 
-                    <select value={this.state.currentServiceId} name="currentServiceId" onChange={this.onChange}>
-                        <option value={-1} disabled > Select a service: </option>
-                        {serviceList}
-                    </select>
+                                <h4 className="workerAvailSetTitle"> Select Day </h4>
+                                    <select className = "workerAvailDropDown" value={this.state.day} name="day" onChange={this.onChange} required>
+                                        <option value={1}> Monday</option>
+                                        <option value={2}> Tuesday</option>
+                                        <option value={3}> Wednesday</option>
+                                        <option value={4}> Thursday</option>
+                                        <option value={5}> Friday</option>
+                                        <option value={6}> Saturday</option>
+                                        <option value={7}> Sunday</option>
+                                    </select>
+                                <br/>
 
+                                <h4 className="workerAvailSetTitle"> Select Start Time </h4>
+                                    {/*cool timepicker library from react*/}
+                                    <TimePicker
+                                        className = "workerAvailDropDown"
+                                        onChange={this.onChangeTime}
+                                        value={this.state.time}
+                                        format={format}
+                                        disableClock={true}
+                                        name="startTime"
+                                        required>
+                                    </TimePicker>
+                                <br/>
 
-                    <br/>
+                                <h4 className="workerAvailSetTitle"> Input Duration </h4>
+                                    <input
+                                        className = "workerAvailDropDown"
+                                        type="number"
+                                        required value={this.state.duration}
+                                        name="duration"
+                                        onChange={this.onChange}
+                                    />
+                                <br/>
 
-                    <h4> Select Day</h4>
-                    <select value={this.state.day} name="day" onChange={this.onChange} required>
-                        <option value={1}> Monday</option>
-                        <option value={2}> Tuesday</option>
-                        <option value={3}> Wednesday</option>
-                        <option value={4}> Thursday</option>
-                        <option value={5}> Friday</option>
-                        <option value={6}> Saturday</option>
-                        <option value={7}> Sunday</option>
-                    </select>
-                    <br/>
-
-                    <h4> Select Start Time</h4>
-
-                    {/*cool timepicker library from react*/}
-                    <TimePicker
-                        onChange={this.onChangeTime}
-                        value={this.state.time}
-                        format={format}
-                        disableClock={true}
-                        name="startTime"
-                        required
-                    >
-                    </TimePicker>
-                    <br/>
-                    <h4> Input Duration</h4>
-                    <input type="number"
-                           required value={this.state.duration}
-                           name="duration"
-                           onChange={this.onChange}
-                    />
-
-                    <br/>
-                    <br/>
-                    <Button type="submit"> Make Avail </Button>
-                    {this.state.message && (
-                        <div className={ this.state.successful ? "alert alert-success" : "alert alert-danger" } role="alert">
-                            {this.state.message}
-                        </div>
-                    )}
-                </Form>
-
-
+                                <Button className = "workerAvailDropDown" type="submit"> Make Availability </Button>
+                                    {this.state.message && (
+                                        <div className={ this.state.successful ? "alert alert-success" : "alert alert-danger" } role="alert">
+                                            {this.state.message}
+                                        </div>
+                                    )}
+                                </center>
+                            </Form>
                 </div>
+
                 <div className="availList">
-                    <h4> View Your Current Availability:</h4>
-                    {availList}
+                    <h2 className="workerAvailHeader">View Your Current Availability:</h2>
+                    <center>
+                        {availList}
+                    </center>
                 </div>
 
             </div>

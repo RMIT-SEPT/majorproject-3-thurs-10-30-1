@@ -8,7 +8,6 @@ import CustomCheckbox from "../Generics/CustomCheckbox";
 import {getServiceByBusiness} from "../../actions/BusinessActions";
 import {Redirect} from "react-router-dom";
 
-import DarkButton from "../Generics/DarkButton";
 
 
 export class WorkerMaker extends Component
@@ -148,7 +147,7 @@ export class WorkerMaker extends Component
                                 <div className="workersPageText"> Enter Username</div>
                                     <Form.Group>
                                         <div className="RegistrationTextFieldWidth">
-                                            <Form.Control className="test" type="text" placeholder="Username: " value={this.state.username} onChange={this.onChange} name ="username"/>
+                                            <Form.Control type="text" placeholder="Username: " value={this.state.username} onChange={this.onChange} name ="username"/>
                                         </div>
                                     </Form.Group>
 
@@ -193,14 +192,15 @@ export class WorkerMaker extends Component
                             ? <div>
                                 <center>
                                     <h3 className="workersPageText"> Select the Workers Service </h3>
-                                        {realServ}
+                                        <div className="newListGrid">
+                                            {realServ}
+                                        </div>
                                 </center>
                             </div>
 
                             : <p></p>
                         }
 
-                            <br/>
 
                         <center>
                             <input type="submit" value="Register"/>

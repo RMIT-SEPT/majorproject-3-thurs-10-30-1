@@ -73,7 +73,7 @@ class EditProfile extends Component
         return (
             <div className="editProfileContainer">
 
-                <div className="profilePage">
+                <div className="editProfilePage">
                     <h2 className="pageHeader"> Edit Profile Information </h2>
                     <Form onSubmit={this.handleSubmit}>
 
