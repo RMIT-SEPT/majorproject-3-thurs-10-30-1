@@ -32,12 +32,18 @@ const StyledNav = styled.div`
   }
 `;
 
+//navBar displays different options depending on the accountType of the logged in user;
+
 export class AGMEnav extends Component
 {
 
     render()
     {
-        const accType = this.props.accountType;
+        let accType;
+        if(this.props.user)
+        {
+            accType = this.props.user.accountType;
+        }
         const userLinks = (
             <Nav className="m-xl-auto">
                 <NavItem> <Link to="/profile"> Profile   </Link></NavItem>
@@ -58,7 +64,6 @@ export class AGMEnav extends Component
                         </Nav>
                     : <p></p>
                 }
-
 
                 {
                     accType==="Admin"

@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 
+
+//simple display of list of services, is passed list as props so no need to call API
 export class ViewServicesList extends Component {
     render() {
         let realServ;
@@ -24,7 +26,7 @@ export class ViewServicesList extends Component {
 
         return (
             <div className= "AdminViewDashboard">
-                <h2 className="pageHeader"> All Services</h2>
+                <h2 className="pageHeader">All Services</h2>
                 <div className = "viewAllServicesGrid">
                     {realServ}
                 </div>

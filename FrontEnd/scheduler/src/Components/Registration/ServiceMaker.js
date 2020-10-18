@@ -6,6 +6,7 @@ import {Redirect} from "react-router-dom";
 import {addServiceToBusiness, getWorkerByBusiness} from "../../actions/BusinessActions";
 import CustomCheckbox from "../Generics/CustomCheckbox";
 
+//make a service as an admin, and apply workers to it bases on a checkbox selector.
 export class ServiceMaker extends Component
 {
     constructor(props)
@@ -43,6 +44,7 @@ export class ServiceMaker extends Component
             selectedOption: e.target.value
         });
     }
+
     componentDidMount()
     {
         this.selectedOptions = new Set();
@@ -70,6 +72,7 @@ export class ServiceMaker extends Component
         this.setState({[e.target.name]: e.target.value});
     }
 
+    //if creation fails, display a helpful error message.
     handleSubmit= async (e) =>
     {
         e.preventDefault();

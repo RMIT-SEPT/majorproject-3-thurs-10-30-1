@@ -24,7 +24,7 @@ public class UserController {
             return new ResponseEntity<>("Invalid User Object", HttpStatus.BAD_REQUEST);
         }
         User user1 = userMicro.saveOrUpdate(user);
-        return new ResponseEntity<>(user1, HttpStatus.CREATED);
+        return new ResponseEntity<>(user1, HttpStatus.OK);
     }
 
     @GetMapping("/{id}")

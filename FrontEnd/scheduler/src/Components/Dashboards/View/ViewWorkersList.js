@@ -1,6 +1,8 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 
+//simple display or workers, no need to call API
+//also is passed in services, and uses a simple method to display relevant services for each worker.
 export class ViewWorkersList extends Component {
 
     constructor(props) {
@@ -8,7 +10,7 @@ export class ViewWorkersList extends Component {
         this.getServices=this.getServices.bind(this);
     }
 
-    getServices = (services,worker) =>
+   getServices = (services,worker) =>
     {
         let servList = new Set();
         services.map(service=>

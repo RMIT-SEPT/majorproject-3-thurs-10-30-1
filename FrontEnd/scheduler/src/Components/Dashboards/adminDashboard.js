@@ -50,6 +50,8 @@ export class adminDashboard extends Component {
             })
 
     }
+    //if not logged in, do not allow access.
+    //render a list of workers and services for admins to inspect.
     render() {
 
         if(!this.props.isLoggedIn)
@@ -64,10 +66,6 @@ export class adminDashboard extends Component {
                 <Tabs defaultActiveKey="viewWorkers" id="uncontrolled-tab-example">
                     <Tab eventKey="viewWorkers" title="All Workers" >
                         <ViewWorkerList workers={this.state.workers} services={this.state.services} />
-                    </Tab>
-
-                    <Tab eventKey="viewBookings" title="All Bookings">
-                        <div> How should we display bookings</div>
                     </Tab>
 
                     <Tab eventKey="viewServices" title="All Services" >
