@@ -9,7 +9,7 @@ import org.springframework.http.*;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.context.junit4.SpringRunner;
 import schedule.App;
-import schedule.web.UserController;
+import schedule.web.WorkerController;
 import utils.Database;
 import utils.JSON;
 
@@ -21,13 +21,13 @@ import org.springframework.boot.web.server.LocalServerPort;
 @SpringBootTest(webEnvironment = WebEnvironment.RANDOM_PORT, classes= App.class)
 @RunWith(SpringRunner.class)
 @ActiveProfiles(profiles = "test")
-public class UserControllerTest
+public class WorkerControllerTest
 {
     @LocalServerPort
     private int port;
 
     @Autowired
-    private UserController controller;
+    private WorkerController controller;
 
     @Autowired
     private TestRestTemplate restTemplate;
@@ -55,58 +55,58 @@ public class UserControllerTest
     }
 
     @Test
-    public void createNewUser_ValidValues_OK() throws Exception
+    public void createNewWorker_ValidValues_OK() throws Exception
     {
         ResponseEntity<String> responseEntityStr =
-            makeRequest("UserControllerTest/createNewUser_ValidValues_OK.json", "/api/user");
+            makeRequest("WorkerControllerTest/createNewWorker_ValidValues_OK.json", "/api/worker");
         Assertions.assertEquals(HttpStatus.OK, responseEntityStr.getStatusCode(), responseEntityStr.getBody());
     }
 
     @Test
-    public void createNewUser_MissingName_BAD_REQUEST() throws Exception
+    public void createNewWorker_MissingName_BAD_REQUEST() throws Exception
     {
         ResponseEntity<String> responseEntityStr =
-            makeRequest("UserControllerTest/createNewUser_MissingName_BAD_REQUEST.json", "/api/user");
+            makeRequest("WorkerControllerTest/createNewWorker_MissingName_BAD_REQUEST.json", "/api/worker");
         Assertions.assertEquals(HttpStatus.BAD_REQUEST, responseEntityStr.getStatusCode(), responseEntityStr.getBody());
     }
 
     @Test
-    public void createNewUser_MissingUsername_BAD_REQUEST() throws Exception
+    public void createNewWorker_MissingUsername_BAD_REQUEST() throws Exception
     {
         ResponseEntity<String> responseEntityStr =
-            makeRequest("UserControllerTest/createNewUser_MissingUsername_BAD_REQUEST.json", "/api/user");
+            makeRequest("WorkerControllerTest/createNewWorker_MissingUsername_BAD_REQUEST.json", "/api/worker");
         Assertions.assertEquals(HttpStatus.BAD_REQUEST, responseEntityStr.getStatusCode(), responseEntityStr.getBody());
     }
 
     @Test
-    public void createNewUser_MissingPassword_BAD_REQUEST() throws Exception
+    public void createNewWorker_MissingPassword_BAD_REQUEST() throws Exception
     {
         ResponseEntity<String> responseEntityStr =
-            makeRequest("UserControllerTest/createNewUser_MissingPassword_BAD_REQUEST.json", "/api/user");
+            makeRequest("WorkerControllerTest/createNewWorker_MissingPassword_BAD_REQUEST.json", "/api/worker");
         Assertions.assertEquals(HttpStatus.BAD_REQUEST, responseEntityStr.getStatusCode(), responseEntityStr.getBody());
     }
 
     @Test
-    public void createNewUser_MissingEmail_BAD_REQUEST() throws Exception
+    public void createNewWorker_MissingEmail_BAD_REQUEST() throws Exception
     {
         ResponseEntity<String> responseEntityStr =
-            makeRequest("UserControllerTest/createNewUser_MissingEmail_BAD_REQUEST.json", "/api/user");
+            makeRequest("WorkerControllerTest/createNewWorker_MissingEmail_BAD_REQUEST.json", "/api/worker");
         Assertions.assertEquals(HttpStatus.BAD_REQUEST, responseEntityStr.getStatusCode(), responseEntityStr.getBody());
     }
 
     @Test
-    public void createNewUser_InvalidEmailNoAtSymbol_BAD_REQUEST() throws Exception
+    public void createNewWorker_InvalidEmailNoAtSymbol_BAD_REQUEST() throws Exception
     {
         ResponseEntity<String> responseEntityStr =
-            makeRequest("UserControllerTest/createNewUser_InvalidEmailNoAtSymbol_BAD_REQUEST.json", "/api/user");
+            makeRequest("WorkerControllerTest/createNewWorker_InvalidEmailNoAtSymbol_BAD_REQUEST.json", "/api/worker");
         Assertions.assertEquals(HttpStatus.BAD_REQUEST, responseEntityStr.getStatusCode(), responseEntityStr.getBody());
     }
 
     @Test
-    public void createNewUser_InvalidEmailOnlyAtSymbol_BAD_REQUEST() throws Exception
+    public void createNewWorker_InvalidEmailOnlyAtSymbol_BAD_REQUEST() throws Exception
     {
         ResponseEntity<String> responseEntityStr =
-            makeRequest("UserControllerTest/createNewUser_InvalidEmailOnlyAtSymbol_BAD_REQUEST.json", "/api/user");
+            makeRequest("WorkerControllerTest/createNewWorker_InvalidEmailOnlyAtSymbol_BAD_REQUEST.json", "/api/worker");
         Assertions.assertEquals(HttpStatus.BAD_REQUEST, responseEntityStr.getStatusCode(), responseEntityStr.getBody());
     }
 }
