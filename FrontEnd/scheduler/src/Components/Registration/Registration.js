@@ -46,10 +46,6 @@ export class Registration extends Component
         this.setState({
             successful: false,
         });
-
-        console.log(user);
-
-
             this.props.dispatch(register(user,this.props.history))
                 .then(() => {
                     this.setState({

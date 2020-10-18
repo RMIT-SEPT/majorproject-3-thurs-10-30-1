@@ -15,7 +15,6 @@ import {addBusinessToWorker, addServiceToWorker, lilLogout, userCreate, userLogi
 export const register = (user,history) => (dispatch) => {
     return userCreate(user).then(
         (response) => {
-            console.log(response);
             dispatch({
                 type: REGISTER_SUCCESS,
             });
@@ -28,6 +27,9 @@ export const register = (user,history) => (dispatch) => {
             return Promise.resolve();
         },
         (error) => {
+            console.log(error);
+            console.log(error.data);
+            console.log(error.response.data);
             const message =
                 (error.response &&
                     error.response.data &&
@@ -70,17 +72,18 @@ export const workerRegister = (user,businessID, serviceSet,history) => (dispatch
                            });
                    }
                     });
-            dispatch({
-                type: REGISTER_SUCCESS,
-            });
 
             dispatch({
                 type: SET_MESSAGE,
                 payload: response.data.message,
             });
+            history.push("/adminHome");
             return Promise.resolve();
         },
         (error) => {
+            console.log(error);
+            console.log(error.data);
+            console.log(error.response.data);
             const message =
                 (error.response &&
                     error.response.data &&
