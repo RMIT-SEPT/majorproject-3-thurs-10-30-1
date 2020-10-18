@@ -42,7 +42,6 @@ export const getWorker = async (id) =>
     return await axios.get(`http://${IP}:8080/api/worker/${id}`);
 }
 
-
 export function lilLogout()
 {
     localStorage.removeItem("user");

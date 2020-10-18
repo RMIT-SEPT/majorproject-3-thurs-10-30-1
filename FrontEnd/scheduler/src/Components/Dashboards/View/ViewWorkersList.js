@@ -8,7 +8,7 @@ export class ViewWorkersList extends Component {
         this.getServices=this.getServices.bind(this);
     }
 
-    getServices = (services,worker) =>
+   getServices = (services,worker) =>
     {
         let servList = new Set();
         services.map(service=>

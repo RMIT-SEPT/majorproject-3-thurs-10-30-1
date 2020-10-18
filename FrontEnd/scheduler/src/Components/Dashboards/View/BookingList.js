@@ -9,7 +9,11 @@ export class BookingList extends Component
         let myBookings = this.props.bookings;
 
         bookingList= myBookings.map((booking,index) =>(
-            <div key={index} className="booking"> I HAVE A BOOKING! ITS ID IS: {booking.id}</div>
+            <div key={index} className="booking">
+            Customer: {booking.customerName} {'\n'}
+            Worker: {booking.workerName} {'\n'}
+            Service: {booking.serviceName}
+            </div>
             ))
 
     return (

@@ -25,6 +25,8 @@ export class adminDashboard extends Component {
         const id = this.props.user.userId;
         getAdmin(id)
             .then(response => {
+                console.log("ADMIN");
+                console.log(response.data);
                 const id = response.data.business.id;
                 this.setState({
                     businessId: id,
@@ -64,10 +66,6 @@ export class adminDashboard extends Component {
                 <Tabs defaultActiveKey="viewWorkers" id="uncontrolled-tab-example">
                     <Tab eventKey="viewWorkers" title="All Workers" >
                         <ViewWorkerList workers={this.state.workers} services={this.state.services} />
-                    </Tab>
-
-                    <Tab eventKey="viewBookings" title="All Bookings">
-                        <div> How should we display bookings</div>
                     </Tab>
 
                     <Tab eventKey="viewServices" title="All Services" >

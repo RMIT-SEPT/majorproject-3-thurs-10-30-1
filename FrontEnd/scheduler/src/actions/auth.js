@@ -98,8 +98,6 @@ export const workerRegister = (user,businessID, serviceSet,history) => (dispatch
 export const login = (details) => (dispatch) => {
     return userLogin(details).then(
         (data) => {
-            console.log("GOOD DATA");
-            console.log(data);
             dispatch({
                 type: LOGIN_SUCCESS,
                 payload: { user: data },

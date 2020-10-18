@@ -3,7 +3,7 @@ import React, {Component} from "react";
 import {connect} from "react-redux";
 import {Redirect} from "react-router-dom";
 import {getBookingByWorker} from "../../actions/userActions";
-import BookingList from "../Bookings/BookingList";
+import BookingList from "../Dashboards/View/BookingList";
 import {getServiceByWorker} from "../../actions/BusinessActions";
 import ViewServicesSmall from "./View/ViewServiceSmall";
 

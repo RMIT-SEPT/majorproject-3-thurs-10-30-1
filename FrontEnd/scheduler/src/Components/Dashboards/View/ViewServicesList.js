@@ -24,7 +24,7 @@ export class ViewServicesList extends Component {
 
         return (
             <div className= "AdminViewDashboard">
-                <h2 className="pageHeader"> All Services</h2>
+                <h2 className="pageHeader">All Services</h2>
                 <div className = "viewAllServicesGrid">
                     {realServ}
                 </div>

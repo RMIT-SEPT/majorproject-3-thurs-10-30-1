@@ -9,7 +9,6 @@ class MyCal extends Component {
                 <Calendar value={this.props.value}
                           onChange={this.props.onChange}
                           minDate={new Date()}
-                          // calendarType={"ISO 8601"}
                 />
         );
     }

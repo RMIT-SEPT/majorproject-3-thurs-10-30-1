@@ -259,6 +259,7 @@ export class BookingCreator extends Component
                     }
                     <br/>
                     <br/>
+
                     Please Select a day:
                     <MyCal value={this.state.date}
                            onChange={this.onChangeDate}

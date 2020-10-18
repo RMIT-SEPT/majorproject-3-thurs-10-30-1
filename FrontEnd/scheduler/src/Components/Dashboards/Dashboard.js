@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 import BookingCreator from "../Bookings/BookingCreator";
-import BookingList from "../Bookings/BookingList";
+import BookingList from "../Dashboards/View/BookingList"
 import {connect} from "react-redux";
 import {Redirect} from "react-router-dom";
 import {getBookingForCustomer} from "../../actions/userActions";

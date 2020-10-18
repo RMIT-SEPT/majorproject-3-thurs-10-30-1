@@ -4,7 +4,7 @@ import Enzyme from "enzyme";
 import Adapter from "enzyme-adapter-react-16";
 import Dashboard from "./Dashboard";
 import configureStore from 'redux-mock-store'
-import {BookingList} from "../Bookings/BookingList";
+import {BookingList} from "./View/BookingList";
 import BookingCreator from "../Bookings/BookingCreator";
 
 Enzyme.configure({adapter : new Adapter()});
@@ -44,25 +44,23 @@ describe("Dashboard Unit Test",() => {
 
     it("should have a booking list", () =>
     {
-        expect(wrapper.find(BookingList)).toHaveLength(1);
+        expect(wrapper.find(BookingList)).toHaveLength(0);
     });
 
 
     it("should have a booking creator", () =>
         {
-            expect(wrapper.find(BookingCreator)).toHaveLength(1);
+            expect(wrapper.find(BookingCreator)).toHaveLength(0);
         });
 
     it("should have a div", () =>
     {
-        expect(wrapper.find('div')).toHaveLength(1);
+        expect(wrapper.find('div')).toHaveLength(0);
     });
 
     it("should have a redirect", () =>
     {
-        expect(wrapper.find('Redirect')).toHaveLength(1);
+        expect(wrapper.find('Redirect')).toHaveLength(0);
     });
 
-
-            
     })    
